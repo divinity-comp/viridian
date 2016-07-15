@@ -7,7 +7,7 @@
 	<preference name="android-minSdkVersion" value="14"/>
 	<preference name="orientation" value="portrait" />
 	<preference name="fullscreen" value="true" />
-	<preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
+	<preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
   
   <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1"/>
   <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1"/>
