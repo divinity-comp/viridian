@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="full" class="app textureBack">
+        <img class="viridian" src="img/viridian-logo.png"/>
+        <img class="backIcon" src="img/no-back-icon.png"/>
+        <h2 class="blueText alignCenter normal" style="font-size:1.7em; margin:0.2em 0;">Create your account</h2>
+        <input type="text" placeholder="Email"/>
+        <input type="text" placeholder="Password"/>
+        <button class="sign">Sign Up</button>
+        <div class="remember" style="float:left; width:40%;margin-left:10%">
+            <button style="float:left;" class="checkbox"></button> <p style="float:left;margin-left:1em;margin-top:0.25em;font-size:1.25em">Remember Me</p>
+        </div>
+        <div class="remember" style="float:left; width:40%;margin-right:10%">
+            <p style="margin-top:0.25em;text-align:right;font-size:1.25em">Forgot Password?</p>
+        </div>
+        <p class="middleline"><span>or</span></p>
+        <button class="facebook">
+            <div class="facebookdark"><img src="img/social/facebook.png" /></div>
+            <div>Sign In With Facebook</div>
+        </button>
+        <style>
+            .remember p {
+                margin-bottom:0.3em;
+            }
+            .facebook {
+                width:80%;
+                margin:0 10% 0.5em;
+                padding:0;
+                border-radius:5px;
+                background-color:#475995;
+                color:#fff;
+                border:0;
+            }
+            .facebook div:nth-child(2) {
+                font-size:1.2em;
+                margin-top:0.8em;
+            }
+            .facebookdark {
+padding:0.8em;
+                background-color:#405085;
+                width:2em;
+                float:left;
+            }
+            .facebookdark img {
+max-height:1.5em;
+            }
+            .middleline {
+                width:80%;
+                margin: 0 10% 0.3em;
+                text-align:center;
+                position: relative;
+                font-size:1.3em;
+                float:left;
+            }
+            .middleline span {
+                float:left;
+                width:20%;
+            }
+            .middleline:before {
+                content:'';
+                float:left;
+                height:1px;width:40%;
+                background-color:#4d4d4d;margin-top:0.5em;
+            }
+            .middleline:after {
+                content:'';
+                float:left;
+                height:1px;width:40%;
+                background-color:#4d4d4d;margin-top:0.5em;
+            }
+            .viridian {
+                max-width:50%;
+                margin:0 auto;
+                display: block;
+                margin-top:2em;
+                margin-bottom:2em;
+            }
+            .checkbox {
+                width:1.5em;
+                height:1.5em;
+                box-shadow: 0px 0px 0px 1px #007086;
+                background-color:#fff;
+                border:0;
+            }
+            .backIcon {
+                max-width:35%;
+                margin:0 auto 1em;
+                display: block;
+            }
+            input[type=text] {
+                width:76%;
+                margin:0.3em 10%;
+                border-radius:4px;
+                padding:0.75em 2%;
+                font-size:1.3em;box-sizing: content-box;
+                border:0;
+                box-shadow: 0px 0px 0px 1px #007086;
+            }
+            .rememberBox {
+                box-sizing: content-box;
+                border:0;
+                background-color:#fff;
+                box-shadow: 0px 0px 0px 1px #007086;
+            }
+            .sign {
+                background-color:#007086;
+                border-radius:4px;
+                color:#fff;
+                padding:0.5em 2%;
+                width:76%;
+                font-size:1.6em;
+                margin: 0.5em auto;
+                display: block;
+                box-shadow: 0px 0px 0px 1px #007086;
+                border:0;box-sizing: content-box;
+            }
+        </style>
+    </div>
+</body>
+
+</html>
