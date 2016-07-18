@@ -8,53 +8,71 @@
     <div id="full" class="app textureBack">
         <img class="viridian" src="img/viridian-logo.png"/>
         <img class="backIcon" src="img/no-back-icon.png"/>
-        <h2 class="blueText alignCenter normal" style="font-size:1.7em; margin:0.2em 0;">Create your account</h2>
+        <h2 class="blueText alignCenter normal" style="font-size:4.7em; margin:0.2em 0;">Create your account</h2>
         <input type="text" placeholder="Email"/>
         <input type="text" placeholder="Password"/>
         <button class="sign">Sign Up</button>
         <div class="remember" style="float:left; width:40%;margin-left:10%">
-            <button style="float:left;" class="checkbox"></button> <p style="float:left;margin-left:1em;margin-top:0.25em;font-size:1.25em">Remember Me</p>
+            <button style="float:left;" class="checkbox"></button> <p style="float:left;margin-left:1em;margin-top:0.4em;font-size:2.25em">Remember Me</p>
         </div>
         <div class="remember" style="float:left; width:40%;margin-right:10%">
-            <p style="margin-top:0.25em;text-align:right;font-size:1.25em">Forgot Password?</p>
+            <p style="margin-top:0.4em;text-align:right;font-size:2.25em">Forgot Password?</p>
         </div>
         <p class="middleline"><span>or</span></p>
-        <button class="facebook">
+        <button class="facebook" onclick="registerGetInfo();">
             <div class="facebookdark"><img src="img/social/facebook.png" /></div>
             <div>Sign In With Facebook</div>
         </button>
+        <h2 class=" alignCenter normal" style="font-size:4.7em; margin:1em 0 0.2em;">Already have an account?</h2>
+        <button class="signin">
+            
+            Sign In
+        </button>
         <style>
             .remember p {
-                margin-bottom:0.3em;
+                margin-bottom:0.8em;
             }
             .facebook {
                 width:80%;
                 margin:0 10% 0.5em;
                 padding:0;
-                border-radius:5px;
+                border-radius:0.5em;
                 background-color:#475995;
                 color:#fff;
                 border:0;
+                overflow: hidden;
+            }
+            .signin {
+                width:80%;
+                margin:0 10% 0.5em;
+                padding:0;
+                border-radius:0.25em;
+                background-color:#231f20;
+                color:#fff;
+                border:0;
+                overflow: hidden;
+                padding:0.25em 0;
+                font-size:4em;
             }
             .facebook div:nth-child(2) {
-                font-size:1.2em;
-                margin-top:0.8em;
+                font-size:2.2em;
+                line-height:2em;
             }
             .facebookdark {
-padding:0.8em;
+padding:1em 1em;
                 background-color:#405085;
-                width:2em;
+                width:3em;
                 float:left;
             }
             .facebookdark img {
-max-height:1.5em;
+                max-height:2.2em;
             }
             .middleline {
                 width:80%;
-                margin: 0 10% 0.3em;
+                margin: 0 10% 0.5em;
                 text-align:center;
                 position: relative;
-                font-size:1.3em;
+                font-size:3em;
                 float:left;
             }
             .middleline span {
@@ -77,19 +95,19 @@ max-height:1.5em;
                 max-width:50%;
                 margin:0 auto;
                 display: block;
-                margin-top:2em;
-                margin-bottom:2em;
+                margin-top:5em;
+                margin-bottom:5em;
             }
             .checkbox {
-                width:1.5em;
-                height:1.5em;
+                width:2.5em;
+                height:2.5em;
                 box-shadow: 0px 0px 0px 1px #007086;
                 background-color:#fff;
                 border:0;
             }
             .backIcon {
                 max-width:35%;
-                margin:0 auto 1em;
+                margin:0 auto 5em;
                 display: block;
             }
             input[type=text] {
@@ -97,7 +115,7 @@ max-height:1.5em;
                 margin:0.3em 10%;
                 border-radius:4px;
                 padding:0.75em 2%;
-                font-size:1.3em;box-sizing: content-box;
+                font-size:2.8em;box-sizing: content-box;
                 border:0;
                 box-shadow: 0px 0px 0px 1px #007086;
             }
@@ -113,7 +131,7 @@ max-height:1.5em;
                 color:#fff;
                 padding:0.5em 2%;
                 width:76%;
-                font-size:1.6em;
+                font-size:3.5em;
                 margin: 0.5em auto;
                 display: block;
                 box-shadow: 0px 0px 0px 1px #007086;

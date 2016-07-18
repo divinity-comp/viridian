@@ -20,6 +20,8 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        var vw = (viewport().width/100);
+        document.body.style.fontSize = vw + "px";
     },
     // Bind Event Listeners
     //
@@ -34,6 +36,53 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.startApp();
+        
+        var regs = window.localStorage.getItem("registered");
+        fbId = window.localStorage.getItem("fbid");
+        
+        if(regs == "active" && fbId.length != 0) {
+            var datapersonal = window.localStorage.getItem("data");
+            if(datapersonal === null || datapersonal === 0) {
+                ajaxPost(
+                    "http://www.divinitycomputing.com/apps/beoples/fbviewprofile.php", 
+                    function (response) {
+                        window.localStorage.setItem("data",response);
+                        datapersonal = response;
+                        afterLogin();
+                },
+               'factualid=' + fbId);
+            }
+            else {
+                personalJSON = JSON.parse(datapersonal);
+                afterLogin();
+            }
+            
+        }
+        else {
+            var datapersonal = window.localStorage.getItem("data");
+            if(datapersonal === null || datapersonal === 0) {
+            }
+            else {
+                personalJSON = JSON.parse(datapersonal);
+            }
+            var tlaa = new TimelineMax();
+                tlaa.set(document.getElementById("pagewrap"), {display:"block"})
+                .fromTo(document.getElementById("pagewrap"), 1, {y:"100%"}, {y:"0%",ease: Circ.easeOut});
+            
+            document.getElementById("fblog").style.display = "block";
+            document.getElementById("fblog").addEventListener("click", function() {
+                app.fblogin();
+            });
+            facebookConnectPlugin.getLoginStatus(function(response) {
+              if (response.status === 'connected') {
+                app.fblogin();
+                var uid = response.authResponse.userID;
+                var accessToken = response.authResponse.accessToken;
+              }
+              else if (response.status === 'not_authorized') {
+              } 
+            });
+        }
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -42,5 +91,129 @@ var app = {
         setTimeout(function(){
             pageChange("pages/login.html", "fade");
         }, 1500);
-    }
+    },
+	fblogin: function() {
+		var fbLoginSuccess = function (userData) {
+				fullJSON = userData;
+				fbId = fullJSON.authResponse.userID;
+                ajaxPost(
+                    "http://www.network-divinity.com/viridian/hasreg.php", 
+                    function (response) {
+                    if(response == "yes") {
+                        ajaxPost(
+                        "http://www.network-divinity.com/viridian/fbviewprofile.php", 
+                        function (response) {
+                                var foundjson = JSON.parse(response);
+                                window.localStorage.setItem("data",response);
+                                window.localStorage.setItem("registered", "active");
+                                window.localStorage.setItem("fbid", fbId);
+                                personalJSON = foundjson;
+                                afterLogin();
+                        },
+                       'factualid=' + fbId);
+                        
+                    }
+                    else {
+                        alert(response);
+                    }
+                },
+               'fbid=' + fullJSON.authResponse.userID);
+                
+			}
+
+			facebookConnectPlugin.login(["public_profile", "user_birthday","user_photos","user_hometown","user_likes","user_work_history","user_location","user_about_me","user_actions.books","user_actions.news","user_likes","user_actions.fitness","user_actions.music","user_actions.video"],
+				fbLoginSuccess,
+				function (error) { console.warn("" + error) }
+			);
+	}
 };
+var fbId; 
+var personalJSON;
+var fullJSON;
+var profileJSON;
+
+function register() {
+                alert("Attempt login");
+    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_photos","user_hometown","user_likes","user_work_history","user_location","user_about_me","user_actions.books","user_actions.news","user_likes","user_actions.fitness","user_actions.music","user_actions.video"],
+    function (result) {
+        profileJSON = result;
+        window.localStorage.setItem("profilejson", profileJSON);
+        
+        profileJSON = JSON.parse(profileJSON);
+        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + profileJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status +'","gender":"'+ profileJSON.gender +'","profileImage":"-1" }}');
+
+    
+        ajaxPost(
+        "http://www.network-divinity.com/viridian/register.php", 
+        function (response) {
+            window.localStorage.setItem("data",JSON.stringify(personalJSON));
+            window.localStorage.setItem("registered", "active");
+            window.localStorage.setItem("fbid", fbId);
+            afterLogin();
+        },
+       'factualid=' + fbId + '&data=' + JSON.stringify(personalJSON));
+    
+    },
+    function (error) {
+        console.log("Failed: " + error);
+    });
+}
+function afterLogin() {
+    
+                alert("Attempt login");
+}
+var ajaxGet = function (url, callback) {
+    var callback = (typeof callback == 'function' ? callback : false), xhr = null;
+    try {
+      xhr = new XMLHttpRequest();
+    } catch (e) {
+      try {
+        ajxhrax = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch (e) {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    }
+    if (!xhr)
+           return null;
+    xhr.open("GET", url,true);
+    xhr.onreadystatechange=function() {
+      if (xhr.readyState==4 && callback) {
+        callback(xhr.responseText);
+      }
+    }
+    xhr.send(null);
+    return xhr;
+}
+var ajaxPost = function (url, callback,data) {
+    var callback = (typeof callback == 'function' ? callback : false), xhr = null;
+    try {
+      xhr = new XMLHttpRequest();
+    } catch (e) {
+      try {
+        ajxhrax = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch (e) {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    }
+    if (!xhr)
+           return null;
+    xhr.open("POST", url,true);
+    xhr.onreadystatechange=function() {
+      if (xhr.readyState==4 && callback) {
+        callback(xhr.responseText);
+      }
+    }
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send(data);
+    return xhr;
+}
+function calculateAge(birthday) { // birthday is a date
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+function viewAdjust() {
+        var vw = (viewport().width/100);
+        document.body.style.fontSize = vw + "px";
+}
+        viewAdjust();

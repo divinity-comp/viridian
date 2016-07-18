@@ -40,6 +40,19 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>7 day detox</title>
+        <script>
+        function viewport() {
+    var e = window, a = 'inner';
+    if (!('innerWidth' in window )) {
+        a = 'client';
+        e = document.documentElement || document.body;
+    }
+    return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+}
+            var vw = (viewport().width/100);
+            document.body.style.fontSize = vw + "px";
+            
+        </script>
 </head>
 
 <body>
@@ -50,12 +63,12 @@
             <style>
                 .splashhead1 {
                     margin-top:1em;
-                    font-size:2.7em;
+                    font-size:8em;
                     font-weight:normal;
                     margin-bottom:0.5em;
                 }
                 .splashhead2 {
-                    font-size:2.7em;
+                    font-size:8em;
                     font-weight:normal;
                     margin-top:0;
                 }

@@ -65,15 +65,19 @@ body {
     font-style: normal;
 }
 .blueCentralCircle {
-    background-color:#007086;
+    background-color: #007086;
     position: absolute;
-    width:42em;
-    height:42em;
-    border-radius:50em;
-    left:0;right:0;top:0;bottom:0;margin:auto;
-    margin-left:-6em;
-    text-align:center;
-    color:#fff;
+    width: 120em;
+    height: 120em;
+    border-radius: 70em;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-left: -10em;
+    text-align: center;
+    color: #fff;
 }
 
 .greenText {
