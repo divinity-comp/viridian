@@ -89,7 +89,11 @@ var app = {
     },
     startApp: function() {
         setTimeout(function(){
-            pageChange("pages/login.html", "fade");
+            pageChange("pages/login.html", "fade", function() {
+                document.getElementById("facebookLogin").addEventListener("click", function() {
+                    register();
+                });
+            });
         }, 1500);
     },
 	fblogin: function() {

@@ -86,7 +86,8 @@ function getHeight() {
     return Math.max(html.clientHeight);
 }
 
-function pageChange(url, pageAnimation) {
+            
+function pageChange(url, pageAnimation, runScript) {
     ajaxGet(url,
         function(response) {
             var divContent = document.createElement("div");
@@ -98,6 +99,7 @@ function pageChange(url, pageAnimation) {
               case "fade":
                 TweenMax.to(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0, ease: Circ.easeOut,onComplete:function() {
                     document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
+                    runScript();
                     TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
                 }});
                 break;
@@ -107,6 +109,7 @@ function pageChange(url, pageAnimation) {
               default:
                 TweenMax.to(document.getElementsByClassName("app")[0].children, 1, {opacity:0, ease: Circ.easeOut,onComplete:function() {
                     document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
+                    runScript();
                     TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 1, {opacity:0}, {opacity:1, ease: Circ.easeIn});
                 }});
             }
