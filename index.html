@@ -42,15 +42,13 @@
     <title>7 day detox</title>
         <script>
         function viewport() {
-    var e = window, a = 'inner';
-    if (!('innerWidth' in window )) {
-        a = 'client';
-        e = document.documentElement || document.body;
-    }
-    return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
-}
-            var vw = (viewport().width/100);
-            document.body.style.fontSize = vw + "px";
+            var e = window, a = 'inner';
+            if (!('innerWidth' in window )) {
+                a = 'client';
+                e = document.documentElement || document.body;
+            }
+            return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+        }
             
         </script>
 </head>

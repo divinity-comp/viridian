@@ -126,7 +126,7 @@ var app = {
                         registerGetInfo();
                     }
                     else {
-                        alert(response);
+                        alert("fail: " + response);
                     }
                 },
                'fbid=' + fullJSON.authResponse.userID);
@@ -162,8 +162,8 @@ function registerGetInfo() {
 }
 
 function afterLogin() {
-    
-                alert("Attempt login");
+    pageChange("pages/walkthrough.html", "fade", function() {
+    });
 }
 var ajaxGet = function (url, callback) {
     var callback = (typeof callback == 'function' ? callback : false), xhr = null;

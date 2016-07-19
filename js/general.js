@@ -86,14 +86,12 @@ function getHeight() {
     return Math.max(html.clientHeight);
 }
 
-            
 function pageChange(url, pageAnimation, runScript) {
     ajaxGet(url,
         function(response) {
             var divContent = document.createElement("div");
             divContent.innerHTML = response;
             divContent.innerHTML = divContent.getElementsByClassName("app")[0].innerHTML;
-                    console.log(divContent.innerHTML);
         
             switch (pageAnimation) {
               case "fade":
