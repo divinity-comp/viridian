@@ -148,6 +148,7 @@ function register() {
     app.fblogin();
 }
 function registerGetInfo() {
+    console.log(fbId);
     facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_photos","user_hometown","user_likes","user_work_history","user_location","user_about_me","user_actions.books","user_actions.news","user_likes","user_actions.fitness","user_actions.music","user_actions.video"],
     function (result) {
         profileJSON = result;
@@ -157,7 +158,7 @@ function registerGetInfo() {
 
     },
     function (error) {
-        console.log("Failed: " + error);
+        console.log(error);
     });
 }
 
