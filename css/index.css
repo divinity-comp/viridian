@@ -135,7 +135,7 @@ body {
     left:0;
     background-color:#fff;
     box-shadow:0px 0px 15px 0px #7c7c7c;
-    display: none;
+    display: none; 
 }
 #botnavigation button {
     border:0;

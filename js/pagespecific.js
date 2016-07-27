@@ -109,4 +109,34 @@ function setupPage() {
     });
     displayBotMenu("", true);
     
+    var greencircles = document.getElementsByClassName("greencircle");
+    
+     TweenMax.fromTo(idc("goFinish"), 0.2, {opacity:1}, {opacity:0, ease: Circ.easeOut});
+     TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.3, ease: Circ.easeOut});
+
+     TweenMax.fromTo(greencircles[0], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    if(setdate == "done") {
+     TweenMax.fromTo(greencircles[1], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
+    if(stockist == "done") {
+     TweenMax.fromTo(greencircles[2], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
+    if(rules == "done") {
+     TweenMax.fromTo(greencircles[3], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
+    if(schedule == "done") {
+     TweenMax.fromTo(greencircles[4], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
+    if(intake == "done") {
+     TweenMax.fromTo(greencircles[5], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
+    if(motivation == "done") {
+     TweenMax.fromTo(greencircles[6], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
+    if(shopping == "done") {
+     TweenMax.fromTo(greencircles[7], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
+    if(setprofile == "done") {
+     //TweenMax.fromTo(greencircles[7], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
+    }
 }
