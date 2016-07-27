@@ -36,6 +36,7 @@ var app = {
         app.startApp();
         
         var regs = window.localStorage.getItem("registered");
+        var remember = window.localStorage.getItem("remember");
         fbId = window.localStorage.getItem("fbid");
         
         if(regs == "active" && fbId.length != 0) {
@@ -55,6 +56,9 @@ var app = {
                 afterLogin();
             }
             
+        }
+        else if((remember != "" || remember != null) && regs == "active") {
+            afterLogin();
         }
         else {
             var datapersonal = window.localStorage.getItem("data");
