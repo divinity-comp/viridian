@@ -85,7 +85,6 @@ function getHeight() {
 
     return Math.max(html.clientHeight);
 }
-
 function pageChange(url, pageAnimation, runScript) {
     ajaxGet(url,
         function(response) {

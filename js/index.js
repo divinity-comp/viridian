@@ -20,8 +20,6 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        var vw = (viewport().width/100);
-        document.body.style.fontSize = vw + "px";
     },
     // Bind Event Listeners
     //
@@ -90,11 +88,12 @@ var app = {
     startApp: function() {
         setTimeout(function(){
             pageChange("pages/login.html", "fade", function() {
+                setupPage();
                 document.getElementById("facebookLogin").addEventListener("click", function() {
                     register();
                 });
             });
-        }, 1500);
+        }, 500);
     },
 	fblogin: function() {
 		var fbLoginSuccess = function (userData) {
@@ -112,11 +111,7 @@ var app = {
                                 window.localStorage.setItem("registered", "active");
                                 window.localStorage.setItem("fbid", fbId);
                                 personalJSON = foundjson;
-                            
-        window.localStorage.setItem("profilejson", profileJSON);
         
-        var datesset = fullJSON.birthday.split('/');
-        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + personalJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + personalJSON.relationship_status +'","gender":"'+ personalJSON.gender +'" }, "version":0}');
                                 afterLogin();
                         },
                        'factualid=' + fbId);
@@ -148,25 +143,97 @@ function register() {
     app.fblogin();
 }
 function registerGetInfo() {
-    /*facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_photos","user_hometown","user_likes","user_work_history","user_location","user_about_me","user_actions.books","user_actions.news","user_likes","user_actions.fitness","user_actions.music","user_actions.video"],
+    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_photos","user_hometown","user_likes","user_work_history","user_location","user_about_me","user_actions.books","user_actions.news","user_likes","user_actions.fitness","user_actions.music","user_actions.video"],
     function (result) {
         profileJSON = result;
         var datesset = result.birthday.split('/');
 
         personalJSON = JSON.parse('{ "personalData": { "firstname":"' + profileJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '", "description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'"  }, "version":0  }');
-
+        
+        ajaxPost(
+            "http://www.network-divinity.com/viridian/register.php", 
+            function (response) {
+            if(response.indexOf("success") >= 0) {
+                window.localStorage.setItem("remember", response.slice(0, -7));
+                window.localStorage.setItem("rememberAllowed", "true");
+                afterLogin();
+            } 
+            else {
+                alert(response);
+            }
+        },
+       'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + personalJSON);
     },
     function (error) {
         alert(error);
-    });*/
+    });
     
-    pageChange("pages/walkthrough.html", "fade", function() {
-    });
+    
 }
-
+function signIn() {
+    var usernameV = idc("email").value;
+    var passcodeV = idc("pass").value;
+    
+    if(usernameV != "" && passcodeV != "") {
+        ajaxPost(
+            "http://www.network-divinity.com/viridian/login.php", 
+            function (response) {
+            if(response.indexOf("allowed") >= 0) {
+                var parts = response.split("}");
+                var result = parts[parts.length - 1];
+                window.localStorage.setItem("remember", result);
+                window.localStorage.setItem("data", parts[0] + "}");
+                afterLogin();
+            } 
+            else {
+                alert(response);
+            }
+        },
+       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV);
+    }
+}
+function attemptRegisterV() {
+    var usernameV = idc("email").value;
+    var passcodeV = idc("pass").value;
+    
+    if(usernameV != "" && passcodeV != "") {
+        ajaxPost(
+            "http://www.network-divinity.com/viridian/register.php", 
+            function (response) {
+            if(response == "wrong information") {
+                alert("information did not get entered correctly");
+            }
+            else if(response.indexOf("success") >= 0) {
+                window.localStorage.setItem("remember", response.slice(0, -7));
+                window.localStorage.setItem("username", usernameV);
+                if(idc("remuser").getAttribute("remember") == "yes")
+                window.localStorage.setItem("rememberAllowed", "true");
+                afterLogin();
+            } 
+            else {
+                alert(response);
+            }
+        },
+       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV);
+    }
+}
+function rememberAccount(ele) {
+    if(ele.getAttribute("remember") == "no") {
+        ele.setAttribute("remember", "yes"); 
+    }
+    else {
+        ele.setAttribute("remember", "no"); 
+    }
+}
 function afterLogin() {
-    pageChange("pages/walkthrough.html", "fade", function() {
-    });
+    var needwalk = window.localStorage.getItem("needwalk");
+    
+    if(needwalk != "true") {
+        pageChange("pages/walkthrough.html", "fade", function() {
+                    displayMenu("hasMenu", true);
+                    selectionScreen();
+        });
+    }
 }
 var ajaxGet = function (url, callback) {
     var callback = (typeof callback == 'function' ? callback : false), xhr = null;
@@ -223,3 +290,16 @@ function viewAdjust() {
         document.body.style.fontSize = vw + "px";
 }
         viewAdjust();
+function idc(id) {
+    return document.getElementById(id);
+}
+function displayMenu(menuAnim, displayyes) {
+    if(displayyes == true) {
+        idc("navigation").style.display = "block";
+    }
+}
+function displayBotMenu(menuAnim, displayyes) {
+    if(displayyes == true) {
+        idc("botnavigation").style.display = "block";
+    }
+}

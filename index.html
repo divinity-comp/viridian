@@ -40,33 +40,71 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>7 day detox</title>
-        <script>
-        function viewport() {
-            var e = window, a = 'inner';
-            if (!('innerWidth' in window )) {
-                a = 'client';
-                e = document.documentElement || document.body;
+    <script src="js/vunit-0.2.0.min.js"></script>
+
+    <!-- Instantiate vUnit.js passing a CSSMap with properties you want to play with -->
+    <script>
+        new vUnit({
+            CSSMap: {
+                '.vw': {
+                    property: 'width',
+                    reference: 'vw'
+                },
+                '.vwh': {
+                    property: 'height',
+                    reference: 'vw'
+                },
+                '.fontv': {
+                    property: 'font-size',
+                    reference: 'vw'
+                },
+                '.vhmt': {
+                    property: 'margin-top',
+                    reference: 'vh'
+                },
+                '.vhmb': {
+                    property: 'margin-bottom',
+                    reference: 'vh'
+                },
+                '.borrad': {
+                    property: 'border-radius',
+                    reference: 'vw'
+                },
+                '.lineh': {
+                    property: 'line-height',
+                    reference: 'vw'
+                },
+                '.maxw': {
+                    property: 'max-width',
+                    reference: 'vw'
+                },
+                '.maxh': {
+                    property: 'max-height',
+                    reference: 'vw'
+                },
+                '.vh': {
+                    property: 'height',
+                    reference: 'vh'
+                }
+            },
+            onResize: function() {
+                console.log('A screen resize just happened, yo.');
             }
-            return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
-        }
-            
-        </script>
+        }).init(); // call the public init() method
+    </script>
 </head>
 
 <body>
     <div id="full" class="app textureBack">
-        <div class="blueCentralCircle">
-            <h2 class="splashhead1">Say <span class="greenText">goodbye</span><br>to sugar</h2>
-            <img class="imgSplash" src="img/bag.png"/>
+        <div class="blueCentralCircle vw100 vwh100 scaleAdd">
+            <h2 class="splashhead1 fontv6 vhmt4 vhmb2">Say <span class="greenText">goodbye</span><br>to sugar</h2>
+            <img class="imgSplash vhmb2" src="img/bag.png"/>
             <style>
                 .splashhead1 {
-                    margin-top:1em;
-                    font-size:8em;
                     font-weight:normal;
-                    margin-bottom:0.5em;
+                    
                 }
                 .splashhead2 {
-                    font-size:8em;
                     font-weight:normal;
                     margin-top:0;
                 }
@@ -74,15 +112,30 @@
                     max-width:30%;
                 }
             </style>
-            <h2 class="splashhead2">Say <span class="greenText">hello</span> to better<br>health, better<br>sleep and better<br>vitality</h2>
+            <h2 class="splashhead2 fontv6">Say <span class="greenText">hello</span> to better<br>health, better<br>sleep and better<br>vitality</h2>
         </div>
+    </div>
+    <div id="navigation" class="vh10">
+        <div class="vw25 "><img class="maxh8 vhmt3" src="img/buttons/back.png" /></div>
+        <div class="vw50 "><img class="maxh10 vhmt2" src="img/viridian-logo.png" /></div>
+        <div class="vw25 "><img class="maxh8 vhmt3" src="img/buttons/home.png" /></div>
+    </div>
+    <div id="botnavigation" class="vh9">
+        <button class="vw17 vh9"><img src="img/buttons/profile.png"/></button>
+        <button class="vw17 vh9"><img src="img/buttons/shopping.png"/></button>
+        <button class="vw32 vh9"><div class="vw22 vwh22"><img src="img/buttons/main-i.png"/></div></button>
+        <button class="vw17 vh9"><img src="img/buttons/store.png"/></button>
+        <button class="vw17 vh9"><img src="img/buttons/advice.png"/></button>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/general.js"></script>
+    <script type="text/javascript" src="js/pagespecific.js"></script>
     <script type="text/javascript" src="js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/hammer.js"></script>
     <script type="text/javascript">
         app.initialize();
+        
     </script>
 </body>
 

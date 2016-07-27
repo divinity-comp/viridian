@@ -6,38 +6,30 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="navigation">
-            <div><img src="img/buttons/back.png" /></div>
-            <div><img src="img/viridian-logo.png" /></div>
-            <div><img src="img/buttons/home.png" /></div>
-        </div>
-        <h2 class="blueText h2tit">The 7 Day Sugar Detox</h2>
-        <div class="bluecirc active" onclick='
+        <h2 class="blueText h2tit vhmt16 fontv8 ">The 7 Day Sugar Detox</h2>
+        <div class="bluecirc active vw35 vwh35 borrad50 vhmt5 " onclick='
     pageChange("pages/all-about1.html", "fade", function() {
     });'>
-            <h3 style="margin-top:1.4em;">All<br>About</h3>
+            <h3  class="fontv7 vhmt5 lineh7">All<br>About</h3>
         </div>
-        <div class="bluecirc">
-            <h3 style="margin-top:1.9em;">Set Up</h3>
+        <div class="bluecirc vw35 vwh35 borrad50 vhmt3">
+            <h3  class="fontv7 vhmt9 lineh7" onclick='
+    pageChange("pages/set-up.html", "fade", function() {
+    });'>Set Up</h3>
         </div>
-        <div class="bluecirc greencirc">
-            <h3 style="margin-top:1.9em;">Start</h3>
+        <div class="bluecirc greencirc vw35 vwh35 borrad50 vhmt3">
+            <h3  class="fontv7 vhmt9 lineh7">Start</h3>
         </div>
         <style>
             .h2tit {
-                font-size:7em;
-                margin-top:2em;
                 text-align:center;
             }
             .bluecirc {
-                width:32em;
-                height:32em;
-                border-radius:20em;
-                margin:2em auto;
                 background-color:#007086;
                 color:#bacb2f;
                 overflow:hidden;
-                opacity:0.5;
+                margin-right:auto;
+                margin-left:auto;
             }
             .greencirc {
                 background-color:#bacb2f;
@@ -45,14 +37,11 @@
             }
             .bluecirc h3 {
                 text-align:center;
-                font-size:7em;
                 float:left;
                 width:100%;
                 font-weight: normal;
-                line-height:0.8em;
             }
             .bluecirc.active {
-                opacity:1;
                 transform: scale(1.3);
                 -webkit-transform: scale(1.3);
             }
