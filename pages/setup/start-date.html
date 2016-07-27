@@ -8,7 +8,8 @@
     <div id="full" class="app textureBack">
         <h2 class="vhmt14 plantitle fontv9">Set your Start
 Date</h2>
-        <h3 class="vhmt2 plantitle fontv5">Are you ready?</h3>
+        <h3 class="vhmt2 plantitle fontv7">Are you ready?</h3>
+        <div class="fontv4 standardtext">
         <p>Decide when to start your
 7 day detox.</p>
         <p>Do give yourself plenty of
@@ -17,7 +18,14 @@ Don’t choose a time when
 you will be busy, stressed
 or have little time to
 cook.</p>
-        <button class="startdate">THE IMPORTANCE OF A
+        </div>
+        <button onclick='
+    pageChange("pages/setup/importance-start-date.html", "fade", function() {
+        displayMenu("", true, "setup/importance-start-date.html",function() {
+        });
+        displayBotMenu("", true);
+    });'
+                class="startdate vw50 vwh50 fontv5">THE<br>IMPORTANCE<br>OF A<br>
 START DATE</button>
         <style>
             .plantitle {
@@ -33,6 +41,16 @@ START DATE</button>
                 width:90%;
                 margin-bottom:0;
                 margin-left:5%;
+            }
+            .startdate {
+                background-color:#007086;
+                color:#fff;
+                box-shadow: 0px 0px 0px 2px #fff;
+                
+                border-radius:200em;
+                margin:0 auto;
+                display: block;
+                border:0;
             }
         </style>
     </div>

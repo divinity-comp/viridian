@@ -103,9 +103,6 @@ body {
     display: none;
     z-index:20000;
 }
-#pageMain article {
-    
-}
 #navigation div {
     float:left;
 }
@@ -206,4 +203,41 @@ body {
 }
 .remember button {
     position: relative;
+}
+
+#allabout .slide {
+    position: absolute;
+    top:0;
+    visibility: hidden;
+    left:0;right:0;margin:auto;
+}
+#allabout .slide.active {
+    visibility: visible;
+}
+
+.slideMenu {
+    position: absolute;
+    bottom:5%;
+    left:0;right:0;
+    margin:auto;
+}
+.slideMenu div {
+    border-radius: 20em;
+    background-color: #fff;
+    float:left;
+    opacity:0.5;
+    margin:0.1em;
+}
+.slideMenu div.active {
+    opacity:1;
+}
+
+#allabout {
+    overflow: hidden;
+}
+
+.standardtext {
+    margin:0 10%;
+    width:80%;
+    text-align: center;
 }

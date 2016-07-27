@@ -24,8 +24,10 @@ function selectionScreen() {
     var tl = new TimelineMax();
     
     var allabout = window.localStorage.getItem("allabout");
-    displayMenu("", "yes");
-    displayBotMenu("", "no");
+    displayBotMenu("", false);
+    displayMenu("", true, "login.html",function() {
+        selectionScreen();
+    });
     
     if(allabout == "true") {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
@@ -48,8 +50,10 @@ function selectionScreen() {
 }
 
 function allAboutInitial() {
-    displayBotMenu("", "yes");
-    displayMenu("", "yes");
+    displayBotMenu("", true);
+    displayMenu("", true, "walkthrough.html",function() {
+        selectionScreen();
+    });
     var allabout = new Hammer(idc("allabout"));
     
     allabout.on('swipeleft', function(ev) {
@@ -99,5 +103,10 @@ function setupPage() {
     var motivation = window.localStorage.getItem("motivation");
     var shopping = window.localStorage.getItem("shopping");
     var setprofile = window.localStorage.getItem("setprofile");
+    
+    displayMenu("", true, "walkthrough.html",function() {
+        selectionScreen();
+    });
+    displayBotMenu("", true);
     
 }

@@ -14,6 +14,11 @@
             <div class="go vw20 vwh20 fontv10 lineh20 center">GO</div>
             <div onclick='
     pageChange("pages/setup/start-date.html", "fade", function() {
+                          
+    displayMenu("", true, "set-up.html",function() {
+            setupPage();
+    });
+    displayBotMenu("", true);
     });' id="date" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt2 vhmb1" src="img/buttons/setup/date.png" />
                 <p class="fontv3 lineh3 vhmt3">set your<br>start date</p></div>

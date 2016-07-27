@@ -92,7 +92,6 @@ var app = {
     startApp: function() {
         setTimeout(function(){
             pageChange("pages/login.html", "fade", function() {
-                setupPage();
                 document.getElementById("facebookLogin").addEventListener("click", function() {
                     register();
                 });
@@ -296,12 +295,17 @@ function viewAdjust() {
 function idc(id) {
     return document.getElementById(id);
 }
-function displayMenu(menuAnim, displayyes) {
+function displayMenu(menuAnim, displayyes, backLink, backlinkFunction) {
     if(displayyes == true) {
         idc("navigation").style.display = "block";
     }
     else {
         idc("navigation").style.display = "none";
+    }
+    idc("backbutton").onclick = function() {
+        pageChange("pages/" + backLink, "fade", function() {
+                    backlinkFunction();
+        });
     }
 }
 function displayBotMenu(menuAnim, displayyes) {
