@@ -162,10 +162,10 @@ function registerGetInfo() {
                 alert(response);
             }
         },
-       'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + personalJSON);
+       'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + JSON.stringify(personalJSON));
     },
     function (error) {
-        alert("try register" + error);
+        alert(error);
     });
     
     
