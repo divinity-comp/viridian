@@ -159,13 +159,13 @@ function registerGetInfo() {
                 afterLogin();
             } 
             else {
-                alert(response);
+                alert("fb reg" + response);
             }
         },
        'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + JSON.stringify(personalJSON));
     },
     function (error) {
-        alert(error);
+        alert("fb confused" +error);
     });
     
     
