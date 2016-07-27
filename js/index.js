@@ -165,7 +165,7 @@ function registerGetInfo() {
        'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + personalJSON);
     },
     function (error) {
-        alert(error);
+        alert("try register" + error);
     });
     
     
