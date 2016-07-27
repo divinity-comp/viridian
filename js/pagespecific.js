@@ -24,6 +24,8 @@ function selectionScreen() {
     var tl = new TimelineMax();
     
     var allabout = window.localStorage.getItem("allabout");
+    displayMenu("", "yes");
+    displayBotMenu("", "no");
     
     if(allabout == "true") {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
@@ -46,6 +48,8 @@ function selectionScreen() {
 }
 
 function allAboutInitial() {
+    displayBotMenu("", "yes");
+    displayMenu("", "yes");
     var allabout = new Hammer(idc("allabout"));
     
     allabout.on('swipeleft', function(ev) {

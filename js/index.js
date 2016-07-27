@@ -234,7 +234,6 @@ function afterLogin() {
     
     if(needwalk != "true") {
         pageChange("pages/walkthrough.html", "fade", function() {
-                    displayMenu("hasMenu", true);
                     selectionScreen();
         });
     }
@@ -301,9 +300,15 @@ function displayMenu(menuAnim, displayyes) {
     if(displayyes == true) {
         idc("navigation").style.display = "block";
     }
+    else {
+        idc("navigation").style.display = "none";
+    }
 }
 function displayBotMenu(menuAnim, displayyes) {
     if(displayyes == true) {
         idc("botnavigation").style.display = "block";
+    }
+    else {
+        idc("botnavigation").style.display = "none";
     }
 }
