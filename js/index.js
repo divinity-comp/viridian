@@ -20,6 +20,8 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        var phoneModel = window.device.model;
+        var phoneModel = device.model;
     },
     // Bind Event Listeners
     //
@@ -34,6 +36,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.startApp();
+        phoneModel = window.device.model;
         
         var regs = window.localStorage.getItem("registered");
         var remember = window.localStorage.getItem("remember");
@@ -91,12 +94,21 @@ var app = {
     },
     startApp: function() {
         setTimeout(function(){
-            pageChange("pages/login.html", "fade", function() {
-                document.getElementById("facebookLogin").addEventListener("click", function() {
-                    register();
+            if(window.localStorage.getItem("doneintro") != "true") {
+                window.localStorage.setItem("doneintro", "true");  
+                
+                pageChange("pages/intro.html", "fade", function() {
+                    initialLoadTut();
                 });
-            });
-        }, 500);
+            }
+            else {
+                pageChange("pages/login.html", "fade", function() {
+                    document.getElementById("facebookLogin").addEventListener("click", function() {
+                        register();
+                    });
+                });
+            }
+        }, 200);
     },
 	fblogin: function() {
 		var fbLoginSuccess = function (userData) {
@@ -137,6 +149,8 @@ var app = {
 			);
 	}
 };
+        var phoneModel;
+
 var fbId; 
 var personalJSON;
 var fullJSON;
@@ -172,6 +186,13 @@ function registerGetInfo() {
     });
     
     
+}
+function loginPage() {
+    pageChange("pages/login.html", "fade", function() {
+        document.getElementById("facebookLogin").addEventListener("click", function() {
+            register();
+        });
+    });
 }
 function signIn() {
     var usernameV = idc("email").value;
@@ -230,11 +251,17 @@ function rememberAccount(ele) {
 }
 function afterLogin() {
     var needwalk = window.localStorage.getItem("needwalk");
-    
-    if(needwalk != "true") {
-        pageChange("pages/walkthrough.html", "fade", function() {
-                    selectionScreen();
+    var acceptTaC = window.localStorage.getItem("tac");
+    if(acceptTaC != true) {
+        pageChange("pages/disclaimer.html", "fade", function() {
         });
+    }
+    else {
+        if(needwalk != "true") {
+            pageChange("pages/walkthrough.html", "fade", function() {
+                        selectionScreen();
+            });
+        }
     }
 }
 var ajaxGet = function (url, callback) {

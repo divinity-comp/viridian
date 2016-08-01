@@ -6,51 +6,37 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <h2 class="vhmt14 plantitle fontv9">Set your Start
-Date</h2>
-        <h3 class="vhmt2 plantitle fontv7">Are you ready?</h3>
-        <div class="fontv4 standardtext">
-        <p>Decide when to start your
-7 day detox.</p>
-        <p>Do give yourself plenty of
-time to plan and prepare.
-Don’t choose a time when
-you will be busy, stressed
-or have little time to
-cook.</p>
-        </div>
-        <button onclick='
-    pageChange("pages/setup/importance-start-date.html", "fade", function() {
-        displayMenu("", true, "setup/importance-start-date.html",function() {
-        });
-        displayBotMenu("", true);
-    });'
-                class="startdate vw50 vwh50 fontv5">THE<br>IMPORTANCE<br>OF A<br>
-START DATE</button>
-        <style>
-            .plantitle {
-                text-align: center;
-                color:#007086;
-                font-weight: normal;
-                margin-bottom:0;
-            }
-            .plantitleblack {
-                color:#000;
-                font-weight: normal;
-                text-align: center;
-                width:90%;
-                margin-bottom:0;
-                margin-left:5%;
-            }
-            .startdate {
-                background-color:#007086;
-                color:#fff;
-                box-shadow: 0px 0px 0px 2px #fff;
+        <img class="close" onclick="closePopup()" src="img/close.png" />
+        <div id="rules" class="blueCentralCircle vw90 vwh90 " >
+                <h2 class="ttile vhmt4 fontv5">Are you ready?</h2>
+                <p class="fontv4">Decide when to start your<br>7 Day Sugar Detox</p>
+                <p class="fontv4">Do give yourself plenty of time to<br>plan and perpare.</p>
+                <p class="fontv4">Don't choose a time when you will be<br>busy, stressed or have little time to cook.</p>
+            
+            <div class="vw64 dates">
                 
-                border-radius:200em;
+                <div  class="greencircle vw20 vwh20 fontv4 ">
+                    <p class="fontv6 lineh20 vhmt4">01</div>
+                <div class="greencircle vw20 vwh20 fontv4 ">
+                    <p class="fontv6 lineh20 vhmt4">Aug</div>
+                <div class="greencircle vw20 vwh20 fontv4 ">
+                    <p class="fontv6 lineh20 vhmt4">2016</p></div>
+            </div>
+        </div>
+        <style>
+            .ttile {
+                color:#bacb2f;
+            }
+            .dates {
                 margin:0 auto;
-                display: block;
-                border:0;
+            }
+            .dates .greencircle {
+                background-color: #bacb2f;
+                color:#007086;
+                border-radius: 200em;
+                border:2px solid #fff;
+                float:left;
+                position: relative;
             }
         </style>
     </div>

@@ -58,6 +58,10 @@
                     property: 'font-size',
                     reference: 'vw'
                 },
+                '.vwmt': {
+                    property: 'margin-top',
+                    reference: 'vw'
+                },
                 '.vhmt': {
                     property: 'margin-top',
                     reference: 'vh'
@@ -91,6 +95,45 @@
                 console.log('A screen resize just happened, yo.');
             }
         }).init(); // call the public init() method
+        
+        function getActualWidth()
+        {
+            var actualWidth = window.innerWidth ||
+                              document.documentElement.clientWidth ||
+                              document.body.clientWidth ||
+                              document.body.offsetWidth;
+
+            return actualWidth;
+        }
+        function getActualHeight()
+        {
+            var actualHeight  = window.innerHeight ||
+                              document.documentElement.clientHeight  ||
+                              document.body.clientHeight  ||
+                              document.body.offsetHeight ;
+
+            return actualHeight;
+        }
+        function setAspectScale() {
+            var aspectScale = (getActualWidth() / getActualHeight());
+            
+            var newscale = 1 - (aspectScale - 0.5625);
+            
+            if(newscale > 1) {
+                newscale = 1;
+            }
+            var head = head = document.head || document.getElementsByTagName('head')[0];
+            var css = '#scaleIpad { transform: scale(' + newscale + '); -webkit-transform: scale(' + newscale + '); }';
+            var style = document.createElement("style");
+            style.type = 'text/css';
+            if (style.styleSheet){
+              style.styleSheet.cssText = css;
+            } else {
+              style.appendChild(document.createTextNode(css));
+            }
+            head.appendChild(style);
+        }
+            setAspectScale();
     </script>
 </head>
 
@@ -115,10 +158,10 @@
             <h2 class="splashhead2 fontv6">Say <span class="greenText">hello</span> to better<br>health, better<br>sleep and better<br>vitality</h2>
         </div>
     </div>
-    <div id="navigation" class="vh10">
-        <div class="vw25 " id="backbutton"><img class="maxh8 vhmt3" src="img/buttons/back.png" /></div>
-        <div class="vw50 "><img class="maxh10 vhmt2" src="img/viridian-logo.png" /></div>
-        <div class="vw25 "><img class="maxh8 vhmt3" src="img/buttons/home.png" /></div>
+    <div id="navigation" class="vh7">
+        <div class="vw25 " id="backbutton"><img class="maxh6 vhmt2" src="img/buttons/back.png" /></div>
+        <div class="vw50 "><img class="maxh7 vhmt2" src="img/viridian-logo.png" /></div>
+        <div class="vw25 "><img class="maxh6 vhmt2" src="img/buttons/home.png" /></div>
     </div>
     <div id="botnavigation" class="vh9">
         <button class="vw17 vh9"><img src="img/buttons/profile.png"/></button>
@@ -130,6 +173,7 @@
         
         </div>
     </div>
+    <div id="popup"></div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/general.js"></script>

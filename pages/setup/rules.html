@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="full" class="app textureBack">
+        <img class="close" onclick="closePopup()" src="img/close.png" />
+        <div id="rules" class="blueCentralCircle vw90 vwh90 " >
+            <div class="slide active" num="0">
+                <div class="blackCircle vhmt3 vw25 vwh25 fontv6">
+                    <br>Rule<br>1
+                </div>
+                <p class="fontv6">Do not add any form of<br>sugar or alternative<br>sweeteners.</p>
+                <p class="fontv6">Your allowance <br>is zero.</p>
+            </div>
+            <div class="slide" num="1">
+                <div class="blackCircle vhmt3 vw25 vwh25 fontv6">
+                    <br>Rule<br>2
+                </div>
+                <p class="fontv6">Do not add any form of<br>sugar or alternative<br>sweeteners.</p>
+                <p class="fontv6">Your allowance <br>is zero.</p>
+            </div>
+            <div class="slide" num="2">
+                <div class="blackCircle vhmt3 vw25 vwh25 fontv6">
+                    <br>Rule<br>3
+                </div>
+                <p class="fontv6">Do not add any form of<br>sugar or alternative<br>sweeteners.</p>
+                <p class="fontv6">Your allowance <br>is zero.</p>
+            </div>
+            <div class="slide" num="3">
+                <div class="blackCircle vhmt3 vw25 vwh25 fontv6">
+                    <br>Rule<br>4
+                </div>
+                <p class="fontv6">Do not add any form of<br>sugar or alternative<br>sweeteners.</p>
+                <p class="fontv6">Your allowance <br>is zero.</p>
+            </div>
+            <div class="slide" num="4">
+                <div class="blackCircle vhmt3 vw25 vwh25 fontv6">
+                    <br>Rule<br>5
+                </div>
+                <p class="fontv6">Do not add any form of<br>sugar or alternative<br>sweeteners.</p>
+                <p class="fontv6">Your allowance <br>is zero.</p>
+            </div>
+            <div class="slide" num="5">
+                <div class="blackCircle vhmt3 vw25 vwh25 fontv6">
+                    <br>Rule<br>6
+                </div>
+                <p class="fontv6">Do not add any form of<br>sugar or alternative<br>sweeteners.</p>
+                <p class="fontv6">Your allowance <br>is zero.</p>
+            </div>
+            <div class="slide" num="6">
+                <div class="blackCircle vhmt3 vw25 vwh25 fontv6">
+                    <br>Rule<br>7
+                </div>
+                <p class="fontv6">Do not add any form of<br>sugar or alternative<br>sweeteners.</p>
+                <p class="fontv6">Your allowance <br>is zero.</p>
+            </div>
+        </div>
+            <div class="slideMenu vw40 vwh1">
+                <div class="vw2 vwh2 active"></div>
+                <div class="vw2 vwh2 "></div>
+                <div class="vw2 vwh2 "></div>
+                <div class="vw2 vwh2 "></div>
+                <div class="vw2 vwh2 "></div>
+                <div class="vw2 vwh2 "></div>
+                <div class="vw2 vwh2 "></div>
+            </div>
+        <style>
+            #rules {
+                overflow: hidden;
+            }
+            #rules .slide {
+                visibility: hidden;
+                top:0;
+                position: absolute;
+                left:0;
+                width:100%;
+            }
+            #rules .slide.active {
+                visibility: visible;
+            }
+            .slideMenu{
+                bottom:20%;
+            }
+            .slideMenu div {
+                margin:0 4%;    
+            }
+            .blueCentralCircle,.blackCircle {
+                border:1px solid #fff;
+            }
+            .blackCircle {
+                background-color: #404040;
+                color:#fff;
+                font-weight: bold;
+                border-radius: 2000px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        </style>
+    </div>
+</body>
+
+</html>

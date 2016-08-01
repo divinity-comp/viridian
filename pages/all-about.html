@@ -6,53 +6,177 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="allabout" class="blueCentralCircle vw100 vwh100 scaleAddmed">
-            <div class="slide active" num="0">
-                <h2 class="splashhead1 fontv6 vhmt8">Quitting sugar is a <br/>the way to a better life</h2>
-                <img class="circFB vh12" src="img/buttons/fb-share.png"/>
-            </div>
-            <div class="slide" num="1">
-                <h2 class="splashhead1 fontv6 vhmt8">Want to know more?</h2>
-                <div class="greenbackCirc vw30 vwh30 vhmb2" style="margin-left:18%;margin-right:2%">
-                    <h3 class="fontv4 ">Why<br>sugar is<br>addictive</h3>
-                    <img class="vhmt1" style="max-height:28%;" src="img/know-more/face.png"/>
-                </div>
-                <div class="greenbackCirc vw30 vwh30 vhmb2" style="margin-right:18%;margin-left:2%">
-                    <h3 class="fontv4 ">Where<br>sugar<br>hides</h3>
-                    <img class="vhmt1" style="max-width:55%;" src="img/know-more/face2.png"/>
-                </div>
-                <div class="greenbackCirc vw30 vwh30 vhmb2" style="margin-left:18%;margin-right:2%">
-                    <h3 class="fontv4 ">The<br>Viridian<br>plan</h3>
-                    <img class="vhmt1" style="max-height:25%;" src="img/know-more/calender.png"/>
-                </div>
-                <div class="greenbackCirc vw30 vwh30 vhmb2" style="margin-right:18%;margin-left:2%">
-                    <h3 class="fontv4 ">Watch<br>our<br>videos</h3>
-                    <img class="vhmt1" style="max-height:25%;" src="img/know-more/film.png"/>
-                </div>
-            </div>
-            <div class="slideMenu vw6">
-                <div class="vw2 vwh2 active"></div>
-                <div class="vw2 vwh2 "></div>
-            </div>
+        <div id="setupMenu" class="vw90 vwh90 vhmt24">
+            <div class="outerblue center vw35 vwh35 "><p class="fontv8 vhmt4" >All<br>About</p></div>
+            <div id="goFinish" class="go vw20 vwh20 fontv5 center">Set Up</div>
+            <div onclick='
+    pageChange("pages/allabout/allabout1.html", "fade", function() {
+     allaboutComplete(1);                     
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });' id="date" class="greencircle vw24 vwh24 fontv5 ">
+                <p class="fontv4 lineh4 vwmt8">Transform<br>your health</p></div>
+            <div onclick='
+    pageChange("pages/allabout/allabout2.html", "fade", function() {
+     allaboutComplete(2);          
+                          onesecond();           
+                          
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });' id="map" class="greencircle vw24 vwh24 fontv5 ">
+                <p class="fontv4 lineh4 vwmt3">Sugar<br>sabotages<br>your health<br>& vitality</p></div>
+            <div onclick='
+    pageChange("pages/allabout/allabout3.html", "fade", function() {
+     allaboutComplete(3);                     
+                          
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });'  id="tasks" class="greencircle vw24 vwh24 fontv5 ">
+                <p class="fontv4 lineh4 vwmt8">Sugar hides<br>everywhere</p></div>
+            <div onclick='
+    pageChange("pages/allabout/allabout4.html", "fade", function() {
+     allaboutComplete(4);                     
+                          
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });'  id="clock" class="greencircle vw24 vwh24 fontv5 ">
+                <p class="fontv4 lineh4 vwmt2">how<br>much<br>sugar are<br>you<br>eating?</p></div>
+            <div onclick='
+    pageChange("pages/allabout/allabout5.html", "fade", function() {
+     allaboutComplete(5);                     
+                          
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });'  id="spoon" class="greencircle vw24 vwh24 fontv5 ">
+                <p class="fontv4 lineh4 vwmt8">How to use<br> the app</p></div>
+            <div onclick='
+    pageChange("pages/allabout/allabout6.html", "fade", function() {
+     allaboutComplete(6);                     
+                          
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });'  id="happy" class="greencircle vw24 vwh24 fontv5 ">
+                <p class="fontv4 lineh4 vwmt6">Keep it<br>social and<br>fun</p></div>
+            <div onclick='
+    pageChange("pages/allabout/allabout7.html", "fade", function() {
+     allaboutComplete(7);                     
+                     oneseven();     
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });'  id="food" class="greencircle vw24 vwh24 fontv5 ">
+                <p class="fontv4 lineh4 vwmt1">The<br>Viridian<br>7 Day<br>Sugar<br>Detox Kit</p></div>
+            <div onclick='
+    pageChange("pages/allabout/allabout8.html", "fade", function() {
+     allaboutComplete(0);                     
+                          
+    displayMenu("", true, "all-about.html",function() {
+            allAboutInitial();
+    });
+    });'  id="profile" class="greencircle vw24 vwh24 fontv5 "> 
+                <p class="fontv4 lineh4 vwmt8">The 7 day<br>eating plan</p></div>
         </div>
         <style>
-            .greenbackCirc h3 {
-                color:#007086;
-                margin-bottom:0;
+            #goFinish {
+                visibility: hidden;
             }
-            .splashhead1 {
-                text-align: center;
-                color:#abc433;
-                font-weight: normal;
+            #profile {
+                top:8.5%;
+                left:8.5%;
             }
-            .circFB {
-                margin:1em auto;
+            #food {
+                bottom:0;
+                top:0;
+                left:0;
+                margin:auto;
+            }
+            #happy {
+                left:8.5%;
+                bottom:8.5%;
+            }
+            #spoon {
+                bottom:0;
+                margin:auto;
+                right:0;
+                left:0;
+            }
+            #clock {
+                right:8.5%;
+                bottom:8.5%;
+            }
+            #tasks {
+                top:0;
+                bottom:0;
+                margin:auto;
+                right:0;
+            }
+            #map {
+                right:8.5%;
+                top:8.5%;
+            }
+            #date {
+                top:0;
+                left:0;
+                right:0;margin:auto;
+            }
+            .greencircle img {
+                max-height:30%;
+                max-width:70%;
+                margin-right:auto;
+                margin-left:auto;
                 display:block;
             }
-            .bottomNac {
-                bottom:0;
+            .greencircle p {
+                text-align:center;
+            }
+            .greencircle {
+                background-color: #bacb2f;
+                color:#007086;
+                border-radius: 200em;
                 position: absolute;
-                max-width:100%;
+                border:2px solid #fff;
+            }
+            .outerblue {
+                background-color:#007086;
+                border-radius: 200em;
+                position: absolute;color:#fff;
+                text-align:center;
+            }
+            .go {
+                background-color: #bacb2f;
+                color:#007086;
+                box-shadow:inset 0px 0px 0px 1px #fff;
+                position: absolute;
+                border-radius: 200em;
+                text-align: center;
+            }
+            .plantitle {
+                text-align: center;
+                color:#007086;
+                font-weight: normal;
+                margin-bottom:0;
+            }
+            .plantitleblack {
+                color:#000;
+                font-weight: normal;
+                text-align: center;
+                width:90%;
+                margin-bottom:0;
+                margin-left:5%;
+            }
+            #setupMenu {
+                position: relative;
+                margin-right:5%;
+                margin-left:5%;
+            }
+            .center {
+                left:0;right:0;top:0;bottom:0;margin:auto;
             }
         </style>
     </div>

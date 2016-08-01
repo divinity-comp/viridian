@@ -100,8 +100,12 @@ function pageChange(url, pageAnimation, runScript) {
                     TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
                 }});
                 break;
-              case "Apples":
-                console.log("Apples are $0.32 a pound.");
+              case "popup":
+                    document.getElementById("popup").innerHTML = divContent.innerHTML;
+                    document.getElementById("popup").style.display = "block";
+                    TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+                    runScript();
+
                 break;
               default:
                 TweenMax.to(document.getElementsByClassName("app")[0].children, 1, {opacity:0, ease: Circ.easeOut,onComplete:function() {
@@ -112,4 +116,9 @@ function pageChange(url, pageAnimation, runScript) {
             }
         }
     );
+}
+function closePopup() {
+    TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
+        document.getElementById("popup").style.display = "none";
+    }});
 }
