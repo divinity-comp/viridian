@@ -134,7 +134,7 @@ function openBotMenu() {
     else {
         botMenu.style.display = "block";
         mainBotButton.setAttribute("open", "true");
-        TweenMax.fromTo(botMenu, 0.5, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
+        TweenMax.fromTo(botMenu, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn,onComplete:function() {
         }});
     }
 }
