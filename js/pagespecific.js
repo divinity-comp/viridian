@@ -887,6 +887,10 @@ function sevenDayPlan() {
     });
 }
 function startPlan() {
+    
+    displayMenu("", true, "walkthrough.html",function() {
+        selectionScreen();
+    });
     var initialItem = idc("initial");
     var initialItems = initialItem.getElementsByClassName("slide");
     disableTouch = true;
