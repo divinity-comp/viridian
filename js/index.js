@@ -94,19 +94,43 @@ var app = {
     },
     startApp: function() {
         setTimeout(function(){
-            if(window.localStorage.getItem("doneintro") != "true") {
-                window.localStorage.setItem("doneintro", "true");  
-                
-                pageChange("pages/intro.html", "fade", function() {
-                    initialLoadTut();
-                });
+            if(window.localStorage.getItem("setupdone") != "done") {
+                if(window.localStorage.getItem("doneintro") != "true") {
+                    window.localStorage.setItem("doneintro", "true");  
+
+                    pageChange("pages/intro.html", "fade", function() {
+                        initialLoadTut();
+                    });
+                }
+                else {
+                    if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged")) {
+                        pageChange("pages/walkthrough.html", "fade", function() {
+                        selectionScreen();
+                        }); 
+                    }
+                    else {
+                        pageChange("pages/login.html", "fade", function() {
+                            
+        document.getElementById("facebookLogin").addEventListener("click", function() {
+            register();
+        });
+                        });
+                    }
+                }
             }
             else {
-                pageChange("pages/login.html", "fade", function() {
-                    document.getElementById("facebookLogin").addEventListener("click", function() {
-                        register();
-                    });
-                });
+                if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged")) {
+                    pageChange("pages/daily.html", "fade", function() {
+                    }); 
+                }
+                else {
+                        pageChange("pages/login.html", "fade", function() {
+                            
+        document.getElementById("facebookLogin").addEventListener("click", function() {
+            register();
+        });
+                        });
+                }
             }
         }, 200);
     },
@@ -243,23 +267,31 @@ function attemptRegisterV() {
 }
 function rememberAccount(ele) {
     if(ele.getAttribute("remember") == "no") {
-        ele.setAttribute("remember", "yes"); 
+        ele.setAttribute("remember", "yes");     
+         window.localStorage.setItem("remember", "true");
+
     }
     else {
         ele.setAttribute("remember", "no"); 
+         window.localStorage.setItem("remember", "false");
     }
 }
 function afterLogin() {
-    var needwalk = window.localStorage.getItem("needwalk");
+    var needwalk = window.localStorage.getItem("setupdone");
     var acceptTaC = window.localStorage.getItem("tac");
+    window.localStorage.setItem("logged", "true");
     if(acceptTaC != true) {
         pageChange("pages/disclaimer.html", "fade", function() {
         });
     }
     else {
-        if(needwalk != "true") {
+        if(window.localStorage.getItem("setupdone") != "done") {
             pageChange("pages/walkthrough.html", "fade", function() {
                         selectionScreen();
+            });
+        }
+        else {
+            pageChange("pages/daily.html", "fade", function() {
             });
         }
     }

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="full" class="app textureBack">
+        <div id="highSection" class="vhmt10 vhmb4">
+            <button class="greyCircle vw22 vwh22 fontv6">
+                Day 1
+            </button>
+            <div class="recipe">
+                <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
+                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(0)" active="true">Breakfast</button>
+                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(1)">Lunch</button>
+                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(2)">Snack<br>ideas</button>
+                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(3)">Dinner</button>
+            </div>
+        </div>
+        <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
+            <div class="title ">
+                <div>
+                    <button class=" vw20 vwh20 fontv4" >Breakfast</button>
+                    <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">2</span></button>
+                    
+                </div>
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Vegan, Sugar, Gluten and Dairy Free contains nuts</h2>
+                    <p class="fontv3">Chia seeds are high in omega-3 essential fats, a
+deficience of which may cause depression and
+insomnia. The better your blood levels of omega-3 fats,
+the better your levels of serotonin, the ‘happy
+hormone’, are likely to be. High in plant protein, dietary
+fibre, essential fats, calcium and iron.</p>
+                </div>
+            </div>
+            <div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" onclick="methodswap(0, 0)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" onclick="methodswap(1, 0)">Method</button>
+            </div>
+            <div class="overMark " active="true">
+                <p class="fontv4">1 tsp. of viridian organic raw coconut oil</p>
+                <hr>
+                <p class="fontv4">1/2 tsp. of viridian maca powder</p>
+                <hr>
+                <p class="fontv4">100g ripe banana, peeled and mashed</p>
+                <hr>
+                <p class="fontv4">470ml coconut drinking milk</p>
+                <hr>
+                <p class="fontv4">2 tablespoons almond butter</p>
+                <hr>
+                <p class="fontv4">1 teaspoon vanilla extract</p>
+                <hr>
+                <p class="fontv4">½ teaspoon ground cinnamon</p>
+                <hr>
+                <p class="fontv4">80g chia seeds</p>
+            </div>
+            <div class="overMark " active="false">
+                <ol>
+                    <li class="fontv4">Blend the coconut oil, maca, banana, coconut milk, almond butter, vanilla
+extract and cinnamon in a high-speed blender for
+5 seconds. Transfer to two glass jars and stir in the chia
+seeds, dividing the seeds evenly between the two jars. Seal
+the jars, put in the fridge and leave overnight. By morning,
+the pudding will be set as the chia seeds will have soaked
+up the milk and become jelly-like.</li>
+                    <li class="fontv4">Enjoy with seasonal fruit and/or berries, toasted coconut
+flakes, ground flaxseeds and a drizzle of honey if you like it
+sweet. It’s handy to have as a healthy go-to snack at work or
+in the evening. This will keep for three days in the fridge.</li>
+                </ol>
+            </div>
+        </div>
+        <div id="lunch" class="ingrd vhmt4 vh60" active="false">
+            <div class="title ">
+                <div>
+                    <button class=" vw20 vwh20 fontv4" >Lunch</button>
+                    <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">8</span></button>
+                    
+                </div>
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Butternut Coconut and Coriander Soup</h2>
+                    <p class="fontv3">Vegan Sugar, Gluten, Dairy and Nut Free contains celery</p>
+                    <p class="fontv3">I love to grate fresh turmeric into this soup to give it a
+more
+powerful flavour and colour. Make sure to use choose a
+gluten-free stock. High in dietary
+fibre, plant protein, essential fats and vitamin C. Low
+GL.</p>
+                </div>
+            </div>
+            <div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" onclick="methodswap(0, 1)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" onclick="methodswap(1, 1)">Method</button>
+            </div>
+            <div class="overMark " active="true">
+                <p class="fontv4">2 tablespoons viridian organic raw coconut oil</p>
+                <hr>
+                <p class="fontv4">2 large onions, chopped</p>
+                <hr>
+                <p class="fontv4">3kg butternut squash, peeled and cut into 5cm cubes</p>
+                <hr>
+                <p class="fontv4">3 cloves of garlic, minced</p>
+                <hr>
+                <p class="fontv4">2½ litres gluten-free vegetable stock (you can use less or more
+according to desired thickness)</p>
+                <hr>
+                <p class="fontv4">2 teaspoons ground coriander</p>
+                <hr>
+                <p class="fontv4">160g creamed coconut, grated</p>
+                <hr>
+                <p class="fontv4">Juice of 1 lime</p>
+                <hr>
+                <p class="fontv4">Himalayan fine rock salt and
+freshly ground black pepper
+Crusty bread, to serve</p>
+                
+            </div>
+            <div class="overMark " active="false">
+                <ol>
+                    <li class="fontv4">Heat the oil in a large saucepan over a low to medium heat.
+Sauté the onion for 5–7 minutes, until tender. Add the
+butternut squash and garlic and stir for a further minute or
+two.</li>
+                    <li class="fontv4">Add the vegetable stock and ground coriander and bring
+to a boil. Simmer for 20–30 minutes, until the squash is
+cooked. Stir in the grated creamed coconut and leave to
+stand for a minute so that it can melt into the soup. Blend
+until smooth.</li>
+                    <li class="fontv4">Stir in the lime juice and salt and pepper to taste, and serve
+with crusty bread.</li>
+                </ol>
+            </div>
+        </div>
+        <div id="snack" class="ingrd vhmt4 vh60" active="false">
+            <div class="title ">
+                <div>
+                    <button class=" vw20 vwh20 fontv4" >Snack</button>
+                    <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">1</span></button>
+                    
+                </div>
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Carrot sticks and
+humous</h2>
+                </div>
+            </div>
+                    
+        </div>
+        <div id="dinner" class="ingrd vhmt4 vh60" active="false">
+            <div class="title ">
+                <div>
+                    <button class=" vw20 vwh20 fontv4" >Dinner</button>
+                    <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">5</span></button>
+                    
+                </div>
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Roast mixed
+vegetables with herbs
+and brown rice</h2>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

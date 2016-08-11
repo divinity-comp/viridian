@@ -122,3 +122,19 @@ function closePopup() {
         document.getElementById("popup").style.display = "none";
     }});
 }
+function openBotMenu() {
+    var mainBotButton = idc("mainBotButton");
+    var botMenu = idc("botMenu");
+    if(mainBotButton.getAttribute("open") == "true") {
+        mainBotButton.setAttribute("open", "false");
+        TweenMax.fromTo(botMenu, 0.5, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
+            botMenu.style.display = "none";
+        }});
+    }
+    else {
+        botMenu.style.display = "block";
+        mainBotButton.setAttribute("open", "true");
+        TweenMax.fromTo(botMenu, 0.5, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
+        }});
+    }
+}

@@ -9,62 +9,74 @@
         <div id="scaleIpad">
         <div id="initial" class="blueCentralCircle vw100 vwh100 scaleAdd">
             <div class="slide active" scale="0.75" num="0">
-                <h2 class="fontv14 vwmt23">How the<br>7 Day Detox<br>works</h2>
+                <h2 class="fontv8 vwmt11">Have You<br>Stocked Up?</h2>
+                <p class="fontv5" >You’ll need your Viridian<br>supplements and meal plan<br>ingredients before you start</p>
+                <div class="packs vw60">
+                    <img onclick='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");' src="img/green-pack.png" />
+                    <img  onclick='
+    pageChange("pages/setup/shoppinglist.html", "fade", function() {  
+    displayMenu("", true, "setup/start1.html",function() {
+        displayMenu("", true, "walkthrough.html",function() {
+    }); 
+    });   
+    });' src="img/shopping-list.png" />
+                </div>
             </div>
             <div class="slide " num="1" scale="1.2">
-                <div class="whiteCircle vw60 vwh60 vwmt20">
-                    <div class="greenCircle vw100 vwh100 ">
-                        <h2 class="fontv7 vwmt65">Decide you<br>want to quite<br>sugar</h2>
-                    </div>
-                </div>
-                <img class="bowl" src="img/initial/bowl.png" />
-                <div class="sugarline vw2 vwh14"></div>
-                <img class="sugar" src="img/initial/sugar.png" />
+                <h2  class="fontv7 vwmt11">Remember to<br>follow these 7 rules</h2>
+                <div class="ptags"><p class="fontv4 ">• Take your Viridian Supplement </p>
+ <p class="fontv4 ">• Do not add any form of sugar or<br>alternative sweeteners.<br>Your allowance is zero. </p>
+ <p class="fontv4 ">• No sugary drinks and sodas. </p>
+ <p class="fontv4 ">• Avoid processed foods </p>
+ <p class="fontv4 ">• Eat 3 meals a day – this will keep your<br>blood sugar stable. </p>
+ <p class="fontv4 ">• Eat plenty of vegetables and limit fruit<br>to 2 to 3 servings per day </p>
+ <p class="fontv4 ">• Drink plenty of water</p></div>
             </div>
             <div class="slide " num="2" scale="1.2">
-                <div class="greenMainCircle vw60 vwh60 vwmt20">
-                        <h2 class="fontv8 vwmt7">Get your<br>Viridian<br>7 Day Detox<br>pack</h2>
-                </div>
-                <img class="bag"  src="img/bag.png"/>
-            </div>
-            <div class="slide " num="3" scale="1.2">
-                <div class="greenMainCircle vw60 vwh60 vwmt20">
-                        <h2 class="fontv8 vwmt15">Follow our<br>7 Day Detox<br>eating plan</h2>
-                </div>
-                <img class="leftCult maxh30"  src="img/initial/fork.png"/>
-                <img class="rightCult maxh30"  src="img/initial/knife.png"/>
-            </div>
-            <div class="slide " num="4" scale="1.2">
-                <div class="greenMainCircle vw60 vwh60 vwmt20">
-                    <h2 class="fontv8 vwmt15">Take your<br>viridian<br>Supplements</h2>
-                </div>
-                <img class="supp" src="img/initial/supp.png"/>
-            </div>
-            <div class="slide " num="5" scale="1.2">
-                <div class="greenMainCircle circleTime vw60 vwh60 vwmt20">
-                    <h2 class="fontv8 vwmt20">After<br>7 days...</h2>
+                <h2 class="fontv8 vwmt8 vwmt2">Ready,<br>Steady, Go</h2>
+                <p class="fontv4" >What are you waiting for?<br>
+In just seven days you’re<br>going to feel amazing with<br>bags more energy.<br>
+Have a quick recap of the<br>rules then you’re good to go.</p>
+                <div class="packs vw60">
+                    <img onclick='
+    pageChange("pages/setup/rules-single.html", "fade", function() {  rulesPop();
+    displayMenu("", true, "start/start1.html",function() {
+          startPlan();                        
+    displayMenu("", true, "walkthrough.html",function() {
+    });   
+    });   
+    });' src="img/rules.png" />
+                    <img  onclick='
+    pageChange("pages/daily.html", "fade", function() { 
+   window.localStorage.setItem("setupdone" "done");
+    displayMenu("", true, "login.html",function() {
+    });   
+    });' src="img/start.png" />
                 </div>
             </div>
-            <div class="slide " num="6" scale="1.2">
-                <div class="greenMainCircle  vw60 vwh60 vwmt20">
-                    <h2 class="fontv7 vwmt7">Feel<br>transformed</h2>
-                    <img class="happy" src="img/initial/smile.png"/>
-                </div>
-                <img class="pack" src="img/initial/pack.png"/>
-            </div>
-        </div>
-        <div class="slideMenu vw40 vwh1">
+        <div class="slideMenu vw10 vwh1">
             <div class="vw2 vwh2 active"></div>
             <div class="vw2 vwh2 "></div>
             <div class="vw2 vwh2 "></div>
-            <div class="vw2 vwh2 "></div>
-            <div class="vw2 vwh2 "></div>
-            <div class="vw2 vwh2 "></div>
-            <div class="vw2 vwh2 "></div>
-            <button onclick="loginPage()" class="registerSlide fontv5" >Register</button>
+        </div>
         </div>
         </div>
         <style>
+            .ptags p {
+                margin:0;
+            }
+            .packs {
+                margin-right:auto;margin-left:auto;
+                
+            }
+            .packs img {
+                max-width:45%;
+                margin:0 2.5%;
+                float:left;
+            }
+            .slideMenu {
+                bottom:6%;
+            }
             .registerSlide {
                 position: absolute;
                 background: #047086;
@@ -158,10 +170,10 @@
                 color:#abc433;
             }
             .slideMenu div {
-                background-color: rgba(0,0,0,0.6);
+                background-color: rgba(255,255,255,0.6);
             }
             .slideMenu div.active {
-                background-color: rgba(0,0,0,1);
+                background-color: rgba(255,255,255,1);
             }
             .slideMenu div {
                 margin:0 4%;    

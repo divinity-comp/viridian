@@ -14,8 +14,9 @@
             <div id="goFinish" class="go vw20 vwh20 fontv10 lineh20 center">GO</div>
             <div onclick='
     pageChange("pages/setup/start-date.html", "popup", function() {
-     setupComplete(13);      
-                          rulesPop();
+                          dateSelection();   
+     setupComplete(1);   
+            setupPage(); 
                           
     });'  id="date" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt2 vhmb1" src="img/buttons/setup/date.png" />
@@ -38,19 +39,45 @@
     });' id="tasks" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt2 vhmb1" src="img/buttons/setup/tasks.png" />
                 <p class="fontv3 lineh3 vhmt3">See the rules<br>of 7 Day<br>Detox</p></div>
-            <div id="clock" class="greencircle vw24 vwh24 fontv4 ">
+            <div onclick='
+    pageChange("pages/setup/schedule.html", "popup", function() {
+                          timeSelection();   
+     setupComplete(4);   
+            setupPage(); 
+                          
+    });' id="clock" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/clock.png" />
                 <p class="fontv3 lineh3 vhmt3">Set your<br>supplement<br>schedule</p></div>
-            <div id="spoon" class="greencircle vw24 vwh24 fontv4 ">
+            <div onclick='
+    pageChange("pages/setup/intake.html", "fade", function() {
+                          intake();             
+    displayMenu("", true, "set-up.html",function() {
+     setupComplete(5); 
+    });   
+    });' id="spoon" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt3 vhmb1" src="img/buttons/setup/spoon.png" />
                 <p class="fontv3 lineh3 vhmt3">Set your<br>current sugar<br>intake</p></div>
-            <div id="happy" class="greencircle vw24 vwh24 fontv4 ">
+            <div   onclick='
+    pageChange("pages/setup/motivation.html", "popup", function() {          
+     setupComplete(6); 
+    });'id="happy" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/happy.png" />
                 <p class="fontv3 lineh3 vhmt3">Set your<br>motivation<br>to detox</p></div>
-            <div id="food" class="greencircle vw24 vwh24 fontv4 ">
+            <div onclick='
+    pageChange("pages/setup/7dayplan.html", "fade", function() {  
+                          sevenDayPlan();
+    displayMenu("", true, "set-up.html",function() {
+     setupComplete(7); 
+    });   
+    });'id="food" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/food.png" />
                 <p class="fontv3 lineh3 vhmt3">See the 7 day<br>meal plan &<br>shopping list </p></div>
-            <div id="profile" class="greencircle vw24 vwh24 fontv4 ">
+            <div onclick='
+    pageChange("pages/setup/setprofile.html", "fade", function() {
+    displayMenu("", true, "set-up.html",function() {
+     setupComplete(8); 
+    });   
+    });'id="profile" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/profile.png" />   
                 <p class="fontv3 lineh3 vhmt3">Set your <br>personal <br>profile</p></div>
         </div>
