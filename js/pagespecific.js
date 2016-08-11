@@ -361,8 +361,8 @@ function onesecond() {
               initialItem.children[1].className = "slide active";
               slideMenu.children[0].className = "vw2 vwh2";
               slideMenu.children[1].className = "vw2 vwh2 active";
-              initialItem.parentNode.children[0].className = "vhmt11 fontv6 maintitle";
-              initialItem.parentNode.children[1].className = "vhmt11 fontv6 maintitle active";
+              initialItem.parentNode.children[0].className = "vhmt9 vhmb1 fontv6 maintitle";
+              initialItem.parentNode.children[1].className = "vhmt9 vhmb1 fontv6 maintitle active";
              var tl = new TimelineMax();    
              tl.fromTo(initialItem.children[1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeIn})
              .fromTo(initialItem.parentNode.children[1], 1, {opacity:"0"}, {opacity:"1", ease: Circ.easeOut})
@@ -379,8 +379,8 @@ function onesecond() {
               initialItem.children[0].className = "slide active";
               slideMenu.children[0].className = "vw2 vwh2 active";
               slideMenu.children[1].className = "vw2 vwh2 ";
-              initialItem.parentNode.children[0].className = "vhmt11 fontv6 maintitle active";
-              initialItem.parentNode.children[1].className = "vhmt11 fontv6 maintitle ";
+              initialItem.parentNode.children[0].className = "vhmt9 vhmb1 fontv6 maintitle active";
+              initialItem.parentNode.children[1].className = "vhmt9 vhmb1 fontv6 maintitle ";
 
              var tl = new TimelineMax();    
              tl.fromTo(initialItem.children[0], 1, {x:"-100%"}, {x:"0%", ease: Circ.easeIn})
@@ -493,7 +493,9 @@ function dateSelection() {
         window.localStorage.setItem("startmonth",mm);
         window.localStorage.setItem("startyear",yyyy);
     
-    var daye = new Hammer(greenCirc[0]);
+    var daye = new Hammer.Manager(greenCirc[0]);
+    daye.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+
     daye.on('panup', function(ev) {
         if(!pandisable) {
         pandisable = true;
@@ -528,7 +530,8 @@ function dateSelection() {
             }});
         }
     });
-    var monthe = new Hammer(greenCirc[1]);
+    var monthe = new Hammer.Manager(greenCirc[1]);
+    monthe.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
     monthe.on('panup', function(ev) {
         if(!pandisable) {
         pandisable = true;
@@ -563,7 +566,8 @@ function dateSelection() {
             }});
         }
     });
-    var yeare = new Hammer(greenCirc[2]);
+    var yeare = new Hammer.Manager(greenCirc[2]);
+    yeare.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
     yeare.on('panup', function(ev) {
         
         if(!pandisable) {
@@ -597,8 +601,9 @@ function timeSelection() {
     var rulesmain = document.getElementById("times");
     var greenCirc = document.getElementsByClassName("times")[0].children;
     
-    var reminder1hour = new Hammer(greenCirc[0].getElementsByTagName("span")[0]);
+    var reminder1hour = new Hammer.Manager(greenCirc[0].getElementsByTagName("span")[0]);
     
+    reminder1hour.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
     var oneHour = 7;
     reminder1hour.on('panup', function(ev) {
         if(!pandisable) {
@@ -644,7 +649,8 @@ function timeSelection() {
         }
 
     });
-    var reminder1minute = new Hammer(greenCirc[0].getElementsByTagName("span")[1]);
+    var reminder1minute = new Hammer.Manager(greenCirc[0].getElementsByTagName("span")[1]);
+    reminder1minute.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
     
     var oneMinute = 30;
     reminder1minute.on('panup', function(ev) {
@@ -693,8 +699,9 @@ function timeSelection() {
     });
     
     
-    var reminder2hour = new Hammer(greenCirc[1].getElementsByTagName("span")[0]);
-    
+    var reminder2hour = new Hammer.Manager(greenCirc[1].getElementsByTagName("span")[0]);
+        reminder2hour.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+
     var twoHour = 18;
     reminder2hour.on('panup', function(ev) {
         if(!pandisable) {
@@ -705,7 +712,7 @@ function timeSelection() {
         if(twoHour > 23) {
             twoHour = 12;
         }
-        window.localStorage.setItem("reminder1hour",twoHour);
+        window.localStorage.setItem("reminder2hour",twoHour);
         TweenMax.to(greenCirc[1].getElementsByTagName("span")[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
            
             greenCirc[1].getElementsByTagName("span")[0].innerHTML = twoHour;
@@ -724,7 +731,7 @@ function timeSelection() {
             if(twoHour < 12) {
                 twoHour = 23;
             }
-            window.localStorage.setItem("reminder1hour",twoHour);
+            window.localStorage.setItem("reminder2hour",twoHour);
             TweenMax.to(greenCirc[1].getElementsByTagName("span")[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
                 greenCirc[1].getElementsByTagName("span")[0].innerHTML = twoHour;
                 pandisable = false;
@@ -733,8 +740,9 @@ function timeSelection() {
         }
 
     });
-    var reminder2minute = new Hammer(greenCirc[1].getElementsByTagName("span")[1]);
-    
+    var reminder2minute = new Hammer.Manager(greenCirc[1].getElementsByTagName("span")[1]);
+            reminder2minute.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+
     var twoMinute = 30;
     reminder2minute.on('panup', function(ev) {
         if(!pandisable) {

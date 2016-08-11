@@ -6,16 +6,31 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="scaleIpad">
+        <div id="scaleIpad" class="highAdjust">
         <div class="blueCentralCircle vw100 vwh100 scaleAddlow">
             <h2 class="fontv7 vhmt6 vhmb1" style="color:#abc433;font-weight:normal;">The 7 Day <br>Eating plan</h2>
             <div>
                 <p class="fontv4">Oliver McCabe has created a <br>7 day meal plan exclusively for our <br>7 day sugar detox. It provides tasty,<br>energy boosting meals every day<br>guaranteed to make you feel great.</p>
                 <div class="vw52 greenContain">
-                    <div class="greenBubble vw24 vwh24">
+                    <div onclick='
+    pageChange("pages/setup/7dayplan.html", "fade", function() {  
+      sevenDayPlan();
+        displayMenu("", true, "allabout/allabout8.html",function() {
+            displayMenu("", true, "all-about.html",function() {
+     allaboutComplete(8);   
+            });  
+        });   
+    });' class="greenBubble vw24 vwh24">
                         <p class="fontv5 lineh5">See our<br>meal<br>plan</p>
                     </div>
-                    <div class="greenBubble vw24 vwh24 ">
+                    <div onclick='
+    pageChange("pages/setup/shoppinglist.html", "fade", function() {  
+        displayMenu("", true, "allabout/allabout8.html",function() {
+            displayMenu("", true, "all-about.html",function() {
+     allaboutComplete(8);   
+            });  
+        });   
+    });' class="greenBubble vw24 vwh24 ">
                         <p class="fontv5 lineh5 vhmt5">Shopping<br>List</p>
                     </div>
                 </div>

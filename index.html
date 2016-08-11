@@ -89,6 +89,10 @@
                 '.vh': {
                     property: 'height',
                     reference: 'vh'
+                },
+                '.vhw': {
+                    property: 'width',
+                    reference: 'vh'
                 }
             },
             onResize: function() {
@@ -117,7 +121,7 @@
         function setAspectScale() {
             var aspectScale = (getActualWidth() / getActualHeight());
             
-            var newscale = 1 - (aspectScale - 0.5625);
+            var newscale = 1 - (aspectScale - 0.53);
             
             if(newscale > 1) {
                 newscale = 1;
@@ -160,13 +164,13 @@
     </div>
     <div id="navigation" class="vh7">
         <div class="vw25 " id="backbutton"><img class="maxh5 vhmt2" src="img/buttons/back.png" /></div>
-        <div class="vw50 "><img class="maxh5 vhmt2" src="img/viridian-logo.png" /></div>
+        <div class="vw50 "><img class="viridian vhmt2" src="img/viridian-logo.png" /></div>
         <div class="vw25 "><img class="maxh5 vhmt2" src="img/buttons/home.png" /></div>
     </div>
     <div id="botnavigation" class="vh9">
             <button class="vw17 vh9"><img src="img/buttons/profile.png"/></button>
-            <button class="vw17 vh9"><img src="img/buttons/shopping.png"/></button>
-            <button id="mainBotButton" open="false" class="vw32 vh11 boti" onclick="openBotMenu()"><div class="vw22 vwh22"><img active="true" src="img/buttons/main-i.png"/>
+        <button class="vw17 vh9"><img src="img/buttons/shopping.png"/></button>
+            <button id="mainBotButton" open="false" class="vw32 vh13 boti" onclick="openBotMenu()"><div class="vhw15 vh15"><img active="true" src="img/buttons/main-i.png"/>
             <img active="false" class="vw8 vwh8" src="img/bot-menu/black-cross.png" /></div></button>
             <button class="vw17 vh9"><img src="img/buttons/store.png"/></button>
             <button class="vw17 vh9"><img src="img/buttons/advice.png"/></button>

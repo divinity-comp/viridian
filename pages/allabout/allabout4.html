@@ -6,8 +6,8 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="scaleIpad">
-        <div class="scrolling vh83 vw100 vhmt10">
+        <div id="">
+        <div class="scrolling vh84 vw100 vhmt7">
             <div class="sugarPerc ">
                 <div><img src="img/sugar-chart-button.png" /></div>
                 <div>
@@ -133,20 +133,20 @@
                     </div>
                 </div>
                 <div class="types">
-                    <button class="vw15 vwh15 circle fontv4" style="background:#f6df00;color:#007086">6-10</button>
+                    <button class="vw15 vwh15 circle fontv3" style="background:#f6df00;color:#007086">6-10</button>
                     <div>
                         <h4 class="fontv4 vhmt2" style="color:#007086;margin-bottom:0;">MEDIUM USER</h4>
                         <p class="fontv3" style="margin-top:0;">Excellent, and within healthy daily levels</p>
                     </div>
                 </div>
                 <div class="types">
-                    <button class="vw15 vwh15 circle fontv4" style="background:#dc9018">11-15</button>
+                    <button class="vw15 vwh15 circle fontv3" style="background:#dc9018">11-15</button>
                     <div>
                         <h4 style="color:#dc9018;margin-bottom:0;" class="fontv4 vhmt2">HEAVY USER</h4>
                         <p class="fontv3" style="margin-top:0;">Good, but you need to reduce your intake</p>
                     </div>
                 </div>
-                <div class="types" style="padding-bottom:1em;">
+                <div class="types" style="padding-bottom:3em;" >
                     <button class="vw15 vwh15 circle fontv4" style="background:#c20016">16+</button>
                     <div>
                         <h4 style="color:#c20016;margin-bottom:0;" class="fontv4 vhmt2">VERY HEAVY USER</h4>
@@ -156,6 +156,12 @@
             </div>
         </div>
         <style>
+            .amount {
+                background-color:#fff;
+            }
+            .types {
+                border:0;
+            }
             .types {
                 clear:both;
                 margin:0.2em 0;
@@ -166,6 +172,7 @@
                 float:left;
                 color:#fff;
                 border:0;
+                width:17%;
             }
             .types div {
                 float:left;
@@ -177,7 +184,9 @@
             }
             .amount {
                 width:90%;
-                margin:0 5%;
+                padding:0 5%;
+                overflow: auto;
+                margin:0;
             }
             .gramMount {
                 color:#007086;

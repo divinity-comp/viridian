@@ -15,9 +15,9 @@
             <div class="vw56 times">
                 
                 <div  class="greencircle vw25 vwh25 fontv4 ">
-                    <p class="fontv8 lineh25 vhmt4"><span class="vwh25">07</span>:<span class="vwh25">30</span></div>
+                    <p class="fontv8 lineh25 vhmt4"><span class="vwh25 ">07</span><b>:</b><span class="vwh25 fontv8">30</span></div>
                 <div class="greencircle vw25 vwh25 fontv4 ">
-                    <p class="fontv8 lineh25 vhmt4"><span class="vwh25">18</span>:<span class="vwh25">30</span></div>
+                    <p class="fontv8 lineh25 vhmt4"><span class="vwh25 ">18</span><b>:</b><span class="vwh25 fontv8">30</span></div>
                 <p class="vw25 reminder">Reminder 1</p>
                 <p class="vw25 reminder">Reminder 2</p>
             </div>
@@ -37,11 +37,29 @@
                 float:left;
                 position: relative;
                 margin-left:2%;
+                opacity:1 !Important;
             }
             .reminder {
                 float:left;
                 color:#fff;;
                 margin-left:2%;
+            }
+            .times .greencircle span, .times .greencircle b {
+                position: relative;
+                display: block;float:left;
+            }
+            .times .greencircle p {
+                text-align: center;
+                margin-left:0.3em;
+            }
+            .times .greencircle span:after {
+                content:'';
+                position: absolute;
+                height:300%;
+                top:-100%;
+                width:100%;
+                left:0;
+                padding:0 0.3em;
             }
         </style>
         </div>

@@ -6,48 +6,49 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="scaleIpad">
-        <h2 class="vhmt11 fontv6 maintitle active">Sugar Can Sabotage Your<br>Metabolism and Vitality</h2>
-        <h2 class="vhmt11 fontv6 maintitle">How a sugar detoc can<br>improve your energy</h2>
+        <div id="scaleIpad" class="noadjust">
+        <h2 class="vhmt9 vhmb1 fontv6 maintitle active">Sugar Can Sabotage Your<br>Metabolism and Vitality</h2>
+        <h2 class="vhmt9 vhmb1 fontv6 maintitle">How a sugar detoc can<br>improve your energy</h2>
         <div id="onesecond" class="blueCentralCircle vw100 vwh100 scaleAddlow">
             <div class="slide active">
                 <img class="cookie" src="img/know-more/cookie.png" />
-                <div class="whiteCircle vw18 vwh18"><p class="vhmt3">Increased<br>hunger</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3 vhmt3">Increased<br>hunger</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p>High<br>sugar<br>foods</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3">High<br>sugar<br>foods</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p>High<br>blood<br>sugar</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3">High<br>blood<br>sugar</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p>High<br>insulin<br>levels</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3">High<br>insulin<br>levels</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p>Blood<br>sugar<br>crash</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3">Blood<br>sugar<br>crash</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p>Brain fog,<br>low mood<br>fatigue</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3">Brain fog,<br>low mood<br>fatigue</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
             </div>
             <div class="slide ">
                 <img class="cookie" src="img/know-more/plate.png" />
                 <div class="whiteCircle vw18 vwh18"><p class="fontv3" style="margin-top:4px" >Eggs,<br>sugar-free<br>muesli or<br>porridge</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p class="vwmt1"><br>Sustained<br>energy</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3 vwmt1"><br>Sustained<br>energy</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
                 <div class="whiteCircle vw18 vwh18"><p class="fontv3">Superfood<br>salad,<br>vegetable<br>soup</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p>Sustained<br>energy</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3">Sustained<br>energy</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
                 <div class="whiteCircle vw18 vwh18"><p  class="fontv3"><span style="font-size:0.9em;">Vegetables,<br>wholegrains,<br>lean protein</span></p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
-                <div class="whiteCircle vw18 vwh18"><p>No late<br>night<br>hunger</p></div>
+                <div class="whiteCircle vw18 vwh18"><p class="fontv3">No late<br>night<br>hunger</p></div>
                 <img class="arrow" src="img/know-more/arrow.png" />
             </div>
         </div>
-            <div class="slideMenu vw8 vwh1">
+            <div class="slideMenu vw6 vwh1">
                 <div class="vw2 vwh2 active"></div>
                 <div class="vw2 vwh2 "></div>
             </div>
         <style>
             #onesecond {
                 overflow: hidden;
+                position: relative;
             }
             .maintitle {
                 display: none;
@@ -67,7 +68,7 @@
                 visibility: visible;
             }
             .slideMenu {
-                bottom: 13% !important;
+                bottom: 23% !important;
                 top:auto;
                 z-index: 2000;
             }
@@ -158,8 +159,18 @@
                 text-align:center;
             }
             .blueCentralCircle {
-                bottom:-5%;
+                top:5%;
             }
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+     
+      .slideMenu {
+          bottom:2.9% !important;
+      }
+}
         </style>
         </div>
     </div>

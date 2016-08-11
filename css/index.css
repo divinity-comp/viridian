@@ -258,8 +258,8 @@ body {
 }
 
 #scaleIpad {
-    transform-origin: 50% 15%;
-    -webkit-transform-origin: 50% 15%;
+    transform-origin: 50% 7%;
+    -webkit-transform-origin: 50% 7%;
     width:100%;
     height:100%;
     position: relative;
@@ -298,7 +298,7 @@ ul li {
 .boti {
     overflow: hidden;
     position: relative;
-    top:-22%;
+    top:-44%;
         
 }
 
@@ -326,108 +326,135 @@ ul li {
     display: none;
 }
 
-            .overMark[active=false] {
-                display:none;
-            }
-            .overMark p {
-                color:#000;margin:0.3em 0;
-            }
-            .overMark {
-                color:#000;
-                width:100%;
-            }
-            .types {
-                border-bottom: 1px solid #404040;
-                float:left;
-                width:100%;
-            }
-            .types button[active=true] {
-                background:#007086;
-            }
-            .types button {
-                background:#404040;
-                color:#fff;
-                width:45%;
-                float:left;
-                
-            }
-            .types button:nth-child(1) {
-                margin-right: 10%;
-            }
-            .pcheck p {
-                margin:0;
-            }
-            .title > div:nth-child(2) {
-                width:75%;
-                float:left;
-            }
-            .title > div:nth-child(1) button:nth-child(2){
-                background-color: #404040;color:#fff;
-                margin-top:-55%;
-                margin-left:16%;
-            }
-            .title > div:nth-child(1) button:nth-child(1){
-                background-color:#007086;color:#fff;
-            }
-            .title > div:nth-child(1) button{
-                border-radius: 200em;
-                border:0;
-            }
-            .title > div:nth-child(1) {
-                width:22%;
-                margin-right:3%;
-                float:left;
-            }
-            
-            .ingrd {
-                width:95%;
-                padding:0 2.5%;
-                background-color: #fff;
-                overflow:auto;
-                clear:both;
-                
-            }
-            .recipe {
-                float:left;width:72%;
-            }
-            .recipe h2 {
-                color:#007086;font-weight: normal;
-            }
-            .recipe button {
-                border-radius: 200em;
-                box-shadow:0px 0px 0px 2px #fff;
-                color:#007086;
-                float:left;
-                margin-right:0.3em;
-                background-color:#fff;
-            }
-            .recipe button[active=true] {
-                background-color:#bacb2f;
-            }
-            #highSection {
-                width:95%;
-                margin-left:2.5%;
-                clear:both;
-                overflow: hidden;
-            }
-            button {
-                border:0;
-            }
-            .greyCircle {
-                margin-right:3%;
-                background:#404040;
-                color:#fff;
-                box-shadow:0px 0px 0px 2px #fff;
-                border-radius:200em;
-                float:left;
-            }
+.overMark[active=false] {
+    display:none;
+}
+.overMark p {
+    color:#000;margin:0.3em 0;
+}
+.overMark {
+    color:#000;
+    width:100%;
+}
+.types {
+    border-bottom: 1px solid #404040;
+    float:left;
+    width:100%;
+}
+.types button[active=true] {
+    background:#007086;
+}
+.types button {
+    background:#404040;
+    color:#fff;
+    width:45%;
+    float:left;
+
+}
+.types button:nth-child(1) {
+    margin-right: 7%;
+}
+.pcheck p {
+    margin:0;
+}
+.title > div:nth-child(2) {
+    width:75%;
+    float:left;
+}
+.title > div:nth-child(1) button:nth-child(2){
+    background-color: #404040;color:#fff;
+    margin-top:-55%;
+    margin-left:16%;
+}
+.title > div:nth-child(1) button:nth-child(1){
+    background-color:#007086;color:#fff;
+}
+.title > div:nth-child(1) button{
+    border-radius: 200em;
+    border:0;
+}
+.title > div:nth-child(1) {
+    width:22%;
+    margin-right:3%;
+    float:left;
+}
+
+.ingrd {
+    width:95%;
+    padding:0 2.5%;
+    background-color: #fff;
+    overflow:auto;
+    clear:both;
+}
+.recipe {
+    float:left;width:72%;
+}
+.recipe h2 {
+    color:#007086;font-weight: normal;
+}
+.recipe button {
+    border-radius: 200em;
+    box-shadow:0px 0px 0px 2px #fff;
+    color:#007086;
+    float:left;
+
+    background-color:#fff;
+    text-align: center;
+}
+.recipe button span {
+    font-size:0.85em;
+}
+.recipe button[active=true] {
+    background-color:#bacb2f;
+}
+#highSection {
+    width:95%;
+    margin-left:2.5%;
+    clear:both;
+    overflow: hidden;
+}
+button {
+    border:0;
+}
+.greyCircle {
+    margin-right:3%;
+    background:#404040;
+    color:#fff;
+    box-shadow:0px 0px 0px 2px #fff;
+    border-radius:200em;
+    float:left;
+}
 .overMark ol {
     clear:both;
 }
-
 #breakfast[active=true],#lunch[active=true],#snack[active=true],#dinner[active=true] {
     display: block;
 }
 #breakfast,#lunch,#snack,#dinner {
     display: none;
+}
+
+.loginTrans {
+    transform-origin: 50% 0%;
+    -webkit-transform-origin: 50% 0%;
+    
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+     
+      .highAdjust {
+        -webkit-transform-origin:50% 30% !important;
+        transform-origin:50% 30% !important;
+    }
+}
+.viridian {
+    max-height:55%;
+    max-width:50%;
+}
+.noadjust {
+    transform-origin: 50% 0%;
+    -webkit-transform-origin: 50% 0%;
 }
