@@ -258,8 +258,8 @@ body {
 }
 
 #scaleIpad {
-    transform-origin: 50% 0%;
-    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 15%;
+    -webkit-transform-origin: 50% 15%;
     width:100%;
     height:100%;
     position: relative;
