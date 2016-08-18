@@ -44,7 +44,7 @@ function selectionScreen() {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1.2, ease: Back.easeOut.config(1.7)},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.9);
@@ -53,7 +53,7 @@ function selectionScreen() {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1.2, ease: Back.easeOut.config(1.7)},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
@@ -68,21 +68,56 @@ function selectionScreen() {
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
     }
 }
+function sugarHides() {
+    var eyes = document.getElementsByClassName("eye");
+    var tl = new TimelineMax({repeat:-1});
+        tl
+        .set(eyes[0].children[1],  {x:"0%"})
+        .set(eyes[1].children[1], {x:"0%"})
+            .fromTo(eyes[0].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.5)
+        .fromTo(eyes[1].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.5)
+        .fromTo(eyes[0].children[1], 0.5, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
+        .fromTo(eyes[1].children[1], 0.5, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
+        .fromTo(eyes[0].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
+        .fromTo(eyes[1].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
+        .fromTo(eyes[0].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
+        .fromTo(eyes[1].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
+        .fromTo(eyes[0].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
+        .fromTo(eyes[1].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
+        .fromTo(eyes[0].children[1], 0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
+        .fromTo(eyes[1].children[1],0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
+        .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:Circ.easeOut},3.3)
+        .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:Circ.easeOut},3.3)
+        ;
 
+}
 function allAboutInitial() {
+    
     displayBotMenu("", true);
     displayMenu("", true, "walkthrough.html",function() {
         selectionScreen();
     });
-    var allabout = window.localStorage.getItem("allabout");
-    
     var greencircles = document.getElementsByClassName("greencircle");
+     TweenMax.to(greencircles, 0.2, {opacity:0, ease: Circ.easeOut});
+    
+    var allabout = window.localStorage.getItem("allabout");
+    setTimeout(function(){
+        if(allabout == "8") {
+            idc("goFinish").style.visibility = "visible";
+                 TweenMax.fromTo(idc("goFinish"), 1, {scale:0}, {scale:1, ease: Back.easeOut.config(1.7)});
+
+        }
+        }, 1800);
+    setTimeout(function(){
      TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.5, ease: Circ.easeOut});
-     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0}, {scale:1, ease: Back.easeOut},0.2);
+     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
 
     for(i = 0; i < parseInt(allabout) + 1;i++) {
      TweenMax.fromTo(greencircles[i], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
     }
+         TweenMax.fromTo(greencircles[0], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
+
+        }, 600);
 }
 function allaboutComplete(num) {
     var allabout = window.localStorage.getItem("allabout");
@@ -92,6 +127,44 @@ function allaboutComplete(num) {
     }
     if(parseInt(allabout) < num) {
         window.localStorage.setItem("allabout", num);
+    }
+}
+var slideDoneabout2 = false;
+function allabout2Next() {
+    if(!slideDoneabout2) {
+        
+    var initialItem = idc("onesecond");
+    var activeI = initialItem.getElementsByClassName("active")[0];
+    
+             var tla = new TimelineMax();    
+    var slideMenu = document.getElementsByClassName("slideMenu")[0];
+        if(initialItem.children[0].className = "slide active") {
+    tla.fromTo(initialItem.parentNode.children[1], 0.3, {scale:"0"}, {scale:"1"}).fromTo(initialItem.parentNode.children[0], 0.3, {scale:"1"}, {scale:"0"})
+          .to(initialItem.children[0], 1,  {x:"-100%", ease: Circ.easeOut,onComplete:function() {
+              initialItem.children[0].className = "slide";
+              initialItem.children[1].className = "slide active";
+              slideMenu.children[0].className = "vw2 vwh2";
+              slideMenu.children[1].className = "vw2 vwh2 active";
+              initialItem.parentNode.children[0].className = "vhmt9 vhmb1 fontv6 maintitle";
+              initialItem.parentNode.children[1].className = "vhmt9 vhmb1 fontv6 maintitle active";
+             var tl = new TimelineMax();    
+             tl.fromTo(initialItem.children[1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeIn})
+             .fromTo(initialItem.parentNode.children[1], 1, {opacity:"0"}, {opacity:"1", ease: Circ.easeOut})
+             .staggerFromTo(initialItem.children[1].children, 1, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2);
+          }});
+            
+        }
+        slideDoneabout2 = true;
+    }
+    else {
+        pageChange("pages/allabout/allabout3.html", "fade", function() {
+         allaboutComplete(3);   
+              
+     displayMenu("", true, "all-about.html",function() {
+     allaboutComplete(3);       
+            allAboutInitial();
+    });
+        });
     }
 }
 function setupComplete(num) {
@@ -110,24 +183,31 @@ function setupComplete(num) {
 function setupPage() {
     var setupNum = window.localStorage.getItem("setupstate");
     
+    setTimeout(function(){
+        if(setupNum == "8") {
+            idc("goFinish").style.visibility = "visible";
+                 TweenMax.fromTo(idc("goFinish"), 1, {scale:0}, {scale:1, ease: Back.easeOut.config(1.7)});
+
+        }
+        }, 1800);
     displayMenu("", true, "walkthrough.html",function() {
         selectionScreen();
     });
     displayBotMenu("", true);
     
     var greencircles = document.getElementsByClassName("greencircle");
+     TweenMax.to(greencircles, 0.2, {opacity:0, ease: Circ.easeOut});
     
-     TweenMax.fromTo(idc("goFinish"), 0.2, {opacity:1}, {opacity:0, ease: Circ.easeOut});
-     TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.3, ease: Circ.easeOut});
-
-     TweenMax.fromTo(greencircles[0], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
-    
-    var greencircles = document.getElementsByClassName("greencircle");
+    setTimeout(function(){
      TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.5, ease: Circ.easeOut});
+     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
 
     for(i = 0; i < parseInt(setupNum) + 1;i++) {
      TweenMax.fromTo(greencircles[i], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
     }
+         TweenMax.fromTo(greencircles[0], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
+
+        }, 600);
 }
 
 function initialLoadTut() {
@@ -229,13 +309,13 @@ function initialnext() {
               activeI.className = "slide";
     disableTouch = false;
               initialItem.children[numFound].className = "slide active";
-             document.getElementsByClassName("slideMenu")[0].children[document.getElementsByClassName("slideMenu")[0].children.length -1].style.visibility = "visible";
+             idc("registerSlide").style.visibility = "visible";
              var tl = new TimelineMax();    
              tl.fromTo(initialItem.children[numFound], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut})
                  .fromTo(initialItem.children[numFound].children[0].children[0], 0.8, {y:30,opacity:0}, {y:0,opacity:1, ease: Circ.easeOut})
               .fromTo(initialItem.children[numFound].children[0].children[1], 0.8, {y:30,scale:0}, {y:0,scale:1, ease: Back.easeOut.config(1.7)})
               .fromTo(initialItem.children[numFound].children[1], 0.8, {y:30,scale:0}, {y:0,scale:1, ease: Back.easeOut.config(1.7)})
-              .fromTo(document.getElementsByClassName("slideMenu")[0].children[document.getElementsByClassName("slideMenu")[0].children.length -1], 0.8, {rotationX:"270deg"}, {rotationX:"0deg", ease: Back.easeOut.config(1.7)});
+              .fromTo(idc("registerSlide"), 0.8, {opacity:0,y:100}, {opacity:1,y:0, ease: Back.easeOut.config(1.7)});
           }});
     }
     else {
@@ -261,7 +341,7 @@ function initialback() {
         }
     }
     
-    if(numFound == 1) {
+    if(numFound == 0) {
           TweenMax.to(activeI, 1,  {x:"100%", ease: Circ.easeOut,onComplete:function() {
               activeI.className = "slide";
     disableTouch = false;
@@ -351,7 +431,7 @@ function onesecond() {
     
              var tla = new TimelineMax();    
     var slideMenu = document.getElementsByClassName("slideMenu")[0];
-             TweenMax.staggerFromTo(initialItem.children[0].children, 1, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2)
+             TweenMax.staggerFromTo(initialItem.children[0].children, 1, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2);
     var initialItemHamn = new Hammer(initialItem);
     initialItemHamn.on('swipeleft', function(ev) {
         if(initialItem.children[0].className = "slide active") {
@@ -789,6 +869,15 @@ function timeSelection() {
 
     });
 }
+function setReminders() {
+    
+    var greenCirc = document.getElementsByClassName("times")[0].children;
+    
+    window.localStorage.setItem("reminder1hour",parseInt(greenCirc[0].getElementsByTagName("span")[0].innerHTML));
+    window.localStorage.setItem("reminder2hour",parseInt(greenCirc[0].getElementsByTagName("span")[1].innerHTML));
+    window.localStorage.setItem("reminder1minute",parseInt(greenCirc[1].getElementsByTagName("span")[0].innerHTML));
+    window.localStorage.setItem("reminder2minute",parseInt(greenCirc[1].getElementsByTagName("span")[1].innerHTML));
+}
 function intake(num) {
     if(num == 0) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
@@ -822,11 +911,11 @@ function intake(num) {
 function motivation(num, ele) {
     if(ele.getAttribute("active") == "false") {
         ele.setAttribute("active", true);
-        window.localStorage.setItem("motivation" + num, "true");
+        window.localStorage.setItem("motivator" + num, "true");
     }
     else {
         ele.setAttribute("active", false);
-        window.localStorage.setItem("motivation" + num, "false");
+        window.localStorage.setItem("motivator" + num, "false");
     }
 }
 
@@ -957,7 +1046,8 @@ function startPlan() {
 function profileSetup() {
     var maintable = idc("maintable");
     var mainrow = maintable.getElementsByClassName("row");
-    
+    personalJSON = JSON.parse(window.localStorage.getItem("data"));
+    alert(personalJSON);
     mainrow[0].children[1].children[0].innerHTML = personalJSON["personalData"]["firstname"];
     mainrow[1].children[1].children[0].innerHTML = personalJSON["personalData"]["age"];
     mainrow[2].children[1].children[0].innerHTML = personalJSON["personalData"]["gender"];
@@ -972,7 +1062,7 @@ function profileSetup() {
     reminder += ":" + window.localStorage.getItem("reminder2minute");
     mainrow[5].children[1].children[0].innerHTML = reminder;
 
-    var sugarintake = window.localStorage.setItem("sugarintake");
+    var sugarintake = window.localStorage.getItem("sugarintake");
     mainrow[6].children[1].children[0].innerHTML = sugarintake;
     var motivators1 = window.localStorage.getItem("motivator0" );
     var motivators2 = window.localStorage.getItem("motivator1" );
@@ -1022,6 +1112,8 @@ function recipeTime(num) {
         }
     }
 }
+
+var homepageLink = "";
 function seerecipes() {
     var planItem = idc("plan");
     
@@ -1034,4 +1126,152 @@ function seerecipes() {
             });   
         });
     });
+}
+function daily() {
+    displayBotMenu("", true);
+                displayMenu("", true, "login.html",function() {loginMenu();
+                });
+    var startday = window.localStorage.setItem("startday", 15);
+    var startday = window.localStorage.setItem("savedsugar", 19);
+    var startday = window.localStorage.getItem("startday");
+    var startmonth = window.localStorage.getItem("startmonth");
+    var startyear = window.localStorage.getItem("startyear");
+    var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+    var firstDate = new Date(startyear,startmonth,startday);
+    var secondDate = new Date();
+    if (firstDate > secondDate) {
+        var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+        idc("dailynum").innerHTML = diffDays + " days away";
+        
+        document.getElementsByClassName("noday")[0].style.display ="block";
+        document.getElementById("mealplantoday").onclick = function() {
+            pageChange("pages/setup/7dayplan.html", "fade", function() { 
+                sevenDayPlan();
+                displayMenu("", true, "daily.html",function() {  
+                    daily();
+                });
+            });
+        }
+    }
+    else if(diffDays < 8) {
+        var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) ;
+        idc("dailynum").innerHTML = "Day " + diffDays;
+        document.getElementsByClassName("daily" + diffDays)[0].style.display = "block";
+        var gramsSaved = parseInt(window.localStorage.getItem("savedsugar"));
+        var sugarsaved = {amount:0};
+        TweenLite.to(sugarsaved, 1, {amount:gramsSaved, roundProps:"amount",onUpdate:function(){
+            if(sugarsaved.amount < 100) {
+                if(sugarsaved.amount < 10) {
+  idc("gramSaved").innerHTML = "00" +sugarsaved.amount;
+            }
+                else {
+  idc("gramSaved").innerHTML = "0" +sugarsaved.amount;
+
+                }
+            }
+                else {
+  idc("gramSaved").innerHTML =sugarsaved.amount;
+
+                }
+}, ease:Circ.easeOut});
+        
+        document.getElementById("mealplantoday").onclick = function() {
+            pageChange("pages/recipes/day" + diffDays + ".html", "fade", function() {
+                displayMenu("", true, "daily.html",function() {  
+                    daily();
+                });
+            });
+        }
+    }
+    else {
+        
+            pageChange("pages/finished.html", "fade", function() { 
+               
+            });
+    }
+    
+}
+function moodClick(ele,num) {
+    var addstring = "";
+            if(window.localStorage.getItem("mood") != null) {
+                addstring = window.localStorage.getItem("mood");
+            }
+                
+                
+    if(ele.getAttribute("active") == "false") {
+        ele.setAttribute("active", "true");
+        TweenMax.to(ele.children[0], 0.2,  {scale:"0", ease: Circ.easeOut,onComplete:function() {
+            
+            window.localStorage.setItem("mood", addstring + "," + num + ";" + Date() + ";active");
+            ele.children[0].src = "img/emoji/" + ele.children[0].getAttribute("url") + ".png";
+            TweenMax.to(ele.children[0], 0.2,  {scale:"1", ease: Circ.easeOut});
+        }});
+
+    }
+    else {
+        ele.setAttribute("active", "false");
+        TweenMax.to(ele.children[0], 0.2,  {scale:"0", ease: Circ.easeOut,onComplete:function() {
+            window.localStorage.setItem("mood", addstring + "," + num + ";" + Date() + ";inactive");
+            
+            ele.children[0].src = "img/emoji/" + ele.children[0].getAttribute("url") + "-grey.png";
+            TweenMax.to(ele.children[0], 0.2,  {scale:"1", ease: Circ.easeOut});
+        }});
+    }
+}
+function openFeeling(ele) {
+}
+var shoppingList = {list:[]};
+function openShopping() {
+    
+    shoppingList = JSON.parse(window.localStorage.getItem("shoppingList"));
+    var scrollIngred = document.getElementsByClassName("scrollIngred")[0].getElementsByTagName("button");
+    
+    for(i = 0; i < shoppingList.list.length;i++) {
+        if(shoppingList.list[i].active == "true") {
+            scrollIngred[shoppingList.list[i].name].setAttribute("active","true");
+        }
+    }
+}
+function gotShopping(ele) {
+    var savedInt = 0;
+    var scrollIngred = document.getElementsByClassName("scrollIngred")[0];
+    for(i = 0; i < scrollIngred.getElementsByTagName("button").length;i++) {
+        if(ele == scrollIngred.getElementsByTagName("button")[i]) {
+            savedInt = i;
+        }
+    }
+    
+    if(ele.getAttribute("active") == "false") {
+        ele.setAttribute("active", "true");
+        var numAmount = false;
+    var listpos = 0;
+        for(i = 0; i < shoppingList.list.length;i++) {
+            if(shoppingList.list[i].name == savedInt) {
+               numAmount  = true;
+                listpos = i;
+    break;
+            }
+        }
+        if(numAmount) {
+            shoppingList.list[listpos].active = "true";
+        }
+        else {
+            shoppingList.list.push({name:savedInt,active:"true"});
+        }
+        
+    }
+    else {
+        ele.setAttribute("active", "false");
+        var listpos = 0;
+        for(i = 0; i < shoppingList.list.length;i++) {
+            if(shoppingList.list[i].name == savedInt) {
+               numAmount  = true;
+                listpos = i;
+                break;
+            }
+        }
+        shoppingList.list[listpos].active = "false";
+
+    }
+    window.localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
 }

@@ -6,22 +6,29 @@
 
 <body>
     <div id="full" class="app textureBack">
+        <img class="maxh5 vhmt2 nextButton" onclick='
+    pageChange("pages/allabout/allabout8.html", "fade", function() {
+     allaboutComplete(8);  
+                                                           
+     displayMenu("", true, "all-about.html",function() {
+     allaboutComplete(8);       
+            allAboutInitial();
+    });
+    });' src="img/buttons/next.png" />
         <div id="scaleIpad"  class="highAdjust">
         <div id="oneseven" class="blueCentralCircle vw100 vwh100 scaleAddlow">
             <div class="slide active">
-                <h2 class="fontv6 vhmt6 vhmb1" style="color:#abc433;font-weight:normal;">The Viridian 7 Day<br>Sugar Detox Kit</h2>
-                <p class="fontv4" style="margin:0;">Get your Viridian 7 Day Detox Pack available<br>in your local health food store.</p>
+                <h2 class="fontv6 vhmt6 vhmb1 vhmt10" style="color:#abc433;font-weight:normal;">The Viridian 7 Day<br>Sugar Detox Kit</h2>
+                <p class="fontv4" style="margin:0;">Get your Viridian 7 Day Detox Pack <br>from your local health food store.</p>
                 <ul  class="fontv4">
                     <li>&#8226;Contains special supplement & guide. </li>
                     <li>&#8226;A 7 day plan to follow. </li>
                     <li>&#8226;Healthy recipes to follow every day. </li>
-                    <li>&#8226;Take the special viridian supplements. </li>
-                    <li>&#8226;After 7 days – feel transformed.</li>
                 </ul>
-                <img onclick='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");' class="vhmt1" style="margin:0 auto; display:block; max-width:26%;" src="img/green-pack.png" />
+                <img class="vhmt4" onclick='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");'  style="margin-left: auto;margin-right: auto; display:block; max-width:26%;" src="img/green-pack.png" />
             </div>
             <div class="slide ">
-                <h2 class="fontv6 vhmt4 vhmb1" style="color:#abc433;font-weight:normal;">Nutritional<br>Support for Healthy<br>Blood Glucose</h2>
+                <h2 class="fontv6 vhmt4 vhmt1" style="color:#abc433;font-weight:normal;">Nutritional<br>Support for Healthy<br>Blood Glucose</h2>
                 <p class="fontv3" style="margin:0 12.5%; width:75%"><span style="font-size:1.2em;">While you are doing your 7-Day Sugar Detox nutritional support with Cinnamon, Chromium and Lipoic acid may help support your food plan and success. Chromium is an important mineral that contributes to the maintenance of normal blood glucose levels, while Cinnamon, also known as “sweet wood” has been used in several clinical studies as well as having a long history of traditional use. We recommend taking two capsules daily, one with breakfast and one with dinner.</span></p>
             </div>
                 <div class="slideMenu vw8 vwh1">

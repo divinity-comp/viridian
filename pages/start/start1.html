@@ -6,8 +6,8 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="scaleIpad">
-        <div id="initial" class="blueCentralCircle vw100 vwh100 scaleAdd">
+        <div id="scaleIpad"  class="highAdjust">
+        <div id="initial" class="blueCentralCircle vw100 vwh100 scaleAdd" style="overflow:hidden;">
             <div class="slide active" scale="0.75" num="0">
                 <h2 class="fontv8 vwmt11">Have You<br>Stocked Up?</h2>
                 <p class="fontv5" >You’ll need your Viridian<br>supplements and meal plan<br>ingredients before you start</p>
@@ -24,13 +24,13 @@
             </div>
             <div class="slide " num="1" scale="1.2">
                 <h2  class="fontv7 vwmt11">Remember to<br>follow these 7 rules</h2>
-                <div class="ptags"><p class="fontv4 ">• Take your Viridian Supplement </p>
- <p class="fontv4 ">• Do not add any form of sugar or<br>alternative sweeteners.<br>Your allowance is zero. </p>
- <p class="fontv4 ">• No sugary drinks and sodas. </p>
- <p class="fontv4 ">• Avoid processed foods </p>
- <p class="fontv4 ">• Eat 3 meals a day – this will keep your<br>blood sugar stable. </p>
- <p class="fontv4 ">• Eat plenty of vegetables and limit fruit<br>to 2 to 3 servings per day </p>
- <p class="fontv4 ">• Drink plenty of water</p></div>
+                <div class="ptags"><p class="fontv4 ">1. Take your Viridian Supplement </p>
+ <p class="fontv4 ">2. Do not add any form of sugar or<br>alternative sweeteners.<br>Your allowance is zero. </p>
+ <p class="fontv4 ">3. No sugary drinks and sodas. </p>
+ <p class="fontv4 ">4. Avoid processed foods </p>
+ <p class="fontv4 ">5. Eat 3 meals a day – this will keep your<br>blood sugar stable. </p>
+ <p class="fontv4 ">6. Eat plenty of vegetables and limit fruit<br>to 2 to 3 servings per day </p>
+ <p class="fontv4 ">7. Drink plenty of water</p></div>
             </div>
             <div class="slide " num="2" scale="1.2">
                 <h2 class="fontv8 vwmt8 vwmt2">Ready,<br>Steady, Go</h2>
@@ -49,6 +49,8 @@ Have a quick recap of the<br>rules then you’re good to go.</p>
                     <img  onclick='
     pageChange("pages/daily.html", "fade", function() { 
    window.localStorage.setItem("setupdone","done");
+                                  daily();
+                        homepageLink ="pages/daily.html";
     displayMenu("", true, "login.html",function() {
     });   
     });' src="img/start.png" />

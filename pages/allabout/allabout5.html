@@ -6,6 +6,15 @@
 
 <body>
     <div id="full" class="app textureBack">
+        <img class="maxh5 vhmt2 nextButton" onclick='
+    pageChange("pages/allabout/allabout6.html", "fade", function() {
+     allaboutComplete(6);    
+                                                           
+     displayMenu("", true, "all-about.html",function() {
+     allaboutComplete(6);       
+            allAboutInitial();
+    });
+    });' src="img/buttons/next.png" />
         <div id="scaleIpad" class="highAdjust">
         <div id="disclaimer" class="blueCentralCircle vw100 vwh100 scaleAddlow">
             <h2 class="fontv6 vhmt12 vhmb1" style="color:#abc433;font-weight:normal;">How To Use The App</h2>
