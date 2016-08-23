@@ -1253,8 +1253,8 @@ function daily() {
     displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
                 });
-    var startday = window.localStorage.setItem("startday", 15);
-    var startday = window.localStorage.setItem("savedsugar", 19);
+   // var startday = window.localStorage.setItem("startday", 15);
+    //var startday = window.localStorage.setItem("savedsugar", 19);
     var startday = window.localStorage.getItem("startday");
     var startmonth = window.localStorage.getItem("startmonth");
     var startyear = window.localStorage.getItem("startyear");
