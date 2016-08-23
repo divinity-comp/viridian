@@ -511,7 +511,16 @@ function rulesPop() {
     
     var initialItemHamn = new Hammer(initialItem);
     initialItemHamn.on('swipeleft', function(ev) {
-    var activeI = initialItem.getElementsByClassName("active")[0];
+        rulesLeft();
+    });
+    initialItemHamn.on('swiperight', function(ev) {
+        rulesRight();
+    });
+}
+function rulesLeft() {
+    var initialItem = idc("rules");
+    var initialItems = initialItem.getElementsByClassName("slide");
+       var activeI = initialItem.getElementsByClassName("active")[0];
     var numFound = parseInt(activeI.getAttribute("num"));
     var  slideMenu = document.getElementsByClassName("slideMenu")[0];
         if(numFound + 1 < initialItem.getElementsByClassName("slide").length) {
@@ -530,8 +539,11 @@ function rulesPop() {
              tl.fromTo(initialItems[numFound + 1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut});
           }});
         }
-    });
-    initialItemHamn.on('swiperight', function(ev) {
+}
+function rulesRight() {
+    var initialItem = idc("rules");
+    var initialItems = initialItem.getElementsByClassName("slide");
+
     var activeI = initialItem.getElementsByClassName("active")[0];
     var numFound = parseInt(activeI.getAttribute("num"));
     var  slideMenu = document.getElementsByClassName("slideMenu")[0];
@@ -553,7 +565,6 @@ function rulesPop() {
              tl.fromTo(initialItems[numFound -1], 1, {x:"-100%"}, {x:"0%", ease: Circ.easeOut});
           }});
             }
-    });
 }
 var pandisable = false;
 function dateSelection() {
@@ -913,6 +924,22 @@ function intake(num) {
         }});
     }
 }
+function openMotivator() {
+    var mot= document.getElementsByClassName("mot")[0];
+    if(window.localStorage.getItem("motivator0") == "true") {
+        mot.children[0].setAttribute("active", true);
+    }
+    if(window.localStorage.getItem("motivator1") == "true") {
+        mot.children[1].setAttribute("active", true);
+    }
+    if(window.localStorage.getItem("motivator2") == "true") {
+        mot.children[2].setAttribute("active", true);
+    }
+    if(window.localStorage.getItem("motivator3") == "true") {
+        mot.children[3].setAttribute("active", true);
+    }
+    
+}
 function motivation(num, ele) {
     if(ele.getAttribute("active") == "false") {
         ele.setAttribute("active", true);
@@ -922,6 +949,7 @@ function motivation(num, ele) {
         ele.setAttribute("active", false);
         window.localStorage.setItem("motivator" + num, "false");
     }
+        profileAccept();
 }
 
 
@@ -974,11 +1002,11 @@ function weightChange() {
         pandisable = true;
             weight++;
         window.localStorage.setItem("weight",weight);
-        TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+        TweenMax.to(idc("weight").getElementsByTagName("span")[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
                
-                   idc("ageswipe").getElementsByTagName("span")[0].innerHTML = weight + "kg";
+                   idc("weight").getElementsByTagName("span")[0].innerHTML = weight + "kg";
             pandisable = false;
-            TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+            TweenMax.fromTo(idc("weight").getElementsByTagName("span")[0], 0.3,{y:"100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
         }});
         }
 profileAccept();
@@ -987,16 +1015,16 @@ profileAccept();
         if(!pandisable) {
             pandisable = true;
 
-            age--;
+            weight--;
 
-            if(age < 1) {
-                age = 1;
+            if(weight < 1) {
+                weight = 1;
             }
         window.localStorage.setItem("weight",weight);
-            TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
-               idc("ageswipe").getElementsByTagName("span")[0].innerHTML = weight + "kg";
+            TweenMax.to(idc("weight").getElementsByTagName("span")[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               idc("weight").getElementsByTagName("span")[0].innerHTML = weight + "kg";
                 pandisable = false;
-                TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"-100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+                TweenMax.fromTo(idc("weight").getElementsByTagName("span")[0], 0.3,{y:"-100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
             }});
         }
         profileAccept();
@@ -1015,10 +1043,24 @@ function changeGender(ele) {
     }
         profileAccept();
 }
-function sevenDayPlan() {
+function sevenDayPlan(numAuto) {
     var initialItem = idc("plan");
     var initialItems = initialItem.getElementsByClassName("slide");
     disableTouch = true;
+    
+    if(numAuto) {
+         for(i = 0; i < initialItems.length;i++) {
+            if(i == numAuto) {
+                initialItems[i].className = "slide active";
+                document.getElementsByClassName("slideMenu")[0].children[i].className = "vw2 vwh2 active";
+              idc("dayMount").getElementsByTagName("span")[0].innerHTML = i + 1;
+            }
+            else {
+                initialItems[i].className = "slide";
+                document.getElementsByClassName("slideMenu")[0].children[i].className = "vw2 vwh2";
+            }
+        }
+    }
     
     var activeI = initialItem.getElementsByClassName("active")[0];
     
@@ -1149,7 +1191,7 @@ function profileSetup() {
     mainrow[3].children[1].children[0].innerHTML = personalJSON["personalData"]["email"];
     
     var startday = window.localStorage.getItem("startday");
-    startday += "/" + window.localStorage.getItem("startmonth");
+    startday += "/" + (parseInt(window.localStorage.getItem("startmonth")) +1);
     startday += "/" + window.localStorage.getItem("startyear");
     mainrow[4].children[1].children[0].innerHTML = startday;
     var reminder =     window.localStorage.getItem("reminder1hour");
@@ -1160,27 +1202,27 @@ function profileSetup() {
 
     var sugarintake = window.localStorage.getItem("sugarintake");
     mainrow[6].children[1].children[0].innerHTML = sugarintake;
-    var motivators1 = window.localStorage.getItem("motivator0" );
-    var motivators2 = window.localStorage.getItem("motivator1" );
-    var motivators3 = window.localStorage.getItem("motivator2" );
-    var motivators4 = window.localStorage.getItem("motivator3" );
+    var motivators1 = personalJSON["personalData"]["motivators1"];
+    var motivators2 = personalJSON["personalData"]["motivators2"];
+    var motivators3 = personalJSON["personalData"]["motivators3"];
+    var motivators4 = personalJSON["personalData"]["motivators4"];
     mainrow[7].children[1].children[0].innerHTML = "";
-    if(motivators1)
+    if(motivators1 == "true")
         mainrow[7].children[1].children[0].innerHTML += "Weight<br>";
-    if(motivators2)
+    if(motivators2 == "true")
         mainrow[7].children[1].children[0].innerHTML += "Health<br>";
-    if(motivators3)
+    if(motivators3 == "true")
         mainrow[7].children[1].children[0].innerHTML += "Energy levels & sleep<br>";
-    if(motivators4)
+    if(motivators4 == "true")
         mainrow[7].children[1].children[0].innerHTML += "Mood";
     mainrow[8].children[1].children[0].innerHTML = personalJSON["personalData"]["weight"];
 }
 function addprofileChange(functiontorun) {
     document.getElementsByClassName("close")[0].ontouchstart = function() {
-         profileSetup();           closePopup();functiontorun();
+         functiontorun();profileSetup();           closePopup();
     }
     document.getElementsByClassName("setButton")[0].ontouchstart = function() {
-         profileSetup();           closePopup();functiontorun();
+        functiontorun(); profileSetup();           closePopup();
     }
 }
 function profileAccept() {
@@ -1241,7 +1283,7 @@ function seerecipes() {
    var singleItem = planItem.getElementsByClassName("active")[0];
     pageChange("pages/recipes/day" + (parseInt(singleItem.getAttribute("num")) + 1 ) + ".html", "fade", function() {
         displayMenu("", true, "setup/7dayplan.html",function() {  
-            sevenDayPlan();
+            sevenDayPlan(parseInt(singleItem.getAttribute("num") ));
             displayMenu("", true, "set-up.html",function() {
              setupComplete(7); 
             });   
@@ -1341,7 +1383,7 @@ function openFeeling(ele) {
 }
 var shoppingList = {list:[]};
 function openShopping() {
-    
+    if(window.localStorage.getItem("shoppingList"))
     shoppingList = JSON.parse(window.localStorage.getItem("shoppingList"));
     var scrollIngred = document.getElementsByClassName("scrollIngred")[0].getElementsByTagName("button");
     
@@ -1359,17 +1401,19 @@ function gotShopping(ele) {
             savedInt = i;
         }
     }
-    
     if(ele.getAttribute("active") == "false") {
         ele.setAttribute("active", "true");
         var numAmount = false;
     var listpos = 0;
+        if(shoppingList.list.length != 0) {
+          
         for(i = 0; i < shoppingList.list.length;i++) {
             if(shoppingList.list[i].name == savedInt) {
                numAmount  = true;
                 listpos = i;
     break;
             }
+        }  
         }
         if(numAmount) {
             shoppingList.list[listpos].active = "true";

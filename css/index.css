@@ -454,6 +454,10 @@ button {
         -webkit-transform-origin:50% 30% !important;
         transform-origin:50% 30% !important;
     }
+      .midiAdjust {
+        -webkit-transform-origin:50% 20% !important;
+        transform-origin:50% 20% !important;
+    }
 }
 .viridian {
     max-height:55%;
@@ -518,7 +522,6 @@ position: relative;
 }
 
 .title button:nth-child(2) {
-    
     z-index: 6;
     position: relative;
 }

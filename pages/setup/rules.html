@@ -54,6 +54,8 @@
                 </div>
                 <p class="fontv6">Drink plenty of water.</p>
             </div>
+            <div ontouchstart="rulesLeft()" class="arrow right"></div>
+            <div ontouchstart="rulesRight()" class="arrow left"></div>
         </div>
             <div class="slideMenu vw40 vwh1">
                 <div class="vw2 vwh2 active"></div>
@@ -65,8 +67,43 @@
                 <div class="vw2 vwh2 "></div>
             </div>
         <style>
+            .arrow {
+                position: absolute;
+                top:0;
+                bottom:0; margin:auto;
+                height:0;
+                width:0;
+                border-top:20px solid transparent;
+                border-bottom:20px solid transparent;
+            }
+            .arrow.left {
+                border-right:20px solid #fff;
+                right:100%;
+            }
+            .arrow.left:after,.arrow.right:after {
+                content:'';
+                position: absolute;
+                left:2px;
+                top:0;
+                bottom:0; margin:auto;
+                height:0;
+                width:0;
+                border-top:16px solid transparent;
+                border-bottom:16px solid transparent;
+            }
+            .arrow.left:after  {
+                border-right:16px solid #007086;
+            }
+            .arrow.right:after {
+                border-left:16px solid #007086;
+                right:2px;
+                left:auto;
+            }
+            .arrow.right {
+                border-left:20px solid #fff;
+                left:100%;
+            }
             #rules {
-                overflow: hidden;
             }
             #rules .slide {
                 visibility: hidden;

@@ -7,13 +7,13 @@
 <body>
     <div id="full" class="app textureBack">
         <div id="scaleIpad">
-        <div class="vwh50 hideProf">
+        <div class="vh30 hideProf">
             <div id="plan" class="blueCentralCircle vw85 vwh85">
-                <h2 class="vhmt20 fontv8 vhmb2">All About You</h2>
+                <h2 class="vhmt21 fontv8 vhmb2">All About You</h2>
                 <img src="img/profile.png" />
             </div>
         </div>
-            <div id="maintable" class="maintable">
+            <div id="maintable" class="maintable vh66">
                 <div class="row " ontouchstart='
     pageChange("pages/setup/name.html", "popup", function() {  
                           
@@ -59,7 +59,7 @@
                 <div class="row " ontouchstart='
     pageChange("pages/setup/start-date.html", "popup", function() {
                           dateSelection();
-                                    addprofileChange();   
+                                    addprofileChange(profileAccept);   
                            
     });'>
                     <div class="half ">
@@ -101,7 +101,8 @@
                 <hr>
                 <div  ontouchstart='
     pageChange("pages/setup/motivation.html", "popup", function() { 
-                                    addprofileChange();
+                                    openMotivator();
+                                    addprofileChange(profileAccept);
     });' class="row ">
                     <div class="half ">
                         <p class="fontv4 lineh10">Motivators</p>
