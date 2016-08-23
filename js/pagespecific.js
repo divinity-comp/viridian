@@ -80,10 +80,10 @@ function sugarHides() {
         .fromTo(eyes[1].children[1], 0.5, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
         .fromTo(eyes[0].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
         .fromTo(eyes[1].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
-        .fromTo(eyes[0].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
-        .fromTo(eyes[1].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
-        .fromTo(eyes[0].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
-        .fromTo(eyes[1].children[0], 0.1, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
+        .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
+        .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
+        .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
+        .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
         .fromTo(eyes[0].children[1], 0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
         .fromTo(eyes[1].children[1],0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
         .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:Circ.easeOut},3.3)
@@ -158,7 +158,8 @@ function allabout2Next() {
     }
     else {
         pageChange("pages/allabout/allabout3.html", "fade", function() {
-         allaboutComplete(3);   
+         allaboutComplete(3);  
+            sugarHides();
               
      displayMenu("", true, "all-about.html",function() {
      allaboutComplete(3);       
@@ -684,6 +685,10 @@ function timeSelection() {
     var reminder1hour = new Hammer.Manager(greenCirc[0].getElementsByTagName("span")[0]);
     
     reminder1hour.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+        window.localStorage.setItem("reminder1hour",7);
+        window.localStorage.setItem("reminder1minute",30);
+        window.localStorage.setItem("reminder2hour",18);
+        window.localStorage.setItem("reminder2minute",30);
     var oneHour = 7;
     reminder1hour.on('panup', function(ev) {
         if(!pandisable) {
@@ -919,6 +924,97 @@ function motivation(num, ele) {
     }
 }
 
+
+function ageChange() {
+     var ageItem = new Hammer.Manager(idc("ageswipe"));
+    ageItem.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+    
+    var age = 25;
+    ageItem.on('panup', function(ev) {
+        if(!pandisable) {
+        pandisable = true;
+            age++;
+        window.localStorage.setItem("age",age);
+        TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               
+                   idc("ageswipe").getElementsByTagName("span")[0].innerHTML = age;
+            pandisable = false;
+            TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+        }});
+        }
+profileAccept();
+    });
+    ageItem.on('pandown', function(ev) {
+        if(!pandisable) {
+            pandisable = true;
+
+            age--;
+
+            if(age < 1) {
+                age = 1;
+            }
+        window.localStorage.setItem("age",age);
+            TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               idc("ageswipe").getElementsByTagName("span")[0].innerHTML = age;
+                pandisable = false;
+                TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"-100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+            }});
+        }
+        profileAccept();
+
+    });
+}
+function weightChange() {
+     var ageItem = new Hammer.Manager(idc("weight"));
+    ageItem.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+    
+    var weight = 75;
+    ageItem.on('panup', function(ev) {
+        if(!pandisable) {
+        pandisable = true;
+            weight++;
+        window.localStorage.setItem("weight",weight);
+        TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               
+                   idc("ageswipe").getElementsByTagName("span")[0].innerHTML = weight + "kg";
+            pandisable = false;
+            TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+        }});
+        }
+profileAccept();
+    });
+    ageItem.on('pandown', function(ev) {
+        if(!pandisable) {
+            pandisable = true;
+
+            age--;
+
+            if(age < 1) {
+                age = 1;
+            }
+        window.localStorage.setItem("weight",weight);
+            TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               idc("ageswipe").getElementsByTagName("span")[0].innerHTML = weight + "kg";
+                pandisable = false;
+                TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"-100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+            }});
+        }
+        profileAccept();
+
+    });
+}
+function changeGender(ele) {
+    var ptag = ele.getElementsByTagName("p")[1];
+    if(ptag.innerHTML == "" || ptag.innerHTML == "Male") {
+        ptag.innerHTML = "Female";
+        personalJSON["personalData"]["gender"] = "Male";
+    }
+    else {
+        ptag.innerHTML = "Male";
+        personalJSON["personalData"]["gender"] = "Female";
+    }
+        profileAccept();
+}
 function sevenDayPlan() {
     var initialItem = idc("plan");
     var initialItems = initialItem.getElementsByClassName("slide");
@@ -1047,10 +1143,10 @@ function profileSetup() {
     var maintable = idc("maintable");
     var mainrow = maintable.getElementsByClassName("row");
     personalJSON = JSON.parse(window.localStorage.getItem("data"));
-    alert(personalJSON);
     mainrow[0].children[1].children[0].innerHTML = personalJSON["personalData"]["firstname"];
     mainrow[1].children[1].children[0].innerHTML = personalJSON["personalData"]["age"];
     mainrow[2].children[1].children[0].innerHTML = personalJSON["personalData"]["gender"];
+    mainrow[3].children[1].children[0].innerHTML = personalJSON["personalData"]["email"];
     
     var startday = window.localStorage.getItem("startday");
     startday += "/" + window.localStorage.getItem("startmonth");
@@ -1070,13 +1166,38 @@ function profileSetup() {
     var motivators4 = window.localStorage.getItem("motivator3" );
     mainrow[7].children[1].children[0].innerHTML = "";
     if(motivators1)
-        mainrow[7].children[1].children[0].innerHTML += "weight ";
+        mainrow[7].children[1].children[0].innerHTML += "Weight<br>";
     if(motivators2)
-        mainrow[7].children[1].children[0].innerHTML += " health";
+        mainrow[7].children[1].children[0].innerHTML += "Health<br>";
     if(motivators3)
-        mainrow[7].children[1].children[0].innerHTML += "Energy levels & sleep";
+        mainrow[7].children[1].children[0].innerHTML += "Energy levels & sleep<br>";
     if(motivators4)
         mainrow[7].children[1].children[0].innerHTML += "Mood";
+    mainrow[8].children[1].children[0].innerHTML = personalJSON["personalData"]["weight"];
+}
+function addprofileChange(functiontorun) {
+    document.getElementsByClassName("close")[0].ontouchstart = function() {
+         profileSetup();           closePopup();functiontorun();
+    }
+    document.getElementsByClassName("setButton")[0].ontouchstart = function() {
+         profileSetup();           closePopup();functiontorun();
+    }
+}
+function profileAccept() {
+    personalJSON["personalData"]["age"] = window.localStorage.getItem("age" );
+    personalJSON["personalData"]["startday"] = window.localStorage.getItem("startday" );
+    personalJSON["personalData"]["startmonth"] = window.localStorage.getItem("startmonth" );
+    personalJSON["personalData"]["startyear"] = window.localStorage.getItem("startyear" );
+    personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
+    personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
+    personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
+    personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
+    personalJSON["personalData"]["motivators1"] = window.localStorage.getItem("motivator0" );
+    personalJSON["personalData"]["motivators2"] = window.localStorage.getItem("motivator1" );
+    personalJSON["personalData"]["motivators3"] = window.localStorage.getItem("motivator2" );
+    personalJSON["personalData"]["motivators4"] = window.localStorage.getItem("motivator3" );
+    personalJSON["personalData"]["weight"] = window.localStorage.getItem("weight" );
+    window.localStorage.setItem("data", JSON.stringify(personalJSON));
 }
 
 function methodswap(num, dnum) {
@@ -1097,7 +1218,7 @@ function methodswap(num, dnum) {
 }
 function recipeTime(num) {
     var docFind = document.getElementsByClassName("ingrd");
-    var docFindbutton = document.getElementsByClassName("recipe")[0].getElementsByTagName("button");
+    var docFindbutton = document.getElementsByClassName("recipe")[0].getElementsByTagName("div");
 
     for(i = 0; i < docFind.length;i++) {
         docFind[i].setAttribute("active", false);
@@ -1127,6 +1248,7 @@ function seerecipes() {
         });
     });
 }
+var diffDays;
 function daily() {
     displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
@@ -1139,12 +1261,12 @@ function daily() {
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
     var firstDate = new Date(startyear,startmonth,startday);
     var secondDate = new Date();
+         diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) ;
     if (firstDate > secondDate) {
-        var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
         idc("dailynum").innerHTML = diffDays + " days away";
         
         document.getElementsByClassName("noday")[0].style.display ="block";
-        document.getElementById("mealplantoday").onclick = function() {
+        document.getElementById("mealplantoday").ontouchstart = function() {
             pageChange("pages/setup/7dayplan.html", "fade", function() { 
                 sevenDayPlan();
                 displayMenu("", true, "daily.html",function() {  
@@ -1154,7 +1276,6 @@ function daily() {
         }
     }
     else if(diffDays < 8) {
-        var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) ;
         idc("dailynum").innerHTML = "Day " + diffDays;
         document.getElementsByClassName("daily" + diffDays)[0].style.display = "block";
         var gramsSaved = parseInt(window.localStorage.getItem("savedsugar"));
@@ -1175,7 +1296,7 @@ function daily() {
                 }
 }, ease:Circ.easeOut});
         
-        document.getElementById("mealplantoday").onclick = function() {
+        document.getElementById("mealplantoday").ontouchstart = function() {
             pageChange("pages/recipes/day" + diffDays + ".html", "fade", function() {
                 displayMenu("", true, "daily.html",function() {  
                     daily();
@@ -1184,7 +1305,6 @@ function daily() {
         }
     }
     else {
-        
             pageChange("pages/finished.html", "fade", function() { 
                
             });
@@ -1193,10 +1313,9 @@ function daily() {
 }
 function moodClick(ele,num) {
     var addstring = "";
-            if(window.localStorage.getItem("mood") != null) {
-                addstring = window.localStorage.getItem("mood");
-            }
-                
+    if(window.localStorage.getItem("mood") != null) {
+        addstring = window.localStorage.getItem("mood");
+    }         
                 
     if(ele.getAttribute("active") == "false") {
         ele.setAttribute("active", "true");
@@ -1274,4 +1393,38 @@ function gotShopping(ele) {
 
     }
     window.localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+}
+
+function shareToggle(toggleType,placeholder,successType) {
+    if(toggleType == "true") {
+        document.getElementById("popup").style.display = "block";
+        TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+        document.getElementById("popup").innerHTML = '<img class="close" ontouchstart="closePopup()" src="img/close.png" />';
+        document.getElementById("popup").innerHTML += '<img id="shareClick" class="fb-share vw20" src="img/buttons/fb-share.png"  />';
+
+        TweenMax.set(idc("shareClick"), {position:"absolute", top:"15%",y:50,left:0,right:0,zIndex:"99999999"});
+        document.getElementById("popup").innerHTML += '<input id="shareInput" type="text" class="fontv3 shareInput" placeholder="'+ placeholder +'" />';
+        TweenMax.set(idc("popup").children[2], {position:"absolute", padding:"0.5em",top:"15%",left:0,right:0,margin:"auto",zIndex:"99999999",scale:1.2  });
+        idc("shareInput").focus();
+        idc("shareClick").ontouchstart = function() {
+           shareToggle("false", idc("shareInput").placeholder); 
+        }
+    }
+    else {
+        shareNow(placeholder,idc("shareInput").value,"http://www.network-divinity.com/viridian/logo.png");
+        closePopup();
+    }
+}
+function shareNow(captionTitle,descriptionTitle,picturelink) {
+    facebookConnectPlugin.showDialog(JSON.stringify({method:"share",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}), 
+        function() {
+            alert("Added to your news feed");
+        }, 
+        function() {
+            alert("Not added to your news feed");
+    });
+}
+function setName() {
+    personalJSON["personalData"]["firstname"] = idc("name").value;
+    window.localStorage.setItem("data", JSON.stringify(personalJSON));
 }

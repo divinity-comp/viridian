@@ -6,9 +6,10 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <img class="maxh5 vhmt2 nextButton" onclick='
+        <img class="maxh5 vhmt2 nextButton" ontouchstart='
     pageChange("pages/allabout/allabout2.html", "fade", function() {
-     allaboutComplete(2);       
+     allaboutComplete(2);    
+                          onesecond();       
      displayMenu("", true, "all-about.html",function() {
      allaboutComplete(2);       
             allAboutInitial();
@@ -21,7 +22,7 @@
                 <p class="fontv4">Quitting sugar can transform your health by reducing sweet cravings, and improving your energy, metabolism, body weight and overall wellbeing. And scientific studies show that you may experience these benefits within days.</p>
                 <p  class="fontv4">Our easy 7 Day Sugar Detox helps you detox added sugars from your diet for better health and vitality.</p>
             </div>
-        <button onclick='
+        <button ontouchstart='
     pageChange("pages/allabout/video.html", "popup", function() {
                           
     });'  class="acceptT fontv4 vhmt2 vw32 vwh32">

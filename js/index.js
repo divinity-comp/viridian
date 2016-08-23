@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        window.localStorage.clear(); //try this to clear all local storage
+       // window.localStorage.clear(); //try this to clear all local storage
 
         this.bindEvents();
         var phoneModel = window.device.model;
@@ -93,6 +93,11 @@ var app = {
     receivedEvent: function(id) {
     },
     startApp: function() {
+        var splashScreen = 2000;
+        if(window.localStorage.getItem("doneintro") != "true") {
+            splashScreen = 6000;
+        }
+        
         setTimeout(function(){
 
             if(window.localStorage.getItem("setupdone") != "done") {
@@ -137,7 +142,7 @@ var app = {
                     
                 }
             }
-        }, 6200);
+        }, splashScreen);
     },
 	fblogin: function() {
 		var fbLoginSuccess = function (userData) {
@@ -255,7 +260,7 @@ function attemptRegisterV() {
     var passcodeV = idc("pass").value;
 
     if(usernameV != "" && passcodeV != "") {
-        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + usernameV +'","age":"' + "unknown" +'","relationship":"' + "unknown" + '", "description":"' + "unknown" +'","gender":"'+  "unknown" +'"  }, "version":0  }');
+        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":"' + "unknown" +'","relationship":"' + "unknown" + '", "description":"' + "unknown" +'","gender":"'+  "unknown" +'"  }, "version":0  }');
 
         ajaxPost(
             "http://www.network-divinity.com/viridian/register.php", 
@@ -380,7 +385,7 @@ function displayMenu(menuAnim, displayyes, backLink, backlinkFunction) {
     else {
         idc("navigation").style.display = "none";
     }
-    idc("backbutton").onclick = function() {
+    idc("backbutton").ontouchstart = function() {
         pageChange("pages/" + backLink, "fade", function() {
                     backlinkFunction();
         });

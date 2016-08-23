@@ -12,8 +12,8 @@
                 <h2 class="fontv8 vwmt11">Have You<br>Stocked Up?</h2>
                 <p class="fontv5" >You’ll need your Viridian<br>supplements and meal plan<br>ingredients before you start</p>
                 <div class="packs vw60">
-                    <img onclick='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");' src="img/green-pack.png" />
-                    <img  onclick='
+                    <img ontouchstart='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");' src="img/green-pack.png" />
+                    <img  ontouchstart='
     pageChange("pages/setup/shoppinglist.html", "fade", function() {  
     displayMenu("", true, "setup/start1.html",function() {
         displayMenu("", true, "walkthrough.html",function() {
@@ -38,7 +38,7 @@
 In just seven days you’re<br>going to feel amazing with<br>bags more energy.<br>
 Have a quick recap of the<br>rules then you’re good to go.</p>
                 <div class="packs vw60">
-                    <img onclick='
+                    <img ontouchstart='
     pageChange("pages/setup/rules-single.html", "fade", function() {  rulesPop();
     displayMenu("", true, "start/start1.html",function() {
           startPlan();                        
@@ -46,7 +46,7 @@ Have a quick recap of the<br>rules then you’re good to go.</p>
     });   
     });   
     });' src="img/rules.png" />
-                    <img  onclick='
+                    <img  ontouchstart='
     pageChange("pages/daily.html", "fade", function() { 
    window.localStorage.setItem("setupdone","done");
                                   daily();

@@ -7,38 +7,40 @@
 <body>
     <div id="full" class="app textureBack">
         <div id="scaleIpad">
-        <img class="close" onclick="  
-     setupComplete(6); closePopup()" src="img/close.png" />
+        <img class="close" ontouchstart="  
+     setupComplete(6);        
+        setupPage();     profileAccept();      closePopup()" src="img/close.png" />
         <div id="mot" class="blueCentralCircle vw90 vwh90 " >
                 <h2 class="ttile vhmt4 fontv5 vhmb1">Why you're<br>doing this</h2>
                 <p class="fontv4 vhmt1 vhmb1">Keeping your goals in mind can help<br>you keep your resolve and increase<br>your chance of success.</p>
                 <p class="fontv4 vhmt1 vhmb1">Tell us what’s most important to you.</p>
             <div class="vw88 vwh29 mot">
                 
-                <div onclick="motivation(0,this)" active="false" class=" vw20 vwh20 fontv3 ">
+                <div ontouchstart="motivation(0,this)" active="false" class=" vw20 vwh20 fontv3 ">
                     <img src="img/motivation/weight-green.png"/>
                     <img src="img/motivation/weight-blue.png"/>
                     <p class="fontv3">weight</p>
                 </div>
-                <div onclick="motivation(1,this)" active="false" class=" vw20 vwh20 fontv3 ">
+                <div ontouchstart="motivation(1,this)" active="false" class=" vw20 vwh20 fontv3 ">
                     <img src="img/motivation/cross-green.png"/>
                     <img src="img/motivation/cross-blue.png"/>
                     <p class="fontv3">Health</p>
                 </div>
-                <div onclick="motivation(2,this)" active="false" class=" vw20 vwh20 fontv3 ">
+                <div ontouchstart="motivation(2,this)" active="false" class=" vw20 vwh20 fontv3 ">
                     <img src="img/motivation/sleep-green.png"/>
                     <img src="img/motivation/sleep-blue.png"/>
                     <p class="fontv3">Energy Levels<br>& Sleep</p>
                 </div>
-                <div onclick="motivation(3,this)" active="false" class=" vw20 vwh20 fontv3 ">
+                <div ontouchstart="motivation(3,this)" active="false" class=" vw20 vwh20 fontv3 ">
                     <img src="img/motivation/smile-green.png"/>
                     <img src="img/motivation/smile-blue.png"/>
                     <p class="fontv3">Mood</p>
                 </div>
             </div>
             <p class="fontv4 vhmt1" style="clear:both;">Select one or more motivators<br>to help keep you focused.</p>
-            <button onclick="  
-     setupComplete(6); closePopup()" class="setButton vw25 vwh25 fontv7">Set</button>
+            <button ontouchstart="  profileAccept();
+     setupComplete(6);         
+        setupPage();          closePopup()" class="setButton vw25 vwh25 fontv7">Set</button>
         </div>
         <style>
             .blueCentralCircle {

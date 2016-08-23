@@ -14,10 +14,10 @@
             </button>
             <div class="recipe">
                 <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(0)" active="true"><span>Breakfast</span></button>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(1)">Lunch</button>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(2)">Snack<br>ideas</button>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(3)">Dinner</button>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(1)">Lunch</div>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(2)">Snack<br>ideas</div>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
         <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
@@ -25,10 +25,11 @@
                 <div>
                     <button class=" vw20 vwh20 fontv4" >Breakfast</button>
                     <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">2</span></button>
-                    
+                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/chia-overnight-mousse-image_500px.jpg" /></div>
+
                 </div>
                 <div class="pcheck">
-                    <h2 class="fontv6 vhmb1">Vegan, Sugar, Gluten and Dairy Free contains nuts</h2>
+                    <h2 class="fontv6 vhmb1">Chia overnight mousse with almond and coconut</h2>
                     <p class="fontv3">Chia seeds are high in omega-3 essential fats, a
 deficience of which may cause depression and
 insomnia. The better your blood levels of omega-3 fats,
@@ -38,8 +39,8 @@ fibre, essential fats, calcium and iron.</p>
                 </div>
             </div>
             <div class="types vhmt2 vhmb2">
-                <button class="fontv4 lineh8" onclick="methodswap(0, 0)" active="true">Ingredients</button>
-                <button class="fontv4 lineh8" onclick="methodswap(1, 0)">Method</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 0)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 0)">Method</button>
             </div>
             <div class="overMark " active="true">
                 <p class="fontv4">1 tsp. of viridian organic raw coconut oil</p>
@@ -79,6 +80,7 @@ in the evening. This will keep for three days in the fridge.</li>
                 <div>
                     <button class=" vw20 vwh20 fontv4" >Lunch</button>
                     <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">8</span></button>
+                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/butternut-squash-soup_500px.jpg" /></div>
                     
                 </div>
                 <div class="pcheck">
@@ -93,8 +95,8 @@ GL.</p>
                 </div>
             </div>
             <div class="types vhmt2 vhmb2">
-                <button class="fontv4 lineh8" onclick="methodswap(0, 1)" active="true">Ingredients</button>
-                <button class="fontv4 lineh8" onclick="methodswap(1, 1)">Method</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 1)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 1)">Method</button>
             </div>
             <div class="overMark " active="true">
                 <p class="fontv4">2 tablespoons viridian organic raw coconut oil</p>

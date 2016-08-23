@@ -14,10 +14,10 @@
             </button>
             <div class="recipe">
                 <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(0)" active="true"><span>Breakfast</span></button>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(1)">Lunch</button>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(2)">Snack<br>ideas</button>
-                <button class=" vw16 vwh16 fontv3" onclick="recipeTime(3)">Dinner</button>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(1)">Lunch</div>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(2)">Snack<br>ideas</div>
+                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
         <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
@@ -26,6 +26,7 @@
                     <button class=" vw20 vwh20 fontv4" >Breakfast</button>
                     <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">1</span></button>
                     
+                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/sugar-free-chia-granola-image_500px.jpg" /></div>
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Sugar free muslie,
@@ -54,6 +55,7 @@ nut sprinkes</h2>
                 <div>
                     <button class=" vw20 vwh20 fontv4" >Snack</button>
                     <button class=" vw13 vwh13 fontv3" >Makes<br><span class="fontv4">12</span></button>
+                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/coconut-500px.jpg" /></div>
                     
                 </div>  <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Coconut crunches</h2>
@@ -66,8 +68,8 @@ vitamin E and zinc. Low GL.</p>
                 </div>
             </div>
             <div class="types vhmt2 vhmb2">
-                <button class="fontv4 lineh8" onclick="methodswap(0, 3)" active="true">Ingredients</button>
-                <button class="fontv4 lineh8" onclick="methodswap(1, 3)">Method</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 3)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 3)">Method</button>
             </div>
             <div class="overMark " active="true">
                 <p class="fontv4">170g pecans</p>
@@ -105,11 +107,11 @@ container in the refrigerator for up to ten days.</li>
                 <div>
                     <button class=" vw20 vwh20 fontv4" >Dinner</button>
                     <button class=" vw13 vwh13 fontv3" >Serves<br><span class="fontv4">4</span></button>
+                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/sweet-potato-curry_500px.jpg" /></div>
                     
                 </div>
                 <div class="pcheck">
-                    <h2 class="fontv6 vhmb1">Vegan, Sugar, Gluten, Dairy and Nut free, contains
-celery</h2>
+                    <h2 class="fontv6 vhmb1">Sweet potato & Quinoa curry</h2>
                     <p class="fontv3">Vegan, Sugar, Gluten, Dairy and Nut free, contains Soya
 and Celery</p>
                     <p class="fontv3">When making broth, I usually use organic, low-salt, noyeast,
@@ -120,8 +122,8 @@ vitamins.</p>
                 </div>
             </div>
             <div class="types vhmt2 vhmb2">
-                <button class="fontv4 lineh8" onclick="methodswap(0, 3)" active="true">Ingredients</button>
-                <button class="fontv4 lineh8" onclick="methodswap(1, 3)">Method</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 3)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 3)">Method</button>
             </div>
             <div class="overMark " active="true">
                 <p class="fontv4">2 tablespoons viridian organic raw coconut oil</p>

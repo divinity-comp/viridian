@@ -14,7 +14,10 @@
             </div>
         </div>
             <div id="maintable" class="maintable">
-                <div class="row ">
+                <div class="row " ontouchstart='
+    pageChange("pages/setup/name.html", "popup", function() {  
+                          
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Name</p>
                     </div>
@@ -23,7 +26,10 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " ontouchstart='
+    pageChange("pages/setup/age.html", "popup", function() {  
+                    ageChange();      
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Age</p>
                     </div>
@@ -32,7 +38,7 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " ontouchstart="changeGender(this);">
                     <div class="half ">
                         <p class="fontv4 lineh10">Gender</p>
                     </div>
@@ -50,7 +56,12 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " ontouchstart='
+    pageChange("pages/setup/start-date.html", "popup", function() {
+                          dateSelection();
+                                    addprofileChange();   
+                           
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Start Date</p>
                     </div>
@@ -59,7 +70,12 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div ontouchstart='
+    pageChange("pages/setup/schedule.html", "popup", function() {
+                          timeSelection();  
+                                    addprofileChange(setReminders); 
+                          
+    });' class="row ">
                     <div class="half ">
                         <p class="fontv4 lineh10">Reminders</p>
                     </div>
@@ -68,7 +84,13 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div ontouchstart='
+    pageChange("pages/setup/intake.html", "fade", function() {
+                          intake();                 
+    displayMenu("", true, "setup/setprofile.html",function() {
+                          profileSetup();
+    });   
+    });' class="row ">
                     <div class="half ">
                         <p class="fontv4 lineh10">Sugar Consumption</p>
                     </div>
@@ -77,7 +99,10 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div  ontouchstart='
+    pageChange("pages/setup/motivation.html", "popup", function() { 
+                                    addprofileChange();
+    });' class="row ">
                     <div class="half ">
                         <p class="fontv4 lineh10">Motivators</p>
                     </div>
@@ -86,7 +111,10 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " ontouchstart='
+    pageChange("pages/setup/weight.html", "popup", function() { 
+                                                weightChange();
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Start Weight</p>
                     </div>

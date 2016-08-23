@@ -7,7 +7,8 @@
 <body>
     <div id="full" class="app textureBack">
         <div id="scaleIpad">
-        <img class="close" onclick="setReminders();closePopup()" src="img/close.png" />
+        <img class="close" ontouchstart="setReminders();
+            setupPage();closePopup()" src="img/close.png" />
         <div id="times" class="blueCentralCircle vw90 vwh90 " >
                 <h2 class="ttile vhmt8 fontv5">What's your day like?</h2>
                 <p class="fontv4">Decide when would be the best time<br> to take your supplements</p>
@@ -21,9 +22,14 @@
                 <p class="vw25 reminder fontv3">Reminder 1</p>
                 <p class="vw25 reminder fontv3">Reminder 2</p>
             </div>
-            <button onclick="setReminders();closePopup()" class="setButton vw25 vwh25 fontv7">Set</button>
+            <button ontouchstart="setReminders();
+            setupPage();closePopup()" class="setButton vw25 vwh25 fontv7">Set</button>
         </div>
         <style>
+            .greencircle p {
+                margin:0;
+                text-align:center;
+            }
             .ttile {
                 color:#bacb2f;
             }
