@@ -152,12 +152,43 @@ var app = {
                 
 			}
 
-			facebookConnectPlugin.login(["public_profile", "email"],
+			facebookConnectPlugin.getLoginStatus(
 				fbLoginSuccess,
 				function (error) { alert("error " + JSON.stringify(error)); }
 			);
 	}
 };
+
+function fbCheck() {
+    ajaxPost(
+        "http://www.network-divinity.com/viridian/hasreg.php", 
+        function (response) {
+            alert(response +" has reg");
+        if(response == "yes") {
+            ajaxPost(
+            "http://www.network-divinity.com/viridian/fbviewprofile.php", 
+            function (response) {
+                    var foundjson = JSON.parse(response);
+                    window.localStorage.setItem("data",response);
+                    window.localStorage.setItem("registered", "active");
+                    window.localStorage.setItem("fbid", fbId);
+                    personalJSON = foundjson;
+                    window.localStorage.setItem("usertype", 0);
+
+                    afterLogin();
+            },
+           'factualid=' + fbId);
+
+        }
+        else if(response == "no") {
+           // registerGetInfo();
+        }
+        else {
+            alert("fail: " + response);
+        }
+    },
+   'fbid=' + fullJSON.authResponse.userID);
+}
         var phoneModel;
 
 var fbId; 
