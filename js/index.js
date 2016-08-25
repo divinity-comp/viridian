@@ -219,7 +219,7 @@ function registerGetInfo() {
        'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + JSON.stringify(personalJSON));
     },
     function (error) {
-        alert("fb confused " +error);
+        alert("fb confused " + JSON.stringify(error));
     });
 }
 function loginPage() {
