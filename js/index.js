@@ -170,7 +170,7 @@ var app = {
                         
                     }
                     else if(response == "no") {
-                        registerGetInfo();
+                       // registerGetInfo();
                     }
                     else {
                         alert("fail: " + response);
