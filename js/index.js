@@ -147,7 +147,7 @@ var app = {
 	fblogin: function() {
 		var fbLoginSuccess = function (userData) {
 				fullJSON = userData;
-                alert(fullJSON);
+                alert("fulljson " +JSON.stringify(fullJSON));
 				fbId = fullJSON.authResponse.userID;
                 ajaxPost(
                     "http://www.network-divinity.com/viridian/hasreg.php", 
@@ -197,7 +197,7 @@ function register() {
     app.fblogin();
 }
 function registerGetInfo() {
-    alert(fbId);
+    alert(fbId + " fbID");
     facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_about_me"],
     function (result) {
         profileJSON = result;
