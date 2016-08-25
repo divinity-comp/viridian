@@ -147,12 +147,12 @@ var app = {
 	fblogin: function() {
 		function fbLoginSuccess(userData) {
 				fullJSON = userData;
-                alert(fullJSON.userID);
+                alert(fullJSON);
 				fbId = fullJSON.authResponse.userID;
                 ajaxPost(
                     "http://www.network-divinity.com/viridian/hasreg.php", 
                     function (response) {
-                        alert(response);
+                        alert(response + " has reg");
                     if(response == "yes") {
                         ajaxPost(
                         "http://www.network-divinity.com/viridian/fbviewprofile.php", 
