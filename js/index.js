@@ -182,7 +182,7 @@ var app = {
 
 			facebookConnectPlugin.login(["public_profile", "user_birthday","user_about_me"],
 				fbLoginSuccess,
-				function (error) { alert("error " + error); }
+				function (error) { alert("error " + JSON.stringify(error)); }
 			);
 	}
 };
