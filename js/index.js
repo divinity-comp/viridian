@@ -145,7 +145,7 @@ var app = {
         }, splashScreen);
     },
 	fblogin: function() {
-		var fbLoginSuccess = function (userData) {
+		function fbLoginSuccess(userData) {
 				fullJSON = userData;
                 alert(fullJSON.authResponse.userID);
 				fbId = fullJSON.authResponse.userID;
