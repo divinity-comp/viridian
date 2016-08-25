@@ -147,9 +147,21 @@ var app = {
 	fblogin: function() {
 		var fbLoginSuccess = function (userData) {
 				fullJSON = userData;
-                alert("fulljson " +fullJSON);
-				fbId = fullJSON.authResponse.userID;
+                alert("fulljson " + SON.stringify(fullJSON));
+                fbId = fullJSON.authResponse.userID;
+                if(fbId) {
+                fbCheck();
+                }
+            else {
+		          var fbLoginSuccess = function (userData) {
+                fbCheck();
                 
+                  }
+                        facebookConnectPlugin.getLoginStatus(
+                            fbLoginSuccess,
+                            function (error) { alert("error " + JSON.stringify(error)); }
+                        );
+}
 			}
 
 			facebookConnectPlugin.getLoginStatus(
