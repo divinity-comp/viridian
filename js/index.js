@@ -180,7 +180,7 @@ var app = {
                 
 			}
 
-			facebookConnectPlugin.login(["public_profile", "user_birthday","user_about_me"],
+			facebookConnectPlugin.login(["public_profile", "email"],
 				fbLoginSuccess,
 				function (error) { alert("error " + JSON.stringify(error)); }
 			);
