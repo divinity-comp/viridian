@@ -165,32 +165,61 @@
     <div id="navigation" class="vh7">
         <div class="vw25 " id="backbutton"><img class="maxh5 vhmt2" src="img/buttons/back.png" /></div>
         <div class="vw50 "><img class="viridian vhmt2" src="img/viridian-logo.png" /></div>
-        <div class="vw25 "><img class="maxh5 vhmt2" src="img/buttons/home.png" /></div>
+        <div class="vw25 "><img ontouchstart='
+    pageChange(homepageLink, "fade", function() {  
+            homepageFunction();
+    });'class="maxh5 vhmt2" src="img/buttons/home.png" /></div>
     </div>
     <div id="botnavigation" class="vh9">
-            <button class="vw17 vh9"><img src="img/buttons/profile.png"/></button>
-        <button class="vw17 vh9"><img src="img/buttons/shopping.png"/></button>
-            <button id="mainBotButton" open="false" class="vw32 vh13 boti" onclick="openBotMenu()"><div class="vhw15 vh15"><img active="true" src="img/buttons/main-i.png"/>
+            <button ontouchstart='
+    pageChange("pages/setup/setprofile.html", "fade", function() { 
+                          profileSetup();
+    displayMenu("", true, homepageLink,function() {
+                           });    
+    });'class="vw17 vh9"><img src="img/buttons/profile.png"/></button>
+            <button ontouchstart='
+    pageChange("pages/setup/shoppinglist.html", "fade", function() { 
+                             openShopping();
+    displayMenu("", true, homepageLink,function() {
+                           });    
+    });'class="vw17 vh9"><img src="img/buttons/shopping.png"/></button>
+            <button id="mainBotButton" open="false" class="vw32 vh13 boti" ontouchstart="openBotMenu()"><div class="vhw15 vh15"><img active="true" src="img/buttons/main-i.png"/>
             <img active="false" class="vw8 vwh8" src="img/bot-menu/black-cross.png" /></div></button>
-            <button class="vw17 vh9"><img src="img/buttons/store.png"/></button>
-            <button class="vw17 vh9"><img src="img/buttons/advice.png"/></button>
+            <button ontouchstart='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");' class="vw17 vh9"><img src="img/buttons/store.png"/></button>
+            <button ontouchstart='
+    pageChange("pages/allabout/allabout4.html", "fade", function() { 
+    displayMenu("", true, homepageLink,function() {
+                           });    
+    });'class="vw17 vh9"><img src="img/buttons/advice.png"/></button>
     </div>
     <div id="botMenu" class="vw98 vwh35">
         <div class="whiteMenu vw98 vwh98">
             <img class="vw16" style="left:11%;top:17%;" src="img/bot-menu/settings.png" />
-            <img onclick='
-    pageChange("pages/allabout/allabout1.html", "fade", function() {
-     allaboutComplete(1);                     
-    displayMenu("", true, "daily.html",function() {
-    });
-    });'  class="vw16" style="left:25%;top:6%;" src="img/bot-menu/videos.png" />
-            <img  onclick='
-    pageChange("pages/allabout/allabout4.html", "fade", function() {
-    displayMenu("", true, "daily.html",function() {
-    });
-    });' class="vw16"  style="left:0;right:0;margin:auto;top:2%;" src="img/bot-menu/sugar.png" />
-            <img class="vw16" style="right:25%;top:6%;" src="img/bot-menu/about.png" />
-            <img class="vw16" style="right:11%;top:17%;" src="img/bot-menu/detox.png" />
+            <img  ontouchstart='
+    pageChange("pages/allabout/allabout1.html", "fade", function() {  
+                                nextCheck();
+    displayMenu("", true, homepageLink,function() {
+                           });
+    });' class="vw16" style="left:25%;top:6%;" src="img/bot-menu/videos.png" />
+            <img ontouchstart='
+    pageChange("pages/allabout/allabout4.html", "fade", function() { 
+                                nextCheck();
+    displayMenu("", true, homepageLink,function() {
+                           });    
+    });'class="vw16"  style="left:0;right:0;margin:auto;top:2%;" src="img/bot-menu/sugar.png" />
+            <img ontouchstart='
+    pageChange("pages/allabout/allabout2.html", "fade", function() { 
+                                nextCheck();
+                          onesecond();     
+    displayMenu("", true, homepageLink,function() {
+                           });
+    });'class="vw16" style="right:25%;top:6%;" src="img/bot-menu/about.png" />
+            <img ontouchstart='
+    pageChange("pages/setup/rules-single.html", "fade", function() {  
+                           rulesPop();
+    displayMenu("", true, homepageLink,function() {
+                           });   
+    });'class="vw16" style="right:11%;top:17%;" src="img/bot-menu/detox.png" />
         </div>
     </div>
     <div id="popup"></div>

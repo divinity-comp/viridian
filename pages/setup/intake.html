@@ -10,10 +10,10 @@
         <h2 class="fontv9 vhmt12 fontti vhmb1">How much sugar do<br>you eat?</h2>
         <p class="fontv4 paragraph vhmt1">Estimate how much sugar you eat on a weekly basis and we will show you an estimated amount of sugar you have saved during the 7 days when you follow the plan.</p>
         <div id="sugarmenu" class="vw80 vwh80 vhmt1">
-            <button class="vw30 vwh30 mainButton fontv6" onclick="intake(0)" style="left:0;top:0;">Light<br>User</button>
-            <button class="vw30 vwh30 mainButton fontv6" onclick="intake(1)" style="right:0;top:0;">Medium<br>User</button>
-            <button class="vw30 vwh30 mainButton fontv6" onclick="intake(2)" style="left:0;bottom:0;">Heavy<br>User</button>
-            <button class="vw30 vwh30 mainButton fontv6" onclick="intake(3)" style="right:0;bottom:0;">Very<br>Heavy<br>User</button>
+            <button class="vw30 vwh30 mainButton fontv6" ontouchstart="intake(0)" style="left:0;top:0;">Light<br>User</button>
+            <button class="vw30 vwh30 mainButton fontv6" ontouchstart="intake(1)" style="right:0;top:0;">Medium<br>User</button>
+            <button class="vw30 vwh30 mainButton fontv6" ontouchstart="intake(2)" style="left:0;bottom:0;">Heavy<br>User</button>
+            <button class="vw30 vwh30 mainButton fontv6" ontouchstart="intake(3)" style="right:0;bottom:0;">Very<br>Heavy<br>User</button>
             <div class="mainButton vw36 vwh36 sugarAmount">
                 <p class="fontv4 lineh4" style="margin-bottom:0;">Your<br>estimated<br>weekly total</p>
                 <div class="sugarIntake">
@@ -22,11 +22,12 @@
                 </div>
                 <img style="max-width:50%;display:block;margin:0 auto;clear:both;" src="img/buttons/spoon-white.png" />
             </div>
-            <img class="vw20" onclick='
+            <img class="vw20" ontouchstart='
     pageChange("pages/allabout/allabout4.html", "fade", function() {
     displayMenu("", true, "setup/intake.html",function() {
            displayMenu("", true, "set-up.html",function() {
                                        setupComplete(5); 
+                                            profileAccept();
                                        });                               
     });   
     });' style="position:absolute;bottom:0;left:0;right:0;margin:auto;" src="img/buttons/sugar-button.png" />

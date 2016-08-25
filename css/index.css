@@ -116,6 +116,9 @@ body {
 .scaleAdd {
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
+}.scalebig {
+    transform: scale(1.35);
+    -webkit-transform: scale(1.35);
 }
 .scaleAddmed {
     transform: scale(1.15);
@@ -335,6 +338,8 @@ ul li {
 .overMark {
     color:#000;
     width:100%;
+    clear:both;
+    padding-bottom: 5em;
 }
 .types {
     border-bottom: 1px solid #404040;
@@ -383,8 +388,9 @@ ul li {
     width:95%;
     padding:0 2.5%;
     background-color: #fff;
-    overflow:auto;
-    clear:both;
+    overflow:scroll;
+    clear:both;-webkit-overflow-scrolling: touch;
+    padding-bottom:15em;
 }
 .recipe {
     float:left;width:72%;
@@ -392,7 +398,7 @@ ul li {
 .recipe h2 {
     color:#007086;font-weight: normal;
 }
-.recipe button {
+.recipe div {
     border-radius: 200em;
     box-shadow:0px 0px 0px 2px #fff;
     color:#007086;
@@ -401,10 +407,7 @@ ul li {
     background-color:#fff;
     text-align: center;
 }
-.recipe button span {
-    font-size:0.85em;
-}
-.recipe button[active=true] {
+.recipe div[active=true] {
     background-color:#bacb2f;
 }
 #highSection {
@@ -445,9 +448,17 @@ button {
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 1) {
      
+      .maxAdjust {
+        -webkit-transform-origin:50% 42% !important;
+        transform-origin:50% 42% !important;
+      }
       .highAdjust {
         -webkit-transform-origin:50% 30% !important;
         transform-origin:50% 30% !important;
+    }
+      .midiAdjust {
+        -webkit-transform-origin:50% 20% !important;
+        transform-origin:50% 20% !important;
     }
 }
 .viridian {
@@ -457,4 +468,74 @@ button {
 .noadjust {
     transform-origin: 50% 0%;
     -webkit-transform-origin: 50% 0%;
+}
+
+
+
+.nextButton {
+    position: absolute;
+    right:4%;
+    background-color: #fff;
+    top:0;
+    z-index: 200000;
+}
+
+.setButton,.agebutton {
+    margin:0.5em auto;
+                background-color: #bacb2f;
+                color:#007086;
+                border-radius: 200em;
+                border:2px solid #fff;
+                position: relative;
+    display: block;
+}
+.agebutton span {
+    position: relative;display: block;
+}
+
+.shadowFlow {
+position: relative;
+    margin: 0 auto;
+}
+.shadowFlow:before {
+    content:'';
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index: 20;
+    box-shadow:inset 0px -10px 5px 2px #007086;
+    pointer-events: none;
+}
+
+.recipeImage {
+    border-radius: 200em;
+    margin-top:-1em;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+.recipeImage img {
+    position: absolute;
+    top:0;left:0;right:0;bottom:0;margin:auto;
+    min-width:100%;
+    min-height: 100%;
+}
+
+.title button:nth-child(2) {
+    z-index: 6;
+    position: relative;
+}
+
+.shareInput {
+    width:70%;
+    float:left;
+    padding:0.4em;border-radius:0.3em;
+    border:0;
+    box-shadow:inset 0px 0px 0px 1px #ddd;
+}
+
+#maintable {
+    padding-bottom: 15em;
 }

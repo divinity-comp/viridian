@@ -12,17 +12,19 @@
         <h4 class="vhmt2 plantitleblack  fontv4">Changing the habits of a lifetime needs some planning, follow these steps to get started.</h4>
         <div id="setupMenu" class="vw90 vwh90 vhmt5">
             <div class="outerblue center vw35 vwh35"></div>
-            <div id="goFinish" class="go vw20 vwh20 fontv10 lineh20 center">GO</div>
-            <div onclick='
+            <div  ontouchstart='
+    pageChange("pages/start/start1.html", "fade", function() {
+                              startPlan();
+    displayBotMenu("", true);
+    });' id="goFinish" class="go vw20 vwh20 fontv10 lineh20 center">GO</div>
+            <div ontouchstart='
     pageChange("pages/setup/start-date.html", "popup", function() {
                           dateSelection();   
-     setupComplete(1);   
-            setupPage(); 
-                          
+                           
     });'  id="date" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt2 vhmb1" src="img/buttons/setup/date.png" />
                 <p class="fontv3 lineh3 vhmt3">set your<br>start date</p></div>
-            <div onclick='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");
+            <div ontouchstart='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");
      setupComplete(2);   
             setupPage();   
                           
@@ -32,7 +34,7 @@
     displayBotMenu("", true);' id="map" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/map.png" />
                 <p class="fontv3 lineh3 vhmt3">Find your<br>supplement stockist</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/setup/rules.html", "popup", function() {
      setupComplete(3);      
                           rulesPop();
@@ -40,43 +42,45 @@
     });' id="tasks" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt2 vhmb1" src="img/buttons/setup/tasks.png" />
                 <p class="fontv3 lineh3 vhmt3">See the rules<br>of 7 Day<br>Detox</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/setup/schedule.html", "popup", function() {
                           timeSelection();   
-     setupComplete(4);   
-            setupPage(); 
+     setupComplete(4); 
                           
     });' id="clock" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/clock.png" />
                 <p class="fontv3 lineh3 vhmt3">Set your<br>supplement<br>schedule</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/setup/intake.html", "fade", function() {
-                          intake();             
+                          intake();                 
     displayMenu("", true, "set-up.html",function() {
-     setupComplete(5); 
+     setupComplete(5); profileAccept();
     });   
     });' id="spoon" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt3 vhmb1" src="img/buttons/setup/spoon.png" />
                 <p class="fontv3 lineh3 vhmt3">Set your<br>current sugar<br>intake</p></div>
-            <div   onclick='
-    pageChange("pages/setup/motivation.html", "popup", function() {          
-     setupComplete(6); 
+            <div   ontouchstart='
+    pageChange("pages/setup/motivation.html", "popup", function() {
+                                 openMotivator();
     });'id="happy" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/happy.png" />
                 <p class="fontv3 lineh3 vhmt3">Set your<br>motivation<br>to detox</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/setup/7dayplan.html", "fade", function() {  
                           sevenDayPlan();
     displayMenu("", true, "set-up.html",function() {
      setupComplete(7); 
+        setupPage();                      
     });   
     });'id="food" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/food.png" />
                 <p class="fontv3 lineh3 vhmt3">See the 7 day<br>meal plan &<br>shopping list </p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/setup/setprofile.html", "fade", function() {
+                          profileSetup();
     displayMenu("", true, "set-up.html",function() {
      setupComplete(8); 
+        setupPage();                      
     });   
     });'id="profile" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/profile.png" />   
@@ -117,17 +121,17 @@
                 right:8.5%;
                 top:8.5%;
             }
-            #date {
-                top:0;
-                left:0;
-                right:0;margin:auto;
-            }
             .greencircle img {
                 max-height:30%;
                 max-width:70%;
                 margin-right:auto;
                 margin-left:auto;
                 display:block;
+            }
+            #date {
+                top:0;
+                left:0;
+                right:0;margin:auto;
             }
             .greencircle p {
                 margin:0;
@@ -152,6 +156,7 @@
                 position: absolute;
                 border-radius: 200em;
                 text-align: center;
+                visibility: hidden;
             }
             .plantitle {
                 text-align: center;

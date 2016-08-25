@@ -83,10 +83,10 @@
         <h2 class="blueText alignCenter normal fontv7 vhmb0 lineh5">Create your account</h2>
         <input id="email" class="vhmb2 vhmt0 fontv5" type="email" placeholder="Email"/>
         <input id="pass" class="vhmb2 fontv5" type="password" placeholder="Password"/>
-        <button id="signUp" onclick="attemptRegisterV()" class="sign fontv5 vhmb2">Sign Up</button>
-        <button id="signIn" onclick="signIn()" class="sign fontv5 vhmb2" style="display:none;">Sign In</button>
+        <button id="signUp" ontouchstart="attemptRegisterV()" class="sign fontv5 vhmb2">Sign Up</button>
+        <button id="signIn" ontouchstart="signIn()" class="sign fontv5 vhmb2" style="display:none;">Sign In</button>
         <div class="vhmb1" style="overflow:hidden;clear:both; ">
-            <div id="remuser" class="remember fontv4 lineh6" style="float:left; width:40%;margin-left:10%" remember="no" onclick="rememberAccount(this)">
+            <div id="remuser" class="remember fontv4 lineh6" style="float:left; width:40%;margin-left:10%" remember="no" ontouchstart="rememberAccount(this)">
                 <button style="float:left;" class="checkbox vw6 vwh6"></button> <p style="margin:0;float:left;margin-left:5%;">Remember Me</p>
             </div>
             <div class="remember fontv4 lineh6" style="float:left; width:40%;margin-right:10%">
@@ -94,12 +94,12 @@
             </div>
         </div>
         <p class="middleline fontv4 vhmb2 vwh5"><span>or</span></p>
-        <button id="facebookLogin" class="facebook vhmt2" onclick="registerGetInfo();">
+        <button id="facebookLogin" class="facebook vhmt2" ontouchstart="registerGetInfo();">
             <div class="facebookdark vw12 vwh12"><img class="maxh8 centerAbs" src="img/social/facebook.png" /></div>
             <div class="fontv5 lineh12">Sign In With Facebook</div>
         </button>
         <h2 class=" alignCenter normal fontv6 vhmb1">Already have an account?</h2>
-        <button id="adjustsign" class="signin lineh10 fontv5" onclick="adjustSignIn()">
+        <button id="adjustsign" class="signin lineh10 fontv5" ontouchstart="adjustSignIn()">
             Sign In
         </button>
         </div>
@@ -211,7 +211,7 @@ and (orientation : portrait) { .backIcon {
     <div id="botnavigation" class="vh9">
         <button class="vw17 vh9"><img src="img/buttons/profile.png"/></button>
         <button class="vw17 vh9"><img src="img/buttons/shopping.png"/></button>
-        <button class="vw32 vh9" onclick="openBotMenu()"><div class="vw22 vwh22"><img src="img/buttons/main-i.png"/></div></button>
+        <button class="vw32 vh9" ontouchstart="openBotMenu()"><div class="vw22 vwh22"><img src="img/buttons/main-i.png"/></div></button>
         <button class="vw17 vh9"><img src="img/buttons/store.png"/></button>
         <button class="vw17 vh9"><img src="img/buttons/advice.png"/></button>
         <div id="botMenu">

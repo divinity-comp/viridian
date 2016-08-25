@@ -6,15 +6,17 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="scaleIpad">
-        <div class="vwh50 hideProf">
+        <div class="vh30 hideProf">
             <div id="plan" class="blueCentralCircle vw85 vwh85">
-                <h2 class="vhmt20 fontv8 vhmb2">All About You</h2>
+                <h2 class="vhmt21 fontv8 vhmb2">All About You</h2>
                 <img src="img/profile.png" />
             </div>
         </div>
-            <div id="maintable" class="maintable">
-                <div class="row ">
+            <div id="maintable" class="maintable vh66">
+                <div class="row " onclick='
+    pageChange("pages/setup/name.html", "popup", function() {  
+                          
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Name</p>
                     </div>
@@ -23,7 +25,10 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " onclick='
+    pageChange("pages/setup/age.html", "popup", function() {  
+                    ageChange();      
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Age</p>
                     </div>
@@ -32,7 +37,7 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " onclick="changeGender(this);">
                     <div class="half ">
                         <p class="fontv4 lineh10">Gender</p>
                     </div>
@@ -50,7 +55,12 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " onclick='
+    pageChange("pages/setup/start-date.html", "popup", function() {
+                          dateSelection();
+                                    addprofileChange(profileAccept);   
+                           
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Start Date</p>
                     </div>
@@ -59,7 +69,12 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div onclick='
+    pageChange("pages/setup/schedule.html", "popup", function() {
+                          timeSelection();  
+                                    addprofileChange(setReminders); 
+                          
+    });' class="row ">
                     <div class="half ">
                         <p class="fontv4 lineh10">Reminders</p>
                     </div>
@@ -68,7 +83,13 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div onclick='
+    pageChange("pages/setup/intake.html", "fade", function() {
+                          intake();                 
+    displayMenu("", true, "setup/setprofile.html",function() {
+                          profileSetup();
+    });   
+    });' class="row ">
                     <div class="half ">
                         <p class="fontv4 lineh10">Sugar Consumption</p>
                     </div>
@@ -77,7 +98,11 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div  onclick='
+    pageChange("pages/setup/motivation.html", "popup", function() { 
+                                    openMotivator();
+                                    addprofileChange(profileAccept);
+    });' class="row ">
                     <div class="half ">
                         <p class="fontv4 lineh10">Motivators</p>
                     </div>
@@ -86,7 +111,10 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row ">
+                <div class="row " onclick='
+    pageChange("pages/setup/weight.html", "popup", function() { 
+                                                weightChange();
+    });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Start Weight</p>
                     </div>
@@ -96,8 +124,12 @@
                 </div>
             </div>
         <style>
+            .maintable .row:last-child {
+                padding-bottom: 20em;
+            }
             .maintable {
                 background-color: #fff;
+                overflow: scroll;
             }
             .maintable .row,hr {
                 width:80%;
@@ -105,9 +137,13 @@
             }
             .row .half:nth-child(2) {
                 color:#8d8d91;
+                text-align: right;
             }
             .row .half:nth-child(1) {
                 color:#000;
+            }
+            .row .half {
+                float:left;width:50%;
             }
             .row p {
                 margin:0;
@@ -128,7 +164,6 @@
                 color:#bacb2f;
             }
         </style>
-        </div>
     </div>
 </body>
 

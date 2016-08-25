@@ -8,13 +8,15 @@
     <div id="full" class="app textureBack">
         <div id="scaleIpad">
         <div id="onesecond" class="blueCentralCircle vw100 vwh100 scaleAdd">
-            <h2 class="fontv7 vhmt8" style="color:#abc433;font-weight:normal;">Before we start...</h2>
-            <div class="vh30" style="width:70%; margin: 0 15%; color:#fff;overflow:auto;">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+            <h2 class="fontv7 vhmt15" style="color:#abc433;font-weight:normal;">Before we start...</h2>
+            <div class="vwh60 fontv5" style="width:70%; margin: 0 15%; color:#fff;overflow:auto;">
+                
+The information contained in this app is not intended to diagnose or treat any health condition. If you have health concerns or are currently taking prescribed medication, please consult your GP.
+
             </div>
         </div>
-        <button onclick="termsYes()" class="acceptT fontv4 vhmt4 vw32 vwh32">
-            I have read<br>and accept<br>he T&Cs
+        <button ontouchstart="termsYes()" class="acceptT fontv4 vhmt4 vw32 vwh32">
+            I have read<br>and accept<br>the T&Cs
         </button>
         <style>
             .acceptT {
@@ -28,6 +30,15 @@
                 right:0;
                 margin:auto;
             }
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+     
+      .acceptT {bottom:-10%;
+    }
+}
         </style>
         </div>
     </div>

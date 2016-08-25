@@ -8,9 +8,12 @@
     <div id="full" class="app textureBack">
         <div id="scaleIpad">
         <div id="setupMenu" class="vw90 vwh90 vhmt24">
-            <div class="outerblue center vw35 vwh35 "><p class="fontv8 vhmt4" >All<br>About</p></div>
-            <div id="goFinish" class="go vw20 vwh20 fontv5 center">Set Up</div>
-            <div onclick='
+            <div class="outerblue center vw35 vwh35 "><p class="fontv8 vhmt4" >All<br>About</p> <div ontouchstart='
+    pageChange("pages/setup/getting-started.html", "fade", function() {
+        setupPage();                      
+    });' id="goFinish" class="go vw30 vwh30 fontv6 lineh30 center">Set Up?</div></div>
+           
+            <div ontouchstart='
     pageChange("pages/allabout/allabout1.html", "fade", function() {
      allaboutComplete(1);                     
     displayMenu("", true, "all-about.html",function() {
@@ -18,7 +21,7 @@
     });
     });' id="date" class="greencircle vw24 vwh24 fontv5 ">
                 <p class="fontv4 lineh4 vwmt8">Transform<br>your health</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/allabout/allabout2.html", "fade", function() {
      allaboutComplete(2);          
                           onesecond();           
@@ -28,16 +31,16 @@
     });
     });' id="map" class="greencircle vw24 vwh24 fontv5 ">
                 <p class="fontv4 lineh4 vwmt3">Sugar<br>sabotages<br>your health<br>& vitality</p></div>
-            <div onclick='
-    pageChange("pages/allabout/allabout3.html", "fade", function() {
-     allaboutComplete(3);                     
-                          
+            <div ontouchstart='
+    pageChange("pages/allabout/allabout3.html", "fade", function() {   
+                          sugarHides();
+     allaboutComplete(3);                  
     displayMenu("", true, "all-about.html",function() {
             allAboutInitial();
     });
     });'  id="tasks" class="greencircle vw24 vwh24 fontv5 ">
                 <p class="fontv4 lineh4 vwmt8">Sugar hides<br>everywhere</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/allabout/allabout4.html", "fade", function() {
      allaboutComplete(4);                     
                           
@@ -46,7 +49,7 @@
     });
     });'  id="clock" class="greencircle vw24 vwh24 fontv5 ">
                 <p class="fontv4 lineh4 vwmt2">how<br>much<br>sugar are<br>you<br>eating?</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/allabout/allabout5.html", "fade", function() {
      allaboutComplete(5);                     
                           
@@ -55,7 +58,7 @@
     });
     });'  id="spoon" class="greencircle vw24 vwh24 fontv5 ">
                 <p class="fontv4 lineh4 vwmt8">How to use<br> the app</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/allabout/allabout6.html", "fade", function() {
      allaboutComplete(6);                     
                           
@@ -64,7 +67,7 @@
     });
     });'  id="happy" class="greencircle vw24 vwh24 fontv5 ">
                 <p class="fontv4 lineh4 vwmt6">Keep it<br>social and<br>fun</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/allabout/allabout7.html", "fade", function() {
      allaboutComplete(7);                     
                      oneseven();     
@@ -73,7 +76,7 @@
     });
     });'  id="food" class="greencircle vw24 vwh24 fontv5 ">
                 <p class="fontv4 lineh4 vwmt1">The<br>Viridian<br>7 Day<br>Sugar<br>Detox Kit</p></div>
-            <div onclick='
+            <div ontouchstart='
     pageChange("pages/allabout/allabout8.html", "fade", function() {
      allaboutComplete(8);                     
                           
@@ -84,6 +87,10 @@
                 <p class="fontv4 lineh4 vwmt8">The 7 day<br>eating plan</p></div>
         </div>
         <style>
+            .greencircle p {
+                position: relative;
+                display: block;
+            }
             #goFinish {
                 visibility: hidden;
             }
@@ -156,6 +163,7 @@
                 position: absolute;
                 border-radius: 200em;
                 text-align: center;
+                z-index:20;
             }
             .plantitle {
                 text-align: center;

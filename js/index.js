@@ -19,6 +19,8 @@
 var app = {
     // Application Constructor
     initialize: function() {
+        //window.localStorage.clear(); //try this to clear all local storage
+
         this.bindEvents();
         var phoneModel = window.device.model;
         var phoneModel = device.model;
@@ -28,16 +30,14 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
+
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    // deviceready Event Handler
-    //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.startApp();
         phoneModel = window.device.model;
-        
         var regs = window.localStorage.getItem("registered");
         var remember = window.localStorage.getItem("remember");
         fbId = window.localStorage.getItem("fbid");
@@ -46,7 +46,7 @@ var app = {
             var datapersonal = window.localStorage.getItem("data");
             if(datapersonal === null || datapersonal === 0) {
                 ajaxPost(
-                    "http://www.divinitycomputing.com/apps/beoples/fbviewprofile.php", 
+                    "http://www.network-divinity.com/viridian/fbviewprofile.php", 
                     function (response) {
                         window.localStorage.setItem("data",response);
                         datapersonal = response;
@@ -93,7 +93,13 @@ var app = {
     receivedEvent: function(id) {
     },
     startApp: function() {
+        var splashScreen = 2000;
+        if(window.localStorage.getItem("doneintro") != "true") {
+            splashScreen = 6000;
+        }
+        
         setTimeout(function(){
+
             if(window.localStorage.getItem("setupdone") != "done") {
                 if(window.localStorage.getItem("doneintro") != "true") {
                     window.localStorage.setItem("doneintro", "true");  
@@ -103,10 +109,11 @@ var app = {
                     });
                 }
                 else {
-                    if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged")) {
+                    if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged") == "true") {
                         pageChange("pages/walkthrough.html", "fade", function() {
                         selectionScreen();
                         }); 
+                        homepageLink ="pages/walkthrough.html";
                     }
                     else {
                         pageChange("pages/login.html", "fade", function() {
@@ -119,9 +126,11 @@ var app = {
                 }
             }
             else {
-                if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged")) {
+                if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged") == "true") {
                     pageChange("pages/daily.html", "fade", function() {
+                daily();
                     }); 
+                        homepageLink ="pages/daily.html";
                 }
                 else {
                         pageChange("pages/login.html", "fade", function() {
@@ -130,9 +139,10 @@ var app = {
             register();
         });
                         });
+                    
                 }
             }
-        }, 200);
+        }, splashScreen);
     },
 	fblogin: function() {
 		var fbLoginSuccess = function (userData) {
@@ -150,6 +160,7 @@ var app = {
                                 window.localStorage.setItem("registered", "active");
                                 window.localStorage.setItem("fbid", fbId);
                                 personalJSON = foundjson;
+                                window.localStorage.setItem("usertype", 0);
         
                                 afterLogin();
                         },
@@ -184,7 +195,7 @@ function register() {
     app.fblogin();
 }
 function registerGetInfo() {
-    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_photos","user_hometown","user_likes","user_work_history","user_location","user_about_me","user_actions.books","user_actions.news","user_likes","user_actions.fitness","user_actions.music","user_actions.video"],
+    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_about_me"],
     function (result) {
         profileJSON = result;
         var datesset = result.birthday.split('/');
@@ -195,8 +206,10 @@ function registerGetInfo() {
             "http://www.network-divinity.com/viridian/register.php", 
             function (response) {
             if(response.indexOf("success") >= 0) {
+                window.localStorage.setItem("usertype", 0);
                 window.localStorage.setItem("remember", response.slice(0, -7));
-                window.localStorage.setItem("rememberAllowed", "true");
+                window.localStorage.setItem("rememberAllowed", "true");                    window.localStorage.setItem("data",JSON.stringify(personalJSON));
+
                 afterLogin();
             } 
             else {
@@ -206,10 +219,8 @@ function registerGetInfo() {
        'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + JSON.stringify(personalJSON));
     },
     function (error) {
-        alert("fb confused" +error);
+        alert("fb confused " +error);
     });
-    
-    
 }
 function loginPage() {
     pageChange("pages/login.html", "fade", function() {
@@ -226,12 +237,14 @@ function signIn() {
         ajaxPost(
             "http://www.network-divinity.com/viridian/login.php", 
             function (response) {
+                
             if(response.indexOf("allowed") >= 0) {
                 var parts = response.split("}");
                 var result = parts[parts.length - 1];
                 window.localStorage.setItem("remember", result);
                 window.localStorage.setItem("data", parts[0] + "}");
                 afterLogin();
+                
             } 
             else {
                 alert(response);
@@ -243,8 +256,10 @@ function signIn() {
 function attemptRegisterV() {
     var usernameV = idc("email").value;
     var passcodeV = idc("pass").value;
-    
+
     if(usernameV != "" && passcodeV != "") {
+        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":"' + "unknown" +'","relationship":"' + "unknown" + '", "description":"' + "unknown" +'","gender":"'+  "unknown" +'"  }, "version":0  }');
+
         ajaxPost(
             "http://www.network-divinity.com/viridian/register.php", 
             function (response) {
@@ -252,17 +267,20 @@ function attemptRegisterV() {
                 alert("information did not get entered correctly");
             }
             else if(response.indexOf("success") >= 0) {
+                window.localStorage.setItem("usertype", 1);
                 window.localStorage.setItem("remember", response.slice(0, -7));
                 window.localStorage.setItem("username", usernameV);
                 if(idc("remuser").getAttribute("remember") == "yes")
                 window.localStorage.setItem("rememberAllowed", "true");
+                    window.localStorage.setItem("data",JSON.stringify(personalJSON));
                 afterLogin();
+
             } 
             else {
                 alert(response);
             }
         },
-       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV);
+       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV + "&data=" + personalJSON);
     }
 }
 function rememberAccount(ele) {
@@ -280,18 +298,22 @@ function afterLogin() {
     var needwalk = window.localStorage.getItem("setupdone");
     var acceptTaC = window.localStorage.getItem("tac");
     window.localStorage.setItem("logged", "true");
-    if(acceptTaC != true) {
+    if(acceptTaC != "true") {
         pageChange("pages/disclaimer.html", "fade", function() {
+                        homepageLink ="pages/walkthrough.html";
         });
     }
     else {
         if(window.localStorage.getItem("setupdone") != "done") {
             pageChange("pages/walkthrough.html", "fade", function() {
                         selectionScreen();
+                        homepageLink ="pages/walkthrough.html";
             });
         }
         else {
             pageChange("pages/daily.html", "fade", function() {
+                daily();
+                        homepageLink ="pages/daily.html";
             });
         }
     }
@@ -361,7 +383,7 @@ function displayMenu(menuAnim, displayyes, backLink, backlinkFunction) {
     else {
         idc("navigation").style.display = "none";
     }
-    idc("backbutton").onclick = function() {
+    idc("backbutton").ontouchstart = function() {
         pageChange("pages/" + backLink, "fade", function() {
                     backlinkFunction();
         });
@@ -370,8 +392,21 @@ function displayMenu(menuAnim, displayyes, backLink, backlinkFunction) {
 function displayBotMenu(menuAnim, displayyes) {
     if(displayyes == true) {
         idc("botnavigation").style.display = "block";
+        var botMenu = idc("botMenu");
+            botMenu.style.display = "none";
     }
     else {
         idc("botnavigation").style.display = "none";
+        var botMenu = idc("botMenu");
+            botMenu.style.display = "none";
     }
+}
+function homepageFunction() {
+    if(homepageLink == "pages/daily.html") {
+        daily();
+    }
+    else {
+        selectionScreen();
+    }
+                    
 }

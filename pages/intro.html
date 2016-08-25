@@ -6,7 +6,7 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="scaleIpad">
+        <div id="scaleIpad" class="highAdjust">
         <div id="initial" class="blueCentralCircle vw100 vwh100 scaleAdd">
             <div class="slide active" scale="0.75" num="0">
                 <h2 class="fontv14 vwmt23">How the<br>7 Day Detox<br>works</h2>
@@ -14,7 +14,7 @@
             <div class="slide " num="1" scale="1.2">
                 <div class="whiteCircle vw60 vwh60 vwmt20">
                     <div class="greenCircle vw100 vwh100 ">
-                        <h2 class="fontv7 vwmt65">Decide you<br>want to quite<br>sugar</h2>
+                        <h2 class="fontv7 vwmt65">Decide you<br>want to quit<br>sugar</h2>
                     </div>
                 </div>
                 <img class="bowl" src="img/initial/bowl.png" />
@@ -36,13 +36,13 @@
             </div>
             <div class="slide " num="4" scale="1.2">
                 <div class="greenMainCircle vw60 vwh60 vwmt20">
-                    <h2 class="fontv8 vwmt15">Take your<br>viridian<br>Supplements</h2>
+                    <h2 class="fontv8 vwmt15">Take your<br>Viridian<br>Supplements</h2>
                 </div>
                 <img class="supp" src="img/initial/supp.png"/>
             </div>
             <div class="slide " num="5" scale="1.2">
                 <div class="greenMainCircle circleTime vw60 vwh60 vwmt20">
-                    <h2 class="fontv8 vwmt20">After<br>7 days...</h2>
+                    <h2 class="fontv8 vwmt20" style="position:relative;z-index:2000;">After<br>7 days...</h2>
                 </div>
             </div>
             <div class="slide " num="6" scale="1.2">
@@ -50,7 +50,7 @@
                     <h2 class="fontv7 vwmt7">Feel<br>transformed</h2>
                     <img class="happy" src="img/initial/smile.png"/>
                 </div>
-                <img class="pack" src="img/initial/pack.png"/>
+                <img ontouchstart='var ref = cordova.InAppBrowser.open("http://www.viridian-nutrition.com/search.aspx", "_blank", "location=yes");' class="pack" src="img/initial/pack.png"/>
             </div>
         </div>
         <div class="slideMenu vw34 vwh1">
@@ -61,9 +61,9 @@
             <div class="vw2 vwh2 "></div>
             <div class="vw2 vwh2 "></div>
             <div class="vw2 vwh2 "></div>
-            <button onclick="loginPage()" class="registerSlide fontv5" >Register</button>
         </div>
         </div>
+            <button id="registerSlide" ontouchstart="loginPage()" class="registerSlide fontv5" >Register</button>
         <style>
             .registerSlide {
                 position: absolute;
@@ -73,8 +73,8 @@
                 border:0;
                 left:0;
                 width:100%;
-                padding:0.5em ;
-                bottom:-0.5em;
+                padding:1em ;
+                bottom:0;
             }
             .pack {
                 position: absolute;
@@ -174,16 +174,16 @@ color:#007086;
                 background-size: cover;
                 
             }
-            @media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-            .slideMenu {
-                bottom:-10%;
-            }
+                @media only screen 
+      and (min-device-width: 768px) 
+      and (max-device-width: 1024px) 
+      and (orientation: portrait) 
+      and (-webkit-min-device-pixel-ratio: 1) {
+                .slideMenu {
+                    bottom:-10%;
+                }
 
-}
+            }
         </style>
     </div>
 </body>

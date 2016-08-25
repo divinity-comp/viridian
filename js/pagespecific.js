@@ -44,7 +44,7 @@ function selectionScreen() {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1.2, ease: Back.easeOut.config(1.7)},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.9);
@@ -53,7 +53,7 @@ function selectionScreen() {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1.2, ease: Back.easeOut.config(1.7)},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
@@ -68,21 +68,56 @@ function selectionScreen() {
         .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
     }
 }
+function sugarHides() {
+    var eyes = document.getElementsByClassName("eye");
+    var tl = new TimelineMax({repeat:-1});
+        tl
+        .set(eyes[0].children[1],  {x:"0%"})
+        .set(eyes[1].children[1], {x:"0%"})
+            .fromTo(eyes[0].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.5)
+        .fromTo(eyes[1].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.5)
+        .fromTo(eyes[0].children[1], 0.5, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
+        .fromTo(eyes[1].children[1], 0.5, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
+        .fromTo(eyes[0].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
+        .fromTo(eyes[1].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
+        .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
+        .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
+        .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
+        .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
+        .fromTo(eyes[0].children[1], 0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
+        .fromTo(eyes[1].children[1],0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
+        .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:Circ.easeOut},3.3)
+        .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:Circ.easeOut},3.3)
+        ;
 
+}
 function allAboutInitial() {
+    
     displayBotMenu("", true);
     displayMenu("", true, "walkthrough.html",function() {
         selectionScreen();
     });
-    var allabout = window.localStorage.getItem("allabout");
-    
     var greencircles = document.getElementsByClassName("greencircle");
+     TweenMax.to(greencircles, 0.2, {opacity:0, ease: Circ.easeOut});
+    
+    var allabout = window.localStorage.getItem("allabout");
+    setTimeout(function(){
+        if(allabout == "8") {
+            idc("goFinish").style.visibility = "visible";
+                 TweenMax.fromTo(idc("goFinish"), 1, {scale:0}, {scale:1, ease: Back.easeOut.config(1.7)});
+
+        }
+        }, 1800);
+    setTimeout(function(){
      TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.5, ease: Circ.easeOut});
-     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0}, {scale:1, ease: Back.easeOut},0.2);
+     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
 
     for(i = 0; i < parseInt(allabout) + 1;i++) {
      TweenMax.fromTo(greencircles[i], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
     }
+         TweenMax.fromTo(greencircles[0], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
+
+        }, 600);
 }
 function allaboutComplete(num) {
     var allabout = window.localStorage.getItem("allabout");
@@ -92,6 +127,45 @@ function allaboutComplete(num) {
     }
     if(parseInt(allabout) < num) {
         window.localStorage.setItem("allabout", num);
+    }
+}
+var slideDoneabout2 = false;
+function allabout2Next() {
+    if(!slideDoneabout2) {
+        
+    var initialItem = idc("onesecond");
+    var activeI = initialItem.getElementsByClassName("active")[0];
+    
+             var tla = new TimelineMax();    
+    var slideMenu = document.getElementsByClassName("slideMenu")[0];
+        if(initialItem.children[0].className = "slide active") {
+    tla.fromTo(initialItem.parentNode.children[1], 0.3, {scale:"0"}, {scale:"1"}).fromTo(initialItem.parentNode.children[0], 0.3, {scale:"1"}, {scale:"0"})
+          .to(initialItem.children[0], 1,  {x:"-100%", ease: Circ.easeOut,onComplete:function() {
+              initialItem.children[0].className = "slide";
+              initialItem.children[1].className = "slide active";
+              slideMenu.children[0].className = "vw2 vwh2";
+              slideMenu.children[1].className = "vw2 vwh2 active";
+              initialItem.parentNode.children[0].className = "vhmt9 vhmb1 fontv6 maintitle";
+              initialItem.parentNode.children[1].className = "vhmt9 vhmb1 fontv6 maintitle active";
+             var tl = new TimelineMax();    
+             tl.fromTo(initialItem.children[1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeIn})
+             .fromTo(initialItem.parentNode.children[1], 1, {opacity:"0"}, {opacity:"1", ease: Circ.easeOut})
+             .staggerFromTo(initialItem.children[1].children, 1, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2);
+          }});
+            
+        }
+        slideDoneabout2 = true;
+    }
+    else {
+        pageChange("pages/allabout/allabout3.html", "fade", function() {
+         allaboutComplete(3);  
+            sugarHides();
+              
+     displayMenu("", true, "all-about.html",function() {
+     allaboutComplete(3);       
+            allAboutInitial();
+    });
+        });
     }
 }
 function setupComplete(num) {
@@ -110,24 +184,31 @@ function setupComplete(num) {
 function setupPage() {
     var setupNum = window.localStorage.getItem("setupstate");
     
+    setTimeout(function(){
+        if(setupNum == "8") {
+            idc("goFinish").style.visibility = "visible";
+                 TweenMax.fromTo(idc("goFinish"), 1, {scale:0}, {scale:1, ease: Back.easeOut.config(1.7)});
+
+        }
+        }, 1800);
     displayMenu("", true, "walkthrough.html",function() {
         selectionScreen();
     });
     displayBotMenu("", true);
     
     var greencircles = document.getElementsByClassName("greencircle");
+     TweenMax.to(greencircles, 0.2, {opacity:0, ease: Circ.easeOut});
     
-     TweenMax.fromTo(idc("goFinish"), 0.2, {opacity:1}, {opacity:0, ease: Circ.easeOut});
-     TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.3, ease: Circ.easeOut});
-
-     TweenMax.fromTo(greencircles[0], 0.5, {opacity:0.3}, {opacity:1, ease: Circ.easeOut});
-    
-    var greencircles = document.getElementsByClassName("greencircle");
+    setTimeout(function(){
      TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.5, ease: Circ.easeOut});
+     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
 
     for(i = 0; i < parseInt(setupNum) + 1;i++) {
      TweenMax.fromTo(greencircles[i], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
     }
+         TweenMax.fromTo(greencircles[0], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
+
+        }, 600);
 }
 
 function initialLoadTut() {
@@ -229,13 +310,13 @@ function initialnext() {
               activeI.className = "slide";
     disableTouch = false;
               initialItem.children[numFound].className = "slide active";
-             document.getElementsByClassName("slideMenu")[0].children[document.getElementsByClassName("slideMenu")[0].children.length -1].style.visibility = "visible";
+             idc("registerSlide").style.visibility = "visible";
              var tl = new TimelineMax();    
              tl.fromTo(initialItem.children[numFound], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut})
                  .fromTo(initialItem.children[numFound].children[0].children[0], 0.8, {y:30,opacity:0}, {y:0,opacity:1, ease: Circ.easeOut})
               .fromTo(initialItem.children[numFound].children[0].children[1], 0.8, {y:30,scale:0}, {y:0,scale:1, ease: Back.easeOut.config(1.7)})
               .fromTo(initialItem.children[numFound].children[1], 0.8, {y:30,scale:0}, {y:0,scale:1, ease: Back.easeOut.config(1.7)})
-              .fromTo(document.getElementsByClassName("slideMenu")[0].children[document.getElementsByClassName("slideMenu")[0].children.length -1], 0.8, {rotationX:"270deg"}, {rotationX:"0deg", ease: Back.easeOut.config(1.7)});
+              .fromTo(idc("registerSlide"), 0.8, {opacity:0,y:100}, {opacity:1,y:0, ease: Back.easeOut.config(1.7)});
           }});
     }
     else {
@@ -261,7 +342,7 @@ function initialback() {
         }
     }
     
-    if(numFound == 1) {
+    if(numFound == 0) {
           TweenMax.to(activeI, 1,  {x:"100%", ease: Circ.easeOut,onComplete:function() {
               activeI.className = "slide";
     disableTouch = false;
@@ -351,7 +432,7 @@ function onesecond() {
     
              var tla = new TimelineMax();    
     var slideMenu = document.getElementsByClassName("slideMenu")[0];
-             TweenMax.staggerFromTo(initialItem.children[0].children, 1, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2)
+             TweenMax.staggerFromTo(initialItem.children[0].children, 1, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2);
     var initialItemHamn = new Hammer(initialItem);
     initialItemHamn.on('swipeleft', function(ev) {
         if(initialItem.children[0].className = "slide active") {
@@ -430,7 +511,16 @@ function rulesPop() {
     
     var initialItemHamn = new Hammer(initialItem);
     initialItemHamn.on('swipeleft', function(ev) {
-    var activeI = initialItem.getElementsByClassName("active")[0];
+        rulesLeft();
+    });
+    initialItemHamn.on('swiperight', function(ev) {
+        rulesRight();
+    });
+}
+function rulesLeft() {
+    var initialItem = idc("rules");
+    var initialItems = initialItem.getElementsByClassName("slide");
+       var activeI = initialItem.getElementsByClassName("active")[0];
     var numFound = parseInt(activeI.getAttribute("num"));
     var  slideMenu = document.getElementsByClassName("slideMenu")[0];
         if(numFound + 1 < initialItem.getElementsByClassName("slide").length) {
@@ -449,8 +539,11 @@ function rulesPop() {
              tl.fromTo(initialItems[numFound + 1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut});
           }});
         }
-    });
-    initialItemHamn.on('swiperight', function(ev) {
+}
+function rulesRight() {
+    var initialItem = idc("rules");
+    var initialItems = initialItem.getElementsByClassName("slide");
+
     var activeI = initialItem.getElementsByClassName("active")[0];
     var numFound = parseInt(activeI.getAttribute("num"));
     var  slideMenu = document.getElementsByClassName("slideMenu")[0];
@@ -472,7 +565,6 @@ function rulesPop() {
              tl.fromTo(initialItems[numFound -1], 1, {x:"-100%"}, {x:"0%", ease: Circ.easeOut});
           }});
             }
-    });
 }
 var pandisable = false;
 function dateSelection() {
@@ -604,6 +696,10 @@ function timeSelection() {
     var reminder1hour = new Hammer.Manager(greenCirc[0].getElementsByTagName("span")[0]);
     
     reminder1hour.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+        window.localStorage.setItem("reminder1hour",7);
+        window.localStorage.setItem("reminder1minute",30);
+        window.localStorage.setItem("reminder2hour",18);
+        window.localStorage.setItem("reminder2minute",30);
     var oneHour = 7;
     reminder1hour.on('panup', function(ev) {
         if(!pandisable) {
@@ -789,6 +885,15 @@ function timeSelection() {
 
     });
 }
+function setReminders() {
+    
+    var greenCirc = document.getElementsByClassName("times")[0].children;
+    
+    window.localStorage.setItem("reminder1hour",parseInt(greenCirc[0].getElementsByTagName("span")[0].innerHTML));
+    window.localStorage.setItem("reminder2hour",parseInt(greenCirc[0].getElementsByTagName("span")[1].innerHTML));
+    window.localStorage.setItem("reminder1minute",parseInt(greenCirc[1].getElementsByTagName("span")[0].innerHTML));
+    window.localStorage.setItem("reminder2minute",parseInt(greenCirc[1].getElementsByTagName("span")[1].innerHTML));
+}
 function intake(num) {
     if(num == 0) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
@@ -819,21 +924,143 @@ function intake(num) {
         }});
     }
 }
+function openMotivator() {
+    var mot= document.getElementsByClassName("mot")[0];
+    if(window.localStorage.getItem("motivator0") == "true") {
+        mot.children[0].setAttribute("active", true);
+    }
+    if(window.localStorage.getItem("motivator1") == "true") {
+        mot.children[1].setAttribute("active", true);
+    }
+    if(window.localStorage.getItem("motivator2") == "true") {
+        mot.children[2].setAttribute("active", true);
+    }
+    if(window.localStorage.getItem("motivator3") == "true") {
+        mot.children[3].setAttribute("active", true);
+    }
+    
+}
 function motivation(num, ele) {
     if(ele.getAttribute("active") == "false") {
         ele.setAttribute("active", true);
-        window.localStorage.setItem("motivation" + num, "true");
+        window.localStorage.setItem("motivator" + num, "true");
     }
     else {
         ele.setAttribute("active", false);
-        window.localStorage.setItem("motivation" + num, "false");
+        window.localStorage.setItem("motivator" + num, "false");
     }
+        profileAccept();
 }
 
-function sevenDayPlan() {
+
+function ageChange() {
+     var ageItem = new Hammer.Manager(idc("ageswipe"));
+    ageItem.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+    
+    var age = 25;
+    ageItem.on('panup', function(ev) {
+        if(!pandisable) {
+        pandisable = true;
+            age++;
+        window.localStorage.setItem("age",age);
+        TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               
+                   idc("ageswipe").getElementsByTagName("span")[0].innerHTML = age;
+            pandisable = false;
+            TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+        }});
+        }
+profileAccept();
+    });
+    ageItem.on('pandown', function(ev) {
+        if(!pandisable) {
+            pandisable = true;
+
+            age--;
+
+            if(age < 1) {
+                age = 1;
+            }
+        window.localStorage.setItem("age",age);
+            TweenMax.to(idc("ageswipe").getElementsByTagName("span")[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               idc("ageswipe").getElementsByTagName("span")[0].innerHTML = age;
+                pandisable = false;
+                TweenMax.fromTo(idc("ageswipe").getElementsByTagName("span")[0], 0.3,{y:"-100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+            }});
+        }
+        profileAccept();
+
+    });
+}
+function weightChange() {
+     var ageItem = new Hammer.Manager(idc("weight"));
+    ageItem.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
+    
+    var weight = 75;
+    ageItem.on('panup', function(ev) {
+        if(!pandisable) {
+        pandisable = true;
+            weight++;
+        window.localStorage.setItem("weight",weight);
+        TweenMax.to(idc("weight").getElementsByTagName("span")[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               
+                   idc("weight").getElementsByTagName("span")[0].innerHTML = weight + "kg";
+            pandisable = false;
+            TweenMax.fromTo(idc("weight").getElementsByTagName("span")[0], 0.3,{y:"100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+        }});
+        }
+profileAccept();
+    });
+    ageItem.on('pandown', function(ev) {
+        if(!pandisable) {
+            pandisable = true;
+
+            weight--;
+
+            if(weight < 1) {
+                weight = 1;
+            }
+        window.localStorage.setItem("weight",weight);
+            TweenMax.to(idc("weight").getElementsByTagName("span")[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
+               idc("weight").getElementsByTagName("span")[0].innerHTML = weight + "kg";
+                pandisable = false;
+                TweenMax.fromTo(idc("weight").getElementsByTagName("span")[0], 0.3,{y:"-100%"} , {y:"0%",opacity:1, ease: Circ.easeOut});
+            }});
+        }
+        profileAccept();
+
+    });
+}
+function changeGender(ele) {
+    var ptag = ele.getElementsByTagName("p")[1];
+    if(ptag.innerHTML == "" || ptag.innerHTML == "Male") {
+        ptag.innerHTML = "Female";
+        personalJSON["personalData"]["gender"] = "Male";
+    }
+    else {
+        ptag.innerHTML = "Male";
+        personalJSON["personalData"]["gender"] = "Female";
+    }
+        profileAccept();
+}
+function sevenDayPlan(numAuto) {
     var initialItem = idc("plan");
     var initialItems = initialItem.getElementsByClassName("slide");
     disableTouch = true;
+    
+    if(numAuto) {
+         for(i = 0; i < initialItems.length;i++) {
+            if(i == numAuto) {
+                initialItems[i].className = "slide active";
+                document.getElementsByClassName("slideMenu")[0].children[i].className = "vw2 vwh2 active";
+              idc("dayMount").getElementsByTagName("span")[0].innerHTML = i + 1;
+            }
+            else {
+                initialItems[i].className = "slide";
+                document.getElementsByClassName("slideMenu")[0].children[i].className = "vw2 vwh2";
+            }
+        }
+    }
     
     var activeI = initialItem.getElementsByClassName("active")[0];
     
@@ -957,13 +1184,14 @@ function startPlan() {
 function profileSetup() {
     var maintable = idc("maintable");
     var mainrow = maintable.getElementsByClassName("row");
-    
+    personalJSON = JSON.parse(window.localStorage.getItem("data"));
     mainrow[0].children[1].children[0].innerHTML = personalJSON["personalData"]["firstname"];
     mainrow[1].children[1].children[0].innerHTML = personalJSON["personalData"]["age"];
     mainrow[2].children[1].children[0].innerHTML = personalJSON["personalData"]["gender"];
+    mainrow[3].children[1].children[0].innerHTML = personalJSON["personalData"]["email"];
     
     var startday = window.localStorage.getItem("startday");
-    startday += "/" + window.localStorage.getItem("startmonth");
+    startday += "/" + (parseInt(window.localStorage.getItem("startmonth")) +1);
     startday += "/" + window.localStorage.getItem("startyear");
     mainrow[4].children[1].children[0].innerHTML = startday;
     var reminder =     window.localStorage.getItem("reminder1hour");
@@ -972,21 +1200,46 @@ function profileSetup() {
     reminder += ":" + window.localStorage.getItem("reminder2minute");
     mainrow[5].children[1].children[0].innerHTML = reminder;
 
-    var sugarintake = window.localStorage.setItem("sugarintake");
+    var sugarintake = window.localStorage.getItem("sugarintake");
     mainrow[6].children[1].children[0].innerHTML = sugarintake;
-    var motivators1 = window.localStorage.getItem("motivator0" );
-    var motivators2 = window.localStorage.getItem("motivator1" );
-    var motivators3 = window.localStorage.getItem("motivator2" );
-    var motivators4 = window.localStorage.getItem("motivator3" );
+    var motivators1 = personalJSON["personalData"]["motivators1"];
+    var motivators2 = personalJSON["personalData"]["motivators2"];
+    var motivators3 = personalJSON["personalData"]["motivators3"];
+    var motivators4 = personalJSON["personalData"]["motivators4"];
     mainrow[7].children[1].children[0].innerHTML = "";
-    if(motivators1)
-        mainrow[7].children[1].children[0].innerHTML += "weight ";
-    if(motivators2)
-        mainrow[7].children[1].children[0].innerHTML += " health";
-    if(motivators3)
-        mainrow[7].children[1].children[0].innerHTML += "Energy levels & sleep";
-    if(motivators4)
+    if(motivators1 == "true")
+        mainrow[7].children[1].children[0].innerHTML += "Weight<br>";
+    if(motivators2 == "true")
+        mainrow[7].children[1].children[0].innerHTML += "Health<br>";
+    if(motivators3 == "true")
+        mainrow[7].children[1].children[0].innerHTML += "Energy levels & sleep<br>";
+    if(motivators4 == "true")
         mainrow[7].children[1].children[0].innerHTML += "Mood";
+    mainrow[8].children[1].children[0].innerHTML = personalJSON["personalData"]["weight"];
+}
+function addprofileChange(functiontorun) {
+    document.getElementsByClassName("close")[0].ontouchstart = function() {
+         functiontorun();profileSetup();           closePopup();
+    }
+    document.getElementsByClassName("setButton")[0].ontouchstart = function() {
+        functiontorun(); profileSetup();           closePopup();
+    }
+}
+function profileAccept() {
+    personalJSON["personalData"]["age"] = window.localStorage.getItem("age" );
+    personalJSON["personalData"]["startday"] = window.localStorage.getItem("startday" );
+    personalJSON["personalData"]["startmonth"] = window.localStorage.getItem("startmonth" );
+    personalJSON["personalData"]["startyear"] = window.localStorage.getItem("startyear" );
+    personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
+    personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
+    personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
+    personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
+    personalJSON["personalData"]["motivators1"] = window.localStorage.getItem("motivator0" );
+    personalJSON["personalData"]["motivators2"] = window.localStorage.getItem("motivator1" );
+    personalJSON["personalData"]["motivators3"] = window.localStorage.getItem("motivator2" );
+    personalJSON["personalData"]["motivators4"] = window.localStorage.getItem("motivator3" );
+    personalJSON["personalData"]["weight"] = window.localStorage.getItem("weight" );
+    window.localStorage.setItem("data", JSON.stringify(personalJSON));
 }
 
 function methodswap(num, dnum) {
@@ -1007,7 +1260,7 @@ function methodswap(num, dnum) {
 }
 function recipeTime(num) {
     var docFind = document.getElementsByClassName("ingrd");
-    var docFindbutton = document.getElementsByClassName("recipe")[0].getElementsByTagName("button");
+    var docFindbutton = document.getElementsByClassName("recipe")[0].getElementsByTagName("div");
 
     for(i = 0; i < docFind.length;i++) {
         docFind[i].setAttribute("active", false);
@@ -1022,16 +1275,211 @@ function recipeTime(num) {
         }
     }
 }
+
+var homepageLink = "";
 function seerecipes() {
     var planItem = idc("plan");
     
    var singleItem = planItem.getElementsByClassName("active")[0];
     pageChange("pages/recipes/day" + (parseInt(singleItem.getAttribute("num")) + 1 ) + ".html", "fade", function() {
         displayMenu("", true, "setup/7dayplan.html",function() {  
-            sevenDayPlan();
+            sevenDayPlan(parseInt(singleItem.getAttribute("num") ));
             displayMenu("", true, "set-up.html",function() {
              setupComplete(7); 
             });   
         });
     });
+}
+var diffDays;
+function daily() {
+    displayBotMenu("", true);
+                displayMenu("", true, "login.html",function() {loginMenu();
+                });
+   // var startday = window.localStorage.setItem("startday", 15);
+    //var startday = window.localStorage.setItem("savedsugar", 19);
+    var startday = window.localStorage.getItem("startday");
+    var startmonth = window.localStorage.getItem("startmonth");
+    var startyear = window.localStorage.getItem("startyear");
+    var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+    var firstDate = new Date(startyear,startmonth,startday);
+    var secondDate = new Date();
+         diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) ;
+    if (firstDate > secondDate) {
+        idc("dailynum").innerHTML = diffDays + " days away";
+        
+        document.getElementsByClassName("noday")[0].style.display ="block";
+        document.getElementById("mealplantoday").ontouchstart = function() {
+            pageChange("pages/setup/7dayplan.html", "fade", function() { 
+                sevenDayPlan();
+                displayMenu("", true, "daily.html",function() {  
+                    daily();
+                });
+            });
+        }
+    }
+    else if(diffDays < 8) {
+        idc("dailynum").innerHTML = "Day " + diffDays;
+        document.getElementsByClassName("daily" + diffDays)[0].style.display = "block";
+        var gramsSaved = parseInt(window.localStorage.getItem("savedsugar"));
+        var sugarsaved = {amount:0};
+        TweenLite.to(sugarsaved, 1, {amount:gramsSaved, roundProps:"amount",onUpdate:function(){
+            if(sugarsaved.amount < 100) {
+                if(sugarsaved.amount < 10) {
+  idc("gramSaved").innerHTML = "00" +sugarsaved.amount;
+            }
+                else {
+  idc("gramSaved").innerHTML = "0" +sugarsaved.amount;
+
+                }
+            }
+                else {
+  idc("gramSaved").innerHTML =sugarsaved.amount;
+
+                }
+}, ease:Circ.easeOut});
+        
+        document.getElementById("mealplantoday").ontouchstart = function() {
+            pageChange("pages/recipes/day" + diffDays + ".html", "fade", function() {
+                displayMenu("", true, "daily.html",function() {  
+                    daily();
+                });
+            });
+        }
+    }
+    else {
+            pageChange("pages/finished.html", "fade", function() { 
+               
+            });
+    }
+    
+}
+function moodClick(ele,num) {
+    var addstring = "";
+    if(window.localStorage.getItem("mood") != null) {
+        addstring = window.localStorage.getItem("mood");
+    }         
+                
+    if(ele.getAttribute("active") == "false") {
+        ele.setAttribute("active", "true");
+        TweenMax.to(ele.children[0], 0.2,  {scale:"0", ease: Circ.easeOut,onComplete:function() {
+            
+            window.localStorage.setItem("mood", addstring + "," + num + ";" + Date() + ";active");
+            ele.children[0].src = "img/emoji/" + ele.children[0].getAttribute("url") + ".png";
+            TweenMax.to(ele.children[0], 0.2,  {scale:"1", ease: Circ.easeOut});
+        }});
+
+    }
+    else {
+        ele.setAttribute("active", "false");
+        TweenMax.to(ele.children[0], 0.2,  {scale:"0", ease: Circ.easeOut,onComplete:function() {
+            window.localStorage.setItem("mood", addstring + "," + num + ";" + Date() + ";inactive");
+            
+            ele.children[0].src = "img/emoji/" + ele.children[0].getAttribute("url") + "-grey.png";
+            TweenMax.to(ele.children[0], 0.2,  {scale:"1", ease: Circ.easeOut});
+        }});
+    }
+}
+function openFeeling(ele) {
+}
+var shoppingList = {list:[]};
+function openShopping() {
+    displayBotMenu("", true);
+    if(window.localStorage.getItem("shoppingList"))
+    shoppingList = JSON.parse(window.localStorage.getItem("shoppingList"));
+    var scrollIngred = document.getElementsByClassName("scrollIngred")[0].getElementsByTagName("button");
+    
+    for(i = 0; i < shoppingList.list.length;i++) {
+        if(shoppingList.list[i].active == "true") {
+            scrollIngred[shoppingList.list[i].name].setAttribute("active","true");
+        }
+    }
+}
+function gotShopping(ele) {
+    var savedInt = 0;
+    var scrollIngred = document.getElementsByClassName("scrollIngred")[0];
+    for(i = 0; i < scrollIngred.getElementsByTagName("button").length;i++) {
+        if(ele == scrollIngred.getElementsByTagName("button")[i]) {
+            savedInt = i;
+        }
+    }
+    if(ele.getAttribute("active") == "false") {
+        ele.setAttribute("active", "true");
+        var numAmount = false;
+    var listpos = 0;
+        if(shoppingList.list.length != 0) {
+          
+        for(i = 0; i < shoppingList.list.length;i++) {
+            if(shoppingList.list[i].name == savedInt) {
+               numAmount  = true;
+                listpos = i;
+    break;
+            }
+        }  
+        }
+        if(numAmount) {
+            shoppingList.list[listpos].active = "true";
+        }
+        else {
+            shoppingList.list.push({name:savedInt,active:"true"});
+        }
+        
+    }
+    else {
+        ele.setAttribute("active", "false");
+        var listpos = 0;
+        for(i = 0; i < shoppingList.list.length;i++) {
+            if(shoppingList.list[i].name == savedInt) {
+               numAmount  = true;
+                listpos = i;
+                break;
+            }
+        }
+        shoppingList.list[listpos].active = "false";
+
+    }
+    window.localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+}
+
+function shareToggle(toggleType,placeholder,successType) {
+    if(toggleType == "true") {
+        document.getElementById("popup").style.display = "block";
+        TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+        document.getElementById("popup").innerHTML = '<img class="close" ontouchstart="closePopup()" src="img/close.png" />';
+        document.getElementById("popup").innerHTML += '<img id="shareClick" class="fb-share vw20" src="img/buttons/fb-share.png"  />';
+
+        TweenMax.set(idc("shareClick"), {position:"absolute", top:"15%",y:50,left:0,right:0,zIndex:"99999999"});
+        document.getElementById("popup").innerHTML += '<input id="shareInput" type="text" class="fontv3 shareInput" placeholder="'+ placeholder +'" />';
+        TweenMax.set(idc("popup").children[2], {position:"absolute", padding:"0.5em",top:"15%",left:0,right:0,margin:"auto",zIndex:"99999999",scale:1.2  });
+        idc("shareInput").focus();
+        idc("shareClick").ontouchstart = function() {
+           shareToggle("false", idc("shareInput").placeholder); 
+        }
+    }
+    else {
+        shareNow(placeholder,idc("shareInput").value,"http://www.network-divinity.com/viridian/logo.png");
+        closePopup();
+    }
+}
+function shareNow(captionTitle,descriptionTitle,picturelink) {
+    facebookConnectPlugin.showDialog(JSON.stringify({method:"share",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}), 
+        function() {
+            alert("Added to your news feed");
+        }, 
+        function() {
+            alert("Not added to your news feed");
+    });
+}
+function setName() {
+    personalJSON["personalData"]["firstname"] = idc("name").value;
+    window.localStorage.setItem("data", JSON.stringify(personalJSON));
+}
+
+function nextCheck() {
+    if(homepageLink == "pages/daily.html") {
+        document.getElementsByClassName("nextButton")[0].style.display = "none";
+           
+         displayMenu("", true, "daily.html",function() {
+         daily();
+        });
+    }
 }
