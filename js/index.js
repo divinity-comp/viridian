@@ -147,7 +147,7 @@ var app = {
 	fblogin: function() {
 		var fbLoginSuccess = function (userData) {
 				fullJSON = userData;
-                alert("fulljson " + SON.stringify(fullJSON));
+                alert("fulljson " + JSON.stringify(fullJSON));
                 fbId = fullJSON.authResponse.userID;
                 if(fbId) {
                 fbCheck();
