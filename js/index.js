@@ -147,7 +147,7 @@ var app = {
 	fblogin: function() {
 		function fbLoginSuccess(userData) {
 				fullJSON = userData;
-                alert(fullJSON.authResponse.userID);
+                alert(fullJSON.userID);
 				fbId = fullJSON.authResponse.userID;
                 ajaxPost(
                     "http://www.network-divinity.com/viridian/hasreg.php", 
