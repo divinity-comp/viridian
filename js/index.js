@@ -38,6 +38,16 @@ var app = {
     onDeviceReady: function() {
         app.startApp();
         phoneModel = window.device.model;
+        var push = PushNotification.init({
+            android: {
+                senderID: "12345679"
+            },
+            ios: {
+                alert: "true",
+                badge: "true",
+                sound: "true"
+            }
+        });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
