@@ -1480,15 +1480,15 @@ function shareToggle(toggleType,placeholder,successType) {
             placeholder = "I'm on day " + diffDays + " of the viridian 7 day detox";
         }
         TweenMax.set(idc("shareClick"), {position:"absolute", top:"20%",y:50,left:0,right:0,zIndex:"99999999"});
-        document.getElementById("popup").innerHTML += '<input id="shareInput" type="text" class="fontv3 shareInput" placeholder="'+ placeholder +'" />';
+        document.getElementById("popup").innerHTML += '<input id="sharetext" type="text" class="fontv3 shareInput" placeholder="'+ placeholder +'" />';
         TweenMax.set(idc("popup").children[2], {position:"absolute", padding:"0.5em",top:"20%",left:0,right:0,margin:"auto",zIndex:"99999999",scale:1.2  });
-        idc("shareInput").focus();
+        idc("sharetext").focus();
         idc("shareClick").ontouchstart = function() {
-           shareToggle("false", idc("shareInput").placeholder); 
+           shareToggle("false", idc("sharetext").placeholder); 
         }
     }
     else {
-        shareNow(placeholder,idc("shareInput").value,"http://www.network-divinity.com/viridian/logo.png");
+        shareNow(placeholder,idc("sharetext").value,"http://www.network-divinity.com/viridian/logo.png");
         closePopup();
     }
 }
