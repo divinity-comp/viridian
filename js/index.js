@@ -49,6 +49,8 @@ var app = {
         }
         
         setTimeout(function(){
+        if(          window.localStorage.getItem("data"))
+            personalJSON = JSON.parse(window.localStorage.getItem("data"));
             
                 
             if(window.localStorage.getItem("setupdone") != "done") {
@@ -62,7 +64,7 @@ var app = {
                 else {
                     if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged") == "true") {
                         pageChange("pages/walkthrough.html", "fade", function() {
-                        selectionScreen();
+                            selectionScreen();
                         }); 
                         homepageLink ="pages/walkthrough.html";
                     }

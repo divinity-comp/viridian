@@ -1230,10 +1230,18 @@ function addprofileChange(functiontorun) {
 function dailyTimer() {
     
     document.getElementsByClassName("close")[0].ontouchstart = function() {
-         profileAccept();           closePopup();
+           closePopup();
+    personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
+    personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
+    personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
+    personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
     }
     document.getElementsByClassName("setButton")[0].ontouchstart = function() {
-        profileAccept();           closePopup();
+        closePopup();
+    personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
+    personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
+    personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
+    personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
     }
 }
 function profileAccept() {
