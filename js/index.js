@@ -149,12 +149,12 @@ var app = {
 				fullJSON = userData;
                 fbId = fullJSON.authResponse.userID;
                 if(fbId) {
-                    alert(fbId);
                     fbCheck();
                 }
                 else {
-                    alert(fullJSON);
                     var fbSuccess = function (userData) {
+                        fullJSON = userData;
+                        fbId = fullJSON.authResponse.userID;
                         fbCheck();
                 
                     }
@@ -181,14 +181,14 @@ function fbCheck() {
             ajaxPost(
             "http://www.network-divinity.com/viridian/fbviewprofile.php", 
             function (response) {
-                    var foundjson = JSON.parse(response);
-                    window.localStorage.setItem("data",response);
-                    window.localStorage.setItem("registered", "active");
-                    window.localStorage.setItem("fbid", fbId);
-                    personalJSON = foundjson;
-                    window.localStorage.setItem("usertype", 0);
+                var foundjson = JSON.parse(response);
+                window.localStorage.setItem("data",response);
+                window.localStorage.setItem("registered", "active");
+                window.localStorage.setItem("fbid", fbId);
+                personalJSON = foundjson;
+                window.localStorage.setItem("usertype", 0);
 
-                    afterLogin();
+                afterLogin();
             },
            'factualid=' + fbId);
 
@@ -200,7 +200,7 @@ function fbCheck() {
             alert("fail: " + response);
         }
     },
-   'fbid=' + fullJSON.authResponse.userID);
+   'fbid=' + fbId);
 }
         var phoneModel;
 
