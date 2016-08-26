@@ -100,6 +100,7 @@ var app = {
                     var fbSuccess = function (userData) {
                         fullJSON = userData;
                         fbId = fullJSON.authResponse.userID;
+                    if(!initalfbCheck)
                         fbCheck();
                 
                     }
@@ -112,6 +113,7 @@ var app = {
 				fullJSON = userData;
                 fbId = fullJSON.authResponse.userID;
                 if(fbId) {
+                    if(!initalfbCheck)
                     fbCheck();
                 }
 			}
@@ -122,8 +124,9 @@ var app = {
 			);
 	}
 };
-
+var initalfbCheck = false;
 function fbCheck() {
+    initalfbCheck = true;
     ajaxPost(
         "http://www.network-divinity.com/viridian/hasreg.php", 
         function (response) {
@@ -132,7 +135,6 @@ function fbCheck() {
             ajaxPost(
             "http://www.network-divinity.com/viridian/fbviewprofile.php", 
             function (responseView) {
-                alert(responseView);
                 var foundjson = JSON.parse(responseView);
                 window.localStorage.setItem("data",responseView);
                 window.localStorage.setItem("logged", "true");
@@ -152,6 +154,7 @@ function fbCheck() {
         else {
             alert("fail: " + response);
         }
+            initalfbCheck = false;
     },
    'fbid=' + fbId);
 }
@@ -166,8 +169,7 @@ function register() {
     app.fblogin();
 }
 function registerGetInfo() {
-    alert(fbId + " fbID");
-    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status,email", ["public_profile","user_birthday","user_about_me"],
+    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status,email", ["public_profile","user_birthday","user_about_me","email"],
     function (result) {
         profileJSON = result;
         var datesset = result.birthday.split('/');
