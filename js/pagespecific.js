@@ -27,6 +27,7 @@ function loginMenu() {
 }
 function selectionScreen() {
     var tl = new TimelineMax();
+                window.localStorage.setItem("logged", "true");
     
     var allabout = window.localStorage.getItem("allabout");
     var setupstate = window.localStorage.getItem("setupstate");
@@ -1292,6 +1293,7 @@ function seerecipes() {
 }
 var diffDays;
 function daily() {
+                window.localStorage.setItem("logged", "true");
     displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
                 });

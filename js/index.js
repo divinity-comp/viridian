@@ -49,7 +49,8 @@ var app = {
         }
         
         setTimeout(function(){
-
+            
+                
             if(window.localStorage.getItem("setupdone") != "done") {
                 if(window.localStorage.getItem("doneintro") != "true") {
                     window.localStorage.setItem("doneintro", "true");  
@@ -134,7 +135,8 @@ function fbCheck() {
                 alert(responseView);
                 var foundjson = JSON.parse(responseView);
                 window.localStorage.setItem("data",responseView);
-                window.localStorage.setItem("registered", "active");
+                window.localStorage.setItem("logged", "true");
+                window.localStorage.setItem("remember", "true");
                 window.localStorage.setItem("fbid", fbId);
                 personalJSON = foundjson;
                 window.localStorage.setItem("usertype", 0);
@@ -165,12 +167,13 @@ function register() {
 }
 function registerGetInfo() {
     alert(fbId + " fbID");
-    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status", ["public_profile","user_birthday","user_about_me"],
+    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status,email", ["public_profile","user_birthday","user_about_me"],
     function (result) {
         profileJSON = result;
         var datesset = result.birthday.split('/');
 
-        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + profileJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '", "description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'"  }, "version":0  }');
+        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + profileJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '", "description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","email":"' + profileJSON.email +''"  }, "version":0  }');
+        window.localStorage.setItem("age" , calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)));
         
         ajaxPost(
             "http://www.network-divinity.com/viridian/register.php", 
@@ -379,4 +382,19 @@ function homepageFunction() {
         selectionScreen();
     }
                     
+}
+function checkConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    return states[networkState];
 }
