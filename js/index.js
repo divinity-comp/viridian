@@ -145,13 +145,15 @@ var app = {
         }, splashScreen);
     },
 	fblogin: function() {
-		var fbLoginSuccess = function (userData) {
+		  var fbLoginSuccess = function (userData) {
 				fullJSON = userData;
                 fbId = fullJSON.authResponse.userID;
                 if(fbId) {
+                    alert(fbId);
                     fbCheck();
                 }
                 else {
+                    alert(fullJSON);
                     var fbSuccess = function (userData) {
                         fbCheck();
                 
@@ -160,7 +162,7 @@ var app = {
                         fbSuccess,
                         function (error) { alert("error " + JSON.stringify(error)); }
                     );
-}
+                }
 			}
 
 			facebookConnectPlugin.getLoginStatus(
