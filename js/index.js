@@ -38,56 +38,6 @@ var app = {
     onDeviceReady: function() {
         app.startApp();
         phoneModel = window.device.model;
-        var regs = window.localStorage.getItem("registered");
-        var remember = window.localStorage.getItem("remember");
-        fbId = window.localStorage.getItem("fbid");
-        
-        if(regs == "active" && fbId.length != 0) {
-            var datapersonal = window.localStorage.getItem("data");
-            if(datapersonal === null || datapersonal === 0) {
-                ajaxPost(
-                    "http://www.network-divinity.com/viridian/fbviewprofile.php", 
-                    function (response) {
-                        window.localStorage.setItem("data",response);
-                        datapersonal = response;
-                        afterLogin();
-                },
-               'factualid=' + fbId);
-            }
-            else {
-                personalJSON = JSON.parse(datapersonal);
-                afterLogin();
-            }
-            
-        }
-        else if((remember != "" || remember != null) && regs == "active") {
-            afterLogin();
-        }
-        else {
-            var datapersonal = window.localStorage.getItem("data");
-            if(datapersonal === null || datapersonal === 0) {
-            }
-            else {
-                personalJSON = JSON.parse(datapersonal);
-            }
-            var tlaa = new TimelineMax();
-                tlaa.set(document.getElementById("pagewrap"), {display:"block"})
-                .fromTo(document.getElementById("pagewrap"), 1, {y:"100%"}, {y:"0%",ease: Circ.easeOut});
-            
-            document.getElementById("fblog").style.display = "block";
-            document.getElementById("fblog").addEventListener("click", function() {
-                app.fblogin();
-            });
-            facebookConnectPlugin.getLoginStatus(function(response) {
-              if (response.status === 'connected') {
-                app.fblogin();
-                var uid = response.authResponse.userID;
-                var accessToken = response.authResponse.accessToken;
-              }
-              else if (response.status === 'not_authorized') {
-              } 
-            });
-        }
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
