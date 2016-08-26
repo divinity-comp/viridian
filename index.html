@@ -194,7 +194,10 @@
     </div>
     <div id="botMenu" class="vw98 vwh35">
         <div class="whiteMenu vw98 vwh98">
-            <img class="vw16" style="left:11%;top:17%;" src="img/bot-menu/settings.png" />
+            <img ontouchstart='
+    pageChange("pages/setup/settings.html", "fade", function() {  
+                           settingsSetup();
+    });' class="vw16" style="left:11%;top:17%;" src="img/bot-menu/settings.png" />
             <img  ontouchstart='
     pageChange("pages/allabout/allabout1.html", "fade", function() {  
                                 nextCheck();

@@ -1470,7 +1470,6 @@ function gotShopping(ele) {
 
 function shareToggle(toggleType,placeholder,successType) {
     if(toggleType == "true") {
-        alert("share toggle");
         if(successType == "daily") {
             placeholder = "I'm on day " + diffDays + " of the viridian 7 day detox";
         }
@@ -1483,7 +1482,7 @@ function shareNow(captionTitle,descriptionTitle,picturelink) {
             alert("Added to your news feed " + JSON.stringify(result));
         }, 
         function(e) {
-            alert("Not added to your news feed " + e);
+            alert("Not added to your news feed " );
     });
 }
 function setName() {
@@ -1499,4 +1498,24 @@ function nextCheck() {
          daily();
         });
     }
+}
+function settingsSetup() {
+    var maintable = idc("maintable");
+    
+    if(window.localStorage.getItem("notification") == "no") {
+        maintable.children[0].children[1].children[0].innerHTML = "Disallowed";
+    }
+}
+function adjustNotifications(ele) {
+    if(window.localStorage.getItem("notification") == "yes") {
+    window.localStorage.setItem("notification", "no");
+        ele.children[1].children[0].innerHTML = "Disallowed";
+        
+    }
+    else {
+    window.localStorage.setItem("notification", "yes");
+        ele.children[1].children[0].innerHTML = "Allowed";
+        
+    }
+    
 }
