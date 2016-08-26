@@ -697,10 +697,6 @@ function timeSelection() {
     var reminder1hour = new Hammer.Manager(greenCirc[0].getElementsByTagName("span")[0]);
     
     reminder1hour.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
-        window.localStorage.setItem("reminder1hour",7);
-        window.localStorage.setItem("reminder1minute",30);
-        window.localStorage.setItem("reminder2hour",18);
-        window.localStorage.setItem("reminder2minute",30);
     var oneHour = 7;
     reminder1hour.on('panup', function(ev) {
         if(!pandisable) {
@@ -891,14 +887,16 @@ function setReminders() {
     var greenCirc = document.getElementsByClassName("times")[0].children;
     
     window.localStorage.setItem("reminder1hour",parseInt(greenCirc[0].getElementsByTagName("span")[0].innerHTML));
-    window.localStorage.setItem("reminder2hour",parseInt(greenCirc[0].getElementsByTagName("span")[1].innerHTML));
-    window.localStorage.setItem("reminder1minute",parseInt(greenCirc[1].getElementsByTagName("span")[0].innerHTML));
+    window.localStorage.setItem("reminder2hour",parseInt(greenCirc[1].getElementsByTagName("span")[0].innerHTML));
+    window.localStorage.setItem("reminder1minute",parseInt(greenCirc[0].getElementsByTagName("span")[1].innerHTML));
     window.localStorage.setItem("reminder2minute",parseInt(greenCirc[1].getElementsByTagName("span")[1].innerHTML));
 }
 function intake(num) {
     if(num == 0) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
             idc("sugarAmount").innerHTML = "007";
+            
+            var savedsugar = window.localStorage.setItem("savedsugar", 7);
             var sugarintake = window.localStorage.setItem("sugarintake", "light");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
@@ -906,6 +904,7 @@ function intake(num) {
     else if(num == 1) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
             idc("sugarAmount").innerHTML = "025";
+    var savedsugar = window.localStorage.setItem("savedsugar", 25);
             var sugarintake = window.localStorage.setItem("sugarintake", "Medium");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
@@ -913,6 +912,7 @@ function intake(num) {
     else if(num == 2) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
             idc("sugarAmount").innerHTML = "060";
+    var savedsugar = window.localStorage.setItem("savedsugar", 60);
             var sugarintake = window.localStorage.setItem("sugarintake", "Heavy User");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
@@ -920,6 +920,7 @@ function intake(num) {
     else if(num == 3) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
             idc("sugarAmount").innerHTML = "120";
+    var savedsugar = window.localStorage.setItem("savedsugar", 120);
             var sugarintake = window.localStorage.setItem("sugarintake", "Very heavy user");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
@@ -1226,6 +1227,15 @@ function addprofileChange(functiontorun) {
         functiontorun(); profileSetup();           closePopup();
     }
 }
+function dailyTimer() {
+    
+    document.getElementsByClassName("close")[0].ontouchstart = function() {
+         profileAccept();           closePopup();
+    }
+    document.getElementsByClassName("setButton")[0].ontouchstart = function() {
+        profileAccept();           closePopup();
+    }
+}
 function profileAccept() {
     personalJSON["personalData"]["age"] = window.localStorage.getItem("age" );
     personalJSON["personalData"]["startday"] = window.localStorage.getItem("startday" );
@@ -1298,14 +1308,13 @@ function daily() {
                 displayMenu("", true, "login.html",function() {loginMenu();
                 });
    // var startday = window.localStorage.setItem("startday", 15);
-    //var startday = window.localStorage.setItem("savedsugar", 19);
     var startday = window.localStorage.getItem("startday");
     var startmonth = window.localStorage.getItem("startmonth");
     var startyear = window.localStorage.getItem("startyear");
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
     var firstDate = new Date(startyear,startmonth,startday);
     var secondDate = new Date();
-         diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) ;
+         diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) + 1;
     if (firstDate > secondDate) {
         idc("dailynum").innerHTML = diffDays + " days away";
         
@@ -1322,7 +1331,7 @@ function daily() {
     else if(diffDays < 8) {
         idc("dailynum").innerHTML = "Day " + diffDays;
         document.getElementsByClassName("daily" + diffDays)[0].style.display = "block";
-        var gramsSaved = parseInt(window.localStorage.getItem("savedsugar"));
+        var gramsSaved = parseInt(window.localStorage.getItem("savedsugar")) * diffDays;
         var sugarsaved = {amount:0};
         TweenLite.to(sugarsaved, 1, {amount:gramsSaved, roundProps:"amount",onUpdate:function(){
             if(sugarsaved.amount < 100) {
@@ -1339,7 +1348,12 @@ function daily() {
 
                 }
 }, ease:Circ.easeOut});
-        
+    personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
+    personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
+    personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
+    personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
+        document.getElementsByClassName("time1")[0].innerHTML = window.localStorage.getItem("reminder1hour" ) + ":" + window.localStorage.getItem("reminder1minute" ) + " am";
+        document.getElementsByClassName("time2")[0].innerHTML = window.localStorage.getItem("reminder2hour" ) + ":" + window.localStorage.getItem("reminder2minute" ) + " pm";
         document.getElementById("mealplantoday").ontouchstart = function() {
             pageChange("pages/recipes/day" + diffDays + ".html", "fade", function() {
                 displayMenu("", true, "daily.html",function() {  
