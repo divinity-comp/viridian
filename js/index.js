@@ -95,13 +95,7 @@ var app = {
         }, splashScreen);
     },
 	fblogin: function() {
-		  var fbLoginSuccess = function (userData) {
-				fullJSON = userData;
-                fbId = fullJSON.authResponse.userID;
-                if(fbId) {
-                    fbCheck();
-                }
-                else {
+        
                     var fbSuccess = function (userData) {
                         fullJSON = userData;
                         fbId = fullJSON.authResponse.userID;
@@ -110,8 +104,14 @@ var app = {
                     }
                     facebookConnectPlugin.login(["public_profile","user_birthday","user_about_me"],
                         fbSuccess,
-                        function (error) { alert("error " + JSON.stringify(error)); }
+                        function (error) { console.log("error " + JSON.stringify(error)); }
                     );
+        
+		  var fbLoginSuccess = function (userData) {
+				fullJSON = userData;
+                fbId = fullJSON.authResponse.userID;
+                if(fbId) {
+                    fbCheck();
                 }
 			}
 
