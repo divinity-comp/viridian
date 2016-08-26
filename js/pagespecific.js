@@ -1235,6 +1235,7 @@ function dailyTimer() {
     personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
     personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
     personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
+                    daily();
     }
     document.getElementsByClassName("setButton")[0].ontouchstart = function() {
         closePopup();
@@ -1242,6 +1243,7 @@ function dailyTimer() {
     personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
     personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
     personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
+                    daily();
     }
 }
 function profileAccept() {
@@ -1466,6 +1468,7 @@ function gotShopping(ele) {
 
 function shareToggle(toggleType,placeholder,successType) {
     if(toggleType == "true") {
+        alert("share toggle");
         document.getElementById("popup").style.display = "block";
         TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
         document.getElementById("popup").innerHTML = '<img class="close" ontouchstart="closePopup()" src="img/close.png" />';

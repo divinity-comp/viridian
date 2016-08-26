@@ -15,7 +15,7 @@
             <div id="maintable" class="maintable vh66">
                 <div class="row " onclick='
     pageChange("pages/setup/name.html", "popup", function() {  
-                          
+                      idc("name").value = personalJSON["personalData"]["firstname"];    
     });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Name</p>
@@ -28,6 +28,7 @@
                 <div class="row " onclick='
     pageChange("pages/setup/age.html", "popup", function() {  
                     ageChange();      
+                      idc("ageswipe").innerHTML = personalJSON["personalData"]["age"] + " years";    
     });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Age</p>
@@ -51,7 +52,7 @@
                         <p class="fontv4 lineh10">Email</p>
                     </div>
                     <div class="half">
-                        <p class="fontv4 lineh10" style="text-align:right;"></p>
+                        <p class="fontv4 lineh10" style="text-align:right;white-space: nowrap;"></p>
                     </div>
                 </div>
                 <hr>
@@ -114,6 +115,7 @@
                 <div class="row " onclick='
     pageChange("pages/setup/weight.html", "popup", function() { 
                                                 weightChange();
+                      idc("weight").innerHTML = personalJSON["personalData"]["weight"] + "kg";  
     });'>
                     <div class="half ">
                         <p class="fontv4 lineh10">Start Weight</p>
