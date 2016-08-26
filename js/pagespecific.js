@@ -1469,12 +1469,10 @@ function gotShopping(ele) {
 }
 
 function shareToggle(toggleType,placeholder,successType) {
-    if(toggleType == "true") {
         if(successType == "daily") {
-            placeholder = "I'm on day " + diffDays + " of the viridian 7 day detox";
-        }
-        shareNow(placeholder,idc("sharetext").value,"http://www.network-divinity.com/viridian/logo.png");
+        placeholder = "I'm on day " + diffDays + " of the viridian 7 day detox";
     }
+    shareNow(placeholder,"","http://www.network-divinity.com/viridian/logo.png");
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
     facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
