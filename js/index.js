@@ -126,14 +126,14 @@ function fbCheck() {
     ajaxPost(
         "http://www.network-divinity.com/viridian/hasreg.php", 
         function (response) {
-            alert("has reg" + response);
         if(response == "yes") {
             
             ajaxPost(
             "http://www.network-divinity.com/viridian/fbviewprofile.php", 
-            function (response) {
-                var foundjson = JSON.parse(response);
-                window.localStorage.setItem("data",response);
+            function (responseView) {
+                alert(responseView);
+                var foundjson = JSON.parse(responseView);
+                window.localStorage.setItem("data",responseView);
                 window.localStorage.setItem("registered", "active");
                 window.localStorage.setItem("fbid", fbId);
                 personalJSON = foundjson;
