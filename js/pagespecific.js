@@ -1493,7 +1493,7 @@ function shareToggle(toggleType,placeholder,successType) {
     }
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
-    facebookConnectPlugin.showDialog(JSON.stringify({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}), 
+    facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
         function(result) {
             alert("Added to your news feed " + JSON.stringify(result));
         }, 
