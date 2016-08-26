@@ -108,7 +108,7 @@ var app = {
                         fbCheck();
                 
                     }
-                    facebookConnectPlugin.login(["public_profile","email"],
+                    facebookConnectPlugin.login(["public_profile","user_birthday","user_about_me"],
                         fbSuccess,
                         function (error) { alert("error " + JSON.stringify(error)); }
                     );
@@ -126,8 +126,8 @@ function fbCheck() {
     ajaxPost(
         "http://www.network-divinity.com/viridian/hasreg.php", 
         function (response) {
-            alert(response +" has reg");
         if(response == "yes") {
+            
             ajaxPost(
             "http://www.network-divinity.com/viridian/fbviewprofile.php", 
             function (response) {
@@ -144,7 +144,7 @@ function fbCheck() {
 
         }
         else if(response == "no") {
-           // registerGetInfo();
+            registerGetInfo();
         }
         else {
             alert("fail: " + response);
