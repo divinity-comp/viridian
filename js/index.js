@@ -172,7 +172,7 @@ function registerGetInfo() {
         profileJSON = result;
         var datesset = result.birthday.split('/');
 
-        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + profileJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '", "description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","email":"' + profileJSON.email +''"  }, "version":0  }');
+        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + profileJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '", "description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","email":"' + profileJSON.email +'"  }, "version":0  }');
         window.localStorage.setItem("age" , calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)));
         
         ajaxPost(
