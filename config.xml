@@ -22,6 +22,7 @@
   <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
   <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  <plugin name="phonegap-plugin-push" source="npm" spec="~1.8.1"/>
   <plugin name="cordova-plugin-facebook4" source="npm">
         <param name="APP_ID" value="158143914594630" />
         <param name="APP_NAME" value="7 day detox" />
