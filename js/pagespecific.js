@@ -1231,6 +1231,7 @@ function dailyTimer() {
     
     document.getElementsByClassName("close")[0].ontouchstart = function() {
            closePopup();
+        setReminders();
     personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
     personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
     personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
@@ -1239,6 +1240,7 @@ function dailyTimer() {
     }
     document.getElementsByClassName("setButton")[0].ontouchstart = function() {
         closePopup();
+        setReminders();
     personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
     personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
     personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
