@@ -126,6 +126,7 @@ function fbCheck() {
     ajaxPost(
         "http://www.network-divinity.com/viridian/hasreg.php", 
         function (response) {
+            alert("has reg" + response);
         if(response == "yes") {
             
             ajaxPost(
