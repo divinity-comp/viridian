@@ -366,15 +366,15 @@ ul li {
     width:75%;
     float:left;
 }
-.title > div:nth-child(1) button:nth-child(2){
+.title > div:nth-child(1) div:nth-child(2){
     background-color: #404040;color:#fff;
-    margin-top:-55%;
+    margin-top:-35%;
     margin-left:16%;
 }
-.title > div:nth-child(1) button:nth-child(1){
+.title > div:nth-child(1) div:nth-child(1){
     background-color:#007086;color:#fff;
 }
-.title > div:nth-child(1) button{
+.title > div:nth-child(1) div{
     border-radius: 200em;
     border:0;
 }
