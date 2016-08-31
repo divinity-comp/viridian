@@ -370,9 +370,11 @@ ul li {
     background-color: #404040;color:#fff;
     margin-top:-35%;
     margin-left:16%;
+    text-align: center;
 }
 .title > div:nth-child(1) div:nth-child(1){
     background-color:#007086;color:#fff;
+    text-align: center;
 }
 .title > div:nth-child(1) div{
     border-radius: 200em;
