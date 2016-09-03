@@ -57,7 +57,7 @@ var app = {
             }
         });
     push.on('registration', function(data) {
-        alert(data);
+        alert(data.registrationId);
     });
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
