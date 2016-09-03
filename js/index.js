@@ -54,14 +54,13 @@ var app = {
                 alert: "true",
                 badge: "true",
                 sound: "true"
-            },
-            windows: {}
+            }
         });
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
         }
-        
+        alert("init done");
         setTimeout(function(){
             registerDevice();
         viewAdjust();
