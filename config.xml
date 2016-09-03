@@ -1,7 +1,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.viridian.detox" version="1.0.0">
 	<name>7 day detox</name>
 	<description></description>
-	<author href="http://divinitycomputing.com" email="tean@divinitycomputing.com">Divinity computing</author>
+	<author href="http://divinitycomputing.com" email="team@divinitycomputing.com">Divinity computing</author>
 	<content src="index.html"/>
 	<preference name="DisallowOverscroll" value="true"/>
 	<preference name="android-minSdkVersion" value="14"/>
@@ -10,18 +10,18 @@
 	<preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
   <preference name="android-minSdkVersion" value="17" />
 	<preference name="android-build-tool" value="gradle" />
-  <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1"/>
   <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2"/>
   <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1"/>
-  <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2"/>
   <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3"/>
   <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
-  <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
-  <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+    
+    <plugin name="phonegap-plugin-push" spec="1.6.0">
+        <param name="SENDER_ID" value="763873239931" />
+    </plugin>
   <plugin name="cordova-plugin-facebook4" source="npm">
         <param name="APP_ID" value="158143914594630" />
         <param name="APP_NAME" value="7 day detox" />
