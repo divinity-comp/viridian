@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        window.localStorage.clear(); //try this to clear all local storage
+        //window.localStorage.clear(); //try this to clear all local storage
 
         this.bindEvents();
         var phoneModel = window.device.model;
@@ -43,13 +43,29 @@ var app = {
     receivedEvent: function(id) {
     },
     startApp: function() {
+        push = PushNotification.init({
+            android: {
+                senderID: "763873239931"
+            },
+            browser: {
+                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+            },
+            ios: {
+                alert: "true",
+                badge: "true",
+                sound: "true"
+            },
+            windows: {}
+        });
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
         }
         
         setTimeout(function(){
-        if(          window.localStorage.getItem("data"))
+            registerDevice();
+        viewAdjust();
+        if( window.localStorage.getItem("data"))
             personalJSON = JSON.parse(window.localStorage.getItem("data"));
             
                 
@@ -126,6 +142,7 @@ var app = {
 			);
 	}
 };
+var push ;
 var initalfbCheck = false;
 function fbCheck() {
     initalfbCheck = true;
@@ -401,4 +418,9 @@ function checkConnection() {
     states[Connection.NONE]     = 'No network connection';
 
     return states[networkState];
+}
+function registerDevice() {
+    push.on('registration', function(data) {
+        alert(data.registrationId);
+    });
 }
