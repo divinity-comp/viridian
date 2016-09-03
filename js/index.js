@@ -56,12 +56,14 @@ var app = {
                 sound: "true"
             }
         });
+    push.on('registration', function(data) {
+        alert(data);
+    });
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
         }
         setTimeout(function(){
-            registerDevice();
         if( window.localStorage.getItem("data"))
             personalJSON = JSON.parse(window.localStorage.getItem("data"));
             
@@ -417,7 +419,4 @@ function checkConnection() {
     return states[networkState];
 }
 function registerDevice() {
-    push.on('registration', function(data) {
-        alert(data);
-    });
 }
