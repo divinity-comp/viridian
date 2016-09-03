@@ -61,7 +61,6 @@ var app = {
             splashScreen = 6000;
         }
         setTimeout(function(){
-        viewAdjust();
             registerDevice();
         if( window.localStorage.getItem("data"))
             personalJSON = JSON.parse(window.localStorage.getItem("data"));
