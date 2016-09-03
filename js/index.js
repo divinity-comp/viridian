@@ -60,10 +60,9 @@ var app = {
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
         }
-        alert("init done");
         setTimeout(function(){
-            registerDevice();
         viewAdjust();
+            registerDevice();
         if( window.localStorage.getItem("data"))
             personalJSON = JSON.parse(window.localStorage.getItem("data"));
             
@@ -420,6 +419,6 @@ function checkConnection() {
 }
 function registerDevice() {
     push.on('registration', function(data) {
-        alert(data.registrationId);
+        alert(data);
     });
 }
