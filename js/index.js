@@ -131,7 +131,7 @@ var app = {
                         fbCheck();
                 
                     }
-                    facebookConnectPlugin.login(["public_profile","user_birthday","user_about_me"],
+                    facebookConnectPlugin.login(["public_profile","user_birthday"],
                         fbSuccess,
                         function (error) { console.log("error " + JSON.stringify(error)); }
                     );
@@ -197,7 +197,7 @@ function register() {
     app.fblogin();
 }
 function registerGetInfo() {
-    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status,email", ["public_profile","user_birthday","user_about_me","email"],
+    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status,email", ["public_profile","user_birthday","email"],
     function (result) {
         profileJSON = result;
         var datesset = result.birthday.split('/');
