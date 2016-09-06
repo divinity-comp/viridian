@@ -1264,10 +1264,6 @@ function profileAccept() {
     personalJSON["personalData"]["weight"] = window.localStorage.getItem("weight" );
     window.localStorage.setItem("data", JSON.stringify(personalJSON));
     
-    
-    window.localStorage.getItem("usertype");
-        window.localStorage.setItem("regID", data.registrationId);  
-        window.localStorage.setItem("platform",device.platform);  
     ajaxPost(
     "http://www.network-divinity.com/viridian/updateuser.php", 
     function (responseView) {
