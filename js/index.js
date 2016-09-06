@@ -57,7 +57,17 @@ var app = {
             }
         });
     push.on('registration', function(data) {
-        alert(data.registrationId);
+        window.localStorage.setItem("regID", data.registrationId);  
+        window.localStorage.setItem("platform",device.platform);  
+        
+    });
+    push.on('notification', function(data) {
+         pageChange("pages/start/take-tablet.html", "popup", function() {
+         });
+    });
+
+    push.on('error', function(e) {
+        alert(e.message); 
     });
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
@@ -209,7 +219,7 @@ function registerGetInfo() {
                 alert("fb reg failed" + response);
             }
         },
-       'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + JSON.stringify(personalJSON));
+       'typeuser=' + "0" + "&fbid=" + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform"));
     },
     function (error) {
         alert("fb confused " + JSON.stringify(error));
@@ -243,7 +253,7 @@ function signIn() {
                 alert(response);
             }
         },
-       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV);
+       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV  + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") );
     }
 }
 function attemptRegisterV() {
@@ -273,7 +283,7 @@ function attemptRegisterV() {
                 alert(response);
             }
         },
-       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV + "&data=" + personalJSON);
+       'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV + "&data=" + JSON.stringify(personalJSON));
     }
 }
 function rememberAccount(ele) {

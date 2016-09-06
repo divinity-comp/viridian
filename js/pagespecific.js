@@ -1245,7 +1245,7 @@ function dailyTimer() {
     personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
     personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
     personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
-                    daily();
+        daily();
     }
 }
 function profileAccept() {
@@ -1263,6 +1263,19 @@ function profileAccept() {
     personalJSON["personalData"]["motivators4"] = window.localStorage.getItem("motivator3" );
     personalJSON["personalData"]["weight"] = window.localStorage.getItem("weight" );
     window.localStorage.setItem("data", JSON.stringify(personalJSON));
+    
+    
+    window.localStorage.getItem("usertype");
+        window.localStorage.setItem("regID", data.registrationId);  
+        window.localStorage.setItem("platform",device.platform);  
+    ajaxPost(
+    "http://www.network-divinity.com/viridian/updateuser.php", 
+    function (responseView) {
+        if(responseView == "success") {
+
+            }
+    },
+   'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
 }
 
 function methodswap(num, dnum) {
