@@ -87,7 +87,7 @@ var app = {
                     });
                 }
                 else {
-                    if(window.localStorage.getItem("rememberAllowed") == "true" && window.localStorage.getItem("logged") == "true") {
+                    if(window.localStorage.getItem("v") == "true" && window.localStorage.getItem("logged") == "true") {
                         pageChange("pages/walkthrough.html", "fade", function() {
                             selectionScreen();
                         }); 
@@ -289,14 +289,14 @@ function attemptRegisterV() {
     }
 }
 function rememberAccount(ele) {
-    if(ele.getAttribute("remember") == "no") {
-        ele.setAttribute("remember", "yes");     
-         window.localStorage.setItem("remember", "true");
+    if(ele.getAttribute("rememberAllowed") == "no") {
+        ele.setAttribute("rememberAllowed", "yes");     
+         window.localStorage.setItem("rememberAllowed", "true");
 
     }
     else {
-        ele.setAttribute("remember", "no"); 
-         window.localStorage.setItem("remember", "false");
+        ele.setAttribute("rememberAllowed", "no"); 
+         window.localStorage.setItem("rememberAllowed", "false");
     }
 }
 function afterLogin() {
