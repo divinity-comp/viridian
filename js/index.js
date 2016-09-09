@@ -87,7 +87,7 @@ var app = {
                     });
                 }
                 else {
-                    if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged") == "true") {
+                    if(window.localStorage.getItem("rememberAllowed") == "true" && window.localStorage.getItem("logged") == "true") {
                         pageChange("pages/walkthrough.html", "fade", function() {
                             selectionScreen();
                         }); 
@@ -104,7 +104,7 @@ var app = {
                 }
             }
             else {
-                if(window.localStorage.getItem("remember") == "true" && window.localStorage.getItem("logged") == "true") {
+                if(window.localStorage.getItem("rememberAllowed") == "true" && window.localStorage.getItem("logged") == "true") {
                     pageChange("pages/daily.html", "fade", function() {
                 daily();
                     }); 
@@ -167,6 +167,7 @@ function fbCheck() {
                 window.localStorage.setItem("data",responseView);
                 window.localStorage.setItem("logged", "true");
                 window.localStorage.setItem("remember", "true");
+                window.localStorage.setItem("rememberAllowed", "true");       
                 window.localStorage.setItem("fbid", fbId);
                 personalJSON = foundjson;
                 window.localStorage.setItem("usertype", 0);
@@ -275,6 +276,7 @@ function attemptRegisterV() {
                 window.localStorage.setItem("username", usernameV);
                 if(idc("remuser").getAttribute("remember") == "yes")
                 window.localStorage.setItem("rememberAllowed", "true");
+                window.localStorage.setItem("logged", "true");
                     window.localStorage.setItem("data",JSON.stringify(personalJSON));
                 afterLogin();
 
