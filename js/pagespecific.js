@@ -194,11 +194,16 @@ function setupComplete(num) {
 function finishCheck() {
     
     var setupNum = window.localStorage.getItem("setupstate");
-        if(setupNum == "8") {
-    pageChange("pages/start/start1.html", "fade", function() {
-                              startPlan();
-    });
-        }
+    if(setupNum == "8" && 
+       window.localStorage.getItem("startday") != null && 
+       window.localStorage.getItem("reminder1hour") != null) {
+        pageChange("pages/start/start1.html", "fade", function() {
+                                  startPlan();
+        });
+    }
+    else {
+        alert("please finish setting up your detox");
+    }
 }
 function setupPage() {
     var setupNum = window.localStorage.getItem("setupstate");
