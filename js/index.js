@@ -179,6 +179,9 @@ function fbCheck() {
         }
         else if(response == "no") {
             registerGetInfo();
+            setTimeout(function(){
+                registerGetInfo();
+            }, 1500);
         }
         else {
             alert("fail: " + response);
@@ -198,7 +201,7 @@ function register() {
     app.fblogin();
 }
 function registerGetInfo() {
-    facebookConnectPlugin.api("/" + fbId + "?fields=bio,birthday,first_name,gender,relationship_status,email", ["public_profile","user_birthday","email"],
+    facebookConnectPlugin.api("/" + fbId + "?fields=birthday,first_name,gender,email", ["public_profile","user_birthday","email"],
     function (result) {
         profileJSON = result;
         var datesset = result.birthday.split('/');

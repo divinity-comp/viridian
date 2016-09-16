@@ -1565,3 +1565,11 @@ function adjustNotifications(ele) {
     }
     
 }
+function closeSideButtons() {
+    idc("backbutton").style.display = "none";
+    if(document.getElementsByClassName("nextButton")[0])
+        document.getElementsByClassName("nextButton")[0].style.display = "none";
+}
+function openSideButtons() {
+    idc("backbutton").style.display = "block";
+}
