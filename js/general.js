@@ -97,6 +97,7 @@ function pageChange(url, pageAnimation, runScript) {
                 TweenMax.to(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0, ease: Circ.easeOut,onComplete:function() {
                     document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
                     runScript();
+                    
                     TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
                 }});
                 break;

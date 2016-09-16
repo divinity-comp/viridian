@@ -50,7 +50,7 @@ pageChange("pages/setup/age.html", "popup", function() {
                 <div class="half ">
                     <p class="fontv4 lineh10">Email</p>
                 </div>
-                <div class="half">
+                <div class="half emailCheck">
                     <p class="fontv4 lineh10" style="text-align:right;white-space: nowrap;"></p>
                 </div>
             </div>
@@ -162,6 +162,17 @@ pageChange("pages/setup/weight.html", "popup", function() {
             #plan h2 {
                 font-weight: normal;
                 color:#bacb2f;
+            }
+            .emailCheck {
+                position: relative;
+            }
+            .emailCheck p {
+                position: absolute;
+                color:#000;
+                top:0;
+                right:0;
+                bottom:0;
+                margin:auto;
             }
         </style>
     </div>

@@ -130,6 +130,15 @@ function allaboutComplete(num) {
         window.localStorage.setItem("allabout", num);
     }
 }
+function setupCheck() {
+   var allabout = window.localStorage.getItem("allabout");
+    if(allabout == 8) {
+        pageChange("pages/setup/getting-started.html", "fade", function() {
+            setupPage();           
+
+        });
+    }
+}
 var slideDoneabout2 = false;
 function allabout2Next() {
     if(!slideDoneabout2) {
@@ -181,6 +190,15 @@ function setupComplete(num) {
     displayMenu("", true, "walkthrough.html",function() {
         selectionScreen();
     });
+}
+function finishCheck() {
+    
+    var setupNum = window.localStorage.getItem("setupstate");
+        if(setupNum == "8") {
+    pageChange("pages/start/start1.html", "fade", function() {
+                              startPlan();
+    });
+        }
 }
 function setupPage() {
     var setupNum = window.localStorage.getItem("setupstate");
@@ -1070,7 +1088,16 @@ function sevenDayPlan(numAuto) {
     
     var initialItemHamn = new Hammer(initialItem);
     initialItemHamn.on('swipeleft', function(ev) {
-        
+        sevendayleft();
+    });
+    initialItemHamn.on('swiperight', function(ev) {
+        sevendayright();
+    });
+}
+function sevendayleft() {
+    var initialItem = idc("plan");
+    var initialItems = initialItem.getElementsByClassName("slide");
+
           TweenMax.to(idc("dayMount").getElementsByTagName("span")[0], 0.4,  {opacity:0, ease: Circ.easeOut,onComplete:function() {
               idc("dayMount").getElementsByTagName("span")[0].innerHTML = numFound + 2;
              TweenMax.to(idc("dayMount").getElementsByTagName("span")[0], 0.4,  {opacity:1, ease: Circ.easeOut});
@@ -1094,8 +1121,11 @@ function sevenDayPlan(numAuto) {
              tl.fromTo(initialItems[numFound + 1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut});
           }});
         }
-    });
-    initialItemHamn.on('swiperight', function(ev) {
+}
+function sevendayright() {
+
+    var initialItem = idc("plan");
+    var initialItems = initialItem.getElementsByClassName("slide");
     var activeI = initialItem.getElementsByClassName("active")[0];
     var numFound = parseInt(activeI.getAttribute("num"));
     var  slideMenu = document.getElementsByClassName("slideMenu")[0];
@@ -1121,7 +1151,6 @@ function sevenDayPlan(numAuto) {
              tl.fromTo(initialItems[numFound -1], 1, {x:"-100%"}, {x:"0%", ease: Circ.easeOut});
           }});
             }
-    });
 }
 function startPlan() {
     
@@ -1217,7 +1246,15 @@ function profileSetup() {
         mainrow[7].children[1].children[0].innerHTML += "Energy levels & sleep<br>";
     if(motivators4 == "true")
         mainrow[7].children[1].children[0].innerHTML += "Mood";
-    mainrow[8].children[1].children[0].innerHTML = personalJSON["personalData"]["weight"];
+    
+    
+    if(mainrow[7].children[1].children[0].innerHTML == "")
+        mainrow[7].children[1].children[0].innerHTML = "No motivators";
+    
+    if(personalJSON["personalData"]["weight"] != null) 
+    mainrow[8].children[1].children[0].innerHTML = personalJSON["personalData"]["weight"] + " kg";
+    else
+    mainrow[8].children[1].children[0].innerHTML = "Enter weight";
 }
 function addprofileChange(functiontorun) {
     document.getElementsByClassName("close")[0].ontouchstart = function() {
@@ -1335,7 +1372,7 @@ function daily() {
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
     var firstDate = new Date(startyear,startmonth,startday);
     var secondDate = new Date();
-         diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) + 1;
+         diffDays = Math.floor(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) + 1;
     if (firstDate > secondDate) {
         idc("dailynum").innerHTML = diffDays + " days away";
         
@@ -1439,8 +1476,8 @@ function gotShopping(ele) {
             savedInt = i;
         }
     }
-    if(ele.getAttribute("active") == "false") {
-        ele.setAttribute("active", "true");
+    if(ele.parentNode.getAttribute("active") == "false") {
+        ele.parentNode.setAttribute("active", "true");
         var numAmount = false;
     var listpos = 0;
         if(shoppingList.list.length != 0) {
@@ -1462,7 +1499,7 @@ function gotShopping(ele) {
         
     }
     else {
-        ele.setAttribute("active", "false");
+        ele.parentNode.setAttribute("active", "false");
         var listpos = 0;
         for(i = 0; i < shoppingList.list.length;i++) {
             if(shoppingList.list[i].name == savedInt) {

@@ -12,7 +12,7 @@
         <div id="plan" class="blueCentralCircle vw90 vwh90 vhmt7">
             <button id="dayMount" class="vw20 vwh20 blackCirc fontv5">Day <span>1</span></button>
             <div class="slide active" num="0">
-                <h3 class="fontv5 vhmt2 vhmb0" >Breakfast</h3>
+                <h3 class="fontv5 vhmt1 vhmb0" >Breakfast</h3>
                 <p class="fontv4 vhmb1 vhmt1">Sugar Free Chia Seed Granola</p>
                 <h3 class="fontv5 vhmb0 vhmt1">Lunch</h3>
                 <p class="fontv4 vhmb1 vhmt1">Quinoa Green BeanSalad</p>
@@ -22,7 +22,7 @@
                 <p class="fontv4 vhmb1 vhmt1">Fully Loaded Paella</p>
             </div>
             <div class="slide" num="1">
-                <h3 class="fontv5 vhmt2 vhmb0" >Breakfast</h3>
+                <h3 class="fontv5 vhmt1 vhmb0" >Breakfast</h3>
                 <p class="fontv4 vhmb1 vhmt1">Sugar free muslie,
 greek yoghurt and<br>
 fresh fruit</p>
@@ -37,7 +37,7 @@ nut sprinkes</p>
 curry</p>
             </div>
             <div class="slide" num="2">
-                <h3 class="fontv5 vhmt2 vhmb0" >Breakfast</h3>
+                <h3 class="fontv5 vhmt1 vhmb0" >Breakfast</h3>
                 <p class="fontv4 vhmb1 vhmt1">Fast and Fabulous Green<br>
 Smoothie</p>
                 <h3 class="fontv5 vhmb0 vhmt1">Lunch</h3>
@@ -48,7 +48,7 @@ Smoothie</p>
                 <p class="fontv4 vhmb1 vhmt1">Vegetable stir-fry and rice</p>
             </div>
             <div class="slide" num="3">
-                <h3 class="fontv5 vhmt2 vhmb0" >Breakfast</h3>
+                <h3 class="fontv5 vhmt1 vhmb0" >Breakfast</h3>
                 <p class="fontv4 vhmb1 vhmt1">Whole grain rye bread with<br>
 avocado, sea salt and fresh chilli</p>
                 <h3 class="fontv5 vhmb0 vhmt1">Lunch</h3>
@@ -60,7 +60,7 @@ bars</p>
                 <p class="fontv4 vhmb1 vhmt1">Oliver’s FuelFood Veggie Bake</p>
             </div>
             <div class="slide" num="4">
-                <h3 class="fontv5 vhmt2 vhmb0" >Breakfast</h3>
+                <h3 class="fontv5 vhmt1 vhmb0" >Breakfast</h3>
                 <p class="fontv4 vhmb1 vhmt1">Chia overnight mousse with<br>almond
 and coconut</p>
                 <h3 class="fontv5 vhmb0 vhmt1">Lunch</h3>
@@ -72,7 +72,7 @@ Soup</p>
                 <p class="fontv4 vhmb1 vhmt1">Roast mixed vegetables with herbs<br>and brown rice </p>
             </div>
             <div class="slide" num="5">
-                <h3 class="fontv5 vhmt2 vhmb0" >Breakfast</h3>
+                <h3 class="fontv5 vhmt1 vhmb0" >Breakfast</h3>
                 <p class="fontv4 vhmb1 vhmt1">Whole grain cereal and<br>
 sugar-free rice milk with
 fresh berries.</p>
@@ -83,11 +83,11 @@ avocado</p>
                 <h3 class="fontv5 vhmb0 vhmt1">Snack ideas</h3>
                 <p class="fontv4 vhmb1 vhmt1">A punnet of berries</p>
                 <h3 class="fontv5 vhmb0 vhmt1">Dinner</h3>
-                <p class="fontv4 vhmb1 vhmt1">Butternut Squash Pearl Barley
+                <p class="fontv4 vhmb1 vhmt1">Butternut Squash Pearl<br>Barley
 Risotto</p>
             </div>
             <div class="slide" num="6">
-                <h3 class="fontv5 vhmt2 vhmb0" >Breakfast</h3>
+                <h3 class="fontv5 vhmt1 vhmb0" >Breakfast</h3>
                 <p class="fontv4 vhmb1 vhmt1">Easy Buckwheat Pancakes</p>
                 <h3 class="fontv5 vhmb0 vhmt1">Lunch</h3>
                 <p class="fontv4 vhmb1 vhmt1">Mediterranean Chickpea
@@ -110,6 +110,8 @@ aubergine dip</p>
     });   
     });' src="img/shopping-list.png" />
             </div>
+            <div ontouchstart="sevendayleft()" class="arrow right"></div>
+            <div ontouchstart="sevendayright()" class="arrow left"></div>
         </div>
         <div class="slideMenu vw36 vwh1">
             <div class="vw2 vwh2 active"></div>
@@ -121,6 +123,42 @@ aubergine dip</p>
             <div class="vw2 vwh2 "></div>
         </div>
         <style>
+            .arrow {
+                position: absolute;
+                top:0;
+                bottom:0; margin:auto;
+                height:0;
+                width:0;
+                border-top:20px solid transparent;
+                border-bottom:20px solid transparent;
+            }
+            .arrow.left {
+                border-right:20px solid #fff;
+                right:100%;
+            }
+            .arrow.left:after,.arrow.right:after {
+                content:'';
+                position: absolute;
+                left:2px;
+                top:0;
+                bottom:0; margin:auto;
+                height:0;
+                width:0;
+                border-top:16px solid transparent;
+                border-bottom:16px solid transparent;
+            }
+            .arrow.left:after  {
+                border-right:16px solid #007086;
+            }
+            .arrow.right:after {
+                border-left:16px solid #007086;
+                right:2px;
+                left:auto;
+            }
+            .arrow.right {
+                border-left:20px solid #fff;
+                left:100%;
+            }
             .slide {
                 display: none;
             }
@@ -141,7 +179,7 @@ aubergine dip</p>
             }
             .greenBut{
                 margin:0 auto 0;
-                top:85%;
+                top:92%;
                 position: absolute;left:0;right:0;
             }
             .greenBut img {
