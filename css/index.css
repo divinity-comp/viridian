@@ -195,7 +195,7 @@ body {
     background-size: contain;
     
 }
-.remember[remember=no] button:after { 
+.remember[rememberAllowed=no] button:after { 
     content:'';
     position: absolute;
     background-image: url(../img/buttons/checked-mark.png);
