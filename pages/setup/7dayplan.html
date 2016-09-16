@@ -179,9 +179,31 @@ aubergine dip</p>
             }
             .greenBut{
                 margin:0 auto 0;
-                top:92%;
+                top:85%;
                 position: absolute;left:0;right:0;
             }
+            @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+    .greenBut{
+                top:92%;
+    }
+}
+            @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait) {  
+    .greenBut{
+                top:92%;
+    }}
+            @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) { 
+    .greenBut{
+                top:92%;
+    } }
             .greenBut img {
                 max-width: 44%;
                 margin:0 3% 0 ;
