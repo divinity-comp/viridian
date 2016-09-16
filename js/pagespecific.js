@@ -1571,10 +1571,10 @@ function adjustNotifications(ele) {
     
 }
 function closeSideButtons() {
-    idc("backbutton").style.display = "0";
+    idc("backbutton").style.opacity = "0";
     if(document.getElementsByClassName("nextButton")[0])
         document.getElementsByClassName("nextButton")[0].style.display = "none";
 }
 function openSideButtons() {
-    idc("backbutton").style.display = "1";
+    idc("backbutton").style.opacity = "1";
 }
