@@ -6,17 +6,17 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="">
+        <div id="fullrecipe">
         <div id="highSection" class="vhmt10 vhmb4">
             <button class="greyCircle vw22 vwh22 fontv6">
                 Day 7
             </button>
             <div class="recipe">
                 <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(1)">Lunch</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(2)">Snack<br>ideas</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(3)">Dinner</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(0)" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(1)" ontouchstart="recipeTime(1)">Lunch</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(2)" ontouchstart="recipeTime(2)">Snack</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(3)" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
         <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
@@ -24,7 +24,7 @@
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Breakfast</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">6</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/buckwheat-pancakes_500px.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/buckwheat-pancakes_500px.jpg);"></div>
 
                 </div>
                 <div class="pcheck">
@@ -39,12 +39,12 @@ tasty
 and satisfying. High in protein, essential fats and dietary
 fibre. Low GL.</p>
                 </div>
-            </div>
-            <div class="types vhmt2 vhmb2">
+            </div><div class="types vhmt2 vhmb2">
                 <button class="fontv4 lineh8" ontouchstart="methodswap(0, 0)" active="true">Ingredients</button>
                 <button class="fontv4 lineh8" ontouchstart="methodswap(1, 0)">Method</button>
             </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">200g buckwheat flour</p>
                 <hr>
                 <p class="fontv4">60ml hot water</p>
@@ -62,6 +62,7 @@ fibre. Low GL.</p>
                 <p class="fontv4">3 tablespoons viridian organic raw coconut oil</p>
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Place the flour in a large bowl. Add the hot water,
 almond milk, a pinch of salt, almond butter, maca and 1 tsp. of coconut oil
@@ -77,7 +78,7 @@ and cook both sides until golden brown.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Lunch</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">4</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/mediterranean-chickpea-stew-image-1_500px.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/mediterranean-chickpea-stew-image-1_500px.jpg);"></div>
 
                 </div>
                 <div class="pcheck">
@@ -95,12 +96,12 @@ times to rave reviews. High in protein,
 vitamin C, dietary fibre, essential fats and protein. Low
 GL..</p>
                 </div>
-            </div>
-            <div class="types vhmt2 vhmb2">
+            </div><div class="types vhmt2 vhmb2">
                 <button class="fontv4 lineh8" ontouchstart="methodswap(0, 1)" active="true">Ingredients</button>
                 <button class="fontv4 lineh8" ontouchstart="methodswap(1, 1)">Method</button>
             </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">2 medium leeks</p>
                 <hr>
                 <p class="fontv4">2 tablespoons viridian organic raw coconut oil</p>
@@ -128,6 +129,7 @@ serve</p>
                 
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Trim the leeks, slit them in half lengthwise and rinse well
 under running water to remove any sand or grit. Coarsely
@@ -150,12 +152,14 @@ wholewheat bread.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Snack</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/Rice-crackers-and-aubergine-dip.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="
+    background-position: 60% 75%;background-image:url(img/food-images/Rice-crackers-and-aubergine-dip.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Rice crackers and
 aubergine dip</h2>
+<p class="fontv3">Good source of dietary fibre, B vitamins and potassium. As well as providing a supply of phytonutrients, through aubergine, which have antioxidant properties that protect essential fatty acids necessary for healthy brain functioning. </p>
                 </div>
             </div>
                     
@@ -165,17 +169,20 @@ aubergine dip</h2>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Dinner</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/Classic-Mushroom-risotto.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/Classic-Mushroom-risotto.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Classic mushroom
 risotto</h2>
-                 
+                 <p class="fontv3">High in vitamin D2, beta glucans for immune support and high fibre to retain satiety and keep sugar cravings and bay. </p>
                 </div>
             </div>
             
         </div>
+		<div class="printer">
+		<img onclick="printRecipe()" src="img/print.png" /><p onclick="printRecipe()">Print</p>
+		</div>
         </div>
     </div>
 </body>

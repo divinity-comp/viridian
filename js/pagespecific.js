@@ -20,12 +20,33 @@ function adjustSignIn() {
         idc("adjustsign").innerHTML = "Sign In";
     }
 }
+function checkForgetPassword() {
+    if(hasInternet() == true) {
+        ajaxPost(
+        "http://www.network-divinity.com/viridian/resetPassword.php", 
+        function (responseView) {
+            if(responseView == "success") {
+                alert("Password reset link has been sent to your email - it will only last 24 hours");
+                pageChange("pages/login.html", "fade", function() {
+                });
+            }
+            else {
+                alert("Password could not be reset " + responseView);
+            }
+        },
+       'password=' + document.getElementById("newPass").value + "&email=" + document.getElementById("email").value );
+    }
+    else {
+        alert("please connect to the internet");
+    }
+}
 function loginMenu() {
                    
     displayMenu("", false, "",function() {
     });
 }
 function selectionScreen() {
+    updateToServer();
     var tl = new TimelineMax();
     window.localStorage.setItem("logged", "true");
     
@@ -1305,17 +1326,21 @@ function profileAccept() {
     personalJSON["personalData"]["motivators4"] = window.localStorage.getItem("motivator3" );
     personalJSON["personalData"]["weight"] = window.localStorage.getItem("weight" );
     window.localStorage.setItem("data", JSON.stringify(personalJSON));
-    
-    ajaxPost(
-    "http://www.network-divinity.com/viridian/updateuser.php", 
-    function (responseView) {
-        if(responseView == "success") {
+    updateToServer();
+}
+function updateToServer() {
+    if(hasInternet() == true) {
+
+        ajaxPost(
+        "http://www.network-divinity.com/viridian/updateuser.php", 
+        function (responseView) {
+            if(responseView == "success") {
 
             }
-    },
-   'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
+        },
+       'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
+    }
 }
-
 function methodswap(num, dnum) {
     var docFind = document.getElementsByClassName("ingrd")[dnum];
     var docFindtypes = document.getElementsByClassName("ingrd")[dnum].getElementsByClassName("types")[0];
@@ -1366,6 +1391,7 @@ function seerecipes() {
 }
 var diffDays;
 function daily() {
+    updateToServer();
                 window.localStorage.setItem("logged", "true");
     displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();

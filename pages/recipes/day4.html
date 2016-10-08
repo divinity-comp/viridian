@@ -6,17 +6,17 @@
 
 <body>
     <div id="full" class="app textureBack">
-        <div id="">
+        <div id="fullrecipe">
         <div id="highSection" class="vhmt10 vhmb4">
             <button class="greyCircle vw22 vwh22 fontv6">
                 Day 4
             </button>
             <div class="recipe">
                 <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(1)">Lunch</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(2)">Snack<br>ideas</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(3)">Dinner</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(0)" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(1)" ontouchstart="recipeTime(1)">Lunch</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(2)" ontouchstart="recipeTime(2)">Snack</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(3)" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
         <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
@@ -24,14 +24,15 @@
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Breakfast</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/Whole-grain-bread-with-avocado-&-freesh-chilli.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/Whole-grain-bread-with-avocado-&-freesh-chilli.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Whole grain rye bread
 with avocado, sea salt
 and fresh chilli</h2>
-                   
+				   <p class="fontv3">Avocado is made up of essential fats that are more useful for bodily functioning compared with saturated fats and help you feel fuller for longer. Evidence suggests that whole grain rye bread can help with weight management, insulin sensitivity and lower cholesterol. It is also high in protein and dietary fibre helping to keep you fuller for longer and stop those sugary cravings. </p>
+
                 </div>
             </div>
         </div>
@@ -40,11 +41,13 @@ and fresh chilli</h2>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Lunch</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">4</span></div>
-                    
+					<div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/vegetable-stir-fry-&-rice.jpg);"></div>
+
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Vegetable stir-fry and
 rice</h2>
+                    <p class="fontv3">Coconut oil is great for stir frying as it keeps its goodness at high temperatures and doesn’t turn into nasty trans-fats. Cumin and coriander seeds provide a tasty aromatic flavour to the dish and are high in iron, calcium and magnesium all of which help with overall health and well-being.</p>
                     
                 </div>
             </div>
@@ -55,12 +58,13 @@ rice</h2>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Snack</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">9</span></div>
-                    
+					<div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/seedy-mango-&-date-energy-bars.jpg);"></div>
+
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Seedy mango and date
 energy bars</h2>
-                    <p class="fontv3">Vegan, Sugar and Dairy free, contains gluten, nuts and
+                    <p class="fontv3">Vegan, Sugar and Dairy free, contains gluten, nuts and sesame.</p>
                     <p class="fontv3">These satisfying homemade energy bars were
 developed
 by my friend, work colleague, home baker and
@@ -74,11 +78,8 @@ zinc, dietary fibre, plant protein and essential fats. Low
 GL.</p>
                 </div>
             </div>
-            <div class="types vhmt2 vhmb2">
-                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 3)" active="true">Ingredients</button>
-                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 3)">Method</button>
-            </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">150g coconut oil plus extra for greasing</p>
                 <hr>
                 <p class="fontv4">80g Medjool dates, stoned and finely chopped</p>
@@ -100,8 +101,12 @@ peanut butter)</p>
                 <hr>
                 <p class="fontv4">20g ground flaxseeds</p>
                 
+            </div><div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 3)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 3)">Method</button>
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Preheat the oven to 180°C/gas mark 4/350°F. Lightly grease
 a 20cm square tin and line the base with baking parchment.
@@ -124,7 +129,7 @@ ten days.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Dinner</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">2</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/vegie-bake-image-1_500px.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/vegie-bake-image-1_500px.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
@@ -139,12 +144,12 @@ beef as a layer to this dish if you like. High in plant
 protein,
 dietary fibre, essential fats and vitamin C.</p>
                 </div>
-            </div>
-            <div class="types vhmt2 vhmb2">
+            </div><div class="types vhmt2 vhmb2">
                 <button class="fontv4 lineh8" ontouchstart="methodswap(0, 3)" active="true">Ingredients</button>
                 <button class="fontv4 lineh8" ontouchstart="methodswap(1, 3)">Method</button>
             </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">800ml water</p>
                 <hr>
                 <p class="fontv4">2 low-salt, yeast-free, gluten-free vegetable stock cubes</p>
@@ -170,6 +175,7 @@ dietary fibre, essential fats and vitamin C.</p>
                 <p class="fontv4">2 large cloves of garlic, minced</p>
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Preheat the oven to 180°C/gas mark 4/350°F.
 Boil the water and add the vegetable stock cubes. Stir to
@@ -216,6 +222,9 @@ spatula. It’s beautiful with a salad of your choice.</li>
                 </ol>
             </div>
         </div>
+		<div class="printer">
+		<img onclick="printRecipe()" src="img/print.png" /><p onclick="printRecipe()">Print</p>
+		</div>
         </div>
     </div>
 </body>

@@ -7,17 +7,17 @@
 <body>
     <div id="full" class="app textureBack">
         
-        <div id="">
+        <div id="fullrecipe">
         <div id="highSection" class="vhmt10 vhmb4">
             <button class="greyCircle vw22 vwh22 fontv6">
                 Day 3
             </button>
             <div class="recipe">
                 <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(1)">Lunch</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(2)">Snack<br>ideas</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(3)">Dinner</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(0)" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(1)" ontouchstart="recipeTime(1)">Lunch</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(2)" ontouchstart="recipeTime(2)">Snack</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(3)" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
         <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
@@ -25,7 +25,7 @@
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Breakfast</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/green_500px.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/green_500px.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
@@ -38,12 +38,12 @@ High in vitamin C, essential fats, dietary fibre, plant
 protein, bromelain and magnesium.
 Low GL.</p>
                 </div>
-            </div>
-            <div class="types vhmt2 vhmb2">
+            </div><div class="types vhmt2 vhmb2">
                 <button class="fontv4 lineh8" ontouchstart="methodswap(0, 0)" active="true">Ingredients</button>
                 <button class="fontv4 lineh8" ontouchstart="methodswap(1, 0)">Method</button>
             </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">3 sticks of celery</p>
                 <hr>
                 <p class="fontv4">2 small apples</p>
@@ -61,6 +61,7 @@ Low GL.</p>
                 <p class="fontv4">A pinch of Viridian organic spirulina powder</p>
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Juice the celery, apples, cucumber, spinach and lime.</li>
                     <li class="fontv4">Add
@@ -78,7 +79,7 @@ use.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Lunch</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">2</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/chilli-non-carne_500px.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/chilli-non-carne_500px.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
@@ -89,12 +90,12 @@ texture. High in plant protein, dietary fibre, essential
 fats,
 lycopene and allicin. Low GL.</p>
                 </div>
-            </div>
-            <div class="types vhmt2 vhmb2">
+            </div><div class="types vhmt2 vhmb2">
                 <button class="fontv4 lineh8" ontouchstart="methodswap(0, 1)" active="true">Ingredients</button>
                 <button class="fontv4 lineh8" ontouchstart="methodswap(1, 1)">Method</button>
             </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">1 tablespoon viridian raw coconut oil</p>
                 <hr>
                 <p class="fontv4">1 large onion, chopped</p>
@@ -119,6 +120,7 @@ lycopene and allicin. Low GL.</p>
                 
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Heat the coconut oil in a large wok over a low to medium heat.
 Sauté the onion and garlic for 5–8 minutes, until softened.</li>
@@ -137,11 +139,12 @@ also gorgeous with brown or white basmati rice.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Snack</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/fresh-fruit.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/fresh-fruit.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Fresh fruit</h2>
+                    <p class="fontv3">Natures dessert helping to beat those sugary cravings, nutrient dense and rich in antioxidants.  </p>
                 </div>
             </div>
                     
@@ -151,15 +154,20 @@ also gorgeous with brown or white basmati rice.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Dinner</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/Vegatable-Stir-Fry-&-Rice.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/Vegatable-Stir-Fry-&-Rice.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Vegetable stir-fry and
-rice</h2>
+rice</h2>                   
+ <p class="fontv3">Coconut oil is great for stir frying as it keeps its goodness at high temperatures and doesn’t turn into nasty trans-fats. Cumin and coriander seeds provide a tasty aromatic flavour to the dish and are high in iron, calcium and magnesium all of which help with overall health and well-being.</p>
+
                 </div>
             </div>
         </div>
+		<div class="printer">
+		<img onclick="printRecipe()" src="img/print.png" /><p onclick="printRecipe()">Print</p>
+		</div>
         </div>
     </div>
 </body>

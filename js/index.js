@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        //window.localStorage.clear(); //try this to clear all local storage
+        // window.localStorage.clear(); //try this to clear all local storage
 
         this.bindEvents();
         var phoneModel = window.device.model;
@@ -30,7 +30,6 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
@@ -56,28 +55,32 @@ var app = {
                 sound: "true"
             }
         });
-    push.on('registration', function(data) {
-        window.localStorage.setItem("regID", data.registrationId);  
-        window.localStorage.setItem("platform",device.platform);  
-        
-    });
-    push.on('notification', function(data) {
-         pageChange("pages/start/take-tablet.html", "popup", function() {
-         });
-    });
+        push.on('registration', function(data) {
+            window.localStorage.setItem("regID", data.registrationId);  
 
-    push.on('error', function(e) {
-        alert(e.message); 
-    });
+        });
+            window.localStorage.setItem("platform",device.platform);  
+        push.on('notification', function(data) {
+             pageChange("pages/start/take-tablet.html", "popup", function() {
+             });
+        });
+
+        push.on('error', function(e) {
+            alert(e.message); 
+        });
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
         }
         setTimeout(function(){
-        if( window.localStorage.getItem("data"))
-            personalJSON = JSON.parse(window.localStorage.getItem("data"));
+            console.log("before data");
+            if( window.localStorage.getItem("data")) {
+                console.log(window.localStorage.getItem("data"));
+                personalJSON = JSON.parse(window.localStorage.getItem("data"));
+            }
             
                 
+        console.log("check after");
             if(window.localStorage.getItem("setupdone") != "done") {
                 if(window.localStorage.getItem("doneintro") != "true") {
                     window.localStorage.setItem("doneintro", "true");  
@@ -87,13 +90,17 @@ var app = {
                     });
                 }
                 else {
-                    if(window.localStorage.getItem("v") == "true" && window.localStorage.getItem("logged") == "true") {
+                    if(window.localStorage.getItem("rememberAllowed") == "true" && window.localStorage.getItem("logged") == "true") {
                         pageChange("pages/walkthrough.html", "fade", function() {
                             selectionScreen();
                         }); 
                         homepageLink ="pages/walkthrough.html";
                     }
                     else {
+                        
+    if(hasInternet() == false) {
+        alert("please connect to the internet");
+    }
                         pageChange("pages/login.html", "fade", function() {
                             
         document.getElementById("facebookLogin").addEventListener("click", function() {
@@ -111,6 +118,9 @@ var app = {
                         homepageLink ="pages/daily.html";
                 }
                 else {
+    if(hasInternet() == false) {
+        alert("please connect to the internet");
+    }
                         pageChange("pages/login.html", "fade", function() {
                             
         document.getElementById("facebookLogin").addEventListener("click", function() {
@@ -205,8 +215,9 @@ function registerGetInfo() {
     function (result) {
         profileJSON = result;
         var datesset = result.birthday.split('/');
-
-        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + profileJSON.first_name +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '", "description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","email":"' + profileJSON.email +'"  }, "version":0  }');
+        
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + profileJSON.first_name +'","email":"' + profileJSON.email +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '","description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0})');
+                                  
         window.localStorage.setItem("age" , calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)));
         
         ajaxPost(
@@ -249,7 +260,24 @@ function signIn() {
                 var parts = response.split("}");
                 var result = parts[parts.length - 1];
                 window.localStorage.setItem("remember", result);
-                window.localStorage.setItem("data", parts[0] + "}");
+                var newJson =response.substring(response.indexOf('allowed') + 7);
+                console.log(newJson );
+                newJson = newJson.replace("new code","" );
+                window.localStorage.setItem("data", newJson);
+                personalJson = JSON.parse(newJson);
+                window.localStorage.setItem("age" ,personalJSON["personalData"]["age"]);
+                window.localStorage.setItem("startday",personalJSON["personalData"]["startday"] );
+                window.localStorage.setItem("startmonth" ,personalJSON["personalData"]["startmonth"]);
+                window.localStorage.setItem("startyear" ,personalJSON["personalData"]["startyear"]);
+                window.localStorage.setItem("reminder1hour" , personalJSON["personalData"]["reminder1hour"]);
+                window.localStorage.setItem("reminder2hour" ,personalJSON["personalData"]["reminder2hour"]);
+                window.localStorage.setItem("reminder1minute" ,personalJSON["personalData"]["reminder1minute"]);
+                window.localStorage.setItem("reminder2minute" ,personalJSON["personalData"]["reminder2minute"]);
+                window.localStorage.setItem("motivator0" ,personalJSON["personalData"]["motivators1"]);
+                window.localStorage.setItem("motivator1" ,personalJSON["personalData"]["motivators2"]);
+                window.localStorage.setItem("motivator2" , personalJSON["personalData"]["motivators3"]);
+                window.localStorage.setItem("motivator3",personalJSON["personalData"]["motivators4"]);
+                window.localStorage.setItem("weight" ,personalJSON["personalData"]["weight"]);
                 afterLogin();
                 
             } 
@@ -265,7 +293,7 @@ function attemptRegisterV() {
     var passcodeV = idc("pass").value;
 
     if(usernameV != "" && passcodeV != "") {
-        personalJSON = JSON.parse('{ "personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":"' + "unknown" +'","relationship":"' + "unknown" + '", "description":"' + "unknown" +'","gender":"'+  "unknown" +'"  }, "version":0  }');
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":null,"relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0})');
 
         ajaxPost(
             "http://www.network-divinity.com/viridian/register.php", 
@@ -433,5 +461,10 @@ function checkConnection() {
 
     return states[networkState];
 }
-function registerDevice() {
+function hasInternet() {
+    var connectStatus = true;
+    if(checkConnection() == "No network connection" || checkConnection() == "Unknown connection") {
+        connectStatus = false;
+    }
+    return connectStatus;
 }

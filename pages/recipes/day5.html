@@ -7,17 +7,17 @@
 <body>
     <div id="full" class="app textureBack">
         
-        <div id="">
+        <div id="fullrecipe">
         <div id="highSection" class="vhmt10 vhmb4">
             <button class="greyCircle vw22 vwh22 fontv6">
                 Day 5
             </button>
             <div class="recipe">
                 <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(1)">Lunch</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(2)">Snack<br>ideas</div>
-                <div class="lineh16 vw16 vwh16 fontv3" ontouchstart="recipeTime(3)">Dinner</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(0)" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(1)" ontouchstart="recipeTime(1)">Lunch</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(2)" ontouchstart="recipeTime(2)">Snack</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(3)" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
         <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
@@ -25,7 +25,7 @@
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Breakfast</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">2</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/chia-overnight-mousse-image_500px.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/chia-overnight-mousse-image_500px.jpg);"></div>
 
                 </div>
                 <div class="pcheck">
@@ -37,12 +37,12 @@ the better your levels of serotonin, the ‘happy
 hormone’, are likely to be. High in plant protein, dietary
 fibre, essential fats, calcium and iron.</p>
                 </div>
-            </div>
-            <div class="types vhmt2 vhmb2">
+            </div> <div class="types vhmt2 vhmb2">
                 <button class="fontv4 lineh8" ontouchstart="methodswap(0, 0)" active="true">Ingredients</button>
                 <button class="fontv4 lineh8" ontouchstart="methodswap(1, 0)">Method</button>
             </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">1 tsp. of viridian organic raw coconut oil</p>
                 <hr>
                 <p class="fontv4">1/2 tsp. of viridian maca powder</p>
@@ -60,6 +60,7 @@ fibre, essential fats, calcium and iron.</p>
                 <p class="fontv4">80g chia seeds</p>
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Blend the coconut oil, maca, banana, coconut milk, almond butter, vanilla
 extract and cinnamon in a high-speed blender for
@@ -80,7 +81,7 @@ in the evening. This will keep for three days in the fridge.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Lunch</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">8</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/butternut-squash-soup_500px.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/butternut-squash-soup_500px.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
@@ -93,12 +94,12 @@ gluten-free stock. High in dietary
 fibre, plant protein, essential fats and vitamin C. Low
 GL.</p>
                 </div>
-            </div>
-            <div class="types vhmt2 vhmb2">
+            </div><div class="types vhmt2 vhmb2">
                 <button class="fontv4 lineh8" ontouchstart="methodswap(0, 1)" active="true">Ingredients</button>
                 <button class="fontv4 lineh8" ontouchstart="methodswap(1, 1)">Method</button>
             </div>
             <div class="overMark " active="true">
+				<h2>Ingredients</h2>
                 <p class="fontv4">2 tablespoons viridian organic raw coconut oil</p>
                 <hr>
                 <p class="fontv4">2 large onions, chopped</p>
@@ -122,6 +123,7 @@ Crusty bread, to serve</p>
                 
             </div>
             <div class="overMark " active="false">
+				<h2>Method</h2>
                 <ol>
                     <li class="fontv4">Heat the oil in a large saucepan over a low to medium heat.
 Sauté the onion for 5–7 minutes, until tender. Add the
@@ -142,12 +144,14 @@ with crusty bread.</li>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Snack</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/carrot-sticks-and-hummus.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/carrot-sticks-and-hummus.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Carrot sticks and
-humous</h2>
+humous</h2>                  
+  <p class="fontv3">Hummus and carrots provide a low sugar and high fibre alternative to snacking, ensuring you feel fuller for longer. Fibre aids digestive health and stabilises glucose and cholesterol levels, in addition vitamin A attained by carrots, is a powerful antioxidant involved in healthy vision and neurological functioning. </p>
+
                 </div>
             </div>
                     
@@ -157,17 +161,21 @@ humous</h2>
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Dinner</div>
                     <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">5</span></div>
-                    <div class="recipeImage vw20 vwh20"><img src="img/food-images/Roast-mixed-Veg-with-herbs-&-brown-rice.jpg" /></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/Roast-mixed-Veg-with-herbs-&-brown-rice.jpg);"></div>
                     
                 </div>
                 <div class="pcheck">
                     <h2 class="fontv6 vhmb1">Roast mixed
 vegetables with herbs
 and brown rice</h2>
-                   
+                    <p class="fontv3">This simple but very tasty meal idea is an easy way of packing in the nutrients whilst providing complex carbohydrates that keep you fuel for longer. High in vitamin C, dietary fibre, essential fats and protein. </p>
+                     
                 </div>
             </div>
         </div>
+		<div class="printer">
+		<img onclick="printRecipe()" src="img/print.png" /><p onclick="printRecipe()">Print</p>
+		</div>
         </div>
     </div>
 </body>
