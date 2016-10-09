@@ -216,7 +216,7 @@ function registerGetInfo() {
         profileJSON = result;
         var datesset = result.birthday.split('/');
         
-        personalJSON = JSON.parse('{"personalData": { "firstname":"' + profileJSON.first_name +'","email":"' + profileJSON.email +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '","description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0})');
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + profileJSON.first_name +'","email":"' + profileJSON.email +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '","description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0}');
                                   
         window.localStorage.setItem("age" , calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)));
         
@@ -293,7 +293,7 @@ function attemptRegisterV() {
     var passcodeV = idc("pass").value;
 
     if(usernameV != "" && passcodeV != "") {
-        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":null,"relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0})');
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":null,"relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0}');
 
         ajaxPost(
             "http://www.network-divinity.com/viridian/register.php", 
