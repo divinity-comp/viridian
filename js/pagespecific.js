@@ -1004,6 +1004,7 @@ function ageChange() {
     ageItem.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
     
     var age = 25;
+        window.localStorage.setItem("age",25);
     ageItem.on('panup', function(ev) {
         if(!pandisable) {
         pandisable = true;
@@ -1043,6 +1044,7 @@ function weightChange() {
     ageItem.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );
     
     var weight = 75;
+        window.localStorage.setItem("weight",75);
     ageItem.on('panup', function(ev) {
         if(!pandisable) {
         pandisable = true;
@@ -1492,10 +1494,10 @@ function openShopping() {
     if(window.localStorage.getItem("shoppingList"))
     shoppingList = JSON.parse(window.localStorage.getItem("shoppingList"));
     var scrollIngred = document.getElementsByClassName("scrollIngred")[0].getElementsByTagName("button");
-    
+    alert("shoppingList");
     for(i = 0; i < shoppingList.list.length;i++) {
         if(shoppingList.list[i].active == "true") {
-            scrollIngred[shoppingList.list[i].name].setAttribute("active","true");
+            scrollIngred[parseInt(shoppingList.list[i].name)].setAttribute("active","true");
         }
     }
 }
@@ -1503,7 +1505,7 @@ function gotShopping(ele) {
     var savedInt = 0;
     var scrollIngred = document.getElementsByClassName("scrollIngred")[0];
     for(i = 0; i < scrollIngred.getElementsByTagName("button").length;i++) {
-        if(ele == scrollIngred.getElementsByTagName("button")[i]) {
+        if(ele.parentNode == scrollIngred.getElementsByTagName("button")[i]) {
             savedInt = i;
         }
     }
