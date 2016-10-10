@@ -1606,3 +1606,25 @@ function closeSideButtons() {
 function openSideButtons() {
     idc("backbutton").style.opacity = "1";
 }
+    var currentMessageId = 0;
+function loadingScreenStart(messagesForLoad) {
+    var loadingMessage = idc("loadingMessage");
+      for (i= 0; i < messagesForLoad.length; i++) {
+        var newmessageadd = document.createElement("span");
+          newmessageadd.innerHTML = messagesForLoad[i];
+          loadingMessage.appendChild(newmessageadd);
+      }
+    var tlMain = new TimelineMax({onRepeat:updateReps,repeat:-1,onComplete:function(){this.restart()}});
+    tlMain.staggerFromTo(loadingMessage.children, 0.5, {y:20,opacity:0,onUpdate:function(){
+        console.log(loadingMessage.children[currentMessageId].style.display);
+        loadingMessage.children[currentMessageId].style.display = "block";
+    } }, {y:0,opacity:1, ease: Circ.easeOut},2,0)
+        .staggerFromTo(loadingMessage.children, 0.5, {y:0,opacity:1}, {opacity:0,y:-20,onComplete:function() {
+        loadingMessage.children[currentMessageId].style.display = "none";
+            currentMessageId++;
+        }, ease: Circ.easeOut},2,1.48);
+    
+}
+function updateReps() {
+    currentMessageId = 0;
+}

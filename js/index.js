@@ -72,15 +72,18 @@ var app = {
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
         }
+        
+        pageChange("pages/loading.html", "popup", function() {
+            console.log("add loading");
+            var messageArray = ["loading...","please wait", "getting there"]; 
+                           loadingScreenStart(messageArray);
+    });
         setTimeout(function(){
-            console.log("before data");
             if( window.localStorage.getItem("data")) {
-                console.log(window.localStorage.getItem("data"));
                 personalJSON = JSON.parse(window.localStorage.getItem("data"));
             }
             
                 
-        console.log("check after");
             if(window.localStorage.getItem("setupdone") != "done") {
                 if(window.localStorage.getItem("doneintro") != "true") {
                     window.localStorage.setItem("doneintro", "true");  
