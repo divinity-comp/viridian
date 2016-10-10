@@ -1494,7 +1494,7 @@ function openShopping() {
     if(window.localStorage.getItem("shoppingList"))
     shoppingList = JSON.parse(window.localStorage.getItem("shoppingList"));
     var scrollIngred = document.getElementsByClassName("scrollIngred")[0].getElementsByTagName("button");
-    alert("shoppingList");
+   
     for(i = 0; i < shoppingList.list.length;i++) {
         if(shoppingList.list[i].active == "true") {
             scrollIngred[parseInt(shoppingList.list[i].name)].setAttribute("active","true");
