@@ -516,14 +516,7 @@ position: relative;
     position: relative;
     overflow: hidden;
     z-index: 2;
-}
-.recipeImage img {
-    position: absolute;
-    top:0;left:0;right:0;bottom:0;margin:auto;
-    min-width:100%;
-    min-height: 100%;
-    width:auto;
-    height:auto;
+    background-size: cover;
 }
 
 .title button:nth-child(2) {
@@ -540,7 +533,9 @@ position: relative;
     background-color: #fff;
     color:#aaa;
 }
-
 #maintable {
     padding-bottom: 15em;
+}
+.paddingAdd {
+    padding:0em 1.5em 1em;
 }

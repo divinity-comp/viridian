@@ -1,27 +1,17 @@
-function adjustSignIn() {
-    var tl = new TimelineMax();
-    if(idc("signIn").style.display == "none") {
-        idc("adjustsign").innerHTML = "Sign Up";
-        tl.fromTo(idc("signUp"), 0.3, {rotationX:"0deg"}, {rotationX:"270deg", ease:  Power0.easeNone, onComplete:function() {
-        idc("signIn").style.display = "block";
+function loginMainSetup() {
+    if( window.localStorage.getItem("data")) {
+        idc("adjustsignUp").style.display = "block";
+        idc("adjustsign").style.display = "none";
         idc("signUp").style.display = "none";
-            
-        }})
-        .fromTo(idc("signIn"), 0.1, {rotationX:"270deg"}, {rotationX:"360deg", ease:  Power0.easeNone});
-        
-    }
-    else {
-        tl.fromTo(idc("signIn"), 0.3, {rotationX:"0deg"}, {rotationX:"270deg", ease:  Power0.easeNone, onComplete:function() {
-        idc("signUp").style.display = "block";
-        idc("signIn").style.display = "none";
-            
-        }})
-        .fromTo(idc("signUp"), 0.1, {rotationX:"270deg"}, {rotationX:"360deg", ease:  Power0.easeNone});
-        idc("adjustsign").innerHTML = "Sign In";
+        idc("signIn").style.display = "block";
     }
 }
 function checkForgetPassword() {
-    if(hasInternet() == true) {
+    if(hasInternet() == true) { 
+        pageChange("pages/loading.html", "popup", function() {
+                var messageArray = ["Just making everything secure","Server sending email","please wait"]; 
+                               loadingScreenStart(messageArray);
+        });
         ajaxPost(
         "http://www.network-divinity.com/viridian/resetPassword.php", 
         function (responseView) {
@@ -33,8 +23,10 @@ function checkForgetPassword() {
             else {
                 alert("Password could not be reset " + responseView);
             }
+            closePopup();
         },
        'password=' + document.getElementById("newPass").value + "&email=" + document.getElementById("email").value );
+       
     }
     else {
         alert("please connect to the internet");
@@ -60,7 +52,7 @@ function selectionScreen() {
     }
     displayBotMenu("", false);
     displayMenu("", true, "login.html",function() {
-        loginMenu();
+        loginMenu();loginMainSetup();
     });
     if(allabout == "true" && setupstate == "true") {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
@@ -584,6 +576,12 @@ function rulesLeft() {
              tl.fromTo(initialItems[numFound + 1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut});
           }});
         }
+    if(numFound > 4) {
+        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+    }
+    if(numFound < 6) {
+        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+    }
 }
 function rulesRight() {
     var initialItem = idc("rules");
@@ -610,6 +608,12 @@ function rulesRight() {
              tl.fromTo(initialItems[numFound -1], 1, {x:"-100%"}, {x:"0%", ease: Circ.easeOut});
           }});
             }
+    if(numFound < 2) {
+        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+    }
+    if(numFound > 0) {
+        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+    }
 }
 var pandisable = false;
 function dateSelection() {
@@ -935,6 +939,35 @@ function setReminders() {
     window.localStorage.setItem("reminder1minute",parseInt(greenCirc[0].getElementsByTagName("span")[1].innerHTML));
     window.localStorage.setItem("reminder2minute",parseInt(greenCirc[1].getElementsByTagName("span")[1].innerHTML));
 }
+function intakeInitial(intakeNew) {
+    var sugarmenu = idc("sugarmenu");
+    if(intakeNew == 0) {
+        sugarmenu.children[0].ontouchstart = function() {
+            intake(0);
+            pageChange("pages/setup/setprofile.html", "fade", function() {
+                setupPage();    profileAccept();
+            });
+        }
+        sugarmenu.children[1].ontouchstart = function() {
+            intake(1);
+            pageChange("pages/setup/setprofile.html", "fade", function() {
+                setupPage();    profileAccept();
+            });
+        }
+        sugarmenu.children[2].ontouchstart = function() {
+            intake(2);
+            pageChange("pages/setup/setprofile.html", "fade", function() {
+                setupPage();    profileAccept();
+            });
+        }
+        sugarmenu.children[3].ontouchstart = function() {
+            intake(3);
+            pageChange("pages/setup/setprofile.html", "fade", function() {
+                setupPage();    profileAccept();
+            });
+        }
+    }
+}
 function intake(num) {
     if(num == 0) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
@@ -1083,11 +1116,11 @@ function changeGender(ele) {
     var ptag = ele.getElementsByTagName("p")[1];
     if(ptag.innerHTML == "" || ptag.innerHTML == "Male") {
         ptag.innerHTML = "Female";
-        personalJSON["personalData"]["gender"] = "Male";
+        personalJSON["personalData"]["gender"] = "Female";
     }
     else {
         ptag.innerHTML = "Male";
-        personalJSON["personalData"]["gender"] = "Female";
+        personalJSON["personalData"]["gender"] = "Male";
     }
         profileAccept();
 }
@@ -1124,14 +1157,16 @@ function sevenDayPlan(numAuto) {
 }
 function sevendayleft() {
     var initialItem = idc("plan");
+    var activeI = initialItem.getElementsByClassName("active")[0];
+    var numFound = parseInt(activeI.getAttribute("num"));
+    if(numFound < 6) {
+        
     var initialItems = initialItem.getElementsByClassName("slide");
 
           TweenMax.to(idc("dayMount").getElementsByTagName("span")[0], 0.4,  {opacity:0, ease: Circ.easeOut,onComplete:function() {
               idc("dayMount").getElementsByTagName("span")[0].innerHTML = numFound + 2;
              TweenMax.to(idc("dayMount").getElementsByTagName("span")[0], 0.4,  {opacity:1, ease: Circ.easeOut});
           }});
-    var activeI = initialItem.getElementsByClassName("active")[0];
-    var numFound = parseInt(activeI.getAttribute("num"));
     var  slideMenu = document.getElementsByClassName("slideMenu")[0];
         if(numFound + 1 < initialItem.getElementsByClassName("slide").length) {
         for(i = 0; i < initialItems.length;i++) {
@@ -1149,6 +1184,14 @@ function sevendayleft() {
              tl.fromTo(initialItems[numFound + 1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut});
           }});
         }
+    }
+    if(numFound > 4) {
+        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+    }
+    if(numFound < 6) {
+        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+    }
+    
 }
 function sevendayright() {
 
@@ -1179,6 +1222,12 @@ function sevendayright() {
              tl.fromTo(initialItems[numFound -1], 1, {x:"-100%"}, {x:"0%", ease: Circ.easeOut});
           }});
             }
+    if(numFound < 2) {
+        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+    }
+    if(numFound > 0) {
+        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+    }
 }
 function startPlan() {
     
@@ -1395,9 +1444,9 @@ var diffDays;
 function daily() {
     updateToServer();
                 window.localStorage.setItem("logged", "true");
-    displayBotMenu("", true);
+                displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
-                });
+                },"true");
    // var startday = window.localStorage.setItem("startday", 15);
     var startday = window.localStorage.getItem("startday");
     var startmonth = window.localStorage.getItem("startmonth");
@@ -1606,23 +1655,30 @@ function closeSideButtons() {
 function openSideButtons() {
     idc("backbutton").style.opacity = "1";
 }
-    var currentMessageId = 0;
+    var currentMessageId = 0;   
+
 function loadingScreenStart(messagesForLoad) {
-    var loadingMessage = idc("loadingMessage");
+    setTimeout(function(){ if(document.getElementById("popup").style.display == "block") {
+         alert("Sign in Timeout");
+                closePopup(); 
+    } }, 15000);
+     var loadingMessage = idc("loadingMessage");
       for (i= 0; i < messagesForLoad.length; i++) {
         var newmessageadd = document.createElement("span");
           newmessageadd.innerHTML = messagesForLoad[i];
           loadingMessage.appendChild(newmessageadd);
       }
-    var tlMain = new TimelineMax({onRepeat:updateReps,repeat:-1,onComplete:function(){this.restart()}});
-    tlMain.staggerFromTo(loadingMessage.children, 0.5, {y:20,opacity:0,onUpdate:function(){
-        console.log(loadingMessage.children[currentMessageId].style.display);
-        loadingMessage.children[currentMessageId].style.display = "block";
-    } }, {y:0,opacity:1, ease: Circ.easeOut},2,0)
+    var tlMain = new TimelineMax({onRepeat:updateReps,repeat:-1});
+    tlMain.staggerFromTo(loadingMessage.children, 0.5, {y:20,opacity:0}, {y:0,opacity:1, ease: Circ.easeOut},2,0)
+    .staggerTo(loadingMessage.children, 0.01, {display:"block", ease: Circ.easeOut},2,0)
         .staggerFromTo(loadingMessage.children, 0.5, {y:0,opacity:1}, {opacity:0,y:-20,onComplete:function() {
+        if(loadingMessage.children[currentMessageId])
         loadingMessage.children[currentMessageId].style.display = "none";
             currentMessageId++;
-        }, ease: Circ.easeOut},2,1.48);
+        }, ease: Circ.easeOut},2,1.49);
+    var tlSugar = new TimelineMax({repeat:-1});
+    tlSugar.fromTo(document.getElementsByClassName("sugarline")[0], 2, {scaleY:0,transformOrigin:"50% 0%"}, {scaleY:1, ease: Power0.easeNone})
+    .fromTo(document.getElementsByClassName("sugar")[0], 1, {scaleY:0,transformOrigin:"50% 100%"}, {scaleY:1, ease:Circ.easeOut},"-=0.1");
     
 }
 function updateReps() {

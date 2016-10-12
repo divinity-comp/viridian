@@ -73,11 +73,6 @@ var app = {
             splashScreen = 6000;
         }
         
-        pageChange("pages/loading.html", "popup", function() {
-            console.log("add loading");
-            var messageArray = ["loading...","please wait", "getting there"]; 
-                           loadingScreenStart(messageArray);
-    });
         setTimeout(function(){
             if( window.localStorage.getItem("data")) {
                 personalJSON = JSON.parse(window.localStorage.getItem("data"));
@@ -109,6 +104,7 @@ var app = {
         document.getElementById("facebookLogin").addEventListener("click", function() {
             register();
         });
+        loginMainSetup();
                         });
                     }
                 }
@@ -129,6 +125,7 @@ var app = {
         document.getElementById("facebookLogin").addEventListener("click", function() {
             register();
         });
+        loginMainSetup();
                         });
                     
                 }
@@ -219,7 +216,7 @@ function registerGetInfo() {
         profileJSON = result;
         var datesset = result.birthday.split('/');
         
-        personalJSON = JSON.parse('{"personalData": { "firstname":"' + profileJSON.first_name +'","email":"' + profileJSON.email +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '","description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0}');
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + profileJSON.first_name +'","email":"' + profileJSON.email +'","age":"' + calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)) +'","relationship":"' + profileJSON.relationship_status + '","description":"' + profileJSON.bio +'","gender":"'+ profileJSON.gender +'","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":"null","weight":"null"},"version":0}');
                                   
         window.localStorage.setItem("age" , calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)));
         
@@ -248,6 +245,7 @@ function loginPage() {
         document.getElementById("facebookLogin").addEventListener("click", function() {
             register();
         });
+        loginMainSetup();
     });
 }
 function signIn() {
@@ -255,40 +253,62 @@ function signIn() {
     var passcodeV = idc("pass").value;
     
     if(usernameV != "" && passcodeV != "") {
+        pageChange("pages/loading.html", "popup", function() {
+                var messageArray = ["Gathering Data","Just making everything secure","loading...","please wait"]; 
+                               loadingScreenStart(messageArray);
+        });
         ajaxPost(
             "http://www.network-divinity.com/viridian/login.php", 
             function (response) {
-                
             if(response.indexOf("allowed") >= 0) {
                 var parts = response.split("}");
-                var result = parts[parts.length - 1];
-                window.localStorage.setItem("remember", result);
                 var newJson =response.substring(response.indexOf('allowed') + 7);
-                console.log(newJson );
                 newJson = newJson.replace("new code","" );
                 window.localStorage.setItem("data", newJson);
-                personalJson = JSON.parse(newJson);
-                window.localStorage.setItem("age" ,personalJSON["personalData"]["age"]);
-                window.localStorage.setItem("startday",personalJSON["personalData"]["startday"] );
-                window.localStorage.setItem("startmonth" ,personalJSON["personalData"]["startmonth"]);
-                window.localStorage.setItem("startyear" ,personalJSON["personalData"]["startyear"]);
-                window.localStorage.setItem("reminder1hour" , personalJSON["personalData"]["reminder1hour"]);
-                window.localStorage.setItem("reminder2hour" ,personalJSON["personalData"]["reminder2hour"]);
-                window.localStorage.setItem("reminder1minute" ,personalJSON["personalData"]["reminder1minute"]);
-                window.localStorage.setItem("reminder2minute" ,personalJSON["personalData"]["reminder2minute"]);
-                window.localStorage.setItem("motivator0" ,personalJSON["personalData"]["motivators1"]);
-                window.localStorage.setItem("motivator1" ,personalJSON["personalData"]["motivators2"]);
-                window.localStorage.setItem("motivator2" , personalJSON["personalData"]["motivators3"]);
-                window.localStorage.setItem("motivator3",personalJSON["personalData"]["motivators4"]);
-                window.localStorage.setItem("weight" ,personalJSON["personalData"]["weight"]);
+                personalJSON = JSON.parse(newJson);
+                window.localStorage.setItem("usertype", 1);
+                if(personalJSON["personalData"]["age"] != "null" || personalJSON["personalData"]["age"] != null)
+                    window.localStorage.setItem("age" ,personalJSON["personalData"]["age"]);
+                if(personalJSON["personalData"]["startday"] != "null" || personalJSON["personalData"]["startday"] != null)
+                    window.localStorage.setItem("startday",personalJSON["personalData"]["startday"] );
+                if(personalJSON["personalData"]["startmonth"] != "null" || personalJSON["personalData"]["startmonth"] != null)
+                    window.localStorage.setItem("startmonth" ,personalJSON["personalData"]["startmonth"]);
+                if(personalJSON["personalData"]["startyear"] != "null" || personalJSON["personalData"]["startyear"] != null)
+                    window.localStorage.setItem("startyear" ,personalJSON["personalData"]["startyear"]);
+                if(personalJSON["personalData"]["reminder1hour"] != "null" || personalJSON["personalData"]["reminder1hour"] != null)
+                    window.localStorage.setItem("reminder1hour" , personalJSON["personalData"]["reminder1hour"]);
+                if(personalJSON["personalData"]["reminder2hour"] != "null" || personalJSON["personalData"]["reminder2hour"] != null)
+                    window.localStorage.setItem("reminder2hour" ,personalJSON["personalData"]["reminder2hour"]);
+                if(personalJSON["personalData"]["reminder1minute"] != "null" || personalJSON["personalData"]["reminder1minute"] != null)
+                    window.localStorage.setItem("reminder1minute" ,personalJSON["personalData"]["reminder1minute"]);
+                if(personalJSON["personalData"]["reminder2minute"] != "null" || personalJSON["personalData"]["reminder2minute"] != null)
+                    window.localStorage.setItem("reminder2minute" ,personalJSON["personalData"]["reminder2minute"]);
+                if(personalJSON["personalData"]["motivators1"] != "null" || personalJSON["personalData"]["motivators1"] != null)
+                    window.localStorage.setItem("motivator0" ,personalJSON["personalData"]["motivators1"]);
+                if(personalJSON["personalData"]["motivators2"] != "null" || personalJSON["personalData"]["motivators2"] != null)
+                    window.localStorage.setItem("motivator1" ,personalJSON["personalData"]["motivators2"]);
+                if(personalJSON["personalData"]["motivators3"] != "null" || personalJSON["personalData"]["motivators3"] != null)
+                    window.localStorage.setItem("motivator2" , personalJSON["personalData"]["motivators3"]);
+                if(personalJSON["personalData"]["motivators4"] != "null" || personalJSON["personalData"]["motivators4"] != null)
+                    window.localStorage.setItem("motivator3",personalJSON["personalData"]["motivators4"]);
+                if(personalJSON["personalData"]["weight"] != "null" || personalJSON["personalData"]["weight"] != null)
+                    window.localStorage.setItem("weight" ,personalJSON["personalData"]["weight"]);
+                if((personalJSON["personalData"]["startday"] != "null" || personalJSON["personalData"]["startday"] != null) && (personalJSON["personalData"]["reminder1minute"] != "null" || personalJSON["personalData"]["reminder1minute"] != null)) {
+
+    var needwalk = window.localStorage.setItem("setupdone", "done");
+    var acceptTaC = window.localStorage.setItem("tac", "true");
+                }
+                
                 afterLogin();
                 
             } 
             else {
                 alert(response);
             }
+                closePopup();
         },
        'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV  + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") );
+        
     }
 }
 function attemptRegisterV() {
@@ -296,8 +316,12 @@ function attemptRegisterV() {
     var passcodeV = idc("pass").value;
 
     if(usernameV != "" && passcodeV != "") {
-        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":null,"relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":null,"weight":null},"version":0}');
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":"null","relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":"null","weight":"null"},"version":0}');
 
+        pageChange("pages/loading.html", "popup", function() {
+                var messageArray = ["Gathering Data","Just making everything secure","loading...","please wait"]; 
+                               loadingScreenStart(messageArray);
+        });
         ajaxPost(
             "http://www.network-divinity.com/viridian/register.php", 
             function (response) {
@@ -318,6 +342,7 @@ function attemptRegisterV() {
             else {
                 alert(response);
             }
+                closePopup();
         },
        'typeuser=' + "1" + "&username=" + usernameV + "&passcode=" + passcodeV + "&data=" + JSON.stringify(personalJSON));
     }
@@ -415,12 +440,18 @@ function viewAdjust() {
 function idc(id) {
     return document.getElementById(id);
 }
-function displayMenu(menuAnim, displayyes, backLink, backlinkFunction) {
+function displayMenu(menuAnim, displayyes, backLink, backlinkFunction, hideBack) {
     if(displayyes == true) {
         idc("navigation").style.display = "block";
     }
     else {
         idc("navigation").style.display = "none";
+    }
+    if(hideBack) {
+        idc("backbutton").style.display = "none";
+    }
+    else {
+        idc("navigation").style.display = "block";
     }
     idc("backbutton").ontouchstart = function() {
         pageChange("pages/" + backLink, "fade", function() {

@@ -6,6 +6,11 @@
 
 <body>
     <div id="full" class="app textureBack">
+        <img class="maxh5 vhmt2 nextButton" id="profileNext" ontouchstart='
+    pageChange("pages/start/start1.html", "fade", function() {
+     setupComplete(8); 
+                                                          finishCheck();
+    });' style="display:none;"  src="img/buttons/next.png"/>
         <div class="vh30 hideProf">
             <div id="plan" class="blueCentralCircle vh50 vhw50">
                 <h2 class="vhmt21 fontv8 vhmb2">All About You</h2>
@@ -85,7 +90,7 @@ pageChange("pages/setup/schedule.html", "popup", function() {
             <hr>
             <div onclick='
 pageChange("pages/setup/intake.html", "fade", function() {
-    intake();                 
+    intakeInitial();              
     displayMenu("", true, "setup/setprofile.html",function() {
                           profileSetup();
     });   

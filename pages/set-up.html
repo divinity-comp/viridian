@@ -78,11 +78,12 @@
                 <p class="fontv3 lineh3 vhmt3">See the 7 day<br>meal plan &<br>shopping list </p></div>
             <div ontouchstart='
     pageChange("pages/setup/setprofile.html", "fade", function() {
-                          profileSetup();
+         idc("profileNext").style.display = "block";            
     displayMenu("", true, "set-up.html",function() {
      setupComplete(8); 
         setupPage();                      
     });   
+                          profileSetup();          
     });'id="profile" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt1 vhmb1" src="img/buttons/setup/profile.png" />   
                 <p class="fontv3 lineh3 vhmt3">Set your <br>personal <br>profile</p></div>

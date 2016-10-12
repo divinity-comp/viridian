@@ -83,8 +83,8 @@
         <h2 class="blueText alignCenter normal fontv7 vhmb0 lineh5">Create your account</h2>
         <input id="email" class="vhmb2 vhmt0 fontv5" type="email" placeholder="Email"/>
         <input id="pass" class="vhmb2 fontv5" type="password" placeholder="Password"/>
-        <button id="signUp" ontouchstart="attemptRegisterV()" class="sign fontv5 vhmb2">Sign Up</button>
-        <button id="signIn" ontouchstart="signIn()" class="sign fontv5 vhmb2" style="display:none;">Sign In</button>
+        <button id="signUp" ontouchstart="attemptRegisterV()" class="sign fontv5 vhmb2 lineh10">Sign Up</button>
+        <button id="signIn" ontouchstart="signIn()" class="sign signin fontv5 vhmb2 lineh10" style="display:none;">Sign In</button>
         <div class="vhmb1" style="overflow:hidden;clear:both; ">
             <div id="remuser" class="remember fontv4 lineh6" style="float:left; width:40%;margin-left:10%" rememberAllowed="no" ontouchstart="rememberAccount(this)">
                 <button style="float:left;" class="checkbox vw6 vwh6"></button> <p style="margin:0;float:left;margin-left:5%;">Remember Me</p>
@@ -100,9 +100,10 @@
             <div class="fontv5 lineh12">Sign In With Facebook</div>
         </button>
         <h2 class=" alignCenter normal fontv6 vhmb1">Already have an account?</h2>
-        <button id="adjustsign" class="signin lineh10 fontv5" ontouchstart="adjustSignIn()">
+        <button id="adjustsign" class="sign signin lineh10 fontv5" ontouchstart="signIn()">
             Sign In
         </button>
+        <button id="adjustsignUp" ontouchstart="attemptRegisterV()" style="display:none;" class="sign fontv5 vhmb2 lineh10">Sign Up</button>
         </div>
         <style>
             .viridian {
@@ -126,14 +127,7 @@
                 border:0;
                 overflow: hidden;
             }
-            .signin {
-                width:80%;
-                margin:0 10% 0;
-                background-color:#231f20;
-                color:#fff;
-                border:0;
-                overflow: hidden;
-            }
+           
             .facebookdark {
                 background-color:#405085;
                 float:left;
@@ -187,13 +181,14 @@
             .sign {
                 background-color:#007086;
                 color:#fff;
-                padding:2%;
                 width:76%;
                 margin-right:  auto;
                 margin-left:  auto;
                 display: block;
                 box-shadow: 0px 0px 0px 1px #007086;
                 border:0;box-sizing: content-box;
+            } .signin {
+                background-color:#231f20;
             }
 			@media only screen 
 and (min-device-width : 768px) 
