@@ -42,32 +42,35 @@ var app = {
     receivedEvent: function(id) {
     },
     startApp: function() {
-        push = PushNotification.init({
-            android: {
-                senderID: "763873239931"
-            },
-            browser: {
-                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-            },
-            ios: {
-                alert: "true",
-                badge: "true",
-                sound: "true"
-            }
-        });
-        push.on('registration', function(data) {
-            window.localStorage.setItem("regID", data.registrationId);  
-
-        });
-            window.localStorage.setItem("platform",device.platform);  
-        push.on('notification', function(data) {
+         FCMPlugin.getToken(
+          function(token){
+            window.localStorage.setItem("regID", token);  
+          },
+          function(err){
+            console.log('error retrieving token for notifications: ' + err);
+          }
+        )
+        FCMPlugin.onNotification(
+          function(data){
+            if(data.wasTapped){
+              //Notification was received on device tray and tapped by the user. 
+              
              pageChange("pages/start/take-tablet.html", "popup", function() {
              });
-        });
-
-        push.on('error', function(e) {
-            alert(e.message); 
-        });
+            }else{
+              //Notification was received in foreground. Maybe the user needs to be notified. 
+              
+             pageChange("pages/start/take-tablet.html", "popup", function() {
+             });
+            }
+          },
+          function(msg){
+            console.log('onNotification callback successfully registered: ' + msg);
+          },
+          function(err){
+            console.log('Error registering onNotification callback: ' + err);
+          }
+        );
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
@@ -448,10 +451,10 @@ function displayMenu(menuAnim, displayyes, backLink, backlinkFunction, hideBack)
         idc("navigation").style.display = "none";
     }
     if(hideBack) {
-        idc("backbutton").style.display = "none";
+        idc("backbutton").style.visibility = "hidden";
     }
     else {
-        idc("navigation").style.display = "block";
+        idc("backbutton").style.visibility = "visible";
     }
     idc("backbutton").ontouchstart = function() {
         pageChange("pages/" + backLink, "fade", function() {

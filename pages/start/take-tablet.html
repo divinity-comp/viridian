@@ -10,17 +10,23 @@
         <img class="close" ontouchstart="closePopup()" src="img/close.png" />
         <div id="times" class="blueCentralCircle vw90 vwh90 " >
                 <h2 class="ttile vhmt8 fontv5">Time to take<br>your tablet</h2>
-                <img src="img/initial/supp.png"/>
+                <div class="greenSupp vw35 vwh35"><img src="img/initial/supp.png"/></div>
             
             <button ontouchstart="
             closePopup()" class="setButton vw25 vwh25 fontv7">Done</button>
         </div>
         <style>
-            #times img {
-                max-width: 25%;
-                padding:0.5em;
+            .greenSupp img{
+                position: absolute;
+                margin:auto;
+                left:0;right:0;bottom:0;top:0;
+                max-width:60%;
+            }
+            .greenSupp {
+                position: relative;
                 background-color:#bacb2f;
                 border-radius: 200em;
+                margin:0 auto;
             }
             .greencircle p {
                 margin:0;

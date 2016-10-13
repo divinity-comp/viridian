@@ -7,7 +7,7 @@
 <body>
     <div id="full" class="app textureBack">
         <div id="fullrecipe">
-        <div id="highSection" class="vhmt10 vhmb4">
+        <div id="highSection" class="vhmt10 ">
             <button class="greyCircle vw22 vwh22 fontv6">
                 Day 6
             </button>
@@ -19,7 +19,13 @@
                 <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(3)" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
-        <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
+            <div class="nextday vhmt2">
+                <button class="fontv4 lineh6" ontouchstart=' pageChange("pages/recipes/day5.html", "fade", function() {
+    });'>Previous day</button>
+                <button class="fontv4 lineh6" ontouchstart=' pageChange("pages/recipes/day7.html", "fade", function() {
+    });'>Next day</button>
+            </div>
+        <div id="breakfast" class="ingrd  vh60" active="true">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Breakfast</div>
@@ -36,7 +42,7 @@ with fresh berries.</h2>
                 </div>
             </div>
         </div>
-        <div id="lunch" class="ingrd vhmt4 vh60" active="false">
+        <div id="lunch" class="ingrd  vh60" active="false">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Lunch</div>
@@ -52,7 +58,7 @@ and avocado</h2>
                 </div>
             </div>
         </div>
-        <div id="snack" class="ingrd vhmt4 vh60" active="false">
+        <div id="snack" class="ingrd  vh60" active="false">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Snack</div>
@@ -67,7 +73,7 @@ and avocado</h2>
             </div>
                     
         </div>
-        <div id="dinner" class="ingrd vhmt4 vh60" active="false">
+        <div id="dinner" class="ingrd  vh60" active="false">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Dinner</div>
@@ -105,7 +111,7 @@ Low GL.</p>
                 <hr>
                 <p class="fontv4">1 tablespoon chopped fresh thyme leaves</p>
                 <hr>
-                <p class="fontv4">5 tablespoons dry white wine</p>
+                <p class="fontv4">2 tablespoons dry white wine</p>
                 <hr>
                 <p class="fontv4">1 unsalted, gluten-free vegetable bouillon stock cube</p>
                 <hr>

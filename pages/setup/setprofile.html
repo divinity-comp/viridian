@@ -20,7 +20,7 @@
         <div id="maintable" class="maintable vh66">
             <div class="row " onclick='
 pageChange("pages/setup/name.html", "popup", function() {  
-                  idc("name").value = personalJSON["personalData"]["firstname"];    
+                  idc("name").value = personalJSON["personalData"]["firstname"];  
 });'>
                 <div class="half ">
                     <p class="fontv4 lineh10">Name</p>
@@ -33,6 +33,7 @@ pageChange("pages/setup/name.html", "popup", function() {
             <div class="row " onclick='
 pageChange("pages/setup/age.html", "popup", function() {  
                 ageChange();        
+                                addprofileChange(profileAccept);   
 });'>
                 <div class="half ">
                     <p class="fontv4 lineh10">Age</p>
@@ -90,7 +91,7 @@ pageChange("pages/setup/schedule.html", "popup", function() {
             <hr>
             <div onclick='
 pageChange("pages/setup/intake.html", "fade", function() {
-    intakeInitial();              
+    intakeInitial(0);              
     displayMenu("", true, "setup/setprofile.html",function() {
                           profileSetup();
     });   
@@ -118,7 +119,8 @@ pageChange("pages/setup/motivation.html", "popup", function() {
             <hr>
             <div class="row " onclick='
 pageChange("pages/setup/weight.html", "popup", function() { 
-                                            weightChange();  
+                                            weightChange();
+                                addprofileChange(profileAccept);     
 });'>
                 <div class="half ">
                     <p class="fontv4 lineh10">Start Weight</p>

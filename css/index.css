@@ -341,7 +341,7 @@ ul li {
     clear:both;
     padding-bottom: 5em;
 }
-.types {
+.types,.nextday {
     border-bottom: 1px solid #404040;
     float:left;
     width:100%;
@@ -349,12 +349,19 @@ ul li {
 .types button[active=true] {
     background:#007086;
 }
-.types button {
+.types button,.nextday button {
     background:#404040;
     color:#fff;
     width:45%;
     float:left;
-
+}
+.nextday {
+border:0;
+    }
+.nextday button{
+    width:45%;
+    margin:0 2.5%;
+    background:#007086;
 }
 .types button:nth-child(1) {
     margin-right: 7%;
@@ -538,4 +545,7 @@ position: relative;
 }
 .paddingAdd {
     padding:0em 1.5em 1em;
+}
+.full p{
+    text-align: center;
 }

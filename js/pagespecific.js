@@ -36,6 +36,7 @@ function loginMenu() {
                    
     displayMenu("", false, "",function() {
     });
+    displayBotMenu("", false);
 }
 function selectionScreen() {
     updateToServer();
@@ -938,6 +939,7 @@ function setReminders() {
     window.localStorage.setItem("reminder2hour",parseInt(greenCirc[1].getElementsByTagName("span")[0].innerHTML));
     window.localStorage.setItem("reminder1minute",parseInt(greenCirc[0].getElementsByTagName("span")[1].innerHTML));
     window.localStorage.setItem("reminder2minute",parseInt(greenCirc[1].getElementsByTagName("span")[1].innerHTML));
+    profileAccept();
 }
 function intakeInitial(intakeNew) {
     var sugarmenu = idc("sugarmenu");
@@ -945,25 +947,25 @@ function intakeInitial(intakeNew) {
         sugarmenu.children[0].ontouchstart = function() {
             intake(0);
             pageChange("pages/setup/setprofile.html", "fade", function() {
-                setupPage();    profileAccept();
+                profileSetup();    profileAccept();
             });
         }
         sugarmenu.children[1].ontouchstart = function() {
             intake(1);
             pageChange("pages/setup/setprofile.html", "fade", function() {
-                setupPage();    profileAccept();
+                profileSetup();    profileAccept();
             });
         }
         sugarmenu.children[2].ontouchstart = function() {
             intake(2);
             pageChange("pages/setup/setprofile.html", "fade", function() {
-                setupPage();    profileAccept();
+                profileSetup();    profileAccept();
             });
         }
         sugarmenu.children[3].ontouchstart = function() {
             intake(3);
             pageChange("pages/setup/setprofile.html", "fade", function() {
-                setupPage();    profileAccept();
+                profileSetup();    profileAccept();
             });
         }
     }
@@ -1380,7 +1382,7 @@ function profileAccept() {
     updateToServer();
 }
 function updateToServer() {
-    if(hasInternet() == true) {
+    if(hasInternet() == true && personalJSON["personalData"]["email"]) {
 
         ajaxPost(
         "http://www.network-divinity.com/viridian/updateuser.php", 

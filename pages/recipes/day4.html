@@ -7,7 +7,7 @@
 <body>
     <div id="full" class="app textureBack">
         <div id="fullrecipe">
-        <div id="highSection" class="vhmt10 vhmb4">
+        <div id="highSection" class="vhmt10 ">
             <button class="greyCircle vw22 vwh22 fontv6">
                 Day 4
             </button>
@@ -19,7 +19,13 @@
                 <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(3)" ontouchstart="recipeTime(3)">Dinner</div>
             </div>
         </div>
-        <div id="breakfast" class="ingrd vhmt4 vh60" active="true">
+            <div class="nextday vhmt2">
+                <button class="fontv4 lineh6"ontouchstart=' pageChange("pages/recipes/day3.html", "fade", function() {
+    });'>Previous day</button>
+                <button class="fontv4 lineh6" ontouchstart=' pageChange("pages/recipes/day5.html", "fade", function() {
+    });'>Next day</button>
+            </div>
+        <div id="breakfast" class="ingrd  vh60" active="true">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Breakfast</div>
@@ -35,12 +41,39 @@ and fresh chilli</h2>
 
                 </div>
             </div>
+            <div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 0)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 0)">Method</button>
+            </div>
+            <div class="overMark " active="true">
+				<h2>Ingredients</h2>
+                <p class="fontv4">1 avocado </p>
+                <hr>
+                <p class="fontv4">½ lime  </p>
+                <hr>
+                <p class="fontv4">1-2 slices of rye bread</p>
+                <hr>
+                <p class="fontv4">Viridian Nutrition Organic Black Seed Oil </p>
+                <hr>
+                <p class="fontv4">Small handful of Lettuce</p>
+                <hr>
+                <p class="fontv4">One tomato</p>
+            </div>
+            <div class="overMark " active="false">
+				<h2>Method</h2>
+                <ol>
+                    <li class="fontv4">Run a knife lengthways all the way around the avocado, take each half in each hand and twist your right hand forward and left hand back, this will free the avocado from the stone.  Scoop out the avocado flesh and in a bowl.</li>
+                    <li class="fontv4">Mash with a fork, season with sea salt, ground pepper and the juice from half of a lemon or lime.</li>
+                    <li class="fontv4">Lightly toast one or two slices of rye bread, drizzle with the Viridian Organic Black Seed oil and top with lettuce, sliced tomatoes and the avocado mix.</li>
+                </ol>
+                <p class="fontv4">Optional: Sprinkle with Organic Soul Food Greens. </p>
+            </div>
         </div>
-        <div id="lunch" class="ingrd vhmt4 vh60" active="false">
+        <div id="lunch" class="ingrd  vh60" active="false">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Lunch</div>
-                    <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">4</span></div>
+                    <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
 					<div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/vegetable-stir-fry-&-rice.jpg);"></div>
 
                 </div>
@@ -51,9 +84,51 @@ rice</h2>
                     
                 </div>
             </div>
+            <div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 1)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 1)">Method</button>
+            </div>
+            <div class="overMark " active="true">
+				<h2>Ingredients</h2>
+                <p class="fontv4">35g wild rice</p>
+                <hr>
+                <p class="fontv4">40g basmati rice </p>
+                <hr>
+                <p class="fontv4">½ aubergine </p>
+                <hr>
+                <p class="fontv4">1 carrot</p>
+                <hr>
+                <p class="fontv4">½ onion</p>
+                <hr>
+                <p class="fontv4">1 pepper</p>
+                <hr>
+                <p class="fontv4">1 tablespoon Viridian Organic Raw Coconut Oil</p>
+                <hr>
+                <p class="fontv4">½ teaspoon of cumin seeds </p>
+                <hr>
+                <p class="fontv4">½ coriander seeds</p>
+                <hr>
+                <p class="fontv4">½ teaspoon pink peppercorns </p>
+                <hr>
+                <p class="fontv4">Handful of spinach </p>
+                <hr>
+                <p class="fontv4">Ground black pepper & Himalayan rock salt (seasoning)</p>
+                
+            </div>
+            <div class="overMark " active="false">
+				<h2>Method</h2>
+                <ol>
+                    <li class="fontv4">Weigh out the wild rice and set to boil for 15 minutes. </li>
+                    <li class="fontv4">Weigh out the Basmati rice add to the boiling wild rice for a further 15 minutes or until the white rice is ‘ala dente’.</li>
+                    <li class="fontv4">While the rice is boiling, cube the aubergine, carrot, onion and pepper.</li>
+                    <li class="fontv4">In the wok or frying pan warm one tablespoon of Viridian Nutrition Organic Raw Coconut Oil and add to the cumin and coriander seeds, once golden and popping, add the veggies and stir fry until soft.  </li>
+                    <li class="fontv4">Drain and rinse the rice and add to the stir fried vegetables.  </li>
+                    <li class="fontv4">Add half a teaspoon of pink peppercorns and stir through so the rice, vegetables and spices are combined.  Add a handful of spinach.  Remove from heat once the spinach wilts and serve seasoned with ground black pepper and Himalayan rock salt.</li>
+                </ol>
+            </div>
             
         </div>
-        <div id="snack" class="ingrd vhmt4 vh60" active="false">
+        <div id="snack" class="ingrd  vh60" active="false">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Snack</div>
@@ -108,23 +183,15 @@ peanut butter)</p>
             <div class="overMark " active="false">
 				<h2>Method</h2>
                 <ol>
-                    <li class="fontv4">Preheat the oven to 180°C/gas mark 4/350°F. Lightly grease
-a 20cm square tin and line the base with baking parchment.
-In a small saucepan set over a medium heat, melt together
-the coconut oil, chopped dates
-and tahini. Stir constantly until smooth and thick.</li>
-                    <li class="fontv4">Combine the oats, hazelnuts, mango and seeds in a large
-bowl. Pour in the melted coconut mixture and stir well to
-combine.</li>
-                    <li class="fontv4">Spoon the mixture into the prepared tin and press it down
-firmly and evenly with the back of a spoon. Bake for about
-20 minutes, until lightly golden on top.</li> <li class="fontv4">Leave to cool, then slice into bars or squares. Eat straight
-away or store in an airtight container in the fridge for up to
-ten days.</li>
+                    <li class="fontv4">Preheat the oven to 180C/gas mark 4/350F. Lightly grease a 20cm square tin and line th base with baking parchment.</li>
+                    <li class="fontv4">In a small saucepan set over a medium heat, melt together the coconut oil, brown rice syrup, chopped dates and tahini. Stir constantly until smooth and thick.</li>
+                    <li class="fontv4">Combine the oats, hazelnuts, mango and seeds in a large bowl. Pour in the melted coconut mixture and stir well to combine.</li> 
+                    <li class="fontv4">Spoon the mixture into the prepared tin and press it down firmly and evenly with the back of a spoon. Bake for about 20 minutes, until lightly golden on top.</li>
+                    <li class="fontv4">Leave to cool, then slice into bars or squares. Eat straight away or store in an airtight container in the fridge for up to 10 days.</li>
                 </ol>
             </div>        
         </div>
-        <div id="dinner" class="ingrd vhmt4 vh60" active="false">
+        <div id="dinner" class="ingrd  vh60" active="false">
             <div class="title ">
                 <div>
                     <div class=" vw20 vwh20 fontv4 lineh20" >Dinner</div>
