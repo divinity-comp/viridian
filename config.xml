@@ -32,12 +32,12 @@
   <icon src="logo.png"/>
 
 	<config-file target="AndroidManifest.xml" parent="/*">
-        <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" tools:node="remove" />
-        <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" tools:node="remove" />
-        <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" tools:node="remove" />
-        <uses-permission android:name="com.sec.android.provider.badge.permission.READ" tools:node="remove" />
-        <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" tools:node="remove" />
-        <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" tools:node="remove" />
+        <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" android:maxSdkVersion="22" />
+        <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" android:maxSdkVersion="22" />
+        <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" android:maxSdkVersion="22" />
+        <uses-permission android:name="com.sec.android.provider.badge.permission.READ" android:maxSdkVersion="22" />
+        <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" android:maxSdkVersion="22" />
+        <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" android:maxSdkVersion="22" />
     </config-file>
   <platform name="android">
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
