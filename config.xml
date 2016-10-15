@@ -14,6 +14,7 @@
 	<plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
 	<plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.2"/>
+	<plugin name="cordova-custom-config" source="npm" spec="~3.0.11"/>
 	<preference name="DisallowOverscroll" value="true"/>
 	<preference name="orientation" value="portrait" />
 	<preference name="fullscreen" value="false" />
