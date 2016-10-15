@@ -27,7 +27,7 @@
         <param name="APP_ID" value="158143914594630" />
         <param name="APP_NAME" value="7 day detox" />
 	</plugin>
-	<config-file target="AndroidManifest.xml" parent="/*">
+	<config-file platform="android" parent="/manifest" mode="delete">
         <!-- Added by phonegap-plugin-push -->
         <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" tools:node="remove"/>
         <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" tools:node="remove"/>
