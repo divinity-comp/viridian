@@ -30,16 +30,14 @@
         <param name="APP_NAME" value="7 day detox" />
 	</plugin>
   <icon src="logo.png"/>
-
-	<config-file target="AndroidManifest.xml" parent="/*">
-        <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" delete="true" />
-        <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" delete="true" />
-        <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" delete="true" />
-        <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" delete="true" />
-        <uses-permission android:name="com.sec.android.provider.badge.permission.READ" delete="true" />
-        <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" delete="true" />
-        <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" delete="true" />
-    </config-file>
+	<preference name="android-manifest/uses-permission/[@android:name='com.anddoes.launcher.permission.UPDATE_COUNT']" delete="true" />
+	<preference name="android-manifest/uses-permission/[@android:name='com.htc.launcher.permission.READ_SETTINGS']" delete="true" />
+	<preference name="android-manifest/uses-permission/[@android:name='com.htc.launcher.permission.UPDATE_SHORTCUT']" delete="true" />
+	<preference name="android-manifest/uses-permission/[@android:name='com.majeur.launcher.permission.UPDATE_BADGE']" delete="true" />
+	<preference name="android-manifest/uses-permission/[@android:name='com.sec.android.provider.badge.permission.READ']" delete="true" />
+	<preference name="android-manifest/uses-permission/[@android:name='com.sec.android.provider.badge.permission.WRITE']" delete="true" />
+	<preference name="android-manifest/uses-permission/[@android:name='com.sonyericsson.home.permission.BROADCAST_BADGE']" delete="true" />
+	
   <platform name="android">
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
