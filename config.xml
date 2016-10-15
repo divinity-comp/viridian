@@ -20,7 +20,7 @@
 	<plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
 	<plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
 	<plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
-	<plugin name="cordova-plugin-fcm" source="npm" spec="1.1.5"/>
+<plugin name="cordova-plugin-firebase" spec="0.1.14" />
 
   <plugin name="cordova-plugin-facebook4" source="npm">
         <param name="APP_ID" value="158143914594630" />
