@@ -31,7 +31,7 @@
   <icon src="logo.png"/>
       <preference name="android-manifest/@xmlns:tools" value="http://schemas.android.com/tools" />
 
-	<config-file platform="android" parent="/manifest" mode="delete">
+	<config-file target="AndroidManifest.xml" parent="/*">
         <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" tools:node="remove" />
         <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" tools:node="remove" />
         <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" tools:node="remove" />
