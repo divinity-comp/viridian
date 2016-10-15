@@ -28,7 +28,7 @@
         <param name="APP_ID" value="158143914594630" />
         <param name="APP_NAME" value="7 day detox" />
 	</plugin>
-	<config-file platform="android" parent="/manifest" mode="delete">
+	<gap:config-file platform="android" parent="/manifest" mode="delete">
         <!-- Added by phonegap-plugin-push -->
         <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
         <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
@@ -36,7 +36,7 @@
         <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
         <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
         <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
-    </config-file>
+    </gap:config-file>
   <icon src="logo.png"/>
   <platform name="android">
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
