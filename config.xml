@@ -7,7 +7,7 @@
 	<preference name="orientation" value="portrait" />
 	<preference name="fullscreen" value="false" />
 	<preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
-	<preference name="android-minSdkVersion" value="17" />
+	<preference name="android-minSdkVersion" value="19" />
 	<preference name="android-build-tool" value="gradle" />
 	<plugin name="cordova-plugin-statusbar" source="npm" spec="~2.2.0" />
 	<preference name="StatusBarStyle" value="default" />
