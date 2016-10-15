@@ -29,7 +29,6 @@
         <param name="APP_NAME" value="7 day detox" />
 	</plugin>
   <icon src="logo.png"/>
-  <platform name="android">
       <preference name="android-manifest/@xmlns:tools" value="http://schemas.android.com/tools" />
 
 	<config-file platform="android" parent="/manifest" mode="delete">
@@ -40,6 +39,7 @@
         <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" tools:node="remove" />
         <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" tools:node="remove" />
     </config-file>
+  <platform name="android">
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="res/icon/android/drawable-hdpi-icon.png" density="hdpi"/>
