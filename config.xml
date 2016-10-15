@@ -1,4 +1,5 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.viridian.detox" versionCode="331"  version="1.2.2">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.viridian.detox" versionCode="331"  version="1.2.2"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>7 day detox</name>
 	<description></description>
 	<author href="http://divinitycomputing.com" email="team@divinitycomputing.com">Divinity computing</author>
@@ -29,7 +30,6 @@
         <param name="APP_NAME" value="7 day detox" />
 	</plugin>
   <icon src="logo.png"/>
-      <preference name="android-manifest/@xmlns:tools" value="http://schemas.android.com/tools" />
 
 	<config-file target="AndroidManifest.xml" parent="/*">
         <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" tools:node="remove" />
