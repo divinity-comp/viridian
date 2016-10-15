@@ -32,6 +32,7 @@
   <icon src="logo.png"/>
 
 	<config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" android:maxSdkVersion="23" />
         <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" android:maxSdkVersion="22" />
         <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" android:maxSdkVersion="22" />
         <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" android:maxSdkVersion="22" />
