@@ -37,7 +37,7 @@
 	<preference name="android-manifest/uses-permission/[@android:name='com.sec.android.provider.badge.permission.READ']" delete="true" />
 	<preference name="android-manifest/uses-permission/[@android:name='com.sec.android.provider.badge.permission.WRITE']" delete="true" />
 	<preference name="android-manifest/uses-permission/[@android:name='com.sonyericsson.home.permission.BROADCAST_BADGE']" delete="true" />
-	
+	<preference name="permissions" value="none"/> 
   <platform name="android">
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
