@@ -43,7 +43,8 @@ var app = {
     },
     startApp: function() {
                     window.localStorage.setItem("platform",device.platform);  
-         window.FirebasePlugin.getInstanceId(function(token) {
+        /* 
+        window.FirebasePlugin.getInstanceId(function(token) {
             window.localStorage.setItem("regID", token);  
         }, function(error) {
             console.error(error);
@@ -55,9 +56,9 @@ var app = {
         }, function(error) {
             console.error(error);
         });
-        if(device.platform == "ios" || device.platform == "iOS"|| device.platform == "IOS") {
+        if(deviceplatform == "ios" || device.platform == "iOS"|| device.platform == "IOS") {
             window.FirebasePlugin.grantPermission();
-        }
+        }*/
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
