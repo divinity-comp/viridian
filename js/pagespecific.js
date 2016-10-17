@@ -54,7 +54,7 @@ function selectionScreen() {
     displayBotMenu("", false);
     displayMenu("", true, "login.html",function() {
         loginMenu();loginMainSetup();
-    });
+    },"false");
     if(allabout == "true" && setupstate == "true") {
         tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
         .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
@@ -1235,7 +1235,7 @@ function startPlan() {
     
     displayMenu("", true, "walkthrough.html",function() {
         selectionScreen();
-    });
+    },"true");
     var initialItem = idc("initial");
     var initialItems = initialItem.getElementsByClassName("slide");
     disableTouch = true;
@@ -1626,7 +1626,7 @@ function nextCheck() {
            
          displayMenu("", true, "daily.html",function() {
          daily();
-        });
+        },"true");
     }
 }
 function settingsSetup() {
