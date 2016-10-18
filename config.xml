@@ -21,7 +21,7 @@
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
 
-    <plugin name="cordova-plugin-fcm-config" spec="cordova-plugin-fcm-config" />
+    <plugin name="cordova-plugin-fcm-config" spec="cordova-plugin-fcm-config" source="npm" />
 
 
   <plugin name="cordova-plugin-facebook4" source="npm">
