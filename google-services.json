@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:763873239931:android:1fb86a9e44914660",
         "android_client_info": {
-          "package_name": "android:com.viridian.detox"
+          "package_name": "com.viridian.detox"
         }
       },
       "oauth_client": [
