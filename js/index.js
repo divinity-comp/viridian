@@ -43,22 +43,35 @@ var app = {
     },
     startApp: function() {
                     window.localStorage.setItem("platform",device.platform);  
-        /* 
-        window.FirebasePlugin.getInstanceId(function(token) {
+       
+        FCMPlugin.getToken(
+          function(token){
             window.localStorage.setItem("regID", token);  
-        }, function(error) {
-            console.error(error);
-        });
-        window.FirebasePlugin.onNotificationOpen(function(notification) {
-            
-             pageChange("pages/start/take-tablet.html", "popup", function() {
+          },
+          function(err){
+            console.log('error retrieving token: ' + err);
+          }
+        );
+        FCMPlugin.onNotification(
+          function(data){
+            if(data.wasTapped){
+              //Notification was received on device tray and tapped by the user. 
+              pageChange("pages/start/take-tablet.html", "popup", function() {
              });
-        }, function(error) {
-            console.error(error);
-        });
-        if(deviceplatform == "ios" || device.platform == "iOS"|| device.platform == "IOS") {
-            window.FirebasePlugin.grantPermission();
-        }*/
+            }else{
+              //Notification was received in foreground. Maybe the user needs to be notified. 
+              pageChange("pages/start/take-tablet.html", "popup", function() {
+             });
+            }
+          },
+          function(msg){
+            console.log('onNotification callback successfully registered: ' + msg);
+          },
+          function(err){
+            console.log('Error registering onNotification callback: ' + err);
+          }
+        );
+        
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
