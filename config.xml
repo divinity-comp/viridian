@@ -28,7 +28,7 @@
 	</plugin>
   <icon src="logo.png"/>
   <platform name="android">
-        <hook type="after_prepare" src="hooks/copy_fcm.js" />
+        <hook type="before_plugin_install" src="hooks/copy_fcm.js" />
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="res/icon/android/drawable-hdpi-icon.png" density="hdpi"/>
