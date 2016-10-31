@@ -16,6 +16,7 @@ function checkForgetPassword() {
         "http://www.network-divinity.com/viridian/resetPassword.php", 
         function (responseView) {
             if(responseView == "success") {
+                doneLoading = true;
                 alert("Password reset link has been sent to your email - it will only last 24 hours");
                 pageChange("pages/login.html", "fade", function() {
                 });
@@ -1443,7 +1444,32 @@ function seerecipes() {
     });
 }
 var diffDays;
+
+function reloadDaily() {
+    document.getElementsByClassName("setButton")[0].ontouchstart = function() {
+    personalJSON["personalData"]["startday"] = window.localStorage.getItem("startday" );
+    personalJSON["personalData"]["startmonth"] = window.localStorage.getItem("startmonth" );
+    personalJSON["personalData"]["startyear"] = window.localStorage.getItem("startyear" );
+        pageChange(homepageLink, "fade", function() {  
+                homepageFunction();
+        });
+        closePopup();
+    }
+}
+var currentlyLoggedId = false;
 function daily() {
+    if(currentlyLoggedId == false) {
+        currentlyLoggedId = true;
+        idc("messageUser").style.display = "block";
+        idc("messageUser").children[1].innerHTML = personalJSON["personalData"]["firstname"];
+        TweenMax.fromTo(idc("messageUser"), 0.5,  {y:-100,opacity:0},{y:0,opacity:1, ease: Circ.easeOut,onComplete:function() {
+            setTimeout(function(){ 
+                TweenMax.fromTo(idc("messageUser"), 0.5,  {y:0,opacity:1},{y:-100,opacity:0, ease: Circ.easeOut,onComplete:function() {
+                    idc("messageUser").style.display = "none";
+                }});
+            }, 4500);
+        }});
+    }
     updateToServer();
                 window.localStorage.setItem("logged", "true");
                 displayBotMenu("", true);
@@ -1490,13 +1516,13 @@ function daily() {
 
                 }
 }, ease:Circ.easeOut});
-    personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
-    personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
-    personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
-    personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
-        document.getElementsByClassName("time1")[0].innerHTML = window.localStorage.getItem("reminder1hour" ) + ":" + window.localStorage.getItem("reminder1minute" ) + " am";
-        document.getElementsByClassName("time2")[0].innerHTML = window.localStorage.getItem("reminder2hour" ) + ":" + window.localStorage.getItem("reminder2minute" ) + " pm";
-        document.getElementById("mealplantoday").ontouchstart = function() {
+            personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
+            personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
+            personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
+            personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
+            document.getElementsByClassName("time1")[0].innerHTML = window.localStorage.getItem("reminder1hour" ) + ":" + window.localStorage.getItem("reminder1minute" ) + " am";
+            document.getElementsByClassName("time2")[0].innerHTML = window.localStorage.getItem("reminder2hour" ) + ":" + window.localStorage.getItem("reminder2minute" ) + " pm";
+            document.getElementById("mealplantoday").ontouchstart = function() {
             pageChange("pages/recipes/day" + diffDays + ".html", "fade", function() {
                 displayMenu("", true, "daily.html",function() {  
                     daily();
@@ -1659,11 +1685,13 @@ function openSideButtons() {
 }
     var currentMessageId = 0;   
 
+var doneLoading = true;
 function loadingScreenStart(messagesForLoad) {
-    setTimeout(function(){ if(document.getElementById("popup").style.display == "block") {
+    doneLoading = false;
+    setTimeout(function(){ if(document.getElementById("popup").style.display == "block" && doneLoading == false) {
          alert("Sign in Timeout");
                 closePopup(); 
-    } }, 15000);
+    } }, 30000);
      var loadingMessage = idc("loadingMessage");
       for (i= 0; i < messagesForLoad.length; i++) {
         var newmessageadd = document.createElement("span");

@@ -94,12 +94,30 @@ function pageChange(url, pageAnimation, runScript) {
         
             switch (pageAnimation) {
               case "fade":
-                TweenMax.to(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0, ease: Circ.easeOut,onComplete:function() {
-                    document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
-                    runScript();
-                    
-                    TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
-                }});
+                    if(document.getElementsByClassName("nextButton")[0]) {
+                        
+                        TweenMax.to(document.getElementsByClassName("app")[0].children[1], 0.5, {opacity:0, ease: Circ.easeOut,onComplete:function() {
+                            document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
+                            runScript();
+
+                            if(document.getElementsByClassName("nextButton")[0]) {
+                                TweenMax.fromTo(document.getElementsByClassName("app")[0].children[1], 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+                            }
+                            else {
+                                TweenMax.fromTo(document.getElementsByClassName("app")[0], 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+
+                            }
+                        }});
+                    }
+                    else {
+
+                        TweenMax.to(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0, ease: Circ.easeOut,onComplete:function() {
+                            document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
+                            runScript();
+
+                            TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+                        }});
+                    }
                 break;
               case "popup":
                     document.getElementById("popup").innerHTML = divContent.innerHTML;

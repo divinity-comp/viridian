@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        // window.localStorage.clear(); //try this to clear all local storage
+//       / window.localStorage.clear(); //try this to clear all local storage
 
         this.bindEvents();
         var phoneModel = window.device.model;
@@ -43,7 +43,6 @@ var app = {
     },
     startApp: function() {
                     window.localStorage.setItem("platform",device.platform);  
-       
         FCMPlugin.getToken(
           function(token){
             window.localStorage.setItem("regID", token);  
@@ -71,7 +70,6 @@ var app = {
             console.log('Error registering onNotification callback: ' + err);
           }
         );
-        
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
@@ -264,6 +262,7 @@ function signIn() {
         ajaxPost(
             "http://www.network-divinity.com/viridian/login.php", 
             function (response) {
+                doneLoading = true;
             if(response.indexOf("allowed") >= 0) {
                 var parts = response.split("}");
                 var newJson =response.substring(response.indexOf('allowed') + 7);
@@ -329,6 +328,7 @@ function attemptRegisterV() {
         ajaxPost(
             "http://www.network-divinity.com/viridian/register.php", 
             function (response) {
+                doneLoading = true;
             if(response == "wrong information") {
                 alert("information did not get entered correctly");
             }

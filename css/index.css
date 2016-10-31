@@ -549,3 +549,44 @@ position: relative;
 .full p{
     text-align: center;
 }
+
+.finish {
+    margin:4% auto;
+    display:block;
+}
+.finish button {
+    border:0;
+    margin-right:4%;
+    border-radius:200em;
+    background:#b4cc00;
+    color:#fff;
+    float:left;
+    box-shadow: inset 0px 0px 0px 2px #fff;
+}
+
+#messageUser {
+    background-color:#abc433;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:200000;
+    display: none;
+}
+#messageUser p:nth-child(1) {
+    position: absolute;
+    line-height:1em;
+    left:4%;top:20%;
+}
+#messageUser p:nth-child(2) {
+    text-align: center;
+    width:100%;
+    position: absolute;
+    line-height:1em;
+    top:25%;
+}
+#messageUser p {
+    margin:0;
+    color:#fff;
+}
+
+
