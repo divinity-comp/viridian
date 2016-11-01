@@ -648,7 +648,7 @@ function dateSelection() {
         if(days[mm] < dd) {
             dd = 0;
         }
-        var startday = window.localStorage.setItem("startday",dd);
+        var startday = window.localStorage.setItem("potstartday",dd);
         TweenMax.to(greenCirc[0].children[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
             greenCirc[0].children[0].innerHTML = dd;
             pandisable = false;
@@ -664,7 +664,7 @@ function dateSelection() {
             if(dd < 1) {
                 dd = days[mm];
             }
-            var startday = window.localStorage.setItem("startday",dd);
+            var startday = window.localStorage.setItem("potstartday",dd);
 
             TweenMax.to(greenCirc[0].children[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
                 greenCirc[0].children[0].innerHTML = dd;
@@ -682,7 +682,7 @@ function dateSelection() {
         if(mm > 11) {
             mm = 0;
         }
-        var startday = window.localStorage.setItem("startmonth",mm);
+        var startday = window.localStorage.setItem("potstartmonth",mm);
         
         TweenMax.to(greenCirc[1].children[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
             greenCirc[1].children[0].innerHTML = months[mm];
@@ -700,7 +700,7 @@ function dateSelection() {
             if(mm < 0) {
                 mm = 11;
             }
-            var startday = window.localStorage.setItem("startmonth",mm);
+            var startday = window.localStorage.setItem("potstartmonth",mm);
 
             TweenMax.to(greenCirc[1].children[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
                 greenCirc[1].children[0].innerHTML = months[mm];
@@ -716,7 +716,7 @@ function dateSelection() {
         if(!pandisable) {
         pandisable = true;
             yyyy++;
-            var startyear = window.localStorage.setItem("startyear",yyyy);
+            var startyear = window.localStorage.setItem("potstartyear",yyyy);
 
             TweenMax.to(greenCirc[2].children[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
                 greenCirc[2].children[0].innerHTML = yyyy;
@@ -729,7 +729,7 @@ function dateSelection() {
         if(!pandisable) {
         pandisable = true;
             yyyy--;
-            var startyear = window.localStorage.setItem("startyear",yyyy);
+            var startyear = window.localStorage.setItem("potstartyear",yyyy);
 
             TweenMax.to(greenCirc[2].children[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
                 greenCirc[2].children[0].innerHTML = yyyy;
@@ -738,6 +738,15 @@ function dateSelection() {
             }});
         }
     });
+}
+function officialstartDayChange() {
+    
+    var startday = window.localStorage.getItem("potstartday");
+    var startmonth = window.localStorage.getItem("potstartmonth");
+    var startyear = window.localStorage.getItem("potstartyear");
+    window.localStorage.getItem("startday",startday);
+    window.localStorage.getItem("startmonth",startmonth);
+    window.localStorage.getItem("startyear",startyear);
 }
 function timeSelection() {
     
@@ -1343,6 +1352,10 @@ function addprofileChange(functiontorun) {
         functiontorun(); profileSetup();           closePopup();
     }
 }
+function profileStartdateUpdate() {
+officialstartDayChange();
+    profileAccept();
+}
 function dailyTimer() {
     
     document.getElementsByClassName("close")[0].ontouchstart = function() {
@@ -1439,7 +1452,10 @@ function seerecipes() {
 var diffDays;
 
 function reloadDaily() {
-    document.getElementsByClassName("setButton")[0].ontouchstart = function() {
+    document.getElementsByClassName("close")[0].ontouchstart = function() {
+        closePopup();
+    }
+    document.getElementsByClassName("setButton")[0].ontouchstart = function() {officialstartDayChange();
     personalJSON["personalData"]["startday"] = window.localStorage.getItem("startday" );
     personalJSON["personalData"]["startmonth"] = window.localStorage.getItem("startmonth" );
     personalJSON["personalData"]["startyear"] = window.localStorage.getItem("startyear" );
@@ -1492,7 +1508,7 @@ function daily() {
     }
     else if(diffDays < 8) {
         idc("dailynum").innerHTML = "Day " + diffDays;
-        if(diffDays == 4 && window.localStorage.getItem("reminderfour") == "true") {
+        if(diffDays == 4 && window.localStorage.getItem("reminderfour") != "true") {
             pageChange("pages/dailytime.html", "popup", function() {
                           
             });

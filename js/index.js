@@ -137,6 +137,12 @@ var app = {
 			);
 	}
 };
+document.addEventListener("pause", onPause, false);
+
+function onPause() {
+    
+        window.localStorage.setItem("reminderfour","aa" );
+}
 var push ;
 var initalfbCheck = false;
 function fbCheck() {
