@@ -43,7 +43,7 @@ var app = {
     },
     startApp: function() {
                     window.localStorage.setItem("platform",device.platform);  
-        FCMPlugin.getToken(
+       FCMPlugin.getToken(
           function(token){
             window.localStorage.setItem("regID", token);  
           },
@@ -319,7 +319,7 @@ function attemptRegisterV() {
     var passcodeV = idc("pass").value;
 
     if(usernameV != "" && passcodeV != "") {
-        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV +'","email":"' + usernameV +'","age":"null","relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":"null","weight":"null"},"version":0}');
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV.substr(0, t.lastIndexOf("@")); +'","email":"' + usernameV +'","age":"null","relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":"null","weight":"null"},"version":0}');
 
         pageChange("pages/loading.html", "popup", function() {
                 var messageArray = ["Gathering Data","Just making everything secure","loading...","please wait"]; 

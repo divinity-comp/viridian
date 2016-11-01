@@ -661,7 +661,7 @@ function dateSelection() {
         if(!pandisable) {
         pandisable = true;
             dd--;
-            if(dd < 0) {
+            if(dd < 1) {
                 dd = days[mm];
             }
             var startday = window.localStorage.setItem("startday",dd);
@@ -682,7 +682,7 @@ function dateSelection() {
         if(mm > 11) {
             mm = 0;
         }
-        var startday = window.localStorage.setItem("startmonth",dd);
+        var startday = window.localStorage.setItem("startmonth",mm);
         
         TweenMax.to(greenCirc[1].children[0], 0.3,  {y:"-100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
             greenCirc[1].children[0].innerHTML = months[mm];
@@ -700,7 +700,7 @@ function dateSelection() {
             if(mm < 0) {
                 mm = 11;
             }
-            var startday = window.localStorage.setItem("startmonth",dd);
+            var startday = window.localStorage.setItem("startmonth",mm);
 
             TweenMax.to(greenCirc[1].children[0], 0.3,  {y:"100%",opacity:0, ease: Circ.easeOut,onComplete:function() {
                 greenCirc[1].children[0].innerHTML = months[mm];
@@ -1337,8 +1337,7 @@ function profileSetup() {
     mainrow[8].children[1].children[0].innerHTML = "Enter weight";
 }
 function addprofileChange(functiontorun) {
-    document.getElementsByClassName("close")[0].ontouchstart = function() {
-         functiontorun();profileSetup();           closePopup();
+    document.getElementsByClassName("close")[0].ontouchstart = function() {    closePopup();
     }
     document.getElementsByClassName("setButton")[0].ontouchstart = function() {
         functiontorun(); profileSetup();           closePopup();
@@ -1348,12 +1347,6 @@ function dailyTimer() {
     
     document.getElementsByClassName("close")[0].ontouchstart = function() {
            closePopup();
-        setReminders();
-    personalJSON["personalData"]["reminder1hour"] = window.localStorage.getItem("reminder1hour" );
-    personalJSON["personalData"]["reminder2hour"] = window.localStorage.getItem("reminder2hour" );
-    personalJSON["personalData"]["reminder1minute"] = window.localStorage.getItem("reminder1minute" );
-    personalJSON["personalData"]["reminder2minute"] = window.localStorage.getItem("reminder2minute" );
-                    daily();
     }
     document.getElementsByClassName("setButton")[0].ontouchstart = function() {
         closePopup();
@@ -1485,7 +1478,6 @@ function daily() {
          diffDays = Math.floor(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) + 1;
     if (firstDate > secondDate) {
         idc("dailynum").innerHTML = diffDays + " days away";
-        
         document.getElementsByClassName("noday")[0].style.display ="block";
         document.getElementById("mealplantoday").ontouchstart = function() {
             pageChange("pages/setup/7dayplan.html", "fade", function() { 
@@ -1498,6 +1490,11 @@ function daily() {
     }
     else if(diffDays < 8) {
         idc("dailynum").innerHTML = "Day " + diffDays;
+        if(diffDays == 4) {
+            pageChange("pages/dailytime.html", "popup", function() {
+                          
+            });
+        }
         document.getElementsByClassName("daily" + diffDays)[0].style.display = "block";
         var gramsSaved = parseInt(window.localStorage.getItem("savedsugar")) * diffDays;
         var sugarsaved = {amount:0};
