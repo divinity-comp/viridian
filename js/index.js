@@ -43,33 +43,7 @@ var app = {
     },
     startApp: function() {
                     window.localStorage.setItem("platform",device.platform);  
-       FCMPlugin.getToken(
-          function(token){
-            window.localStorage.setItem("regID", token);  
-          },
-          function(err){
-            console.log('error retrieving token: ' + err);
-          }
-        );
-        FCMPlugin.onNotification(
-          function(data){
-            if(data.wasTapped){
-              //Notification was received on device tray and tapped by the user. 
-              pageChange("pages/start/take-tablet.html", "popup", function() {
-             });
-            }else{
-              //Notification was received in foreground. Maybe the user needs to be notified. 
-              pageChange("pages/start/take-tablet.html", "popup", function() {
-             });
-            }
-          },
-          function(msg){
-            console.log('onNotification callback successfully registered: ' + msg);
-          },
-          function(err){
-            console.log('Error registering onNotification callback: ' + err);
-          }
-        );
+       
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
@@ -317,9 +291,8 @@ function signIn() {
 function attemptRegisterV() {
     var usernameV = idc("email").value;
     var passcodeV = idc("pass").value;
-
     if(usernameV != "" && passcodeV != "") {
-        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV.substr(0, t.lastIndexOf("@")); +'","email":"' + usernameV +'","age":"null","relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":"null","weight":"null"},"version":0}');
+        personalJSON = JSON.parse('{"personalData": { "firstname":"' + usernameV.substr(0, usernameV.lastIndexOf("@")) +'","email":"' + usernameV +'","age":"null","relationship":"unknown","description":"unknown","gender":"unknown","startday":"null","startmonth":"null","startyear":"null","reminder1hour":"null","reminder2hour":"null","reminder1minute":"null","reminder2minute":"null","motivators1":"null","motivators2":"null","motivators3":"null","motivators4":"null","weight":"null"},"version":0}');
 
         pageChange("pages/loading.html", "popup", function() {
                 var messageArray = ["Gathering Data","Just making everything secure","loading...","please wait"]; 

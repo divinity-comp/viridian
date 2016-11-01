@@ -575,14 +575,14 @@ position: relative;
 #messageUser p:nth-child(1) {
     position: absolute;
     line-height:1em;
-    left:4%;top:20%;
+    left:4%;top:15%;
 }
 #messageUser p:nth-child(2) {
     text-align: center;
     width:100%;
     position: absolute;
     line-height:1em;
-    top:25%;
+    top:35%;
 }
 #messageUser p {
     margin:0;

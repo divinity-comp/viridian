@@ -1449,19 +1449,21 @@ function reloadDaily() {
         closePopup();
     }
 }
+
 var currentlyLoggedId = false;
 function daily() {
     if(currentlyLoggedId == false) {
         currentlyLoggedId = true;
         idc("messageUser").style.display = "block";
         idc("messageUser").children[1].innerHTML = personalJSON["personalData"]["firstname"];
-        TweenMax.fromTo(idc("messageUser"), 0.5,  {y:-100,opacity:0},{y:0,opacity:1, ease: Circ.easeOut,onComplete:function() {
+        
+        TweenMax.fromTo(idc("messageUser"), 0.5,  {y:-100,opacity:0},{y:0,opacity:1, ease: Circ.easeOut});
+        
             setTimeout(function(){ 
                 TweenMax.fromTo(idc("messageUser"), 0.5,  {y:0,opacity:1},{y:-100,opacity:0, ease: Circ.easeOut,onComplete:function() {
                     idc("messageUser").style.display = "none";
                 }});
             }, 4500);
-        }});
     }
     updateToServer();
                 window.localStorage.setItem("logged", "true");
@@ -1490,11 +1492,12 @@ function daily() {
     }
     else if(diffDays < 8) {
         idc("dailynum").innerHTML = "Day " + diffDays;
-        if(diffDays == 4) {
+        if(diffDays == 4 && window.localStorage.getItem("reminderfour") == "true") {
             pageChange("pages/dailytime.html", "popup", function() {
                           
             });
         }
+        window.localStorage.setItem("reminderfour","true" );
         document.getElementsByClassName("daily" + diffDays)[0].style.display = "block";
         var gramsSaved = parseInt(window.localStorage.getItem("savedsugar")) * diffDays;
         var sugarsaved = {amount:0};
