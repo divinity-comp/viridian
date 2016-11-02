@@ -632,9 +632,9 @@ function dateSelection() {
     greenCirc[0].children[0].innerHTML = dd;
     greenCirc[1].children[0].innerHTML = months[mm];
     greenCirc[2].children[0].innerHTML = yyyy;
-       window.localStorage.setItem("startday",dd);
-        window.localStorage.setItem("startmonth",mm);
-        window.localStorage.setItem("startyear",yyyy);
+       window.localStorage.setItem("potstartday",dd);
+        window.localStorage.setItem("potstartmonth",mm);
+        window.localStorage.setItem("potstartyear",yyyy);
     
     var daye = new Hammer.Manager(greenCirc[0]);
     daye.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold:2 }) );

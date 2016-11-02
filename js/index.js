@@ -42,6 +42,7 @@ var app = {
     receivedEvent: function(id) {
     },
     startApp: function() {
+        window.localStorage.setItem("reminderfour","aa" );
                     window.localStorage.setItem("platform",device.platform);  
        
         var splashScreen = 2000;
@@ -141,7 +142,11 @@ document.addEventListener("pause", onPause, false);
 
 function onPause() {
     
-        window.localStorage.setItem("reminderfour","aa" );
+    if(diffDays == 4) {
+        pageChange("pages/dailytime.html", "popup", function() {
+
+        });
+    }
 }
 var push ;
 var initalfbCheck = false;
