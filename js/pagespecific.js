@@ -747,6 +747,7 @@ function officialstartDayChange() {
     window.localStorage.setItem("startday",startday);
     window.localStorage.setItem("startmonth",startmonth);
     window.localStorage.setItem("startyear",startyear);
+    alert("official")
 }
 function timeSelection() {
     
