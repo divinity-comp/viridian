@@ -744,9 +744,9 @@ function officialstartDayChange() {
     var startday = window.localStorage.getItem("potstartday");
     var startmonth = window.localStorage.getItem("potstartmonth");
     var startyear = window.localStorage.getItem("potstartyear");
-    window.localStorage.getItem("startday",startday);
-    window.localStorage.getItem("startmonth",startmonth);
-    window.localStorage.getItem("startyear",startyear);
+    window.localStorage.setItem("startday",startday);
+    window.localStorage.setItem("startmonth",startmonth);
+    window.localStorage.setItem("startyear",startyear);
 }
 function timeSelection() {
     
