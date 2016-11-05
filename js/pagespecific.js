@@ -1730,3 +1730,14 @@ function loadingScreenStart(messagesForLoad) {
 function updateReps() {
     currentMessageId = 0;
 }
+
+          function showAnswer(ele) {
+              if(ele.getAttribute("active") == "true") {
+                  ele.nextElementSibling.style.display = "none";
+                  ele.setAttribute("active","false");
+              }
+              else {
+                  ele.nextElementSibling.style.display = "block";
+                  ele.setAttribute("active","true");
+              }
+          }      
