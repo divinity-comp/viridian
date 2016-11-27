@@ -1680,14 +1680,14 @@ function settingsSetup() {
 }
 function adjustNotifications(ele) {
     if(window.localStorage.getItem("notification") == "yes") {
-    window.localStorage.setItem("notification", "no");
+        window.localStorage.setItem("notification", "no");
         ele.children[1].children[0].innerHTML = "Disallowed";
-        
+        personalJSON["personalData"]["push"] = "no";
     }
     else {
-    window.localStorage.setItem("notification", "yes");
+        window.localStorage.setItem("notification", "yes");
         ele.children[1].children[0].innerHTML = "Allowed";
-        
+        personalJSON["personalData"]["push"] = "yes";
     }
     
 }
