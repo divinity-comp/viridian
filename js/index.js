@@ -54,6 +54,7 @@ var app = {
         );
         FCMPlugin.onNotification(
           function(data){
+              
             if(data.wasTapped){
               //Notification was received on device tray and tapped by the user. 
               pageChange("pages/start/take-tablet.html", "popup", function() {
@@ -63,6 +64,7 @@ var app = {
               pageChange("pages/start/take-tablet.html", "popup", function() {
              });
             }
+              navigator.vibrate(3000);
           },
           function(msg){
             console.log('onNotification callback successfully registered: ' + msg);
