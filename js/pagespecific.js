@@ -983,33 +983,33 @@ function intakeInitial(intakeNew) {
 function intake(num) {
     if(num == 0) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "007";
+            idc("sugarAmount").innerHTML = "005";
             
-            var savedsugar = window.localStorage.setItem("savedsugar", 7);
+            var savedsugar = window.localStorage.setItem("savedsugar", 5);
             var sugarintake = window.localStorage.setItem("sugarintake", "light");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
     }
     else if(num == 1) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "025";
-    var savedsugar = window.localStorage.setItem("savedsugar", 25);
+            idc("sugarAmount").innerHTML = "010";
+    var savedsugar = window.localStorage.setItem("savedsugar", 10);
             var sugarintake = window.localStorage.setItem("sugarintake", "Medium");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
     }
     else if(num == 2) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "060";
-    var savedsugar = window.localStorage.setItem("savedsugar", 60);
+            idc("sugarAmount").innerHTML = "015";
+    var savedsugar = window.localStorage.setItem("savedsugar", 15);
             var sugarintake = window.localStorage.setItem("sugarintake", "Heavy User");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
     }
     else if(num == 3) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "120";
-    var savedsugar = window.localStorage.setItem("savedsugar", 120);
+            idc("sugarAmount").innerHTML = "020";
+    var savedsugar = window.localStorage.setItem("savedsugar", 20);
             var sugarintake = window.localStorage.setItem("sugarintake", "Very heavy user");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
@@ -1390,7 +1390,14 @@ function profileAccept() {
 }
 function updateToServer() {
     if(hasInternet() == true && personalJSON["personalData"]["email"]) {
-
+        FCMPlugin.getToken(
+          function(token){
+            window.localStorage.setItem("regID", token);  
+          },
+          function(err){
+            console.log('error retrieving token: ' + err);
+          }
+        );
         ajaxPost(
         "http://www.network-divinity.com/viridian/updateuser.php", 
         function (responseView) {
@@ -1399,6 +1406,7 @@ function updateToServer() {
             }
         },
        'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
+        
     }
 }
 function methodswap(num, dnum) {
