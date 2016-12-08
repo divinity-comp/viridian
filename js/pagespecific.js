@@ -1389,10 +1389,13 @@ function profileAccept() {
     updateToServer();
 }
 function updateToServer() {
+    alert("attempting to find token");
     if(hasInternet() == true && personalJSON["personalData"]["email"]) {
         FCMPlugin.getToken(
           function(token){
-            window.localStorage.setItem("regID", token);  
+            window.localStorage.setItem("regID", token); 
+              
+              alert(token);
           },
           function(err){
             console.log('error retrieving token: ' + err);

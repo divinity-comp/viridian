@@ -42,6 +42,7 @@ var app = {
     receivedEvent: function(id) {
     },
     startApp: function() {
+        alert("app start");
         window.localStorage.setItem("reminderfour","aa" );
                     window.localStorage.setItem("platform",device.platform);  
        FCMPlugin.getToken(
