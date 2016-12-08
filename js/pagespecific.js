@@ -41,6 +41,7 @@ function loginMenu() {
 }
 function selectionScreen() {
     updateToServer();
+    
     var tl = new TimelineMax();
     window.localStorage.setItem("logged", "true");
     
@@ -1389,18 +1390,8 @@ function profileAccept() {
     updateToServer();
 }
 function updateToServer() {
-    alert("attempting to find token");
     if(hasInternet() == true && personalJSON["personalData"]["email"]) {
-        FCMPlugin.getToken(
-          function(token){
-            window.localStorage.setItem("regID", token); 
-              
-              alert(token);
-          },
-          function(err){
-            console.log('error retrieving token: ' + err);
-          }
-        );
+       
         ajaxPost(
         "http://www.network-divinity.com/viridian/updateuser.php", 
         function (responseView) {
@@ -1492,7 +1483,15 @@ function daily() {
                 }});
             }, 4500);
     }
-    updateToServer();
+    FCMPlugin.getToken(
+          function(token){
+            window.localStorage.setItem("regID", token); 
+    updateToServer(); 
+          },
+          function(err){
+            console.log('error retrieving token: ' + err);
+          }
+        );
                 window.localStorage.setItem("logged", "true");
                 displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
