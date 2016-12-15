@@ -1432,7 +1432,6 @@ function serverUploadNow() {
             console.log('error retrieving token: ' + err);
           }
         );
-        alert("working so far");
          FCMPlugin.onNotification(
           function(data){
               
@@ -1445,7 +1444,6 @@ function serverUploadNow() {
               pageChange("pages/start/take-tablet.html", "popup", function() {
              });
             }
-              navigator.vibrate(3000);
           },
           function(msg){
             console.log('onNotification callback successfully registered: ' + msg);
