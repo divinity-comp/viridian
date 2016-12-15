@@ -47,6 +47,7 @@ var app = {
                     window.localStorage.setItem("platform",device.platform);  
        FCMPlugin.getToken(
           function(token){
+              if(token != null)
             window.localStorage.setItem("regID", token);  
           },
           function(err){

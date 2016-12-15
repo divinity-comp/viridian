@@ -1389,17 +1389,49 @@ function profileAccept() {
     window.localStorage.setItem("data", JSON.stringify(personalJSON));
     updateToServer();
 }
+var firstUpdate = false;
+var secondUpdate = false;
+var updateToserverInterval;
 function updateToServer() {
-    if(hasInternet() == true && personalJSON["personalData"]["email"]) {
-       
-        ajaxPost(
-        "http://www.network-divinity.com/viridian/updateuser.php", 
-        function (responseView) {
-            if(responseView == "success") {
-
+    if(firstUpdate != true) {
+        firstUpdate = true;
+        serverUploadNow();
+    }
+    else {
+        secondUpdate = true;
+        if(updateToserverInterval != null)
+            clearInterval(updateToserverInterval);
+        updateToserverInterval= setInterval(function(){ 
+            if(firstUpdate == false) {
+                secondUpdate = false;
+                clearInterval(updateToserverInterval);
+                serverUploadNow();
             }
-        },
-       'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
+        }, 50);
+
+    }
+}
+
+function serverUploadNow() {
+    if(hasInternet() == true && personalJSON["personalData"]["email"]) {
+
+    FCMPlugin.getToken(
+          function(token){
+            window.localStorage.setItem("regID", token); 
+            ajaxPost(
+            "http://www.network-divinity.com/viridian/updateuser.php", 
+            function (responseView) {
+                if(responseView == "success") {
+
+                }
+                firstUpdate = false;
+            },
+           'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
+          },
+          function(err){
+            console.log('error retrieving token: ' + err);
+          }
+        );
         
     }
 }
@@ -1483,15 +1515,7 @@ function daily() {
                 }});
             }, 4500);
     }
-    FCMPlugin.getToken(
-          function(token){
-            window.localStorage.setItem("regID", token); 
     updateToServer(); 
-          },
-          function(err){
-            console.log('error retrieving token: ' + err);
-          }
-        );
                 window.localStorage.setItem("logged", "true");
                 displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
