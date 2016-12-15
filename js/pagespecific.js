@@ -1432,6 +1432,7 @@ function serverUploadNow() {
             console.log('error retrieving token: ' + err);
           }
         );
+        alert("working so far");
          FCMPlugin.onNotification(
           function(data){
               
