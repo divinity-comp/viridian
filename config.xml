@@ -1,5 +1,5 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.viridian.detox" xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.viridian.detox" versionCode="370"  version="1.3.7">
+package="com.viridian.detox" versionCode="371"  version="1.3.71">
 	<name>7 day detox</name>
 	<description></description>
 	<author href="http://divinitycomputing.com" email="team@divinitycomputing.com">Divinity computing</author>
