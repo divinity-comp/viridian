@@ -138,8 +138,11 @@ function pageChange(url, pageAnimation, runScript) {
 }
 function closePopup() {
     TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
+        setTimeout(function(){
         document.getElementById("popup").style.display = "none";
         document.getElementById("popup").innerHTML = "";
+        }
+       }, 1500);
     }});
 }
 function openBotMenu() {
