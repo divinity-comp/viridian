@@ -1,5 +1,5 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.viridian.detox" xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.viridian.detox" versionCode="363"  version="1.3.5">
+package="com.viridian.detox" versionCode="374"  version="1.3.75">
 	<name>7 day detox</name>
 	<description></description>
 	<author href="http://divinitycomputing.com" email="team@divinitycomputing.com">Divinity computing</author>
@@ -18,11 +18,9 @@ package="com.viridian.detox" versionCode="363"  version="1.3.5">
   <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2"/>
   <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3"/>
-  <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
   <plugin name="cordova-plugin-fcm" source="npm" spec="~1.1.5"/>
-  <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.2"/>
     <plugin spec="https://github.com/divinity-comp/cordova-plugin-fcm-config.git" source="git" />
 
   <plugin name="cordova-plugin-facebook4" source="npm">
@@ -50,7 +48,6 @@ package="com.viridian.detox" versionCode="363"  version="1.3.5">
     <splash src="www/res/screen/android/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
-  <plugin name="cordova-plugin-fcm" source="npm" spec="~1.1.5"/>
   <platform name="ios">
     <icon src="res/icon/ios/icon.png" platform="ios" width="57" height="57"/>
     <icon src="res/icon/ios/icon@2x.png" platform="ios" width="114" height="114"/>

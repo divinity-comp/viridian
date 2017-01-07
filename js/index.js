@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var appstart = false;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -31,48 +32,29 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        setTimeout(function(){  
+            if(!appstart)
+                app.startApp();
+        },5000);
     },
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.startApp();
+            if(!appstart)
+                app.startApp();
         phoneModel = window.device.model;
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
     },
     startApp: function() {
+        appstart = true;
+        
+        console.log("app start");
         window.localStorage.setItem("reminderfour","aa" );
                     window.localStorage.setItem("platform",device.platform);  
-       FCMPlugin.getToken(
-          function(token){
-            window.localStorage.setItem("regID", token);  
-          },
-          function(err){
-            console.log('error retrieving token: ' + err);
-          }
-        );
-        FCMPlugin.onNotification(
-          function(data){
-              
-            if(data.wasTapped){
-              //Notification was received on device tray and tapped by the user. 
-              pageChange("pages/start/take-tablet.html", "popup", function() {
-             });
-            }else{
-              //Notification was received in foreground. Maybe the user needs to be notified. 
-              pageChange("pages/start/take-tablet.html", "popup", function() {
-             });
-            }
-              navigator.vibrate(3000);
-          },
-          function(msg){
-            console.log('onNotification callback successfully registered: ' + msg);
-          },
-          function(err){
-            console.log('Error registering onNotification callback: ' + err);
-          }
-        );
+       
+       
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
@@ -100,10 +82,7 @@ var app = {
                         homepageLink ="pages/walkthrough.html";
                     }
                     else {
-                        
-    if(hasInternet() == false) {
-        alert("please connect to the internet");
-    }
+         
                         pageChange("pages/login.html", "fade", function() {
                             
         document.getElementById("facebookLogin").addEventListener("click", function() {
