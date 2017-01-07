@@ -49,6 +49,8 @@ var app = {
     },
     startApp: function() {
         appstart = true;
+        
+    window.open = cordova.InAppBrowser.open;
         console.log("app start");
         window.localStorage.setItem("reminderfour","aa" );
                     window.localStorage.setItem("platform",device.platform);  
@@ -81,10 +83,7 @@ var app = {
                         homepageLink ="pages/walkthrough.html";
                     }
                     else {
-                        
-    if(hasInternet() == false) {
-        alert("please connect to the internet");
-    }
+         
                         pageChange("pages/login.html", "fade", function() {
                             
         document.getElementById("facebookLogin").addEventListener("click", function() {
