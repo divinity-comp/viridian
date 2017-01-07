@@ -41,7 +41,6 @@ function loginMenu() {
 }
 function selectionScreen() {
     updateToServer();
-    
     var tl = new TimelineMax();
     window.localStorage.setItem("logged", "true");
     
@@ -984,33 +983,33 @@ function intakeInitial(intakeNew) {
 function intake(num) {
     if(num == 0) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "005";
+            idc("sugarAmount").innerHTML = "007";
             
-            var savedsugar = window.localStorage.setItem("savedsugar", 5);
+            var savedsugar = window.localStorage.setItem("savedsugar", 7);
             var sugarintake = window.localStorage.setItem("sugarintake", "light");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
     }
     else if(num == 1) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "010";
-    var savedsugar = window.localStorage.setItem("savedsugar", 10);
+            idc("sugarAmount").innerHTML = "025";
+    var savedsugar = window.localStorage.setItem("savedsugar", 25);
             var sugarintake = window.localStorage.setItem("sugarintake", "Medium");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
     }
     else if(num == 2) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "015";
-    var savedsugar = window.localStorage.setItem("savedsugar", 15);
+            idc("sugarAmount").innerHTML = "060";
+    var savedsugar = window.localStorage.setItem("savedsugar", 60);
             var sugarintake = window.localStorage.setItem("sugarintake", "Heavy User");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
     }
     else if(num == 3) {
         TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:1} , {opacity:0, ease: Circ.easeOut,onComplete:function(){
-            idc("sugarAmount").innerHTML = "020";
-    var savedsugar = window.localStorage.setItem("savedsugar", 20);
+            idc("sugarAmount").innerHTML = "120";
+    var savedsugar = window.localStorage.setItem("savedsugar", 120);
             var sugarintake = window.localStorage.setItem("sugarintake", "Very heavy user");
             TweenMax.fromTo(idc("sugarAmount"), 0.3,{opacity:0} , {opacity:1, ease: Circ.easeOut});
         }});
@@ -1389,70 +1388,17 @@ function profileAccept() {
     window.localStorage.setItem("data", JSON.stringify(personalJSON));
     updateToServer();
 }
-var firstUpdate = false;
-var secondUpdate = false;
-var updateToserverInterval;
 function updateToServer() {
-    if(firstUpdate != true) {
-        firstUpdate = true;
-        serverUploadNow();
-    }
-    else {
-        secondUpdate = true;
-        if(updateToserverInterval != null)
-            clearInterval(updateToserverInterval);
-        updateToserverInterval= setInterval(function(){ 
-            if(firstUpdate == false) {
-                secondUpdate = false;
-                clearInterval(updateToserverInterval);
-                serverUploadNow();
-            }
-        }, 50);
-
-    }
-}
-
-function serverUploadNow() {
     if(hasInternet() == true && personalJSON["personalData"]["email"]) {
 
-    FCMPlugin.getToken(
-          function(token){
-            window.localStorage.setItem("regID", token); 
-            ajaxPost(
-            "http://www.network-divinity.com/viridian/updateuser.php", 
-            function (responseView) {
-                if(responseView == "success") {
+        ajaxPost(
+        "http://www.network-divinity.com/viridian/updateuser.php", 
+        function (responseView) {
+            if(responseView == "success") {
 
-                }
-                firstUpdate = false;
-            },
-           'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
-          },
-          function(err){
-            console.log('error retrieving token: ' + err);
-          }
-        );
-         FCMPlugin.onNotification(
-          function(data){
-              
-            if(data.wasTapped){
-              //Notification was received on device tray and tapped by the user. 
-              pageChange("pages/start/take-tablet.html", "popup", function() {
-             });
-            }else{
-              //Notification was received in foreground. Maybe the user needs to be notified. 
-              pageChange("pages/start/take-tablet.html", "popup", function() {
-             });
             }
-          },
-          function(msg){
-            console.log('onNotification callback successfully registered: ' + msg);
-          },
-          function(err){
-            console.log('Error registering onNotification callback: ' + err);
-          }
-        );
-        
+        },
+       'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
     }
 }
 function methodswap(num, dnum) {
@@ -1535,7 +1481,7 @@ function daily() {
                 }});
             }, 4500);
     }
-    updateToServer(); 
+    updateToServer();
                 window.localStorage.setItem("logged", "true");
                 displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
@@ -1703,22 +1649,13 @@ function shareToggle(toggleType,placeholder,successType) {
     }
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
-        
-		  var fbLoginSuccess = function (userData) {
-				 facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
+    facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
         function(result) {
             alert("Added to your news feed " + JSON.stringify(result));
         }, 
         function(e) {
             alert("Not added to your news feed " );
     });
-			}
-
-			facebookConnectPlugin.getLoginStatus(
-				fbLoginSuccess,
-				function (error) { alert("error " + JSON.stringify(error)); }
-			);
-   
 }
 function setName() {
     personalJSON["personalData"]["firstname"] = idc("name").value;

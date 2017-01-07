@@ -83,14 +83,14 @@
         <h2 class="blueText alignCenter normal fontv7 vhmb0 lineh5">Create your account</h2>
         <input id="email" class="vhmb2 vhmt0 fontv5" type="email" placeholder="Email"/>
         <input id="pass" class="vhmb2 fontv5" type="password" placeholder="Password"/>
-        <button id="signUp" ontouchstart="document.activeElement.blur();attemptRegisterV()" class="sign fontv5 vhmb2 lineh10">Sign Up</button>
-        <button id="signIn" ontouchstart="document.activeElement.blur();signIn()" class="sign signin fontv5 vhmb2 lineh10" style="display:none;">Sign In</button>
+        <button id="signUp" ontouchstart="attemptRegisterV()" class="sign fontv5 vhmb2 lineh10">Sign Up</button>
+        <button id="signIn" ontouchstart="signIn()" class="sign signin fontv5 vhmb2 lineh10" style="display:none;">Sign In</button>
         <div class="vhmb1" style="overflow:hidden;clear:both; ">
             <div id="remuser" class="remember fontv4 lineh6" style="float:left; width:40%;margin-left:10%" rememberAllowed="no" ontouchstart="rememberAccount(this)">
                 <button style="float:left;" class="checkbox vw6 vwh6"></button> <p style="margin:0;float:left;margin-left:5%;">Remember Me</p>
             </div>
             <div class="remember fontv4 lineh6" style="float:left; width:40%;margin-right:10%" >
-                <p style="text-align:right;margin:0;" ontouchstart='document.activeElement.blur();pageChange("pages/forgot-password.html", "fade", function() {
+                <p style="text-align:right;margin:0;" ontouchstart='pageChange("pages/forgot-password.html", "fade", function() {
         });'>Forgot Password?</p>
             </div>
         </div>
@@ -103,7 +103,7 @@
         <button id="adjustsign" class="sign signin lineh10 fontv5" ontouchstart="signIn()">
             Sign In
         </button>
-        <button id="adjustsignUp" ontouchstart="document.activeElement.blur();attemptRegisterV()" style="display:none;" class="sign fontv5 vhmb2 lineh10">Sign Up</button>
+        <button id="adjustsignUp" ontouchstart="attemptRegisterV()" style="display:none;" class="sign fontv5 vhmb2 lineh10">Sign Up</button>
         </div>
         <style>
             .viridian {
