@@ -1704,20 +1704,6 @@ function shareToggle(toggleType,placeholder,successType) {
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
         
-		  var fbLoginSuccess = function (userData) {
-				 facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
-        function(result) {
-            alert("Added to your news feed " + JSON.stringify(result));
-        }, 
-        function(e) {
-            alert("Not added to your news feed " );
-    });
-			}
-
-			facebookConnectPlugin.getLoginStatus(
-				fbLoginSuccess,
-				function (error) { alert("error " + JSON.stringify(error)); }
-			);
    
 }
 function setName() {
