@@ -1398,6 +1398,7 @@ function updateToServer() {
             if(responseView == "success") {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     FCMPlugin.getToken(
           function(token){
             window.localStorage.setItem("regID", token); 
@@ -1435,6 +1436,11 @@ function updateToServer() {
             console.log('Error registering onNotification callback: ' + err);
           }
         );
+=======
+            }
+        },
+       'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
+>>>>>>> parent of 05c35f0... final
 =======
             }
         },
