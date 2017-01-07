@@ -218,7 +218,7 @@ function finishCheck() {
         });
     }
     else {
-        alert("please finish setting up your detox. To finish the setup open all the pages in the setup page, set your start date and reminders.");
+        alert("please finish setting up your detox");
     }
 }
 function setupPage() {
@@ -1703,8 +1703,9 @@ function shareToggle(toggleType,placeholder,successType) {
     }
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
-    var fbLoginSuccess = function (userData) {
-				facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
+        
+		  var fbLoginSuccess = function (userData) {
+				 facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
         function(result) {
             alert("Added to your news feed " + JSON.stringify(result));
         }, 
@@ -1717,7 +1718,7 @@ function shareNow(captionTitle,descriptionTitle,picturelink) {
 				fbLoginSuccess,
 				function (error) { alert("error " + JSON.stringify(error)); }
 			);
-    
+   
 }
 function setName() {
     personalJSON["personalData"]["firstname"] = idc("name").value;
