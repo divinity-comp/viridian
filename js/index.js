@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var appstart = false;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -31,18 +32,24 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        setTimeout(function(){  
+            if(!appstart)
+                app.startApp();
+        },5000);
     },
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.startApp();
+            if(!appstart)
+                app.startApp();
         phoneModel = window.device.model;
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
     },
     startApp: function() {
-        //alert("app start");
+        appstart = true;
+        console.log("app start");
         window.localStorage.setItem("reminderfour","aa" );
                     window.localStorage.setItem("platform",device.platform);  
        
