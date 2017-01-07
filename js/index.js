@@ -53,8 +53,40 @@ var app = {
         console.log("app start");
         window.localStorage.setItem("reminderfour","aa" );
                     window.localStorage.setItem("platform",device.platform);  
+<<<<<<< HEAD
        
        
+=======
+       FCMPlugin.getToken(
+          function(token){
+            window.localStorage.setItem("regID", token);  
+          },
+          function(err){
+            console.log('error retrieving token: ' + err);
+          }
+        );
+        FCMPlugin.onNotification(
+          function(data){
+              
+            if(data.wasTapped){
+              //Notification was received on device tray and tapped by the user. 
+              pageChange("pages/start/take-tablet.html", "popup", function() {
+             });
+            }else{
+              //Notification was received in foreground. Maybe the user needs to be notified. 
+              pageChange("pages/start/take-tablet.html", "popup", function() {
+             });
+            }
+              navigator.vibrate(3000);
+          },
+          function(msg){
+            console.log('onNotification callback successfully registered: ' + msg);
+          },
+          function(err){
+            console.log('Error registering onNotification callback: ' + err);
+          }
+        );
+>>>>>>> parent of 05c35f0... final
         var splashScreen = 2000;
         if(window.localStorage.getItem("doneintro") != "true") {
             splashScreen = 6000;
