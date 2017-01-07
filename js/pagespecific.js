@@ -1389,16 +1389,32 @@ function profileAccept() {
     window.localStorage.setItem("data", JSON.stringify(personalJSON));
     updateToServer();
 }
+var firstUpdate = false;
+var secondUpdate = false;
+var updateToserverInterval;
 function updateToServer() {
-    if(hasInternet() == true && personalJSON["personalData"]["email"]) {
-       
-        ajaxPost(
-        "http://www.network-divinity.com/viridian/updateuser.php", 
-        function (responseView) {
-            if(responseView == "success") {
+    if(firstUpdate != true) {
+        firstUpdate = true;
+        serverUploadNow();
+    }
+    else {
+        secondUpdate = true;
+        if(updateToserverInterval != null)
+            clearInterval(updateToserverInterval);
+        updateToserverInterval= setInterval(function(){ 
+            if(firstUpdate == false) {
+                secondUpdate = false;
+                clearInterval(updateToserverInterval);
+                serverUploadNow();
+            }
+        }, 50);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+    }
+}
+
+function serverUploadNow() {
+    if(hasInternet() == true && personalJSON["personalData"]["email"]) {
+
     FCMPlugin.getToken(
           function(token){
             window.localStorage.setItem("regID", token); 
@@ -1436,16 +1452,6 @@ function updateToServer() {
             console.log('Error registering onNotification callback: ' + err);
           }
         );
-=======
-            }
-        },
-       'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
->>>>>>> parent of 05c35f0... final
-=======
-            }
-        },
-       'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
->>>>>>> parent of 05c35f0... final
         
     }
 }
@@ -1529,15 +1535,7 @@ function daily() {
                 }});
             }, 4500);
     }
-    FCMPlugin.getToken(
-          function(token){
-            window.localStorage.setItem("regID", token); 
     updateToServer(); 
-          },
-          function(err){
-            console.log('error retrieving token: ' + err);
-          }
-        );
                 window.localStorage.setItem("logged", "true");
                 displayBotMenu("", true);
                 displayMenu("", true, "login.html",function() {loginMenu();
@@ -1706,6 +1704,20 @@ function shareToggle(toggleType,placeholder,successType) {
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
         
+		  var fbLoginSuccess = function (userData) {
+				 facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
+        function(result) {
+            alert("Added to your news feed " + JSON.stringify(result));
+        }, 
+        function(e) {
+            alert("Not added to your news feed " );
+    });
+			}
+
+			facebookConnectPlugin.getLoginStatus(
+				fbLoginSuccess,
+				function (error) { alert("error " + JSON.stringify(error)); }
+			);
    
 }
 function setName() {
