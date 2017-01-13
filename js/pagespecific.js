@@ -1632,6 +1632,18 @@ function moodClick(ele,num) {
             TweenMax.to(ele.children[0], 0.2,  {scale:"1", ease: Circ.easeOut});
         }});
     }
+    sendMoodList();
+}
+function sendMoodList() {
+    ajaxPost(
+        "http://www.network-divinity.com/viridian/moodlist.php", 
+        function (responseView) {
+            if(responseView == "success") {
+
+            }
+            firstUpdate = false;
+        },
+       'mood=' + window.localStorage.getItem("mood") + "&email=" + personalJSON["personalData"]["email"] );
 }
 function openFeeling(ele) {
 }
