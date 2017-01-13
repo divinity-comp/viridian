@@ -24,16 +24,16 @@
     });'  id="date" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt2 vhmb1" src="img/buttons/setup/date.png" />
                 <p class="fontv3 lineh3 vhmt3">set your<br>start date</p></div>
-            <div ontouchstart='var ref = cordova.InAppBrowser.open("https://www.viridian-nutrition.com/locator.aspx", "_blank", "location=yes");
+            <a href="https://www.viridian-nutrition.com/locator.aspx">
+            <div ontouchstart='
      setupComplete(2);   
             setupPage();   
                           
     displayMenu("", true, "setup/getting-started.html",function() {
             setupPage();
     });
-    displayBotMenu("", true);' id="map" class="greencircle vw24 vwh24 fontv4">
-                <img class="vhmt1 vhmb1" src="img/buttons/setup/map.png" />
-                <p class="fontv3 lineh3 vhmt3">Find your<br>supplement stockist</p></div>
+    displayBotMenu("", true);' id="map" class="greencircle vw24 vwh24 fontv4"> <img class="vhmt1 vhmb1" src="img/buttons/setup/map.png" />
+                <p class="fontv3 lineh3 vhmt3"> Find your<br>supplement stockist</p></div>
             <div ontouchstart='
     pageChange("pages/setup/rules.html", "popup", function() {
      setupComplete(3);      
@@ -41,7 +41,7 @@
                           
     });' id="tasks" class="greencircle vw24 vwh24 fontv4 ">
                 <img class="vhmt2 vhmb1" src="img/buttons/setup/tasks.png" />
-                <p class="fontv3 lineh3 vhmt3">See the rules<br>of 7 Day<br>Detox</p></div>
+                <p class="fontv3 lineh3 vhmt3">See the rules<br>of 7 Day<br>Detox</p></div></a>
             <div ontouchstart='
     pageChange("pages/setup/schedule.html", "popup", function() {
                           timeSelection();   
@@ -135,9 +135,13 @@
                 left:0;
                 right:0;margin:auto;
             }
+            a {
+                text-decoration: none;
+            }
             .greencircle p {
                 margin:0;
                 text-align:center;
+                color:#007086;
             }
             .greencircle {
                 background-color: #bacb2f;

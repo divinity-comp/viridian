@@ -355,7 +355,7 @@ function initialnext() {
              tl.fromTo(initialItem.children[numFound], 1, {x:"100%"}, {x:"0%", ease: Circ.easeOut})
                  .fromTo(initialItem.children[numFound].children[0].children[0], 0.8, {y:30,opacity:0}, {y:0,opacity:1, ease: Circ.easeOut})
               .fromTo(initialItem.children[numFound].children[0].children[1], 0.8, {y:30,scale:0}, {y:0,scale:1, ease: Back.easeOut.config(1.7)})
-              .fromTo(initialItem.children[numFound].children[1], 0.8, {y:30,scale:0}, {y:0,scale:1, ease: Back.easeOut.config(1.7)})
+              .fromTo(initialItem.children[numFound].children[1].children[0], 0.8, {y:30,scale:0}, {y:0,scale:1, ease: Back.easeOut.config(1.7)})
               .fromTo(idc("registerSlide"), 0.8, {opacity:0,y:100}, {opacity:1,y:0, ease: Back.easeOut.config(1.7)});
           }});
     }
@@ -1704,20 +1704,6 @@ function shareToggle(toggleType,placeholder,successType) {
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
         
-		  var fbLoginSuccess = function (userData) {
-				 facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
-        function(result) {
-            alert("Added to your news feed " + JSON.stringify(result));
-        }, 
-        function(e) {
-            alert("Not added to your news feed " );
-    });
-			}
-
-			facebookConnectPlugin.getLoginStatus(
-				fbLoginSuccess,
-				function (error) { alert("error " + JSON.stringify(error)); }
-			);
    
 }
 function setName() {
