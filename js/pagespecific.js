@@ -58,31 +58,31 @@ function selectionScreen() {
         loginMenu();loginMainSetup();
     },"false");
     if(allabout == "true" && setupstate == "true") {
-        tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
-        .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
-        .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
-        .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.9);
+        tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.25)
+        .fromTo(document.getElementsByClassName("bluecirc")[0],0.25, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
+        .fromTo(document.getElementsByClassName("bluecirc")[0],0.25, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
+        .fromTo(document.getElementsByClassName("bluecirc")[1],0.25, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[1],0.25, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[2],0.25, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
+        .fromTo(document.getElementsByClassName("bluecirc")[2],0.25, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.9);
     }
     else if(allabout == "true") {
-        tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
-        .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
-        .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
-        .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
+        tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.25)
+        .fromTo(document.getElementsByClassName("bluecirc")[0],0.25, {scale:1}, {opacity:0.5,scale:1, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
+        .fromTo(document.getElementsByClassName("bluecirc")[0],0.25, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
+        .fromTo(document.getElementsByClassName("bluecirc")[1],0.25, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[1],0.25, {opacity:0,y:-100}, {y:0,opacity:1, ease: Circ.easeOut},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[2],0.25, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
+        .fromTo(document.getElementsByClassName("bluecirc")[2],0.25, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
     }
     else {
-        tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.5)
-        .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {scale:1}, {opacity:0.5,scale:1.2, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[0], 0.5, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
-        .fromTo(document.getElementsByClassName("bluecirc")[1], 0.5, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.4)
-        .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
-        .fromTo(document.getElementsByClassName("bluecirc")[2], 0.5, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
+        tl.fromTo(document.getElementsByClassName("bluecirc")[0], 1.5, {y:1000,zIndex:2,scale:0}, {scale:1,y:0, ease: Circ.easeOut},0.25)
+        .fromTo(document.getElementsByClassName("bluecirc")[0],0.25, {scale:1}, {opacity:0.5,scale:1.2, ease: SlowMo.ease.config(0.1, 0.7, true)},1)
+        .fromTo(document.getElementsByClassName("bluecirc")[0],0.25, {opacity:0.5}, {opacity:1, ease: Circ.easeOut},1)
+        .fromTo(document.getElementsByClassName("bluecirc")[1],0.25, {scale:0,zIndex:1}, {scale:1, ease: Back.easeOut.config(1.7)},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[1],0.25, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.4)
+        .fromTo(document.getElementsByClassName("bluecirc")[2],0.25, {scale:0,zIndex:0}, {scale:1, ease: Back.easeOut.config(1.7)},1.9)
+        .fromTo(document.getElementsByClassName("bluecirc")[2],0.25, {opacity:0,y:-100}, {y:0,opacity:0.5, ease: Circ.easeOut},1.9);
     }
 }
 function sugarHides() {
@@ -91,18 +91,18 @@ function sugarHides() {
         tl
         .set(eyes[0].children[1],  {x:"0%"})
         .set(eyes[1].children[1], {x:"0%"})
-            .fromTo(eyes[0].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.5)
-        .fromTo(eyes[1].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.5)
-        .fromTo(eyes[0].children[1], 0.5, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
-        .fromTo(eyes[1].children[1], 0.5, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
+            .fromTo(eyes[0].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.25)
+        .fromTo(eyes[1].children[0], 1, {scaleY:1}, {scaleY:0.2, ease: Circ.easeOut},0.25)
+        .fromTo(eyes[0].children[1],0.25, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
+        .fromTo(eyes[1].children[1],0.25, {x:"0%"}, {x:"100%", ease: Power0.easeNone},1.4)
         .fromTo(eyes[0].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
         .fromTo(eyes[1].children[1], 1, {x:"100%"}, {x:"-100%", ease: Power0.easeNone},1.9)
         .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
         .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},1.9)
         .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
         .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:SlowMo.ease.config(0.1, 0.1, true)},2.3)
-        .fromTo(eyes[0].children[1], 0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
-        .fromTo(eyes[1].children[1],0.5, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
+        .fromTo(eyes[0].children[1],0.25, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
+        .fromTo(eyes[1].children[1],0.25, {x:"-100%"}, {x:"0%", ease: Power0.easeNone},2.9)
         .fromTo(eyes[0].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:Circ.easeOut},3.3)
         .fromTo(eyes[1].children[0], 0.2, {scaleY:0.2}, {scaleY:1, ease:Circ.easeOut},3.3)
         ;
@@ -580,10 +580,10 @@ function rulesLeft() {
           }});
         }
     if(numFound > 4) {
-        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("right")[0],0.25,  {opacity:0, ease: Circ.easeOut});
     }
     if(numFound < 6) {
-        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("left")[0],0.25,  {opacity:1, ease: Circ.easeOut});
     }
 }
 function rulesRight() {
@@ -612,10 +612,10 @@ function rulesRight() {
           }});
             }
     if(numFound < 2) {
-        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("left")[0],0.25,  {opacity:0, ease: Circ.easeOut});
     }
     if(numFound > 0) {
-        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("right")[0],0.25,  {opacity:1, ease: Circ.easeOut});
     }
 }
 var pandisable = false;
@@ -1199,10 +1199,10 @@ function sevendayleft() {
         }
     }
     if(numFound > 4) {
-        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("right")[0],0.25,  {opacity:0, ease: Circ.easeOut});
     }
     if(numFound < 6) {
-        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("left")[0],0.25,  {opacity:1, ease: Circ.easeOut});
     }
     
 }
@@ -1236,10 +1236,10 @@ function sevendayright() {
           }});
             }
     if(numFound < 2) {
-        TweenMax.to(document.getElementsByClassName("left")[0], 0.5,  {opacity:0, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("left")[0],0.25,  {opacity:0, ease: Circ.easeOut});
     }
     if(numFound > 0) {
-        TweenMax.to(document.getElementsByClassName("right")[0], 0.5,  {opacity:1, ease: Circ.easeOut});
+        TweenMax.to(document.getElementsByClassName("right")[0],0.25,  {opacity:1, ease: Circ.easeOut});
     }
 }
 function startPlan() {
@@ -1527,10 +1527,10 @@ function daily() {
         idc("messageUser").style.display = "block";
         idc("messageUser").children[1].innerHTML = personalJSON["personalData"]["firstname"];
         
-        TweenMax.fromTo(idc("messageUser"), 0.5,  {y:-100,opacity:0},{y:0,opacity:1, ease: Circ.easeOut});
+        TweenMax.fromTo(idc("messageUser"),0.25,  {y:-100,opacity:0},{y:0,opacity:1, ease: Circ.easeOut});
         
             setTimeout(function(){ 
-                TweenMax.fromTo(idc("messageUser"), 0.5,  {y:0,opacity:1},{y:-100,opacity:0, ease: Circ.easeOut,onComplete:function() {
+                TweenMax.fromTo(idc("messageUser"),0.25,  {y:0,opacity:1},{y:-100,opacity:0, ease: Circ.easeOut,onComplete:function() {
                     idc("messageUser").style.display = "none";
                 }});
             }, 4500);
@@ -1776,9 +1776,9 @@ function loadingScreenStart(messagesForLoad) {
           loadingMessage.appendChild(newmessageadd);
       }
     var tlMain = new TimelineMax({onRepeat:updateReps,repeat:-1});
-    tlMain.staggerFromTo(loadingMessage.children, 0.5, {y:20,opacity:0}, {y:0,opacity:1, ease: Circ.easeOut},2,0)
+    tlMain.staggerFromTo(loadingMessage.children,0.25, {y:20,opacity:0}, {y:0,opacity:1, ease: Circ.easeOut},2,0)
     .staggerTo(loadingMessage.children, 0.01, {display:"block", ease: Circ.easeOut},2,0)
-        .staggerFromTo(loadingMessage.children, 0.5, {y:0,opacity:1}, {opacity:0,y:-20,onComplete:function() {
+        .staggerFromTo(loadingMessage.children,0.25, {y:0,opacity:1}, {opacity:0,y:-20,onComplete:function() {
         if(loadingMessage.children[currentMessageId])
         loadingMessage.children[currentMessageId].style.display = "none";
             currentMessageId++;

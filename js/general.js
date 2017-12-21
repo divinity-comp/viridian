@@ -96,33 +96,33 @@ function pageChange(url, pageAnimation, runScript) {
               case "fade":
                     if(document.getElementsByClassName("nextButton")[0]) {
                         
-                        TweenMax.to(document.getElementsByClassName("app")[0].children[1], 0.5, {opacity:0, ease: Circ.easeOut,onComplete:function() {
+                        TweenMax.to(document.getElementsByClassName("app")[0].children[1], 0.25, {opacity:0, ease: Circ.easeOut,onComplete:function() {
                             document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
                             runScript();
 
                             if(document.getElementsByClassName("nextButton")[0]) {
-                                TweenMax.fromTo(document.getElementsByClassName("app")[0].children[1], 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+                                TweenMax.fromTo(document.getElementsByClassName("app")[0].children[1], 0.25, {opacity:0}, {opacity:1, ease: Circ.easeIn});
                             }
                             else {
-                                TweenMax.fromTo(document.getElementsByClassName("app")[0], 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+                                TweenMax.fromTo(document.getElementsByClassName("app")[0], 0.25, {opacity:0}, {opacity:1, ease: Circ.easeIn});
 
                             }
                         }});
                     }
                     else {
 
-                        TweenMax.to(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0, ease: Circ.easeOut,onComplete:function() {
+                        TweenMax.to(document.getElementsByClassName("app")[0].children, 0.25, {opacity:0, ease: Circ.easeOut,onComplete:function() {
                             document.getElementsByClassName("app")[0].innerHTML = divContent.innerHTML;
                             runScript();
 
-                            TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+                            TweenMax.fromTo(document.getElementsByClassName("app")[0].children, 0.25, {opacity:0}, {opacity:1, ease: Circ.easeIn});
                         }});
                     }
                 break;
               case "popup":
                     document.getElementById("popup").innerHTML = divContent.innerHTML;
                     document.getElementById("popup").style.display = "block";
-                    TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn});
+                    TweenMax.fromTo(document.getElementById("popup"), 0.25, {opacity:0}, {opacity:1, ease: Circ.easeIn});
                     runScript();
 
                 break;
@@ -137,7 +137,7 @@ function pageChange(url, pageAnimation, runScript) {
     );
 }
 function closePopup() {
-    TweenMax.fromTo(document.getElementById("popup"), 0.5, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
+    TweenMax.fromTo(document.getElementById("popup"), 0.25, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
         setTimeout(function(){ 
         document.getElementById("popup").style.display = "none";
         document.getElementById("popup").innerHTML = "";}, 800);
@@ -148,14 +148,14 @@ function openBotMenu() {
     var botMenu = idc("botMenu");
     if(mainBotButton.getAttribute("open") == "true") {
         mainBotButton.setAttribute("open", "false");
-        TweenMax.fromTo(botMenu, 0.5, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
+        TweenMax.fromTo(botMenu, 0.25, {opacity:1}, {opacity:0, ease: Circ.easeIn,onComplete:function() {
             botMenu.style.display = "none";
         }});
     }
     else {
         botMenu.style.display = "block";
         mainBotButton.setAttribute("open", "true");
-        TweenMax.fromTo(botMenu, 0.5, {opacity:0}, {opacity:1, ease: Circ.easeIn,onComplete:function() {
+        TweenMax.fromTo(botMenu, 0.25, {opacity:0}, {opacity:1, ease: Circ.easeIn,onComplete:function() {
         }});
     }
 }
