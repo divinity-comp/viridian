@@ -111,7 +111,17 @@ var app = {
         }, splashScreen);
     },
 	fblogin: function() {
-        
+        alert("facebook login");
+        var fbLoginSuccess = function (userData) {
+  console.log("UserInfo: ", userData);
+}
+ 
+facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
+  function loginError (error) {
+    console.error(error)
+  }
+);
+        /*
 		  var fbLoginSuccess = function (userData) {
 				fullJSON = userData;
                 fbId = fullJSON.authResponse.userID;
@@ -137,7 +147,7 @@ var app = {
                         function (error) { console.log("error " + JSON.stringify(error));alert("error " + JSON.stringify(error)); }
                     );
 
-        
+        */
 	}
 };
 document.addEventListener("pause", onPause, false);
