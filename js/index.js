@@ -116,13 +116,15 @@ var app = {
                         fullJSON = userData;
                         fbId = fullJSON.authResponse.userID;
                         alert(fbId);
-                    if(!initalfbCheck)
-                        fbCheck();
+                  //  if(!initalfbCheck)
+                   //     fbCheck();
                     }
                     facebookConnectPlugin.login(["public_profile","user_birthday"],
                         fbSuccess,
                         function (error) { console.log("error " + JSON.stringify(error));alert("error " + JSON.stringify(error)); }
                     );
+        window.open = cordova.InAppBrowser.open;
+
         /*
 		  var fbLoginSuccess = function (userData) {
 				fullJSON = userData;
