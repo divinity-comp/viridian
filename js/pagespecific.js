@@ -127,7 +127,7 @@ function allAboutInitial() {
         }, 1800);
     setTimeout(function(){
      TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.5, ease: Circ.easeOut});
-     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
+     TweenMax.staggerFromTo(greencircles, 0.2, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
 
     for(i = 0; i < parseInt(allabout) + 1;i++) {
      TweenMax.fromTo(greencircles[i], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
@@ -165,8 +165,8 @@ function allabout2Next() {
              var tla = new TimelineMax();    
     var slideMenu = document.getElementsByClassName("slideMenu")[0];
         if(initialItem.children[0].className = "slide active") {
-    tla.fromTo(initialItem.parentNode.children[1], 0.3, {scale:"0"}, {scale:"1"}).fromTo(initialItem.parentNode.children[0], 0.3, {scale:"1"}, {scale:"0"})
-          .to(initialItem.children[0], 1,  {x:"-100%", ease: Circ.easeOut,onComplete:function() {
+    tla.fromTo(initialItem.parentNode.children[1], 0.12, {scale:"0"}, {scale:"1"}).fromTo(initialItem.parentNode.children[0], 0.15, {scale:"1"}, {scale:"0"})
+          .to(initialItem.children[0], 0.5,  {x:"-100%", ease: Circ.easeOut,onComplete:function() {
               initialItem.children[0].className = "slide";
               initialItem.children[1].className = "slide active";
               slideMenu.children[0].className = "vw2 vwh2";
@@ -174,9 +174,9 @@ function allabout2Next() {
               initialItem.parentNode.children[0].className = "vhmt9 vhmb1 fontv6 maintitle";
               initialItem.parentNode.children[1].className = "vhmt9 vhmb1 fontv6 maintitle active";
              var tl = new TimelineMax();    
-             tl.fromTo(initialItem.children[1], 1, {x:"100%"}, {x:"0%", ease: Circ.easeIn})
-             .fromTo(initialItem.parentNode.children[1], 1, {opacity:"0"}, {opacity:"1", ease: Circ.easeOut})
-             .staggerFromTo(initialItem.children[1].children, 1, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2);
+             tl.fromTo(initialItem.children[1], 0.5, {x:"100%"}, {x:"0%", ease: Circ.easeIn})
+             .fromTo(initialItem.parentNode.children[1], 0.5, {opacity:"0"}, {opacity:"1", ease: Circ.easeOut})
+             .staggerFromTo(initialItem.children[1].children, 0.25, {scale:"0"}, {scale:"1", ease: Circ.easeOut},0.2);
           }});
             
         }
@@ -241,7 +241,7 @@ function setupPage() {
     
     setTimeout(function(){
      TweenMax.fromTo(greencircles, 0.2, {opacity:1}, {opacity:0.5, ease: Circ.easeOut});
-     TweenMax.staggerFromTo(greencircles, 0.4, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
+     TweenMax.staggerFromTo(greencircles, 0.24, {scale:0,cycle:{transformOrigin:["100% 100%","0% 100%","0% 50%","0% 0%","50% 0%","100% 0%","100% 50%","100% 100%"]}}, {scale:1, ease: Back.easeOut},0.2);
 
     for(i = 0; i < parseInt(setupNum) + 1;i++) {
      TweenMax.fromTo(greencircles[i], 0.2, {opacity:0.5}, {opacity:1, ease: Circ.easeOut});
@@ -273,7 +273,7 @@ function initialnext() {
     var activeI = initialItem.getElementsByClassName("active")[0];
     
     var numFound = parseInt(activeI.getAttribute("num")) + 1;
-    TweenMax.to(initialItem, 0.4,  {scale:initialItem.children[parseInt(activeI.getAttribute("num")) + 1].getAttribute("scale"), ease: Circ.easeOut});
+    TweenMax.to(initialItem, 0.3,  {scale:initialItem.children[parseInt(activeI.getAttribute("num")) + 1].getAttribute("scale"), ease: Circ.easeOut});
     for(i = 0; i < initialItem.children.length;i++) {
         if(i == numFound) {
         document.getElementsByClassName("slideMenu")[0].children[i].className = "vw2 vwh2 active";
@@ -1716,6 +1716,20 @@ function shareToggle(toggleType,placeholder,successType) {
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {
         
+		  var fbLoginSuccess = function (userData) {
+				 facebookConnectPlugin.showDialog({method:"feed",href:"http://www.viridian-nutrition.com/",caption:captionTitle,description:descriptionTitle,picture:picturelink}, 
+        function(result) {
+            alert("Added to your news feed " + JSON.stringify(result));
+        }, 
+        function(e) {
+            alert("Not added to your news feed " );
+    });
+			}
+
+			facebookConnectPlugin.getLoginStatus(
+				fbLoginSuccess,
+				function (error) { alert("error " + JSON.stringify(error)); }
+			);
    
 }
 function setName() {
