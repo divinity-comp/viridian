@@ -19,4 +19,13 @@
 
 function facebooklogin() {
     alert("run node");
+    var fbLoginSuccess = function (userData) {
+  alert("UserInfo: ", userData);
+}
+
+facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
+  function loginError (error) {
+    alert(error)
+  }
+);
 }
