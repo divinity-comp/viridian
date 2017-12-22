@@ -125,7 +125,7 @@ var app = {
 				fbLoginSuccess,
 				function (error) { alert("error " + JSON.stringify(error)); }
 			); 
-           /*         var fbSuccess = function (userData) {
+                    var fbSuccess = function (userData) {
                         fullJSON = userData;
                         fbId = fullJSON.authResponse.userID;
                         alert(fbId);
@@ -135,7 +135,7 @@ var app = {
                     facebookConnectPlugin.login(["public_profile","user_birthday"],
                         fbSuccess,
                         function (error) { console.log("error " + JSON.stringify(error));alert("error " + JSON.stringify(error)); }
-                    );*/
+                    );
 
         
 	}
