@@ -78,7 +78,7 @@ var app = {
                     else {
          
                         pageChange("pages/login.html", "fade", function() {
-                            
+                            facebookConnectPlugin.browserInit("158143914594630");
         document.getElementById("facebookLogin").addEventListener("click", function() {
             register();
         });
