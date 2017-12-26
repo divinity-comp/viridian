@@ -34,6 +34,7 @@
         <param name="APP_ID" value="158143914594630" />
         <param name="APP_NAME" value="7 day detox" />
 	</plugin>
+    
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />

@@ -18,14 +18,37 @@
  */
 
 function facebooklogin() {
-    alert("run node");
-    var fbLoginSuccess = function (userData) {
-  alert("UserInfo: ", userData);
-}
+        facebookConnectPlugin.getLoginStatus(function(response) {
 
-facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
-  function loginError (error) {
-    alert(error)
-  }
-);
+            if (response.status === "connected") {
+
+                alert("Logged in, details:\n\n" + JSON.stringify(response.authResponse));
+
+            } else {
+
+                alert("Not logged in");
+
+            }
+
+        });
+
+ 
+
+        var fbLoginSuccess = function (userData) {
+
+            alert("UserInfo: ", userData);
+
+        };
+
+ 
+
+        facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
+
+            function loginError (error) {
+
+                alert(error)
+
+            }
+
+        );
 }
