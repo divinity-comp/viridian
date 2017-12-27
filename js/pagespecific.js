@@ -206,6 +206,7 @@ function setupComplete(num) {
     displayMenu("", true, "walkthrough.html",function() {
         selectionScreen();
     });
+    updateToServer();
 }
 function finishCheck() {
     
@@ -1301,6 +1302,7 @@ function startPlan() {
           }});
             }
     });
+    updateToServer();
 }
 function profileSetup() {
     var maintable = idc("maintable");
@@ -1345,6 +1347,7 @@ function profileSetup() {
     mainrow[8].children[1].children[0].innerHTML = personalJSON["personalData"]["weight"] + " kg";
     else
     mainrow[8].children[1].children[0].innerHTML = "Enter weight";
+    updateToServer();
 }
 function addprofileChange(functiontorun) {
     document.getElementsByClassName("close")[0].ontouchstart = function() {    closePopup();

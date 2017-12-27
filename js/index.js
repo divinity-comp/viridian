@@ -248,6 +248,7 @@ function loginPage() {
             register();
         });
         loginMainSetup();
+        updateToServer();
     });
 }
 function signIn() {
@@ -366,7 +367,6 @@ function afterLogin() {
     var acceptTaC = window.localStorage.getItem("tac");
     window.localStorage.setItem("logged", "true");
     if(acceptTaC != "true") {
-        alert("disclaimer");
         pageChange("pages/disclaimer.html", "fade", function() {
                         homepageLink ="pages/walkthrough.html";
         });
@@ -478,6 +478,7 @@ function displayBotMenu(menuAnim, displayyes) {
 function homepageFunction() {
     if(homepageLink == "pages/daily.html") {
         daily();
+        updateToServer();
     }
     else {
         selectionScreen();
