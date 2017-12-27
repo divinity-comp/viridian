@@ -20,7 +20,7 @@ var appstart = false;
 var app = {
     // Application Constructor
     initialize: function() {
-        window.localStorage.clear(); //try this to clear all local storage
+      //  window.localStorage.clear(); //try this to clear all local storage
 
         this.bindEvents();
     },
