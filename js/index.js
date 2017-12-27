@@ -172,7 +172,7 @@ function fbCheck() {
         "http://www.network-divinity.com/viridian/hasreg.php", 
         function (response) {
         if(response == "yes") {
-            
+            alert("yes fb");
             ajaxPost(
             "http://www.network-divinity.com/viridian/fbviewprofile.php", 
             function (responseView) {
@@ -191,6 +191,7 @@ function fbCheck() {
 
         }
         else if(response == "no") {
+            alert("no fb");
             registerGetInfo();
             setTimeout(function(){
                 registerGetInfo();
