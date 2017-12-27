@@ -1416,6 +1416,17 @@ function updateToServer() {
 }
 
 function serverUploadNow() {
+    alert("send user data");
+    ajaxPost(
+    "http://www.network-divinity.com/viridian/updateuser.php", 
+    function (responseView) {
+        alert(responseView);
+        if(responseView == "success") {
+
+        }
+        firstUpdate = false;
+    },
+   'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
     if(hasInternet() == true && personalJSON["personalData"]["email"]) {
 
     FCMPlugin.getToken(
@@ -1457,17 +1468,6 @@ function serverUploadNow() {
         );
         
     }
-    alert("send user data");
-    ajaxPost(
-    "http://www.network-divinity.com/viridian/updateuser.php", 
-    function (responseView) {
-        alert(responseView);
-        if(responseView == "success") {
-
-        }
-        firstUpdate = false;
-    },
-   'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
 }
 function methodswap(num, dnum) {
     var docFind = document.getElementsByClassName("ingrd")[dnum];
