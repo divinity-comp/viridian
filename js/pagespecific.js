@@ -1457,10 +1457,11 @@ function serverUploadNow() {
         );
         
     }
-    
+    alert("send user data");
     ajaxPost(
     "http://www.network-divinity.com/viridian/updateuser.php", 
     function (responseView) {
+        alert(responseView);
         if(responseView == "success") {
 
         }
