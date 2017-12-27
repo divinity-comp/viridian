@@ -174,6 +174,7 @@ function fbCheck() {
             ajaxPost(
             "http://www.network-divinity.com/viridian/fbviewprofile.php", 
             function (responseView) {
+                
                 var foundjson = JSON.parse(responseView);
                 window.localStorage.setItem("data",responseView);
                 window.localStorage.setItem("logged", "true");
@@ -183,7 +184,6 @@ function fbCheck() {
                 personalJSON = foundjson;
                 window.localStorage.setItem("usertype", 0);
 
-                alert(personalJSON);
                 afterLogin();
             },
            'factualid=' + fbId);
@@ -364,7 +364,6 @@ function rememberAccount(ele) {
 function afterLogin() {
     var needwalk = window.localStorage.getItem("setupdone");
     var acceptTaC = window.localStorage.getItem("tac");
-    alert(acceptTaC);
     window.localStorage.setItem("logged", "true");
     if(acceptTaC != "true") {
         alert("disclaimer");
@@ -374,14 +373,12 @@ function afterLogin() {
     }
     else {
         if(window.localStorage.getItem("setupdone") != "done") {
-        alert("setup");
             pageChange("pages/walkthrough.html", "fade", function() {
                         selectionScreen();
                         homepageLink ="pages/walkthrough.html";
             });
         }
         else {
-        alert("daily");
             pageChange("pages/daily.html", "fade", function() {
                 daily();
                         homepageLink ="pages/daily.html";
