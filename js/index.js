@@ -26,7 +26,7 @@ function facebooklogin() {
 
             } else {
 
-                alert("Not logged in");
+                //alert("Not logged in");
 
             }
 
