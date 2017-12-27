@@ -364,20 +364,24 @@ function rememberAccount(ele) {
 function afterLogin() {
     var needwalk = window.localStorage.getItem("setupdone");
     var acceptTaC = window.localStorage.getItem("tac");
+    alert(acceptTaC);
     window.localStorage.setItem("logged", "true");
     if(acceptTaC != "true") {
+        alert("disclaimer");
         pageChange("pages/disclaimer.html", "fade", function() {
                         homepageLink ="pages/walkthrough.html";
         });
     }
     else {
         if(window.localStorage.getItem("setupdone") != "done") {
+        alert("setup");
             pageChange("pages/walkthrough.html", "fade", function() {
                         selectionScreen();
                         homepageLink ="pages/walkthrough.html";
             });
         }
         else {
+        alert("daily");
             pageChange("pages/daily.html", "fade", function() {
                 daily();
                         homepageLink ="pages/daily.html";
