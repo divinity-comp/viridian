@@ -23,8 +23,6 @@ var app = {
         window.localStorage.clear(); //try this to clear all local storage
 
         this.bindEvents();
-        var phoneModel = window.device.model;
-        var phoneModel = device.model;
     },
     // Bind Event Listeners
     //
@@ -78,10 +76,9 @@ var app = {
                     else {
          
                         pageChange("pages/login.html", "fade", function() {
-                            facebookConnectPlugin.browserInit("158143914594630");
-        document.getElementById("facebookLogin").addEventListener("click", function() {
-            register();
-        });
+                        document.getElementById("facebookLogin").addEventListener("click", function() {
+                            register();
+                        });
         loginMainSetup();
                         });
                     }
@@ -148,7 +145,7 @@ var app = {
 
             function loginError (error) {
 
-                alert(error)
+                alert(error);
 
             }
 
