@@ -172,11 +172,11 @@ jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter);jasmine.HtmlReporte
       ' | ',
       this.detailsMenuItem = this.createDom('a', {className: 'detailsMenuItem', href: "#"}, '0 failing'));
 
-    this.summaryMenuItem.onclick = function() {
+    this.summaryMenuItem.ontouchstart = function() {
       dom.reporter.className = dom.reporter.className.replace(/ showDetails/g, '');
     };
 
-    this.detailsMenuItem.onclick = function() {
+    this.detailsMenuItem.ontouchstart = function() {
       showDetails();
     };
   };
@@ -496,7 +496,7 @@ jasmine.TrivialReporter.prototype.reportRunnerStarting = function(runner) {
   this.startedAt = new Date();
 
   var self = this;
-  showPassed.onclick = function(evt) {
+  showPassed.ontouchstart = function(evt) {
     if (showPassed.checked) {
       self.outerDiv.className += ' show-passed';
     } else {
@@ -504,7 +504,7 @@ jasmine.TrivialReporter.prototype.reportRunnerStarting = function(runner) {
     }
   };
 
-  showSkipped.onclick = function(evt) {
+  showSkipped.ontouchstart = function(evt) {
     if (showSkipped.checked) {
       self.outerDiv.className += ' show-skipped';
     } else {

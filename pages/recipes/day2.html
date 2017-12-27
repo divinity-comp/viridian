@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="full" class="app textureBack">
+        
+        <div id="fullrecipe">
+        <div id="highSection" class="vhmt10 ">
+            <button class="greyCircle vw22 vwh22 fontv6">
+                Day 2
+            </button>
+            <div class="recipe">
+                <h2 class="fontv9 vhmt12 fontti vhmb1" style="margin-top:0">Today's Recipes</h2>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(0)" ontouchstart="recipeTime(0)" active="true"><span>Breakfast</span></div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(1)" ontouchstart="recipeTime(1)">Lunch</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(2)" ontouchstart="recipeTime(2)">Snack</div>
+                <div class="lineh16 vw16 vwh16 fontv3" onclick="recipeTime(3)" ontouchstart="recipeTime(3)">Dinner</div>
+            </div>
+        </div>
+            <div class="nextday vhmt2">
+                <button class="fontv4 lineh6" ontouchstart=' pageChange("pages/recipes/day1.html", "fade", function() {
+    });'>Previous day</button>
+                <button class="fontv4 lineh6" ontouchstart=' pageChange("pages/recipes/day3.html", "fade", function() {
+    });'>Next day</button>
+            </div>
+        <div id="breakfast" class="ingrd  vh60" active="true">
+            <div class="title ">
+                <div>
+                    <div class=" vw20 vwh20 fontv4 lineh20" >Breakfast</div>
+                    <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">1</span></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/Whole-grain-cereal-&-Sugar-free-rice-milk-with-fresh-berries.jpg);"></div>
+
+				</div>
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Whole grain cereal and sugar-free rice milk with fresh berries</h2>
+                    <p class="fontv3">High in dietary fibre and vitamin C which will aid digestion and prolonged satiety. Rice milk provides a lactose-free and hypoallergenic alternative to dairy, soy or nut milks. In addition, it is cholesterol free and naturally high in B vitamins which are essential for metabolism, circulation and nerve function.</p>
+                </div>
+            </div>
+            
+        </div>
+        <div id="lunch" class="ingrd  vh60" active="false">
+            <div class="title ">
+                <div>
+                    <div class=" vw20 vwh20 fontv4 lineh20" >Lunch</div>
+                    <div class=" vw13 vwh13 fontv3" ><br>Serves<br><span class="fontv4">4</span></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/Butternut-Coconut-and-Coriander-Soup.jpg);"></div>
+                    
+                </div>
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Butternut Coconut and Coriander Soup </h2>
+                    <p class="fontv3">Vegan sugar, gluten, dairy and nut free contains celery.</p>
+                    <p class="fontv3">I love to grate fresh turmeric into this soup to give it a more powerful flavour and colour. Make sure to use choose a gluten-free stock. High in dietary fibre, plant protein, essential fats and vitamin C. Low GL.</p>
+                    <p class="fontv3">This recipe is perfect for batch cooking to store refrigerated for another day.</p>
+                    <p class="fontv3">Based on 2 adults following the 7 day meal plan, there should be sufficient remaining from day 1 recipe to use for today’s lunch.</p>
+                </div>
+            </div>
+            <div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 1)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 1)">Method</button>
+            </div>
+            <div class="overMark " active="true">
+				<h2>Ingredients</h2>
+                <p class="fontv4">1 tablespoon Viridian organic raw coconut oil</p>
+                <hr>
+                <p class="fontv4">1 large onion, chopped</p>
+                <hr>
+                <p class="fontv4">1.5kg butternut squash, peeled and cut into 5cm cubes</p>
+                <hr>
+                <p class="fontv4">1-2 cloves of garlic, minced</p>
+                <hr>
+                <p class="fontv4">1½ litres low salt, gluten-free vegetable stock (you can use less or more according to desired thickness)</p>
+                <hr>
+                <p class="fontv4">1 teaspoons ground coriander</p>
+                <hr>
+                <p class="fontv4">80g creamed coconut, grated</p>
+                <hr>
+                <p class="fontv4">Juice of ½ lime</p>
+                <hr>
+                <p class="fontv4">Himalayan fine rock salt and freshly ground black pepper, crusty bread to serve</p>
+            </div>
+            <div class="overMark " active="false">
+				<h2>Method</h2>
+                <ol>
+                    <li class="fontv4">Heat the oil in a large saucepan over a low to medium heat. Sauté the onion for 5–7 minutes, until tender. Add the butternut squash and garlic and stir for a further minute or two.</li>
+                    <li class="fontv4">Add the vegetable stock and ground coriander and bring to a boil. Simmer for 20–30 minutes, until the squash is cooked. Stir in the grated creamed coconut and leave to stand for a minute so that it can melt into the soup. Blend until smooth.</li>
+                    <li class="fontv4">Stir in the lime juice and salt and pepper to taste, and serve with crusty bread.</li>
+                </ol>
+            </div>
+        </div>
+        <div id="snack" class="ingrd  vh60" active="false">
+            <div class="title ">
+                <div>
+                    <div class=" vw20 vwh20 fontv4 lineh20" >Snack</div>
+                    <div class=" vw13 vwh13 fontv3" ><br>Makes<br><span class="fontv4">12</span></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/coconut-500px.jpg)" ></div>
+                    
+                </div>  
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Coconut crunches</h2>
+                    <p class="fontv3">Vegan Sugar, Gluten and Dairy free contains nuts.</p>
+                    <p class="fontv3">Perfect for a nibble or with your hot evening drink.</p>
+                    <p class="fontv3">Before you know it, you’ll be acting the nut! High in essential fats, plant protein, dietary fibre, vitamin E and zinc. Low GL.</p>
+                    <p class="fontv3">This recipe is perfect for batch cooking to store refrigerated for another day.</p>
+                </div>
+            </div>
+            <div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 2)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 2)">Method</button>
+            </div>
+            <div class="overMark " active="true">
+				<h2>Ingredients</h2>
+                <p class="fontv4">170g pecans</p>
+                <hr>
+                <p class="fontv4">170g almonds</p>
+                <hr>
+                <p class="fontv4">290g creamed coconut block</p>
+                <hr>
+                <p class="fontv4">3 tablespoons of viridian organic raw coconut oil</p>
+                <hr>
+                <p class="fontv4">¼ teaspoon Himalayan fine rock salt</p>
+                <hr>
+                <p class="fontv4">25g desiccated coconut, toasted</p>
+            </div>
+            <div class="overMark " active="false">
+				<h2>Method</h2>
+                <ol>
+                    <li class="fontv4">Preheat the oven to 150°C/gas mark 2/300°F. Spread the nuts on a baking sheet and toast very lightly for 15 minutes.</li>
+<li class="fontv4">Grate the block of creamed coconut into a small Pyrex bowl and place in hot water to soften coconut. In a medium-sized bowl, beat the creamed coconut, coconut oil and salt with a food processor until creamy. Fold in the toasted nuts and mix well with a large spoon until all the nuts are well coated.</li>
+                    <li class="fontv4">Line the baking sheet with parchment paper and spread out the nut mixture evenly. Sprinkle with the desiccated coconut and place the baking sheet in the refrigerator. When cold, break into bite-size pieces. Store in an airtight container in the refrigerator for up to ten days.</li>
+                </ol>
+            </div>
+        </div>
+                   
+        <div id="dinner" class="ingrd  vh60" active="false">
+            <div class="title ">
+                <div>
+                    <div class=" vw20 vwh20 fontv4 lineh20" >Dinner</div>
+                    <div class=" vw13 vwh13 fontv3" ><br>Makes<br><span class="fontv4">8</span></div>
+                    <div class="recipeImage vw20 vwh20" style="background-image:url(img/food-images/living-dahl.jpg)" ></div>
+                    
+                </div>
+                <div class="pcheck">
+                    <h2 class="fontv6 vhmb1">Living Dahl Burgers</h2>
+                    <p class="fontv3">Vegan, sugar, gluten, nut and dairy free, contains mustard.</p>
+                    <p class="fontv3">High in magnesium, iron, B vitamins, plant protein, essential fats and dietary fibre. Aids good digestion and an anti-inflammatory recipe.</p>
+                    <p class="fontv3">This recipe is perfect for batch cooking to store refrigerated or to store frozen for another day.</p>
+                    <p class="fontv3">Based on 2 adults following the 7 day meal plan, this recipe should leave you with enough  for today and day 4 dinner.</p>
+                </div>
+            </div><div class="types vhmt2 vhmb2">
+                <button class="fontv4 lineh8" ontouchstart="methodswap(0, 3)" active="true">Ingredients</button>
+                <button class="fontv4 lineh8" ontouchstart="methodswap(1, 3)">Method</button>
+            </div>
+            <div class="overMark " active="true">
+				<h2>Ingredients</h2>
+                <p class="fontv4">1 tablespoon Viridian raw organic coconut oil</p>
+                <hr>
+                <p class="fontv4">1 large onion, diced</p>
+                <hr>
+                <p class="fontv4">4 cloves of garlic finely chopped</p>
+                <hr>
+                <p class="fontv4">1 tablespoon grated fresh root ginger</p>
+                <hr>
+                <p class="fontv4">½ bunch of fresh coriander, leaves reserved, roots and stems finely chopped</p>
+                <hr>
+                <p class="fontv4">1 cinnamon stick, 8 cardamom pods, crushed</p>
+                <hr>
+                <p class="fontv4">1 teaspoon yellow mustard seeds</p>
+                <hr>
+                <p class="fontv4">2 teaspoons ground coriander</p>
+                <hr>
+                <p class="fontv4">2 teaspoons paprika</p>
+                <hr>
+                <p class="fontv4">1 teaspoon ground cumin</p>
+                <hr>
+                <p class="fontv4">½ teaspoon ground turmeric</p>
+                <hr>
+                <p class="fontv4">½ teaspoon ground ginger</p>
+                <hr>
+                <p class="fontv4">½ teaspoon chilli powder</p>
+                <hr>
+                <p class="fontv4">½ teaspoon Himalayan fine rock salt</p>
+                <hr>
+                <p class="fontv4">400g red lentils (pre-soaked weight)</p>
+                <hr>
+                <p class="fontv4">200g cooked brown rice </p>
+                <hr>
+                <p class="fontv4">1 medium sweet potato, peeled and chopped into large medallions</p>
+                <hr>
+                <p class="fontv4">1½ litres water</p>
+                <hr>
+                <p class="fontv4">150g baby spinach</p>
+                <hr>
+                <p class="fontv4">100g brown rice flour</p>
+                <hr>
+                <p class="fontv4">2 tablespoons of Viridian raw organic coconut oil for frying burgers</p>
+            </div>
+            <div class="overMark " active="false">
+				<h2>Method</h2>
+                <ol>
+                    <li class="fontv4">Warm the Viridian raw organic coconut oil in a large saucepan over a low to medium heat.
+</li>
+                    <li class="fontv4">Add the onion and cook, stirring, for 5–8 minutes, until softened. Add the garlic, ginger, coriander roots and stems, cinnamon stick, crushed cardamom and mustard seeds, and cook for 2 minutes, stirring. Add the remaining spices and the salt and cook for 1 minute more, stirring.</li>
+                    <li class="fontv4">Add the lentils, sweet potatoes and water to the saucepan and bring to a boil over a high heat. Reduce the heat to low and allow the dahl to simmer for 15–20 minutes, until the lentils have collapsed and the sweet potatoes are tender. </li>
+                    <li class="fontv4">Take off the heat and stir through the spinach and most of the coriander leaves. Add brown rice, brown rice flour to the lentils and mix well. Leave to cool, covered in refrigerator for few hours or overnight before forming burgers.</li>
+                    <li class="fontv4">Form medium-sized burgers with clean hands. Heat a little Viridian raw organic coconut oil in a large frying pan over a medium heat. Fry for 5 mins turning occasionally until cooked through and golden on the outside.</li>
+                </ol>
+            </div>
+    </div> 
+		<div class="printer">
+		<img onclick="printRecipe()" src="img/print.png" /><p onclick="printRecipe()">Print</p>
+		</div>
+        </div>
+        </div>
+</body>
+
+</html>
