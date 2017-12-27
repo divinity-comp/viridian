@@ -248,7 +248,6 @@ function loginPage() {
             register();
         });
         loginMainSetup();
-        updateToServer();
     });
 }
 function signIn() {

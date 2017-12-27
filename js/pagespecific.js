@@ -1302,7 +1302,6 @@ function startPlan() {
           }});
             }
     });
-    updateToServer();
 }
 function profileSetup() {
     var maintable = idc("maintable");
@@ -1347,7 +1346,6 @@ function profileSetup() {
     mainrow[8].children[1].children[0].innerHTML = personalJSON["personalData"]["weight"] + " kg";
     else
     mainrow[8].children[1].children[0].innerHTML = "Enter weight";
-    updateToServer();
 }
 function addprofileChange(functiontorun) {
     document.getElementsByClassName("close")[0].ontouchstart = function() {    closePopup();
@@ -1416,17 +1414,15 @@ function updateToServer() {
 }
 
 function serverUploadNow() {
-    alert("send user data");
     ajaxPost(
     "http://www.network-divinity.com/viridian/updateuser.php", 
     function (responseView) {
-        alert(responseView);
         if(responseView == "success") {
 
         }
         firstUpdate = false;
     },
-   'factualid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
+   'fbid=' + fbId + "&data=" + JSON.stringify(personalJSON) + "&registerPush=" + window.localStorage.getItem("regID")  + "&platform=" + window.localStorage.getItem("platform") + "&usertype=" + window.localStorage.getItem("usertype") + "&email=" + personalJSON["personalData"]["email"] );
     if(hasInternet() == true && personalJSON["personalData"]["email"]) {
 
     FCMPlugin.getToken(
