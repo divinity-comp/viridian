@@ -174,7 +174,6 @@ function fbCheck() {
             ajaxPost(
             "http://www.network-divinity.com/viridian/fbviewprofile.php", 
             function (responseView) {
-                alert(responseView);
                 var foundjson = JSON.parse(responseView);
                 window.localStorage.setItem("data",responseView);
                 window.localStorage.setItem("logged", "true");
@@ -184,6 +183,7 @@ function fbCheck() {
                 personalJSON = foundjson;
                 window.localStorage.setItem("usertype", 0);
 
+                alert(personalJSON);
                 afterLogin();
             },
            'factualid=' + fbId);
