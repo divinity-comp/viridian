@@ -12,12 +12,12 @@ package="com.viridian.detox" versionCode="381"  version="1.4">
 	<preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
     <preference name="android-minSdkVersion" value="17" />
 	<preference name="android-build-tool" value="gradle" />
-    <preference name="StatusBarStyle" value="default" /><preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="StatusBarStyle" value="default" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="SplashScreenDelay" value="0"/>
     <preference name="FadeSplashScreenDuration" value="250"/>
-    <preference name="phonegap-version"           value="cli-6.5.0" />
-    <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="fullscreen"                 value="false" />          <!-- all: hides the status bar at the top of the screen -->
     <preference name="EnableViewportScale"        value="true"/>            <!-- ios: EnableViewportScale (boolean, defaults to false): Set to true to allow a viewport meta tag to either disable or restrict the range of user scaling, which is enabled by default. -->
     <preference name="target-device"              value="universal" />      <!-- ios: possible values handset, tablet, or universal -->
