@@ -43,6 +43,7 @@ package="com.viridian.detox" versionCode="381"  version="1.5">
     <plugin name="cordova-plugin-dialogs" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
     <plugin name="cordova-plugin-fcm" source="npm" spec="~1.1.5"/>
+    <plugin name="cordova-plugin-proguard" source="npm" spec="1"/>
     <plugin spec="https://github.com/divinity-comp/cordova-plugin-fcm-config.git" source="git" />
 
   <plugin name="cordova-plugin-facebook5" source="npm">
