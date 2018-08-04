@@ -13,7 +13,7 @@ function checkForgetPassword() {
                                loadingScreenStart(messageArray);
         });
         ajaxPost(
-        "http://www.network-divinity.com/viridian/resetPassword.php", 
+        "http://viridian.divinitycomputing.com/resetPassword.php", 
         function (responseView) {
             if(responseView == "success") {
                 doneLoading = true;
@@ -1415,7 +1415,7 @@ function updateToServer() {
 
 function serverUploadNow() {
     ajaxPost(
-    "http://www.network-divinity.com/viridian/updateuser.php", 
+    "http://viridian.divinitycomputing.com/updateuser.php", 
     function (responseView) {
         if(responseView == "success") {
 
@@ -1429,7 +1429,7 @@ function serverUploadNow() {
           function(token){
             window.localStorage.setItem("regID", token); 
             ajaxPost(
-            "http://www.network-divinity.com/viridian/updateuser.php", 
+            "http://viridian.divinitycomputing.com/updateuser.php", 
             function (responseView) {
                 if(responseView == "success") {
 
@@ -1646,7 +1646,7 @@ function moodClick(ele,num) {
 }
 function sendMoodList() {
     ajaxPost(
-        "http://www.network-divinity.com/viridian/moodlist.php", 
+        "http://viridian.divinitycomputing.com/moodlist.php", 
         function (responseView) {
             if(responseView == "success") {
 
@@ -1721,7 +1721,7 @@ function shareToggle(toggleType,placeholder,successType) {
         if(successType == "daily") {
             placeholder = "I'm on day " + diffDays + " of the viridian 7 day detox";
         }
-        shareNow(placeholder,"Viridian 7 day detox","http://www.network-divinity.com/viridian/logo.png");
+        shareNow(placeholder,"Viridian 7 day detox","http://viridian.divinitycomputing.com/logo.png");
     }
 }
 function shareNow(captionTitle,descriptionTitle,picturelink) {

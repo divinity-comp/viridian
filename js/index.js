@@ -168,11 +168,11 @@ var initalfbCheck = false;
 function fbCheck() {
     initalfbCheck = true;
     ajaxPost(
-        "http://www.network-divinity.com/viridian/hasreg.php", 
+        "http://viridian.divinitycomputing.com/hasreg.php", 
         function (response) {
         if(response == "yes") {
             ajaxPost(
-            "http://www.network-divinity.com/viridian/fbviewprofile.php", 
+            "http://viridian.divinitycomputing.com/fbviewprofile.php", 
             function (responseView) {
                 
                 var foundjson = JSON.parse(responseView);
@@ -223,7 +223,7 @@ function registerGetInfo() {
         window.localStorage.setItem("age" , calculateAge(new Date(datesset[2],datesset[0],datesset[1],0,0,0)));
         
         ajaxPost(
-            "http://www.network-divinity.com/viridian/register.php", 
+            "http://viridian.divinitycomputing.com/register.php", 
             function (response) {
             if(response.indexOf("success") >= 0) {
                 window.localStorage.setItem("usertype", 0);
@@ -260,7 +260,7 @@ function signIn() {
                                loadingScreenStart(messageArray);
         });
         ajaxPost(
-            "http://www.network-divinity.com/viridian/login.php", 
+            "http://viridian.divinitycomputing.com/login.php", 
             function (response) {
                 doneLoading = true;
             if(response.indexOf("allowed") >= 0) {
@@ -325,7 +325,7 @@ function attemptRegisterV() {
                                loadingScreenStart(messageArray);
         });
         ajaxPost(
-            "http://www.network-divinity.com/viridian/register.php", 
+            "http://viridian.divinitycomputing.com/register.php", 
             function (response) {
                 doneLoading = true;
             if(response == "wrong information") {
